@@ -1,21 +1,5 @@
 // app.js - Script principal da aplicação
 
-// Verificar se o navegador suporta Service Workers (necessário para PWA)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Obtém o caminho base para compatibilidade com GitHub Pages
-        const basePath = window.location.pathname.replace(/\/[^\/]*$/, '/');
-        
-        navigator.serviceWorker.register(basePath + 'service-worker.js')
-            .then(registration => {
-                console.log('Service Worker registrado com sucesso:', registration);
-            })
-            .catch(error => {
-                console.error('Erro no registro do Service Worker:', error);
-            });
-    });
-}
-
 // Classe principal do aplicativo
 class AppAgro {
     constructor() {

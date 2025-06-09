@@ -44,14 +44,31 @@ Para executar o APP AGRO localmente:
    cd app-agro
    ```
 
-3. Abra o arquivo `index.html` em um servidor web local.
-   - Você pode usar o servidor simples do Python:
-     ```
-     python -m http.server 8000
-     ```
-   - Ou a extensão Live Server do VS Code
+3. Instale as dependências:
+   ```
+   npm install
+   ```
 
-4. Acesse `http://localhost:8000` no seu navegador.
+4. Execute o servidor de desenvolvimento:
+   ```
+   npm run dev
+   ```
+
+5. Acesse `http://localhost:3000` no seu navegador.
+
+Para compilar o projeto para produção:
+
+1. Execute o comando de build:
+   ```
+   npm run build
+   ```
+
+2. Os arquivos compilados estarão disponíveis na pasta `dist`.
+
+3. Para pré-visualizar a versão de produção localmente:
+   ```
+   npm run preview
+   ```
 
 ## Hospedagem no GitHub Pages
 

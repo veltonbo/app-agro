@@ -1,0 +1,32 @@
+{
+  "name": "app-agro",
+  "version": "1.0.0",
+  "description": "APP AGRO é uma aplicação web progressiva (PWA) que combina assistência agronômica baseada em inteligência artificial com gestão financeira para produtores rurais. A aplicação utiliza tecnologias modernas para oferecer funcionalidades avançadas, como análise de imagens de culturas, assistente de voz e controle financeiro completo.",
+  "main": "service-worker.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seu-usuario/app-agro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seu-usuario/app-agro/issues"
+  },
+  "homepage": "https://github.com/seu-usuario/app-agro#readme",
+  "devDependencies": {
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.22.0",
+    "bootstrap": "^5.3.6",
+    "bootstrap-icons": "^1.13.1",
+    "chart.js": "^4.4.9"
+  }
+}
