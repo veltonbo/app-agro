@@ -136,14 +136,22 @@ class VoiceAssistant {
                 stopVoiceBtn.classList.remove('d-none');
                 stopVoiceBtn.classList.add('recording-pulse');
             }
-            if (voiceStatus) voiceStatus.classList.remove('d-none');
+            if (voiceStatus) {
+                voiceStatus.classList.remove('d-none');
+                // Adicionar spinner visual ao status de voz
+                voiceStatus.innerHTML = '<span class="loading-spinner me-2" style="width:20px;height:20px;"></span>Ouvindo...';
+            }
         } else {
             if (startVoiceBtn) startVoiceBtn.classList.remove('d-none');
             if (stopVoiceBtn) {
                 stopVoiceBtn.classList.add('d-none');
                 stopVoiceBtn.classList.remove('recording-pulse');
             }
-            if (voiceStatus) voiceStatus.classList.add('d-none');
+            if (voiceStatus) {
+                voiceStatus.classList.add('d-none');
+                // Restaurar texto padrão
+                voiceStatus.innerHTML = 'Ouvindo...';
+            }
         }
     }
 
