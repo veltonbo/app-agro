@@ -28,7 +28,9 @@ import './js/voice.js';
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         // No Vite, os arquivos na pasta 'public' são servidos na raiz
-        navigator.serviceWorker.register('/service-worker.js')
+        // Usando caminho relativo para GitHub Pages
+        const swPath = new URL('./service-worker.js', window.location.href).pathname;
+        navigator.serviceWorker.register(swPath)
             .then(registration => {
                 console.log('Service Worker registrado com sucesso:', registration);
             })
