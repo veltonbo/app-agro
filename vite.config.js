@@ -1,8 +1,19 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
   // Base path para produção (útil para GitHub Pages)
   base: './',
+    // Configuração para pré-bundling de módulos para desenvolvimento
+  optimizeDeps: {
+    include: [
+      'bootstrap',
+      'bootstrap-icons',
+      '@tensorflow/tfjs',
+      '@tensorflow-models/mobilenet',
+      'chart.js/auto'
+    ]
+  },
   
   // Config de build
   build: {
@@ -21,13 +32,5 @@ export default defineConfig({
     port: 3000,
     open: true,
     cors: true
-  },
-  
-  // Otimizações
-  optimizeDeps: {
-    include: [
-      '@tensorflow/tfjs',
-      '@tensorflow-models/mobilenet'
-    ]
-  }
+  },  // Configuração adicional para o build
 });
