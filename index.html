@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="APP AGRO - Seu assistente agrônomo e financeiro com inteligência artificial">
+    <title>APP AGRO - Assistente Agrônomo e Financeiro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.svg">
+    <!-- Meta tags de redes sociais -->
+    <meta property="og:title" content="APP AGRO - Assistente Agrônomo e Financeiro">
+    <meta property="og:description" content="Seu assistente agrônomo e financeiro com inteligência artificial">
+    <meta property="og:image" content="assets/icons/icon-512x512.svg">
+    <meta property="og:url" content="https://app-agro.seu-dominio.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-success text-white p-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1><i class="bi bi-tree"></i> APP AGRO</h1>
+                <button class="btn btn-outline-light" id="btnLogin">Login</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container my-4">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        Assistente Agrônomo
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <h3>Análise de Culturas</h3>
+                            <div class="image-analysis-section">                                <div class="upload-container mb-3">
+                                    <label for="imageInput" class="form-label">Envie uma foto da sua plantação:</label>
+                                    <input class="form-control" type="file" id="imageInput" accept="image/*">
+                                </div>
+                                <div id="imagePreview" class="d-none mb-3">
+                                    <h4>Pré-visualização:</h4>
+                                    <img id="previewImage" class="img-fluid rounded" alt="Pré-visualização da imagem">
+                                    <button class="btn btn-success mt-2" id="analyzeImageBtn">Analisar Imagem</button>
+                                </div>
+                                <div id="imageAnalysisResult" class="d-none">
+                                    <h4>Resultado da Análise:</h4>
+                                    <div class="card">
+                                        <div class="card-body" id="analysisContent">
+                                            <!-- Resultados da análise serão inseridos aqui -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h3>Assistente de Voz</h3>
+                            <div class="voice-assistant-section">
+                                <button class="btn btn-success mb-2" id="startVoiceBtn">
+                                    <i class="bi bi-mic"></i> Iniciar Gravação
+                                </button>
+                                <button class="btn btn-danger mb-2 d-none" id="stopVoiceBtn">
+                                    <i class="bi bi-mic-mute"></i> Parar Gravação
+                                </button>
+                                <div class="alert alert-info d-none" id="voiceStatus">
+                                    Ouvindo...
+                                </div>
+                                <div id="voiceResult" class="d-none">
+                                    <h4>Resultado:</h4>
+                                    <div class="card">
+                                        <div class="card-body" id="voiceContent">
+                                            <!-- Resultados da análise de voz serão inseridos aqui -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        Controle Financeiro
+                    </div>
+                    <div class="card-body">
+                        <div id="financialSummary">
+                            <h4>Resumo Financeiro</h4>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Receitas:</span>
+                                <span class="text-success" id="incomeValue">R$ 0,00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Despesas:</span>
+                                <span class="text-danger" id="expenseValue">R$ 0,00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Balanço:</span>
+                                <span id="balanceValue">R$ 0,00</span>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div id="addTransaction">
+                            <h4>Nova Transação</h4>
+                            <form id="transactionForm">
+                                <div class="mb-2">
+                                    <label for="transactionDescription" class="form-label">Descrição:</label>
+                                    <input type="text" class="form-control" id="transactionDescription" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="transactionAmount" class="form-label">Valor (R$):</label>
+                                    <input type="number" step="0.01" class="form-control" id="transactionAmount" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="transactionType" class="form-label">Tipo:</label>
+                                    <select class="form-select" id="transactionType" required>
+                                        <option value="income">Receita</option>
+                                        <option value="expense">Despesa</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="transactionDate" class="form-label">Data:</label>
+                                    <input type="date" class="form-control" id="transactionDate" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="transactionCategory" class="form-label">Categoria:</label>
+                                    <select class="form-select" id="transactionCategory">
+                                        <option value="seeds">Sementes</option>
+                                        <option value="fertilizer">Fertilizantes</option>
+                                        <option value="equipment">Equipamentos</option>
+                                        <option value="labor">Mão de obra</option>
+                                        <option value="sales">Vendas</option>
+                                        <option value="other">Outros</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">Adicionar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        Histórico Financeiro
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush" id="transactionHistory">
+                            <!-- Transações serão listadas aqui -->
+                            <li class="list-group-item text-center text-muted">
+                                Nenhuma transação registrada
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-dark text-white text-center p-3 mt-5">
+        <p>&copy; 2025 APP AGRO - Todos os direitos reservados</p>
+    </footer>
+    
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Entrar</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <p class="text-center">Não tem uma conta? <a href="#" id="registerLink">Registre-se</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Criar Conta</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="regName" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="regName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="regEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regPassword" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="regPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regConfirmPassword" class="form-label">Confirmar Senha</label>
+                            <input type="password" class="form-control" id="regConfirmPassword" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Registrar</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <p class="text-center">Já tem uma conta? <a href="#" id="loginLink">Faça login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- TensorFlow.js para análise de imagens -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.0.4"></script>
+    <!-- Chart.js para gráficos financeiros -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Scripts da aplicação -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/agro.js"></script>
+    <script src="js/finance.js"></script>
+    <script src="js/voice.js"></script>
+</body>
+</html>

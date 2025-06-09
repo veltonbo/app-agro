@@ -1,0 +1,276 @@
+/* APP AGRO - Estilos principais */
+
+/* Variáveis CSS */
+:root {
+    --primary-color: #4CAF50;
+    --primary-dark: #2E7D32;
+    --primary-light: #A5D6A7;
+    --secondary-color: #1976D2;
+    --secondary-dark: #0D47A1;
+    --accent-color: #FF9800;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --gray-color: #6c757d;
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-weight: 600;
+}
+
+/* Seção de análise de imagem */
+.image-analysis-section {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+#previewImage {
+    max-height: 300px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#imagePreview {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#imageAnalysisResult {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* Seção de assistente de voz */
+.voice-assistant-section {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Estilos para controle financeiro */
+.financial-summary {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.transaction-item {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--primary-color);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.transaction-item.income {
+    border-left-color: var(--success-color);
+}
+
+.transaction-item.expense {
+    border-left-color: var(--danger-color);
+}
+
+.transaction-amount.income {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.transaction-amount.expense {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 15px;
+    }
+}
+
+/* Animações e feedback visual */
+.btn-success {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-success:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.recording-pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+    }
+}
+
+/* Estilos para os loads e indicadores de progresso */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilos para notificações */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    background-color: var(--success-color);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification.error {
+    background-color: var(--danger-color);
+}
+
+.notification.warning {
+    background-color: var(--warning-color);
+    color: #333;
+}
+
+/* Estilização de login e cadastro */
+#loginModal .modal-content,
+#registerModal .modal-content {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Estilização do gráfico financeiro */
+.chart-container {
+    position: relative;
+    height: 200px;
+    margin: 20px 0;
+}
+
+/* Estilização para o histórico de transações */
+#transactionHistory .list-group-item {
+    padding: 12px 15px;
+    transition: all 0.2s ease;
+}
+
+#transactionHistory .list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.transaction-date {
+    font-size: 0.8rem;
+    color: var(--gray-color);
+}
+
+.transaction-category {
+    font-size: 0.85rem;
+    display: inline-block;
+    padding: 0.25em 0.6em;
+    border-radius: 20px;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+.transaction-category.seeds {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+.transaction-category.fertilizer {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+}
+
+.transaction-category.equipment {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.transaction-category.labor {
+    background-color: #f3e5f5;
+    color: #4a148c;
+}
+
+.transaction-category.sales {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+}
+
+.transaction-category.other {
+    background-color: #f5f5f5;
+    color: #424242;
+}
+
+/* Estilização de alertas e mensagens */
+.alert {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilização específica para dispositivos móveis */
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .card-header {
+        padding: 0.75rem;
+    }
+    
+    #transactionHistory .list-group-item {
+        padding: 10px;
+    }
+}

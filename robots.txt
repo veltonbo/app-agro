@@ -1,0 +1,7 @@
+# Configuração do robots.txt para o APP AGRO
+User-agent: *
+Allow: /
+Disallow: /assets/
+
+# Sitemap
+Sitemap: https://app-agro.seu-dominio.com/sitemap.xml

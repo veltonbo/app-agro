@@ -1,0 +1,12 @@
+<!-- Este é um arquivo SVG para o ícone do APP AGRO -->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="240" fill="url(#grad1)" stroke="#fff" stroke-width="8"/>
+  <path d="M181,373 L181,187 C181,160 208,139 235,160 L363,254 C390,275 390,312 363,333 L235,427 C208,448 181,427 181,400 Z" fill="#fff"/>
+  <path d="M133,160 L133,213 L80,213 L80,267 L133,267 L133,320 L187,320 L187,267 L240,267 L240,213 L187,213 L187,160 Z" fill="#fff" transform="rotate(-15, 160, 240) scale(0.6)" />
+</svg>
