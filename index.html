@@ -28,6 +28,34 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}.app{wi
 .auth-screen{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(circle at 15% 0%,rgba(35,106,59,.13),transparent 28%),linear-gradient(180deg,#f9fbf9,#eef3ef)}.auth-card{width:min(420px,100%);border-radius:24px;padding:25px;background:#fff;border:1px solid var(--line);box-shadow:0 28px 72px rgba(21,63,39,.14)}.auth-brand{display:flex;align-items:center;gap:12px;margin-bottom:22px}.auth-title{font-size:24px;font-weight:850;margin:0}.auth-sub{margin-top:5px;color:#7a867e;font-size:11px}.auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:13px;background:#f4f7f4;border:1px solid var(--line);margin-bottom:16px}.auth-tab{min-height:40px;border:0;border-radius:10px;background:transparent;color:var(--muted);font-size:12px;font-weight:800}.auth-tab.active{color:#1d5d36;background:#fff}.auth-message{min-height:18px;margin-top:10px;font-size:11px;color:var(--red)}.toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);z-index:120;padding:10px 13px;border-radius:14px;background:#1e2a22;color:#fff;font-size:11px}
 @media(max-width:950px){.summary{grid-template-columns:repeat(3,1fr)}}@media(max-width:720px){.app{padding:13px 12px 22px}.topbar{margin:0 -12px 15px;padding:10px 12px}.brand-mark{width:39px;height:39px}h1{font-size:20px}.sub{display:none}.user-badge{max-width:110px;height:36px}.icon-btn{width:36px;height:36px}.hero{flex-direction:column;align-items:flex-start;padding:18px}.hero h2{font-size:24px}.sync-pill{width:100%;min-width:0}.summary{grid-template-columns:repeat(2,1fr);gap:8px}.metric.primary{grid-column:1/-1}.grid2,.grid3{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}.quick-btn small{display:none}.report-kpis{grid-template-columns:1fr 1fr}.navbtn{min-height:47px;flex-direction:column;gap:2px}.navbtn span{font-size:8px}.item{grid-template-columns:38px 1fr}.item-value{grid-column:2;text-align:left}.item-actions{justify-content:flex-start}}@media(max-width:390px){.quick{grid-template-columns:1fr}.quick-btn small{display:block}}
 @media print{body{background:#fff;padding:0}.topbar,.bottom-nav,.no-print,#authScreen{display:none!important}.app{width:100%;max-width:none;padding:0}.app>section{display:none!important}#tab-relatorios{display:block!important}.report-hero{background:#fff!important;color:#000!important;box-shadow:none;border:1px solid #ccc}.report-kpi{background:#fff!important;border:1px solid #ddd}.card{box-shadow:none;border:1px solid #ccc}}
+
+.harvest-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.harvest-kpi{padding:11px;border:1px solid var(--line);border-radius:13px;background:#fff}
+.harvest-kpi small{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:900}
+.harvest-kpi strong{display:block;margin-top:5px;font-size:17px;letter-spacing:-.03em}
+.worker-card{padding:14px}
+.worker-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.worker-name{font-weight:850;font-size:15px}
+.worker-rate{font-size:10px;color:var(--muted);margin-top:3px}
+.lote-card{padding:14px}
+.lote-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.lote-title{font-weight:850;font-size:14px}
+.lote-meta{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.45}
+.lote-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:11px}
+.lote-stat{padding:8px;border-radius:10px;background:#fafbfa;border:1px solid #e9ede9}
+.lote-stat small{display:block;font-size:7px;text-transform:uppercase;color:var(--muted);font-weight:900}
+.lote-stat strong{display:block;font-size:12px;margin-top:4px}
+.check-list{display:grid;gap:7px;max-height:250px;overflow:auto;padding:4px}
+.check-row{display:grid;grid-template-columns:22px 1fr auto;gap:9px;align-items:center;padding:9px;border:1px solid var(--line);border-radius:11px;background:#fff}
+.check-row input{width:18px;min-height:18px}
+.check-row strong{font-size:11px}.check-row small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+.check-row .qty{font-size:11px;font-weight:850}
+.calc-box{padding:12px;border-radius:13px;background:var(--surface2);border:1px solid var(--line);margin-top:10px}
+.calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.calc-grid small{display:block;font-size:8px;text-transform:uppercase;color:var(--muted);font-weight:900}
+.calc-grid strong{display:block;margin-top:4px;font-size:14px}
+@media(max-width:720px){.harvest-summary{grid-template-columns:1fr 1fr}.lote-stats{grid-template-columns:1fr 1fr}.calc-grid{grid-template-columns:1fr 1fr}}
+
 </style>
 </head>
 <body>
@@ -99,13 +127,53 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}.app{wi
 </section>
 
 <section id="tab-producao" class="hidden">
-  <div class="section-head"><div><h3 class="section-title">Produção e vendas</h3><div class="section-note">Controle das sacas produzidas e comercializadas</div></div></div>
-  <div class="quick">
-    <button class="quick-btn" onclick="abrirColheita()"><div class="qicon">☕</div><div><strong>Nova produção</strong><small>Registrar sacas produzidas</small></div></button>
-    <button class="quick-btn" onclick="abrirVenda()"><div class="qicon blue">R$</div><div><strong>Nova venda</strong><small>Registrar venda do café</small></div></button>
+  <div class="section-head">
+    <div>
+      <h3 class="section-title">Colheita e produção</h3>
+      <div class="section-note">Do latão colhido até a saca beneficiada</div>
+    </div>
   </div>
-  <div class="section-head"><h3 class="section-title">Produção registrada</h3></div><div id="listaColheitas" class="card list"></div>
-  <div class="section-head"><h3 class="section-title">Vendas de café</h3></div><div id="listaVendas" class="card list"></div>
+
+  <div class="harvest-summary">
+    <div class="harvest-kpi"><small>Latões colhidos</small><strong id="hLatoes">0</strong></div>
+    <div class="harvest-kpi"><small>Em secagem</small><strong id="hSecagem">0</strong></div>
+    <div class="harvest-kpi"><small>Sacas prontas</small><strong id="hSacas">0,00</strong></div>
+    <div class="harvest-kpi"><small>Pago aos colhedores</small><strong id="hCusto">R$ 0,00</strong></div>
+  </div>
+
+  <div class="quick">
+    <button class="quick-btn" onclick="abrirApanha()">
+      <div class="qicon">🪣</div>
+      <div><strong>Registrar latões</strong><small>Colhedor, talhão, latões e valor</small></div>
+    </button>
+    <button class="quick-btn" onclick="abrirLote()">
+      <div class="qicon blue">♨</div>
+      <div><strong>Enviar ao secador</strong><small>Agrupar colheitas em um lote</small></div>
+    </button>
+    <button class="quick-btn" onclick="abrirTrabalhador()">
+      <div class="qicon">👤</div>
+      <div><strong>Novo colhedor</strong><small>Cadastre nome e valor por latão</small></div>
+    </button>
+    <button class="quick-btn" onclick="abrirVenda()">
+      <div class="qicon blue">R$</div>
+      <div><strong>Registrar venda</strong><small>Sacas, preço e comprador</small></div>
+    </button>
+  </div>
+
+  <div class="section-head"><div><h3 class="section-title">Colheita por latão</h3><div class="section-note">Pagamento individual de cada colhedor</div></div></div>
+  <div id="listaApanhas" class="card list"></div>
+
+  <div class="section-head"><div><h3 class="section-title">Lotes no secador</h3><div class="section-note">Feche o lote depois de secar e limpar</div></div></div>
+  <div id="listaLotes" class="grid2"></div>
+
+  <div class="section-head"><div><h3 class="section-title">Colhedores</h3><div class="section-note">Valor padrão por latão</div></div></div>
+  <div id="gridTrabalhadores" class="grid3"></div>
+
+  <div class="section-head"><h3 class="section-title">Sacas produzidas</h3></div>
+  <div id="listaColheitas" class="card list"></div>
+
+  <div class="section-head"><h3 class="section-title">Vendas de café</h3></div>
+  <div id="listaVendas" class="card list"></div>
 </section>
 
 <section id="tab-talhoes" class="hidden">
@@ -165,6 +233,68 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}.app{wi
   <div class="btnrow" style="margin-top:14px"><button class="btn secondary" onclick="fecharModal('modalTalhao')">Cancelar</button><button class="btn primary" onclick="salvarTalhao()">Salvar talhão</button></div>
 </div></div>
 
+
+<div id="modalTrabalhador" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3 id="tituloTrabalhador">Novo colhedor</h3><button class="close" onclick="fecharModal('modalTrabalhador')">✕</button></div>
+  <input id="trabalhadorId" type="hidden">
+  <div class="grid2">
+    <div class="field"><label>Nome do colhedor</label><input id="trabalhadorNome" placeholder="Nome"></div>
+    <div class="field"><label>Valor padrão por latão</label><input id="trabalhadorValor" type="number" min="0" step="0.01" placeholder="0,00"></div>
+  </div>
+  <div class="field" style="margin-top:10px"><label>Observação</label><textarea id="trabalhadorObs" placeholder="Opcional"></textarea></div>
+  <div class="btnrow" style="margin-top:14px"><button class="btn secondary" onclick="fecharModal('modalTrabalhador')">Cancelar</button><button class="btn primary" onclick="salvarTrabalhador()">Salvar colhedor</button></div>
+</div></div>
+
+<div id="modalApanha" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3 id="tituloApanha">Registrar latões</h3><button class="close" onclick="fecharModal('modalApanha')">✕</button></div>
+  <input id="apanhaId" type="hidden">
+  <div class="grid2">
+    <div class="field"><label>Data</label><input id="apanhaData" type="date"></div>
+    <div class="field"><label>Colhedor</label><select id="apanhaTrabalhador" onchange="preencherValorLatao()"></select></div>
+    <div class="field"><label>Talhão</label><select id="apanhaTalhao"><option value="">Sem talhão</option></select></div>
+    <div class="field"><label>Latões colhidos</label><input id="apanhaLatoes" type="number" min="0" step="0.01" placeholder="0" oninput="calcularApanha()"></div>
+    <div class="field"><label>Valor por latão</label><input id="apanhaValor" type="number" min="0" step="0.01" placeholder="0,00" oninput="calcularApanha()"></div>
+    <div class="field"><label>Status do pagamento</label><select id="apanhaStatus"><option value="pago">Pago</option><option value="pendente">A pagar</option></select></div>
+  </div>
+  <div class="calc-box"><div class="calc-grid"><div><small>Total a pagar</small><strong id="apanhaTotal">R$ 0,00</strong></div><div><small>Situação</small><strong id="apanhaLoteStatus">Aguardando secador</strong></div></div></div>
+  <div class="field" style="margin-top:10px"><label>Observação</label><textarea id="apanhaObs" placeholder="Opcional"></textarea></div>
+  <div class="btnrow" style="margin-top:14px"><button class="btn secondary" onclick="fecharModal('modalApanha')">Cancelar</button><button class="btn primary" onclick="salvarApanha()">Salvar colheita</button></div>
+</div></div>
+
+<div id="modalLote" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3 id="tituloLote">Enviar ao secador</h3><button class="close" onclick="fecharModal('modalLote')">✕</button></div>
+  <input id="loteId" type="hidden">
+  <div class="grid2">
+    <div class="field"><label>Data de envio</label><input id="loteDataEnvio" type="date"></div>
+    <div class="field"><label>Identificação</label><input id="loteNome" placeholder="Ex.: Secagem 01"></div>
+  </div>
+  <div class="section-head" style="margin-top:14px"><div><h3 class="section-title" style="font-size:13px">Colheitas que vão para este lote</h3><div class="section-note">Selecione os registros ainda não enviados ao secador</div></div></div>
+  <div id="loteApanhas" class="check-list"></div>
+  <div class="calc-box"><div class="calc-grid">
+    <div><small>Latões selecionados</small><strong id="loteTotalLatoes">0</strong></div>
+    <div><small>Custo de colheita</small><strong id="loteCustoColheita">R$ 0,00</strong></div>
+    <div><small>Colhedores</small><strong id="loteQtdColhedores">0</strong></div>
+  </div></div>
+  <div class="field" style="margin-top:10px"><label>Observação</label><textarea id="loteObs" placeholder="Opcional"></textarea></div>
+  <div class="btnrow" style="margin-top:14px"><button class="btn secondary" onclick="fecharModal('modalLote')">Cancelar</button><button class="btn primary" onclick="salvarLote()">Enviar para secagem</button></div>
+</div></div>
+
+<div id="modalFecharLote" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3>Fechar lote após secagem</h3><button class="close" onclick="fecharModal('modalFecharLote')">✕</button></div>
+  <input id="fecharLoteId" type="hidden">
+  <div class="grid2">
+    <div class="field"><label>Data de fechamento</label><input id="fecharLoteData" type="date"></div>
+    <div class="field"><label>Sacas após secar e limpar</label><input id="fecharLoteSacas" type="number" min="0" step="0.01" placeholder="0" oninput="calcularFechamentoLote()"></div>
+  </div>
+  <div class="calc-box"><div class="calc-grid">
+    <div><small>Latões do lote</small><strong id="fecharLoteLatoes">0</strong></div>
+    <div><small>Latões por saca</small><strong id="fecharLoteConversao">0,00</strong></div>
+    <div><small>Custo colheita / saca</small><strong id="fecharLoteCustoSaca">R$ 0,00</strong></div>
+  </div></div>
+  <div class="field" style="margin-top:10px"><label>Observação final</label><textarea id="fecharLoteObs" placeholder="Opcional"></textarea></div>
+  <div class="btnrow" style="margin-top:14px"><button class="btn secondary" onclick="fecharModal('modalFecharLote')">Cancelar</button><button class="btn primary" onclick="confirmarFechamentoLote()">Confirmar sacas</button></div>
+</div></div>
+
 <div id="modalColheita" class="modal hidden"><div class="modal-card">
   <div class="modal-head"><h3 id="tituloColheita">Registrar produção</h3><button class="close" onclick="fecharModal('modalColheita')">✕</button></div>
   <input id="colheitaId" type="hidden">
@@ -200,7 +330,7 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}.app{wi
 <script>
 const categoriasReceita=["Venda de café","Venda de mudas","Prestação de serviço","Outras receitas"];
 const categoriasDespesa=["Adubo / Fertilizantes","Defensivos","Biológicos","Mão de obra","Colheita","Combustível","Energia","Irrigação","Manutenção","Máquinas / Equipamentos","Mudas / Plantio","Frete","Impostos / Taxas","Outras despesas"];
-let estado={lancamentos:[],talhoes:[],colheitas:[],vendas:[]},usuarioAtual=null,suspendSync=false;
+let estado={lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[]},usuarioAtual=null,suspendSync=false;
 
 const $=id=>document.getElementById(id);
 function novoId(){return crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random().toString(36).slice(2)}
@@ -233,17 +363,158 @@ function renderItemLancamento(x){let r=x.tipo==="receita";return`<div class="ite
 function renderFinanceiro(){atualizarSelectsTalhao();let xs=[...estado.lancamentos],q=$("fBusca").value.trim().toLowerCase();if(q)xs=xs.filter(x=>(x.descricao+" "+x.categoria+" "+(x.obs||"")).toLowerCase().includes(q));if($("fTipo").value!=="todos")xs=xs.filter(x=>x.tipo===$("fTipo").value);if($("fStatus").value!=="todos")xs=xs.filter(x=>x.status===$("fStatus").value);if($("fTalhao").value!=="todos")xs=xs.filter(x=>x.talhaoId===$("fTalhao").value);xs.sort((a,b)=>(b.data||"").localeCompare(a.data||""));$("listaFinanceiro").innerHTML=xs.length?xs.map(renderItemLancamento).join(""):`<div class="empty"><strong>Nenhum lançamento encontrado</strong>Ajuste os filtros ou crie um novo lançamento.</div>`}
 function abrirTalhao(id=""){ $("talhaoId").value=id;if(id){let t=estado.talhoes.find(x=>x.id===id);if(!t)return;$("tituloTalhao").textContent="Editar talhão";$("talhaoNomeInput").value=t.nome;$("talhaoVariedade").value=t.variedade||"";$("talhaoArea").value=t.area||"";$("talhaoPlantas").value=t.plantas||"";$("talhaoObs").value=t.obs||""}else{$("tituloTalhao").textContent="Novo talhão";$("talhaoNomeInput").value="";$("talhaoVariedade").value="";$("talhaoArea").value="";$("talhaoPlantas").value="";$("talhaoObs").value=""}abrirModal("modalTalhao")}
 function salvarTalhao(){if(!$("talhaoNomeInput").value.trim()){toast("Informe o nome do talhão.");return}let obj={id:$("talhaoId").value||novoId(),nome:$("talhaoNomeInput").value.trim(),variedade:$("talhaoVariedade").value.trim(),area:Number($("talhaoArea").value||0),plantas:Number($("talhaoPlantas").value||0),obs:$("talhaoObs").value.trim()};let i=estado.talhoes.findIndex(x=>x.id===obj.id);if(i>=0)estado.talhoes[i]=obj;else estado.talhoes.push(obj);fecharModal("modalTalhao");persistir();toast("Talhão salvo.")}
-function excluirTalhao(id){let usado=estado.lancamentos.some(x=>x.talhaoId===id)||estado.colheitas.some(x=>x.talhaoId===id)||estado.vendas.some(x=>x.talhaoId===id);if(usado){toast("Esse talhão possui movimentações.");return}if(!confirm("Excluir este talhão?"))return;estado.talhoes=estado.talhoes.filter(x=>x.id!==id);persistir()}
+function excluirTalhao(id){let usado=estado.lancamentos.some(x=>x.talhaoId===id)||estado.colheitas.some(x=>x.talhaoId===id)||estado.vendas.some(x=>x.talhaoId===id)||estado.apanhas.some(x=>x.talhaoId===id);if(usado){toast("Esse talhão possui movimentações.");return}if(!confirm("Excluir este talhão?"))return;estado.talhoes=estado.talhoes.filter(x=>x.id!==id);persistir()}
 function renderTalhoes(){atualizarSelectsTalhao();$("gridTalhoes").innerHTML=estado.talhoes.length?estado.talhoes.map(t=>{let prod=estado.colheitas.filter(c=>c.talhaoId===t.id).reduce((a,b)=>a+Number(b.sacas||0),0),custos=estado.lancamentos.filter(l=>l.talhaoId===t.id&&l.tipo==="despesa"&&l.status==="pago").reduce((a,b)=>a+Number(b.valor||0),0);return`<div class="card talhao-card"><div class="talhao-head"><div><h4 class="talhao-title">${esc(t.nome)}</h4><div class="talhao-var">${esc(t.variedade||"Variedade não informada")}</div></div><span class="pill">${num(t.area||0)} ha</span></div><div class="stats"><div class="stat"><small>Plantas</small><strong>${Number(t.plantas||0).toLocaleString("pt-BR")}</strong></div><div class="stat"><small>Produção</small><strong>${num(prod)} sc</strong></div><div class="stat"><small>Custos</small><strong>${moeda(custos)}</strong></div></div><div class="btnrow" style="margin-top:12px"><button class="btn secondary" onclick="abrirTalhao('${t.id}')">Editar</button><button class="btn danger" onclick="excluirTalhao('${t.id}')">Excluir</button></div></div>`}).join(""):`<div class="card empty" style="grid-column:1/-1"><strong>Nenhum talhão cadastrado</strong>Cadastre suas lavouras para acompanhar custos e produção separadamente.</div>`}
-function abrirColheita(id=""){atualizarSelectsTalhao();$("colheitaId").value=id;if(id){let c=estado.colheitas.find(x=>x.id===id);if(!c)return;$("tituloColheita").textContent="Editar produção";$("colheitaData").value=c.data;$("colheitaTalhao").value=c.talhaoId||"";$("colheitaSacas").value=c.sacas;$("colheitaSafra").value=c.safra||"";$("colheitaObs").value=c.obs||""}else{$("tituloColheita").textContent="Registrar produção";$("colheitaData").value=hoje();$("colheitaTalhao").value="";$("colheitaSacas").value="";$("colheitaSafra").value=String(new Date().getFullYear());$("colheitaObs").value=""}abrirModal("modalColheita")}
+function abrirColheita(id=""){atualizarSelectsTalhao();$("colheitaId").value=id;if(id){let c=estado.colheitas.find(x=>x.id===id);if(!c)return;if(c.loteId){toast("Essa produção veio de um lote de secagem. Edite o lote.");return}$("tituloColheita").textContent="Editar produção";$("colheitaData").value=c.data;$("colheitaTalhao").value=c.talhaoId||"";$("colheitaSacas").value=c.sacas;$("colheitaSafra").value=c.safra||"";$("colheitaObs").value=c.obs||""}else{$("tituloColheita").textContent="Registrar produção";$("colheitaData").value=hoje();$("colheitaTalhao").value="";$("colheitaSacas").value="";$("colheitaSafra").value=String(new Date().getFullYear());$("colheitaObs").value=""}abrirModal("modalColheita")}
 function salvarColheita(){let sacas=Number($("colheitaSacas").value||0);if(sacas<=0){toast("Informe a quantidade de sacas.");return}let obj={id:$("colheitaId").value||novoId(),data:$("colheitaData").value||hoje(),talhaoId:$("colheitaTalhao").value||"",sacas,safra:$("colheitaSafra").value.trim(),obs:$("colheitaObs").value.trim()};let i=estado.colheitas.findIndex(x=>x.id===obj.id);if(i>=0)estado.colheitas[i]=obj;else estado.colheitas.push(obj);fecharModal("modalColheita");persistir();toast("Produção registrada.")}
-function excluirColheita(id){if(!confirm("Excluir este registro de produção?"))return;estado.colheitas=estado.colheitas.filter(x=>x.id!==id);persistir()}
+function excluirColheita(id){let c=estado.colheitas.find(x=>x.id===id);if(c?.loteId){toast("Essa produção veio de um lote. Exclua ou reabra o lote.");return}if(!confirm("Excluir este registro de produção?"))return;estado.colheitas=estado.colheitas.filter(x=>x.id!==id);persistir()}
 function atualizarTotalVenda(){$("vendaTotal").textContent=moeda(Number($("vendaSacas").value||0)*Number($("vendaPreco").value||0))}
 function abrirVenda(id=""){atualizarSelectsTalhao();$("vendaId").value=id;if(id){let v=estado.vendas.find(x=>x.id===id);if(!v)return;$("tituloVenda").textContent="Editar venda";$("vendaData").value=v.data;$("vendaTalhao").value=v.talhaoId||"";$("vendaSacas").value=v.sacas;$("vendaPreco").value=v.precoSaca;$("vendaComprador").value=v.comprador||"";$("vendaStatus").value=v.status||"pago";$("vendaGerarReceita").checked=!!v.financeiroId;$("vendaObs").value=v.obs||""}else{$("tituloVenda").textContent="Registrar venda";$("vendaData").value=hoje();$("vendaTalhao").value="";$("vendaSacas").value="";$("vendaPreco").value="";$("vendaComprador").value="";$("vendaStatus").value="pago";$("vendaGerarReceita").checked=true;$("vendaObs").value=""}atualizarTotalVenda();abrirModal("modalVenda")}
 function salvarVenda(){let sacas=Number($("vendaSacas").value||0),preco=Number($("vendaPreco").value||0),total=sacas*preco;if(sacas<=0||preco<=0){toast("Informe sacas e preço por saca.");return}let antigo=estado.vendas.find(x=>x.id===$("vendaId").value),obj={id:$("vendaId").value||novoId(),data:$("vendaData").value||hoje(),talhaoId:$("vendaTalhao").value||"",sacas,precoSaca:preco,total,comprador:$("vendaComprador").value.trim(),status:$("vendaStatus").value,obs:$("vendaObs").value.trim(),financeiroId:antigo?.financeiroId||""};if($("vendaGerarReceita").checked){if(!obj.financeiroId)obj.financeiroId=novoId();let l={id:obj.financeiroId,tipo:"receita",data:obj.data,valor:obj.total,status:obj.status,categoria:"Venda de café",talhaoId:obj.talhaoId,descricao:`Venda de café${obj.comprador?" - "+obj.comprador:""}`,obs:`${num(obj.sacas)} sacas × ${moeda(obj.precoSaca)}`,vendaId:obj.id},li=estado.lancamentos.findIndex(x=>x.id===l.id);if(li>=0)estado.lancamentos[li]=l;else estado.lancamentos.push(l)}else if(obj.financeiroId){estado.lancamentos=estado.lancamentos.filter(x=>x.id!==obj.financeiroId);obj.financeiroId=""}let i=estado.vendas.findIndex(x=>x.id===obj.id);if(i>=0)estado.vendas[i]=obj;else estado.vendas.push(obj);fecharModal("modalVenda");persistir();toast("Venda registrada.")}
 function excluirVenda(id){let v=estado.vendas.find(x=>x.id===id);if(!v)return;if(!confirm("Excluir esta venda?"))return;if(v.financeiroId)estado.lancamentos=estado.lancamentos.filter(x=>x.id!==v.financeiroId);estado.vendas=estado.vendas.filter(x=>x.id!==id);persistir()}
 
+
+function nomeTrabalhador(id){return estado.trabalhadores.find(t=>t.id===id)?.nome||"Colhedor"}
+function atualizarSelectsTrabalhadores(){
+  let opts=estado.trabalhadores.map(t=>`<option value="${t.id}">${esc(t.nome)}</option>`).join("");
+  let atual=$("apanhaTrabalhador")?.value||"";
+  if($("apanhaTrabalhador")){$("apanhaTrabalhador").innerHTML=opts||`<option value="">Cadastre um colhedor</option>`;if([...$("apanhaTrabalhador").options].some(o=>o.value===atual))$("apanhaTrabalhador").value=atual}
+}
+function abrirTrabalhador(id=""){
+  $("trabalhadorId").value=id;
+  if(id){let t=estado.trabalhadores.find(x=>x.id===id);if(!t)return;$("tituloTrabalhador").textContent="Editar colhedor";$("trabalhadorNome").value=t.nome;$("trabalhadorValor").value=t.valorLatao||"";$("trabalhadorObs").value=t.obs||""}
+  else{$("tituloTrabalhador").textContent="Novo colhedor";$("trabalhadorNome").value="";$("trabalhadorValor").value="";$("trabalhadorObs").value=""}
+  abrirModal("modalTrabalhador")
+}
+function salvarTrabalhador(){
+  let nome=$("trabalhadorNome").value.trim(),valor=Number($("trabalhadorValor").value||0);
+  if(!nome){toast("Informe o nome do colhedor.");return}
+  let obj={id:$("trabalhadorId").value||novoId(),nome,valorLatao:valor,obs:$("trabalhadorObs").value.trim()};
+  let i=estado.trabalhadores.findIndex(x=>x.id===obj.id);if(i>=0)estado.trabalhadores[i]=obj;else estado.trabalhadores.push(obj);
+  fecharModal("modalTrabalhador");persistir();toast("Colhedor salvo.")
+}
+function excluirTrabalhador(id){
+  if(estado.apanhas.some(a=>a.trabalhadorId===id)){toast("Esse colhedor possui registros de colheita.");return}
+  if(!confirm("Excluir este colhedor?"))return;estado.trabalhadores=estado.trabalhadores.filter(x=>x.id!==id);persistir()
+}
+function renderTrabalhadores(){
+  $("gridTrabalhadores").innerHTML=estado.trabalhadores.length?estado.trabalhadores.map(t=>`<div class="card worker-card"><div class="worker-head"><div><div class="worker-name">${esc(t.nome)}</div><div class="worker-rate">${moeda(t.valorLatao||0)} por latão</div></div><span class="pill">Colhedor</span></div><div class="btnrow" style="margin-top:11px"><button class="btn secondary" onclick="abrirTrabalhador('${t.id}')">Editar</button><button class="btn danger" onclick="excluirTrabalhador('${t.id}')">Excluir</button></div></div>`).join(""):`<div class="card empty" style="grid-column:1/-1"><strong>Nenhum colhedor cadastrado</strong>Cadastre os colhedores e o valor pago por latão.</div>`
+}
+function preencherValorLatao(){
+  let t=estado.trabalhadores.find(x=>x.id===$("apanhaTrabalhador").value);
+  if(t&&(!$("apanhaId").value||!$("apanhaValor").value))$("apanhaValor").value=t.valorLatao||"";
+  calcularApanha()
+}
+function calcularApanha(){
+  let lat=Number($("apanhaLatoes").value||0),valor=Number($("apanhaValor").value||0);
+  $("apanhaTotal").textContent=moeda(lat*valor)
+}
+function abrirApanha(id=""){
+  atualizarSelectsTalhao();atualizarSelectsTrabalhadores();$("apanhaId").value=id;
+  if(!estado.trabalhadores.length){toast("Cadastre um colhedor primeiro.");abrirTrabalhador();return}
+  if(id){
+    let a=estado.apanhas.find(x=>x.id===id);if(!a)return;
+    $("tituloApanha").textContent="Editar colheita";$("apanhaData").value=a.data;$("apanhaTrabalhador").value=a.trabalhadorId;$("apanhaTalhao").value=a.talhaoId||"";$("apanhaLatoes").value=a.latoes;$("apanhaValor").value=a.valorLatao;$("apanhaStatus").value=a.status||"pago";$("apanhaObs").value=a.obs||"";$("apanhaLoteStatus").textContent=a.loteId?"Já enviado ao secador":"Aguardando secador"
+  }else{
+    $("tituloApanha").textContent="Registrar latões";$("apanhaData").value=hoje();$("apanhaTalhao").value="";$("apanhaLatoes").value="";$("apanhaStatus").value="pago";$("apanhaObs").value="";$("apanhaLoteStatus").textContent="Aguardando secador";preencherValorLatao()
+  }
+  calcularApanha();abrirModal("modalApanha")
+}
+function sincronizarDespesaApanha(a){
+  if(!a.financeiroId)a.financeiroId=novoId();
+  let total=Number(a.latoes||0)*Number(a.valorLatao||0);
+  let l={id:a.financeiroId,tipo:"despesa",data:a.data,valor:total,status:a.status||"pago",categoria:"Colheita",talhaoId:a.talhaoId||"",descricao:`Colheita - ${nomeTrabalhador(a.trabalhadorId)}`,obs:`${num(a.latoes)} latões × ${moeda(a.valorLatao)}`,apanhaId:a.id};
+  let i=estado.lancamentos.findIndex(x=>x.id===l.id);if(i>=0)estado.lancamentos[i]=l;else estado.lancamentos.push(l)
+}
+function salvarApanha(){
+  let lat=Number($("apanhaLatoes").value||0),val=Number($("apanhaValor").value||0);
+  if(!$("apanhaTrabalhador").value){toast("Selecione o colhedor.");return}
+  if(lat<=0){toast("Informe a quantidade de latões.");return}
+  let antiga=estado.apanhas.find(x=>x.id===$("apanhaId").value);
+  if(antiga?.loteId){toast("Esse registro já foi enviado ao secador. Remova-o do lote antes de editar.");return}
+  let a={id:$("apanhaId").value||novoId(),data:$("apanhaData").value||hoje(),trabalhadorId:$("apanhaTrabalhador").value,talhaoId:$("apanhaTalhao").value||"",latoes:lat,valorLatao:val,status:$("apanhaStatus").value,obs:$("apanhaObs").value.trim(),loteId:"",financeiroId:antiga?.financeiroId||""};
+  sincronizarDespesaApanha(a);
+  let i=estado.apanhas.findIndex(x=>x.id===a.id);if(i>=0)estado.apanhas[i]=a;else estado.apanhas.push(a);
+  fecharModal("modalApanha");persistir();toast("Latões registrados e custo lançado no financeiro.")
+}
+function excluirApanha(id){
+  let a=estado.apanhas.find(x=>x.id===id);if(!a)return;
+  if(a.loteId){toast("Este registro já pertence a um lote de secagem.");return}
+  if(!confirm("Excluir esta colheita por latão?"))return;
+  if(a.financeiroId)estado.lancamentos=estado.lancamentos.filter(x=>x.id!==a.financeiroId);
+  estado.apanhas=estado.apanhas.filter(x=>x.id!==id);persistir()
+}
+function renderApanhas(){
+  let xs=[...estado.apanhas].sort((a,b)=>(b.data||"").localeCompare(a.data||""));
+  $("listaApanhas").innerHTML=xs.length?xs.map(a=>`<div class="item"><div class="item-icon">🪣</div><div class="item-main"><strong>${esc(nomeTrabalhador(a.trabalhadorId))} • ${num(a.latoes)} latões</strong><div class="item-meta">${dataBR(a.data)}${a.talhaoId?" • "+esc(nomeTalhao(a.talhaoId)):""} • ${moeda(a.valorLatao)}/latão • ${a.loteId?"No secador":"Aguardando secador"}</div></div><div class="item-value"><strong>${moeda(a.latoes*a.valorLatao)}</strong><div class="item-actions">${a.loteId?"":`<button class="mini-btn" onclick="abrirApanha('${a.id}')">✎</button><button class="mini-btn danger" onclick="excluirApanha('${a.id}')">×</button>`}</div></div></div>`).join(""):`<div class="empty"><strong>Nenhum latão registrado</strong>Registre a colheita de cada trabalhador.</div>`
+}
+function apanhasDisponiveis(loteId=""){
+  return estado.apanhas.filter(a=>!a.loteId||a.loteId===loteId)
+}
+function atualizarSelecaoLote(){
+  let ids=[...document.querySelectorAll("#loteApanhas input[type=checkbox]:checked")].map(x=>x.value),xs=estado.apanhas.filter(a=>ids.includes(a.id));
+  $("loteTotalLatoes").textContent=num(xs.reduce((s,a)=>s+Number(a.latoes||0),0));
+  $("loteCustoColheita").textContent=moeda(xs.reduce((s,a)=>s+Number(a.latoes||0)*Number(a.valorLatao||0),0));
+  $("loteQtdColhedores").textContent=new Set(xs.map(a=>a.trabalhadorId)).size
+}
+function abrirLote(id=""){
+  $("loteId").value=id;$("loteDataEnvio").value=hoje();$("loteNome").value="";$("loteObs").value="";
+  let selecionados=[];
+  if(id){let l=estado.lotes.find(x=>x.id===id);if(!l)return;if(l.status==="fechado"){toast("Lote já fechado.");return}$("tituloLote").textContent="Editar lote no secador";$("loteDataEnvio").value=l.dataEnvio;$("loteNome").value=l.nome||"";$("loteObs").value=l.obs||"";selecionados=l.apanhaIds||[]}
+  else $("tituloLote").textContent="Enviar ao secador";
+  let xs=apanhasDisponiveis(id);
+  $("loteApanhas").innerHTML=xs.length?xs.map(a=>`<label class="check-row"><input type="checkbox" value="${a.id}" ${selecionados.includes(a.id)?"checked":""} onchange="atualizarSelecaoLote()"><div><strong>${esc(nomeTrabalhador(a.trabalhadorId))}</strong><small>${dataBR(a.data)}${a.talhaoId?" • "+esc(nomeTalhao(a.talhaoId)):""} • ${moeda(a.valorLatao)}/latão</small></div><div class="qty">${num(a.latoes)} latões</div></label>`).join(""):`<div class="empty"><strong>Nada aguardando secador</strong>Registre novos latões primeiro.</div>`;
+  atualizarSelecaoLote();abrirModal("modalLote")
+}
+function salvarLote(){
+  let ids=[...document.querySelectorAll("#loteApanhas input[type=checkbox]:checked")].map(x=>x.value);
+  if(!ids.length){toast("Selecione ao menos uma colheita.");return}
+  let id=$("loteId").value||novoId(),antigo=estado.lotes.find(x=>x.id===id);
+  if(antigo)(antigo.apanhaIds||[]).forEach(aid=>{let a=estado.apanhas.find(x=>x.id===aid);if(a&&a.loteId===id)a.loteId=""});
+  ids.forEach(aid=>{let a=estado.apanhas.find(x=>x.id===aid);if(a)a.loteId=id});
+  let obj={id,nome:$("loteNome").value.trim()||`Lote ${estado.lotes.length+1}`,dataEnvio:$("loteDataEnvio").value||hoje(),apanhaIds:ids,status:"secando",obs:$("loteObs").value.trim(),sacas:antigo?.sacas||0,dataFechamento:antigo?.dataFechamento||"",colheitaId:antigo?.colheitaId||""};
+  let i=estado.lotes.findIndex(x=>x.id===id);if(i>=0)estado.lotes[i]=obj;else estado.lotes.push(obj);
+  fecharModal("modalLote");persistir();toast("Lote enviado ao secador.")
+}
+function dadosLote(l){
+  let xs=estado.apanhas.filter(a=>(l.apanhaIds||[]).includes(a.id)),latoes=xs.reduce((s,a)=>s+Number(a.latoes||0),0),custo=xs.reduce((s,a)=>s+Number(a.latoes||0)*Number(a.valorLatao||0),0);
+  return{xs,latoes,custo}
+}
+function abrirFecharLote(id){
+  let l=estado.lotes.find(x=>x.id===id);if(!l)return;let d=dadosLote(l);
+  $("fecharLoteId").value=id;$("fecharLoteData").value=l.dataFechamento||hoje();$("fecharLoteSacas").value=l.sacas||"";$("fecharLoteLatoes").textContent=num(d.latoes);$("fecharLoteObs").value=l.obsFinal||"";calcularFechamentoLote();abrirModal("modalFecharLote")
+}
+function calcularFechamentoLote(){
+  let l=estado.lotes.find(x=>x.id===$("fecharLoteId").value);if(!l)return;let d=dadosLote(l),s=Number($("fecharLoteSacas").value||0);
+  $("fecharLoteConversao").textContent=s?num(d.latoes/s):"0,00";
+  $("fecharLoteCustoSaca").textContent=moeda(s?d.custo/s:0)
+}
+function confirmarFechamentoLote(){
+  let l=estado.lotes.find(x=>x.id===$("fecharLoteId").value);if(!l)return;let sacas=Number($("fecharLoteSacas").value||0);if(sacas<=0){toast("Informe quantas sacas deu após secar e limpar.");return}
+  l.status="fechado";l.sacas=sacas;l.dataFechamento=$("fecharLoteData").value||hoje();l.obsFinal=$("fecharLoteObs").value.trim();
+  if(!l.colheitaId)l.colheitaId=novoId();
+  let talhoes=[...new Set(dadosLote(l).xs.map(a=>a.talhaoId).filter(Boolean))];
+  let c={id:l.colheitaId,data:l.dataFechamento,talhaoId:talhoes.length===1?talhoes[0]:"",sacas,safra:String(new Date(l.dataFechamento+"T12:00:00").getFullYear()),obs:`Produção final do ${l.nome}. ${num(dadosLote(l).latoes)} latões após secagem e limpeza.`,loteId:l.id};
+  let i=estado.colheitas.findIndex(x=>x.id===c.id);if(i>=0)estado.colheitas[i]=c;else estado.colheitas.push(c);
+  fecharModal("modalFecharLote");persistir();toast("Lote fechado e sacas adicionadas à produção.")
+}
+function excluirLote(id){
+  let l=estado.lotes.find(x=>x.id===id);if(!l)return;if(!confirm("Excluir este lote?"))return;
+  (l.apanhaIds||[]).forEach(aid=>{let a=estado.apanhas.find(x=>x.id===aid);if(a&&a.loteId===id)a.loteId=""});
+  if(l.colheitaId)estado.colheitas=estado.colheitas.filter(c=>c.id!==l.colheitaId);
+  estado.lotes=estado.lotes.filter(x=>x.id!==id);persistir()
+}
+function renderLotes(){
+  let xs=[...estado.lotes].sort((a,b)=>(b.dataEnvio||"").localeCompare(a.dataEnvio||""));
+  $("listaLotes").innerHTML=xs.length?xs.map(l=>{let d=dadosLote(l),conv=l.sacas?d.latoes/l.sacas:0,custoSaca=l.sacas?d.custo/l.sacas:0;return`<div class="card lote-card"><div class="lote-top"><div><div class="lote-title">${esc(l.nome)}</div><div class="lote-meta">Enviado ${dataBR(l.dataEnvio)} • ${l.status==="fechado"?"Fechado "+dataBR(l.dataFechamento):"Secando / aguardando resultado"}</div></div><span class="pill">${l.status==="fechado"?"Finalizado":"Secador"}</span></div><div class="lote-stats"><div class="lote-stat"><small>Latões</small><strong>${num(d.latoes)}</strong></div><div class="lote-stat"><small>Sacas</small><strong>${l.sacas?num(l.sacas):"—"}</strong></div><div class="lote-stat"><small>Latões/sc</small><strong>${l.sacas?num(conv):"—"}</strong></div><div class="lote-stat"><small>Custo colheita/sc</small><strong>${l.sacas?moeda(custoSaca):"—"}</strong></div></div><div class="btnrow" style="margin-top:11px">${l.status==="fechado"?"":`<button class="btn primary" onclick="abrirFecharLote('${l.id}')">Informar sacas</button><button class="btn secondary" onclick="abrirLote('${l.id}')">Editar lote</button>`}<button class="btn danger" onclick="excluirLote('${l.id}')">Excluir</button></div></div>`}).join(""):`<div class="card empty" style="grid-column:1/-1"><strong>Nenhum lote no secador</strong>Selecione os latões colhidos e envie para secagem.</div>`
+}
+function renderResumoColheita(){
+  let totalLat=estado.apanhas.reduce((s,a)=>s+Number(a.latoes||0),0),secando=estado.lotes.filter(l=>l.status!=="fechado").reduce((s,l)=>s+dadosLote(l).latoes,0),sacas=estado.colheitas.reduce((s,c)=>s+Number(c.sacas||0),0),custo=estado.apanhas.reduce((s,a)=>s+Number(a.latoes||0)*Number(a.valorLatao||0),0);
+  $("hLatoes").textContent=num(totalLat);$("hSecagem").textContent=num(secando);$("hSacas").textContent=num(sacas);$("hCusto").textContent=moeda(custo)
+}
+
 function renderProducao(){
+  atualizarSelectsTrabalhadores();renderResumoColheita();renderApanhas();renderLotes();renderTrabalhadores();
   let cs=[...estado.colheitas].sort((a,b)=>(b.data||"").localeCompare(a.data||""));
   $("listaColheitas").innerHTML=cs.length?cs.map(c=>`<div class="item"><div class="item-icon">☕</div><div class="item-main"><strong>${num(c.sacas)} sacas</strong><div class="item-meta">${dataBR(c.data)}${c.talhaoId?" • "+esc(nomeTalhao(c.talhaoId)):""}${c.safra?" • Safra "+esc(c.safra):""}</div></div><div class="item-value"><div class="item-actions"><button class="mini-btn" onclick="abrirColheita('${c.id}')">✎</button><button class="mini-btn danger" onclick="excluirColheita('${c.id}')">×</button></div></div></div>`).join(""):`<div class="empty"><strong>Nenhuma produção registrada</strong>Informe as sacas produzidas por talhão.</div>`;
   let vs=[...estado.vendas].sort((a,b)=>(b.data||"").localeCompare(a.data||""));
@@ -254,9 +525,9 @@ function renderRelatorios(){atualizarSelectsTalhao();let lancs=filtrarPeriodo(es
 function limparFiltroRelatorio(){$("relInicio").value="";$("relFim").value="";$("relTalhao").value="todos";renderRelatorios()}
 function exportarCSV(){let rows=[["Data","Tipo","Categoria","Descrição","Talhão","Status","Valor"]];filtrarPeriodo(estado.lancamentos).forEach(x=>rows.push([x.data,x.tipo,x.categoria,x.descricao,nomeTalhao(x.talhaoId),x.status,x.valor]));let csv="\uFEFF"+rows.map(r=>r.map(v=>`"${String(v??"").replaceAll('"','""')}"`).join(";")).join("\n"),blob=new Blob([csv],{type:"text/csv;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="financeiro-sitio.csv";a.click();URL.revokeObjectURL(a.href)}
 function baixarBackup(){let blob=new Blob([JSON.stringify({versao:1,exportadoEm:new Date().toISOString(),estado},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="backup-financeiro-sitio.json";a.click();URL.revokeObjectURL(a.href)}
-async function importarBackup(ev){let f=ev.target.files?.[0];if(!f)return;try{let data=JSON.parse(await f.text()),n=data.estado||data;if(!n||!Array.isArray(n.lancamentos)||!Array.isArray(n.talhoes)||!Array.isArray(n.colheitas)||!Array.isArray(n.vendas))throw 0;if(!confirm("Importar este backup e substituir os dados atuais?"))return;estado=n;persistir();toast("Backup importado.")}catch{toast("Arquivo de backup inválido.")}ev.target.value=""}
-function renderTudo(){atualizarSelectsTalhao();renderResumo();renderFinanceiro();renderProducao();renderTalhoes();renderRelatorios()}
-window.appBridge={setUsuario(u){usuarioAtual=u;$("usuarioLogado").textContent=u.email||"Usuário";$("userAvatar").textContent=(u.email||"U").charAt(0).toUpperCase();$("authScreen").classList.add("hidden")},limparUsuario(){usuarioAtual=null;estado={lancamentos:[],talhoes:[],colheitas:[],vendas:[]};$("authScreen").classList.remove("hidden");renderTudo()},getEstado(){return structuredClone(estado)},setEstado(n){suspendSync=true;try{estado={lancamentos:Array.isArray(n?.lancamentos)?n.lancamentos:[],talhoes:Array.isArray(n?.talhoes)?n.talhoes:[],colheitas:Array.isArray(n?.colheitas)?n.colheitas:[],vendas:Array.isArray(n?.vendas)?n.vendas:[]};salvarLocal();renderTudo()}finally{suspendSync=false}}};
+async function importarBackup(ev){let f=ev.target.files?.[0];if(!f)return;try{let data=JSON.parse(await f.text()),n=data.estado||data;if(!n||!Array.isArray(n.lancamentos)||!Array.isArray(n.talhoes)||!Array.isArray(n.colheitas)||!Array.isArray(n.vendas))throw 0;n.trabalhadores=Array.isArray(n.trabalhadores)?n.trabalhadores:[];n.apanhas=Array.isArray(n.apanhas)?n.apanhas:[];n.lotes=Array.isArray(n.lotes)?n.lotes:[];if(!confirm("Importar este backup e substituir os dados atuais?"))return;estado=n;persistir();toast("Backup importado.")}catch{toast("Arquivo de backup inválido.")}ev.target.value=""}
+function renderTudo(){atualizarSelectsTalhao();atualizarSelectsTrabalhadores();renderResumo();renderFinanceiro();renderProducao();renderTalhoes();renderRelatorios()}
+window.appBridge={setUsuario(u){usuarioAtual=u;$("usuarioLogado").textContent=u.email||"Usuário";$("userAvatar").textContent=(u.email||"U").charAt(0).toUpperCase();$("authScreen").classList.add("hidden")},limparUsuario(){usuarioAtual=null;estado={lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[]};$("authScreen").classList.remove("hidden");renderTudo()},getEstado(){return structuredClone(estado)},setEstado(n){suspendSync=true;try{estado={lancamentos:Array.isArray(n?.lancamentos)?n.lancamentos:[],talhoes:Array.isArray(n?.talhoes)?n.talhoes:[],colheitas:Array.isArray(n?.colheitas)?n.colheitas:[],vendas:Array.isArray(n?.vendas)?n.vendas:[],trabalhadores:Array.isArray(n?.trabalhadores)?n.trabalhadores:[],apanhas:Array.isArray(n?.apanhas)?n.apanhas:[],lotes:Array.isArray(n?.lotes)?n.lotes:[]};salvarLocal();renderTudo()}finally{suspendSync=false}}};
 document.addEventListener("DOMContentLoaded",()=>{atualizarCategoriasLancamento();renderTudo()});
 </script>
 
@@ -278,7 +549,7 @@ onAuthStateChanged(auth,async u=>{
  try{
   let snap=await get(stateRef);
   if(snap.exists()){aplicando=true;try{window.appBridge.setEstado(snap.val())}finally{aplicando=false}}
-  else{aplicando=true;try{window.appBridge.setEstado({lancamentos:[],talhoes:[],colheitas:[],vendas:[]})}finally{aplicando=false}await enviar()}
+  else{aplicando=true;try{window.appBridge.setEstado({lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[]})}finally{aplicando=false}await enviar()}
   setSync("conectado em tempo real","ok");
   unsubscribe=onValue(stateRef,s=>{if(!s.exists()||aplicando)return;aplicando=true;try{window.appBridge.setEstado(s.val());setSync("atualizado em tempo real","ok")}finally{aplicando=false}},e=>{console.error(e);setSync(e?.message?.toLowerCase().includes("permission")?"permissão negada":"erro de conexão","erro")});
   onValue(ref(db,".info/connected"),s=>setSync(s.val()===true?"conectado em tempo real":"offline",s.val()===true?"ok":"erro"));

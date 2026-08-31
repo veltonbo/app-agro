@@ -1,0 +1,38 @@
+FINANCEIRO DO SÍTIO - V2 | COLHEITA POR LATÃO
+
+Fluxo implementado conforme o trabalho com café Conilon:
+
+1. CADASTRE OS COLHEDORES
+- Nome
+- Valor padrão pago por latão
+
+2. REGISTRE A COLHEITA
+- Data
+- Colhedor
+- Talhão
+- Quantidade de latões
+- Valor por latão
+- Pago ou a pagar
+- O app calcula automaticamente o total do colhedor
+- O custo é lançado automaticamente no Financeiro, categoria "Colheita"
+
+3. ENVIE PARA O SECADOR
+- Crie um lote de secagem
+- Selecione os registros de latões que entrarão naquele lote
+- O app soma latões, custo da colheita e quantidade de colhedores
+
+4. DEPOIS DE SECAR E LIMPAR
+- Abra o lote
+- Informe quantas sacas deram
+- O app calcula latões por saca e custo de colheita por saca
+- As sacas são adicionadas automaticamente à Produção
+
+5. VENDA
+- Continua registrando sacas, preço por saca, comprador e receita financeira
+
+FIREBASE
+Continua usando:
+financeiroSitio/users/UID_DO_USUARIO/estado
+
+As regras do Firebase da V1 continuam válidas.
+Usuário novo continua começando totalmente zerado.
