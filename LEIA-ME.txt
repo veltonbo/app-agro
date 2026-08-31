@@ -1,0 +1,32 @@
+FINANCEIRO DO SÍTIO - V1
+
+Aplicativo separado do Viveiro Café e usando o mesmo projeto Firebase.
+
+RECURSOS
+- Login/cadastro por e-mail e senha
+- Cada usuário acessa somente os próprios dados
+- Conta nova começa totalmente zerada
+- Sincronização em tempo real
+- Receitas, despesas e contas pendentes
+- Categorias próprias do café Conilon
+- Talhões/áreas
+- Produção em sacas
+- Vendas com preço por saca e comprador
+- Venda pode criar receita automaticamente
+- Relatório por período
+- Despesas por categoria
+- Resultado e custo por saca por talhão
+- Exportação CSV
+- Backup JSON
+- PWA instalável
+
+FIREBASE
+Os dados ficam em:
+financeiroSitio/users/UID_DO_USUARIO/estado
+
+CONFIGURAÇÃO
+1. Mantenha Email/Password ativado no Firebase Authentication.
+2. Em Realtime Database > Rules, use o conteúdo de database.rules.json e publique.
+3. Publique este app em um repositório ou pasta separada do Viveiro Café.
+
+O arquivo de regras incluído preserva também as regras do app Viveiro Café.
