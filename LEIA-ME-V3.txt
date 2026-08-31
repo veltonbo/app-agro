@@ -1,0 +1,44 @@
+FINANCEIRO DO SÍTIO - V3
+
+PRINCIPAIS CORREÇÕES
+- Corrigido o campo Talhão no lançamento de latões.
+- Agora o talhão cadastrado aparece corretamente ao registrar a colheita.
+- Se existir apenas um talhão, ele já fica selecionado automaticamente.
+
+SECADOR SIMPLIFICADO
+- Não é mais necessário marcar colhedor por colhedor.
+- Basta informar a quantidade de latões que será enviada.
+- É possível escolher um talhão específico ou usar todos.
+- O sistema usa automaticamente os latões disponíveis mais antigos.
+- Um registro de colheita pode ser usado parcialmente.
+- A quantidade restante continua disponível para o próximo lote.
+
+ORGANIZAÇÃO
+O fluxo da aba Colheita agora é:
+1. Colhedores
+2. Colheita por latão
+3. Secador
+4. Produção final / vendas
+
+NOVOS INDICADORES
+- Latões colhidos
+- Latões disponíveis para o secador
+- Latões em secagem
+- Sacas prontas
+- Custo total da colheita
+- Custo de colheita por saca
+
+COLHEDORES
+- Cada colhedor mostra total de latões e valor a pagar.
+- O pagamento pode ser alterado para Pago/A pagar no próprio registro.
+- O custo continua integrado automaticamente ao Financeiro.
+
+RELATÓRIOS
+- Indicadores da colheita.
+- Resumo por colhedor:
+  latões, total, pago e a pagar.
+
+COMPATIBILIDADE
+- Mantém login, Firebase e dados separados por usuário.
+- Mantém dados das versões anteriores.
+- Lotes antigos são convertidos automaticamente para o novo controle de quantidade.
