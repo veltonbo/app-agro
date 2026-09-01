@@ -1085,6 +1085,124 @@ input,select,textarea{
 }
 @media(max-width:390px){.cadastro-grid{grid-template-columns:1fr}}
 
+
+/* ===== V7 - COTAÇÃO DO CAFÉ ===== */
+.quote-card{
+  position:relative;
+  overflow:hidden;
+  margin:0 0 22px;
+  border:1px solid #DDE5DF;
+  border-radius:19px;
+  background:
+    radial-gradient(circle at 92% -5%,rgba(128,99,62,.10),transparent 28%),
+    #fff;
+  box-shadow:var(--shadow)
+}
+.quote-card::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,#80633E,#B99A70)
+}
+.quote-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:13px 14px 9px 17px
+}
+.quote-title-wrap{
+  display:flex;align-items:center;gap:9px;min-width:0
+}
+.quote-icon{
+  width:34px;height:34px;border-radius:11px;display:grid;place-items:center;
+  flex:0 0 auto;background:var(--coffee-soft);color:var(--coffee);
+  font-size:16px;font-weight:900
+}
+.quote-title{font-size:13px;font-weight:900}
+.quote-sub{
+  margin-top:2px;color:var(--muted);font-size:8.5px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.quote-refresh{
+  width:34px;height:34px;border-radius:10px;border:1px solid var(--line);
+  background:#fff;color:#5C685F;font-size:16px;display:grid;place-items:center
+}
+.quote-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:1px solid #EDF1ED;
+  border-bottom:1px solid #EDF1ED
+}
+.quote-value{
+  padding:13px 16px
+}
+.quote-value:first-child{border-right:1px solid #EDF1ED}
+.quote-value small{
+  display:block;font-size:7.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);font-weight:900
+}
+.quote-value strong{
+  display:block;margin-top:6px;font-size:24px;letter-spacing:-.045em
+}
+.quote-value.region strong{color:var(--green)}
+.quote-value span{
+  display:block;margin-top:4px;font-size:8.5px;color:var(--muted)
+}
+.quote-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 14px 11px 17px
+}
+.quote-status{
+  min-width:0;color:var(--muted);font-size:8.5px;line-height:1.4
+}
+.quote-status strong{color:#48564C}
+.quote-actions{
+  display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end
+}
+.quote-btn{
+  min-height:32px;padding:6px 9px;border-radius:9px;border:1px solid var(--line);
+  background:#fff;color:#425047;font-size:8.5px;font-weight:850
+}
+.quote-btn.primary{
+  background:var(--soft);color:var(--green2);border-color:#D7E5DA
+}
+.quote-empty{
+  color:var(--muted)!important
+}
+
+.quote-settings-preview{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px
+}
+.quote-preview-box{
+  padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--surface2)
+}
+.quote-preview-box small{
+  display:block;font-size:7.5px;text-transform:uppercase;color:var(--muted);font-weight:900
+}
+.quote-preview-box strong{display:block;margin-top:5px;font-size:16px}
+.quote-source-note{
+  margin-top:10px;padding:10px 11px;border-radius:11px;
+  background:#F7F8F6;border:1px solid var(--line);
+  color:var(--muted);font-size:9px;line-height:1.5
+}
+.quote-source-note strong{color:#48564C}
+
+@media(max-width:720px){
+  .quote-card{border-radius:16px}
+  .quote-grid{grid-template-columns:1fr 1fr}
+  .quote-value{padding:11px 12px}
+  .quote-value strong{font-size:20px}
+  .quote-foot{align-items:flex-start;flex-direction:column}
+  .quote-actions{justify-content:flex-start;width:100%}
+}
+@media(max-width:390px){
+  .quote-grid{grid-template-columns:1fr}
+  .quote-value:first-child{border-right:0;border-bottom:1px solid #EDF1ED}
+  .quote-settings-preview{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -1167,6 +1285,44 @@ input,select,textarea{
       <small>Margem estimada por saca</small>
       <strong id="iMargemSaca">R$ 0,00</strong>
       <span>preço médio menos custo real</span>
+    </div>
+  </div>
+
+  <div class="quote-card">
+    <div class="quote-head">
+      <div class="quote-title-wrap">
+        <div class="quote-icon">☕</div>
+        <div style="min-width:0">
+          <div class="quote-title">Cotação do café Conilon 7/8</div>
+          <div class="quote-sub">Referência: Painel do Café • estimativa regional configurável</div>
+        </div>
+      </div>
+      <button class="quote-refresh" title="Atualizar cotação" onclick="atualizarCotacaoCafe(true)">↻</button>
+    </div>
+
+    <div class="quote-grid">
+      <div class="quote-value">
+        <small>Painel do Café</small>
+        <strong id="cotacaoPainelValor" class="quote-empty">—</strong>
+        <span id="cotacaoPainelData">Aguardando cotação</span>
+      </div>
+
+      <div class="quote-value region">
+        <small>Estimativa na região</small>
+        <strong id="cotacaoRegionalValor" class="quote-empty">—</strong>
+        <span id="cotacaoAjusteTexto">Painel − R$ 80,00</span>
+      </div>
+    </div>
+
+    <div class="quote-foot">
+      <div class="quote-status" id="cotacaoStatus">
+        O app tentará consultar a referência automaticamente.
+      </div>
+      <div class="quote-actions">
+        <button class="quote-btn" onclick="abrirPainelDoCafe()">Abrir fonte</button>
+        <button class="quote-btn" onclick="abrirCotacaoConfig()">Configurar</button>
+        <button class="quote-btn primary" id="btnUsarCotacao" onclick="abrirVendaComCotacao()">Usar na venda</button>
+      </div>
     </div>
   </div>
 
@@ -1538,6 +1694,19 @@ input,select,textarea{
       <div class="btnrow"><button class="btn primary" onclick="abrirPessoas()">Gerenciar</button></div>
     </div>
 
+    <div class="cadastro-card coffee">
+      <div class="cadastro-card-top">
+        <div class="cadastro-icon">☕</div>
+        <div class="cadastro-count" id="pCotacao">R$ 80<small>ajuste regional</small></div>
+      </div>
+      <h3>Cotação do café</h3>
+      <p>Referência do Painel do Café com desconto regional configurável.</p>
+      <div class="btnrow">
+        <button class="btn primary" onclick="abrirCotacaoConfig()">Configurar</button>
+        <button class="btn secondary" onclick="atualizarCotacaoCafe(true)">Atualizar</button>
+      </div>
+    </div>
+
     <div class="cadastro-card blue">
       <div class="cadastro-card-top"><div class="cadastro-icon">↥</div><div class="cadastro-count"><span>JSON</span><small>backup</small></div></div>
       <h3>Dados e backup</h3><p>Faça uma cópia dos dados ou restaure um arquivo salvo.</p>
@@ -1714,7 +1883,7 @@ input,select,textarea{
     <div class="field"><label>Data</label><input id="vendaData" type="date"></div>
     <div class="field"><label>Talhão</label><select id="vendaTalhao"><option value="">Sem talhão</option></select></div>
     <div class="field"><label>Sacas vendidas</label><input id="vendaSacas" type="number" min="0" step="0.01" placeholder="0" oninput="atualizarTotalVenda()"></div>
-    <div class="field"><label>Preço por saca</label><input id="vendaPreco" type="number" min="0" step="0.01" placeholder="0,00" oninput="atualizarTotalVenda()"></div>
+    <div class="field"><label>Preço por saca</label><input id="vendaPreco" type="number" min="0" step="0.01" placeholder="0,00" oninput="atualizarTotalVenda()"><button type="button" class="quote-btn primary" style="margin-top:6px" onclick="preencherPrecoVendaComCotacao()">Usar cotação regional</button></div>
     <div class="field"><label>Comprador</label><input id="vendaComprador" placeholder="Nome do comprador"></div>
     <div class="field"><label>Status financeiro</label><select id="vendaStatus"><option value="pago">Recebido</option><option value="pendente">A receber</option></select></div><div class="field"><label>Safra</label><select id="vendaSafra" onchange="atualizarEstoqueVenda()"></select></div>
   </div>
@@ -1820,6 +1989,52 @@ input,select,textarea{
   <div class="btnrow" style="margin-top:10px"><button class="btn primary" onclick="salvarPessoa()">Salvar cadastro</button><button class="btn secondary" onclick="limparFormPessoa()">Limpar</button></div>
   <div class="section-head" style="margin-top:15px"><div><h3 class="section-title" style="font-size:14px">Cadastrados</h3><div class="section-note">Fornecedores e compradores</div></div></div>
   <div id="listaPessoas" class="people-list"></div>
+</div></div>
+
+
+<div id="modalCotacao" class="modal hidden"><div class="modal-card">
+  <div class="modal-head">
+    <h3>Cotação do café</h3>
+    <button class="close" onclick="fecharModal('modalCotacao')">✕</button>
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label>Desconto na sua região (R$/saca)</label>
+      <input id="cotacaoDesconto" type="number" min="0" step="0.01" placeholder="80,00" oninput="previewCotacaoConfig()">
+    </div>
+
+    <div class="field">
+      <label>Cotação manual do Painel (R$/saca)</label>
+      <input id="cotacaoManual" type="number" min="0" step="0.01" placeholder="Ex.: 1.000,00" oninput="previewCotacaoConfig()">
+    </div>
+  </div>
+
+  <label style="display:flex;align-items:center;gap:8px;margin-top:12px;color:var(--muted);font-size:10px">
+    <input id="cotacaoAuto" type="checkbox" style="width:18px;min-height:18px">
+    Tentar atualizar automaticamente pelo site Painel do Café
+  </label>
+
+  <div class="quote-settings-preview">
+    <div class="quote-preview-box">
+      <small>Referência Painel</small>
+      <strong id="cotacaoPreviewPainel">R$ 0,00</strong>
+    </div>
+    <div class="quote-preview-box">
+      <small>Estimativa regional</small>
+      <strong id="cotacaoPreviewRegional">R$ 0,00</strong>
+    </div>
+  </div>
+
+  <div class="quote-source-note">
+    <strong>Como funciona:</strong> o app usa o valor de Conilon 7/8 do Painel do Café como referência e subtrai o desconto configurado. O valor regional é uma estimativa sua, não uma cotação oficial.
+  </div>
+
+  <div class="btnrow" style="margin-top:14px">
+    <button class="btn secondary" onclick="abrirPainelDoCafe()">Abrir Painel do Café</button>
+    <button class="btn secondary" onclick="atualizarCotacaoCafe(true)">Buscar agora</button>
+    <button class="btn primary" onclick="salvarCotacaoConfig()">Salvar configuração</button>
+  </div>
 </div></div>
 
 <div id="toast" class="toast hidden"></div>
@@ -5454,6 +5669,479 @@ window.appBridge.getEstado=function(){garantirEstruturaV6();return structuredClo
 window.appBridge.limparUsuario=function(){usuarioAtual=null;estado={lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[],safras:[],safraAtivaId:"",categorias:{receita:[],despesa:[]},pessoas:[]};garantirEstruturaV6();$("authScreen").classList.remove("hidden");renderTudo()};
 
 renderTudo=function(){garantirEstruturaV6();migrarLotesAntigos();atualizarSelectsTalhao();atualizarSelectsTrabalhadores();atualizarSelectsSafra();atualizarFiltroCategorias();atualizarSelectPessoas();renderResumo();renderFinanceiro();renderProducao();renderTalhoes();renderRelatorios();if($("tab-perfil")&&!$("tab-perfil").classList.contains("hidden"))renderPerfil()};
+</script>
+
+
+<script>
+/* ===== FINANCEIRO DO SÍTIO V7 - COTAÇÃO DO CAFÉ ===== */
+
+const PAINEL_CAFE_URL="https://www.paineldocafe.com.br/";
+const COTACAO_INTERVALO_MS=30*60*1000;
+let cotacaoAtualizando=false;
+let timerCotacao=null;
+
+function garantirEstruturaV7(){
+  garantirEstruturaV6();
+
+  if(!estado.cotacaoCafe||typeof estado.cotacaoCafe!=="object"){
+    estado.cotacaoCafe={};
+  }
+
+  let c=estado.cotacaoCafe;
+
+  if(!Number.isFinite(Number(c.descontoRegional))){
+    c.descontoRegional=80;
+  }else{
+    c.descontoRegional=Number(c.descontoRegional);
+  }
+
+  if(typeof c.autoAtualizar!=="boolean"){
+    c.autoAtualizar=true;
+  }
+
+  if(!Number.isFinite(Number(c.precoPainel))||Number(c.precoPainel)<=0){
+    c.precoPainel=0;
+  }else{
+    c.precoPainel=Number(c.precoPainel);
+  }
+
+  c.dataFonte=c.dataFonte||"";
+  c.atualizadoEm=c.atualizadoEm||"";
+  c.origem=c.origem||"";
+}
+
+function cotacaoRegional(){
+  garantirEstruturaV7();
+  let c=estado.cotacaoCafe;
+  return Math.max(0,Number(c.precoPainel||0)-Number(c.descontoRegional||0));
+}
+
+function formatarDataHoraCotacao(iso){
+  if(!iso) return "";
+  let d=new Date(iso);
+  if(Number.isNaN(d.getTime())) return "";
+  return d.toLocaleString("pt-BR",{
+    day:"2-digit",
+    month:"2-digit",
+    year:"numeric",
+    hour:"2-digit",
+    minute:"2-digit"
+  });
+}
+
+function renderCotacaoCafe(){
+  garantirEstruturaV7();
+
+  let c=estado.cotacaoCafe;
+  let regional=cotacaoRegional();
+  let temPreco=Number(c.precoPainel)>0;
+
+  if($("cotacaoPainelValor")){
+    $("cotacaoPainelValor").textContent=temPreco?moeda(c.precoPainel):"—";
+    $("cotacaoPainelValor").classList.toggle("quote-empty",!temPreco);
+  }
+
+  if($("cotacaoRegionalValor")){
+    $("cotacaoRegionalValor").textContent=temPreco?moeda(regional):"—";
+    $("cotacaoRegionalValor").classList.toggle("quote-empty",!temPreco);
+  }
+
+  if($("cotacaoAjusteTexto")){
+    $("cotacaoAjusteTexto").textContent=
+      `Painel − ${moeda(c.descontoRegional)}`;
+  }
+
+  if($("cotacaoPainelData")){
+    if(c.dataFonte){
+      $("cotacaoPainelData").textContent=`Referência de ${c.dataFonte}`;
+    }else if(c.atualizadoEm){
+      $("cotacaoPainelData").textContent=
+        `Consultado ${formatarDataHoraCotacao(c.atualizadoEm)}`;
+    }else{
+      $("cotacaoPainelData").textContent="Aguardando cotação";
+    }
+  }
+
+  if($("cotacaoStatus")&&!cotacaoAtualizando){
+    if(temPreco){
+      let origem=
+        c.origem==="automatico"
+          ?"Atualização automática"
+          :c.origem==="manual"
+            ?"Valor informado manualmente"
+            :"Última cotação salva";
+
+      $("cotacaoStatus").innerHTML=
+        `<strong>${origem}</strong>`+
+        (c.atualizadoEm?` • ${formatarDataHoraCotacao(c.atualizadoEm)}`:"");
+    }else{
+      $("cotacaoStatus").textContent=
+        "Toque em atualizar para buscar a referência ou informe o valor manualmente.";
+    }
+  }
+
+  if($("btnUsarCotacao")){
+    $("btnUsarCotacao").disabled=!temPreco;
+  }
+
+  if($("pCotacao")){
+    $("pCotacao").innerHTML=
+      `${moeda(c.descontoRegional).replace("R$ ","R$ ")}<small>ajuste regional</small>`;
+  }
+}
+
+function abrirPainelDoCafe(){
+  window.open(PAINEL_CAFE_URL,"_blank","noopener,noreferrer");
+}
+
+function abrirCotacaoConfig(){
+  garantirEstruturaV7();
+
+  let c=estado.cotacaoCafe;
+
+  $("cotacaoDesconto").value=Number(c.descontoRegional||80).toFixed(2);
+  $("cotacaoManual").value=Number(c.precoPainel||0)>0
+    ?Number(c.precoPainel).toFixed(2)
+    :"";
+  $("cotacaoAuto").checked=c.autoAtualizar!==false;
+
+  previewCotacaoConfig();
+  abrirModal("modalCotacao");
+}
+
+function previewCotacaoConfig(){
+  if(!$("cotacaoPreviewPainel")) return;
+
+  let painel=Number($("cotacaoManual").value||0);
+  let desconto=Number($("cotacaoDesconto").value||0);
+  let regional=Math.max(0,painel-desconto);
+
+  $("cotacaoPreviewPainel").textContent=moeda(painel);
+  $("cotacaoPreviewRegional").textContent=moeda(regional);
+}
+
+function salvarCotacaoConfig(){
+  garantirEstruturaV7();
+
+  let c=estado.cotacaoCafe;
+  let desconto=Number($("cotacaoDesconto").value||0);
+  let manual=Number($("cotacaoManual").value||0);
+
+  c.descontoRegional=Math.max(0,desconto);
+  c.autoAtualizar=$("cotacaoAuto").checked;
+
+  if(manual>0&&Math.abs(manual-Number(c.precoPainel||0))>0.001){
+    c.precoPainel=manual;
+    c.atualizadoEm=new Date().toISOString();
+    c.dataFonte=hoje().split("-").reverse().join("/");
+    c.origem="manual";
+  }
+
+  fecharModal("modalCotacao");
+  persistir();
+  toast("Configuração da cotação salva.");
+
+  if(c.autoAtualizar){
+    setTimeout(()=>atualizarCotacaoCafe(false),500);
+  }
+}
+
+function normalizarTextoCotacao(texto){
+  return String(texto||"")
+    .replace(/\u00a0/g," ")
+    .replace(/\s+/g," ");
+}
+
+function extrairCotacaoPainel(texto){
+  let t=normalizarTextoCotacao(texto);
+
+  let patterns=[
+    /CONILON\s*7\s*\/\s*8[\s\S]{0,180}?(\d{3,4})\s*[,.]\s*(\d{2})/i,
+    /CONILON[\s\S]{0,220}?(\d{3,4})\s*[,.]\s*(\d{2})/i
+  ];
+
+  let match=null;
+
+  for(let p of patterns){
+    match=t.match(p);
+    if(match) break;
+  }
+
+  if(!match) return null;
+
+  let valor=Number(`${match[1]}.${match[2]}`);
+
+  if(!Number.isFinite(valor)||valor<300||valor>5000){
+    return null;
+  }
+
+  let idx=t.toUpperCase().indexOf("CONILON");
+  let trecho=idx>=0?t.slice(idx,idx+700):t;
+  let dm=trecho.match(/(\d{2})\s*\/\s*(\d{2})\s*\/\s*(\d{4})/);
+
+  return{
+    valor,
+    dataFonte:dm?`${dm[1]}/${dm[2]}/${dm[3]}`:""
+  };
+}
+
+async function fetchComTimeout(url,ms=9000){
+  let ctrl=new AbortController();
+  let timer=setTimeout(()=>ctrl.abort(),ms);
+
+  try{
+    let r=await fetch(url,{
+      cache:"no-store",
+      signal:ctrl.signal,
+      headers:{"Accept":"text/html,text/plain,*/*"}
+    });
+
+    if(!r.ok){
+      throw new Error("HTTP "+r.status);
+    }
+
+    return await r.text();
+  }finally{
+    clearTimeout(timer);
+  }
+}
+
+async function buscarCotacaoPainel(){
+  let tentativas=[
+    {
+      url:PAINEL_CAFE_URL,
+      tipo:"direto"
+    },
+    {
+      url:"https://r.jina.ai/https://www.paineldocafe.com.br/",
+      tipo:"leitura auxiliar"
+    }
+  ];
+
+  let ultimoErro=null;
+
+  for(let t of tentativas){
+    try{
+      let texto=await fetchComTimeout(t.url);
+      let resultado=extrairCotacaoPainel(texto);
+
+      if(resultado){
+        return{
+          ...resultado,
+          metodo:t.tipo
+        };
+      }
+
+      ultimoErro=new Error("Cotação não localizada");
+    }catch(e){
+      ultimoErro=e;
+    }
+  }
+
+  throw ultimoErro||new Error("Não foi possível consultar a cotação");
+}
+
+async function atualizarCotacaoCafe(forcar=false){
+  garantirEstruturaV7();
+
+  if(cotacaoAtualizando) return;
+
+  let c=estado.cotacaoCafe;
+
+  if(!forcar&&!c.autoAtualizar){
+    return;
+  }
+
+  if(!forcar&&c.atualizadoEm){
+    let idade=Date.now()-new Date(c.atualizadoEm).getTime();
+
+    if(Number.isFinite(idade)&&idade<COTACAO_INTERVALO_MS){
+      return;
+    }
+  }
+
+  cotacaoAtualizando=true;
+
+  if($("cotacaoStatus")){
+    $("cotacaoStatus").innerHTML=
+      "<strong>Atualizando cotação...</strong>";
+  }
+
+  try{
+    let resultado=await buscarCotacaoPainel();
+
+    c.precoPainel=resultado.valor;
+    c.dataFonte=resultado.dataFonte||"";
+    c.atualizadoEm=new Date().toISOString();
+    c.origem="automatico";
+    c.metodo=resultado.metodo;
+
+    cotacaoAtualizando=false;
+    persistir();
+    renderCotacaoCafe();
+
+    if(forcar){
+      toast(`Cotação atualizada: ${moeda(c.precoPainel)}.`);
+    }
+  }catch(e){
+    cotacaoAtualizando=false;
+    renderCotacaoCafe();
+
+    if($("cotacaoStatus")){
+      $("cotacaoStatus").innerHTML=
+        `<strong>Atualização automática indisponível.</strong> Use o valor salvo ou informe a cotação manualmente.`;
+    }
+
+    if(forcar){
+      toast("Não consegui ler o site automaticamente. Você pode informar o valor manualmente.");
+    }
+  }
+}
+
+function iniciarAtualizacaoCotacao(){
+  clearInterval(timerCotacao);
+
+  setTimeout(
+    ()=>atualizarCotacaoCafe(false),
+    1200
+  );
+
+  timerCotacao=setInterval(
+    ()=>atualizarCotacaoCafe(false),
+    COTACAO_INTERVALO_MS
+  );
+}
+
+function preencherPrecoVendaComCotacao(){
+  garantirEstruturaV7();
+
+  let valor=cotacaoRegional();
+
+  if(valor<=0){
+    toast("Ainda não há cotação disponível.");
+    abrirCotacaoConfig();
+    return;
+  }
+
+  $("vendaPreco").value=valor.toFixed(2);
+  atualizarTotalVenda();
+  toast("Preço regional aplicado à venda.");
+}
+
+function abrirVendaComCotacao(){
+  garantirEstruturaV7();
+
+  if(cotacaoRegional()<=0){
+    abrirCotacaoConfig();
+    return;
+  }
+
+  abrirVenda();
+
+  setTimeout(()=>{
+    preencherPrecoVendaComCotacao();
+  },50);
+}
+
+/* Perfil inclui a cotação */
+const renderPerfilV6Cotacao=renderPerfil;
+renderPerfil=function(){
+  renderPerfilV6Cotacao();
+  renderCotacaoCafe();
+};
+
+/* Estado Firebase V7 */
+window.appBridge.setEstado=function(n){
+  suspendSync=true;
+
+  try{
+    estado={
+      lancamentos:Array.isArray(n?.lancamentos)?n.lancamentos:[],
+      talhoes:Array.isArray(n?.talhoes)?n.talhoes:[],
+      colheitas:Array.isArray(n?.colheitas)?n.colheitas:[],
+      vendas:Array.isArray(n?.vendas)?n.vendas:[],
+      trabalhadores:Array.isArray(n?.trabalhadores)?n.trabalhadores:[],
+      apanhas:Array.isArray(n?.apanhas)?n.apanhas:[],
+      lotes:Array.isArray(n?.lotes)?n.lotes:[],
+      safras:Array.isArray(n?.safras)?n.safras:[],
+      safraAtivaId:n?.safraAtivaId||"",
+      categorias:
+        n?.categorias&&typeof n.categorias==="object"
+          ?n.categorias
+          :{receita:[],despesa:[]},
+      pessoas:Array.isArray(n?.pessoas)?n.pessoas:[],
+      cotacaoCafe:
+        n?.cotacaoCafe&&typeof n.cotacaoCafe==="object"
+          ?n.cotacaoCafe
+          :{}
+    };
+
+    garantirEstruturaV7();
+    migrarLotesAntigos();
+    salvarLocal();
+    renderTudo();
+    iniciarAtualizacaoCotacao();
+  }finally{
+    suspendSync=false;
+  }
+};
+
+window.appBridge.getEstado=function(){
+  garantirEstruturaV7();
+  return structuredClone(estado);
+};
+
+window.appBridge.limparUsuario=function(){
+  usuarioAtual=null;
+  clearInterval(timerCotacao);
+  timerCotacao=null;
+
+  estado={
+    lancamentos:[],
+    talhoes:[],
+    colheitas:[],
+    vendas:[],
+    trabalhadores:[],
+    apanhas:[],
+    lotes:[],
+    safras:[],
+    safraAtivaId:"",
+    categorias:{receita:[],despesa:[]},
+    pessoas:[],
+    cotacaoCafe:{}
+  };
+
+  garantirEstruturaV7();
+  $("authScreen").classList.remove("hidden");
+  renderTudo();
+};
+
+const setUsuarioV7Base=window.appBridge.setUsuario;
+window.appBridge.setUsuario=function(u){
+  setUsuarioV7Base(u);
+  setTimeout(()=>iniciarAtualizacaoCotacao(),1600);
+};
+
+/* Render geral */
+renderTudo=function(){
+  garantirEstruturaV7();
+  migrarLotesAntigos();
+  atualizarSelectsTalhao();
+  atualizarSelectsTrabalhadores();
+  atualizarSelectsSafra();
+  atualizarFiltroCategorias();
+  atualizarSelectPessoas();
+  renderResumo();
+  renderCotacaoCafe();
+  renderFinanceiro();
+  renderProducao();
+  renderTalhoes();
+  renderRelatorios();
+
+  if($("tab-perfil")&&!$("tab-perfil").classList.contains("hidden")){
+    renderPerfil();
+  }
+};
 </script>
 
 <script type="module">

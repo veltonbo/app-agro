@@ -1,0 +1,59 @@
+FINANCEIRO DO SÍTIO - V7 | COTAÇÃO DO CAFÉ
+
+NOVA COTAÇÃO NO DASHBOARD
+
+O app agora possui um cartão de cotação do café Conilon 7/8 com:
+
+- Valor de referência do Painel do Café.
+- Estimativa de preço regional.
+- Desconto regional padrão de R$ 80,00 por saca.
+- O desconto pode ser alterado no Perfil.
+- Botão Atualizar.
+- Botão para abrir o site Painel do Café.
+- Botão para usar a estimativa regional diretamente no preço de uma venda.
+
+EXEMPLO
+Painel do Café: R$ 1.050,00
+Desconto regional: R$ 80,00
+Estimativa regional: R$ 970,00
+
+ATUALIZAÇÃO AUTOMÁTICA
+
+O app tenta localizar automaticamente o indicador CONILON 7/8 no site:
+https://www.paineldocafe.com.br/
+
+Como sites externos podem impedir leitura direta por segurança do navegador,
+foi mantido um modo manual de segurança:
+
+Perfil > Cotação do café > Configurar
+
+Nesse local é possível:
+- Informar manualmente a cotação do Painel.
+- Alterar o desconto regional.
+- Ativar/desativar a tentativa de atualização automática.
+
+A última cotação fica salva no Firebase junto com os dados do usuário,
+portanto continua aparecendo nos outros aparelhos.
+
+IMPORTANTE
+O preço "Estimativa na região" é uma referência calculada pelo próprio app:
+Preço Painel do Café - desconto regional configurado.
+Não é uma cotação oficial da região.
+
+DEMAIS FUNÇÕES
+Todas as funções da V6 foram mantidas:
+- Login/Firebase
+- Perfil e cadastros
+- Colhedores
+- Safras
+- Talhões
+- Categorias
+- Fornecedores/compradores
+- Contas a pagar
+- Colheita por latão
+- Secador
+- Estoque
+- Vendas
+- Relatórios e backup
+
+As regras do Firebase continuam as mesmas.
