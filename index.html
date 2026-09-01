@@ -998,6 +998,93 @@ input,select,textarea{
   .safra-insights{grid-template-columns:1fr}
 }
 
+
+/* ===== V6 - PERFIL, CADASTROS E CONTAS A PAGAR ===== */
+.nav-inner{grid-template-columns:repeat(5,1fr)}
+.profile-identity{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:15px 16px;border:1px solid var(--line);border-radius:17px;
+  background:linear-gradient(135deg,#fff,#F7FAF7);box-shadow:var(--shadow-sm);margin-bottom:14px
+}
+.profile-person{display:flex;align-items:center;gap:11px;min-width:0}
+.profile-avatar{
+  width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:0 0 auto;
+  color:#fff;background:linear-gradient(145deg,#276E40,#153F27);font-size:17px;font-weight:900
+}
+.profile-person strong{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.profile-person small{display:block;margin-top:4px;font-size:9px;color:var(--muted)}
+.profile-sync{font-size:9px;color:var(--muted);text-align:right}
+
+.cadastro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.cadastro-card{
+  padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm)
+}
+.cadastro-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.cadastro-icon{
+  width:37px;height:37px;border-radius:11px;display:grid;place-items:center;
+  background:var(--soft);color:var(--green2);font-size:14px;font-weight:900
+}
+.cadastro-card.coffee .cadastro-icon{background:var(--coffee-soft);color:var(--coffee)}
+.cadastro-card.blue .cadastro-icon{background:var(--blueSoft);color:var(--blue)}
+.cadastro-card h3{margin:11px 0 0;font-size:13px}
+.cadastro-card p{margin:4px 0 0;min-height:28px;color:var(--muted);font-size:9px;line-height:1.45}
+.cadastro-count{font-size:20px;font-weight:900;letter-spacing:-.04em;color:#34473A}
+.cadastro-count small{display:block;margin-top:1px;font-size:7px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.cadastro-card .btnrow{margin-top:11px}
+
+.accounts-panel{
+  margin:10px 0 14px;padding:13px;border:1px solid var(--line);border-radius:17px;
+  background:linear-gradient(180deg,#fff,#FBFCFB);box-shadow:var(--shadow-sm)
+}
+.accounts-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:10px}
+.accounts-head h3{margin:0;font-size:14px}
+.accounts-head p{margin:3px 0 0;font-size:8.5px;color:var(--muted)}
+.accounts-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:9px}
+.accounts-kpi{padding:9px;border:1px solid #E6EBE7;border-radius:11px;background:#F9FAF9}
+.accounts-kpi small{display:block;font-size:7px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:900}
+.accounts-kpi strong{display:block;margin-top:5px;font-size:14px}
+.accounts-kpi.overdue strong{color:var(--red)}
+.accounts-list{display:grid;gap:6px}
+.account-row{
+  display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:9px;align-items:center;
+  padding:9px 10px;border:1px solid var(--line);border-radius:11px;background:#fff
+}
+.account-dot{width:8px;height:8px;border-radius:50%;background:#9AA49D}
+.account-row.overdue .account-dot{background:var(--red)}
+.account-row.today .account-dot{background:var(--amber)}
+.account-row.soon .account-dot{background:#D9A94E}
+.account-row.future .account-dot{background:var(--green)}
+.account-main{min-width:0}
+.account-main strong{display:block;font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.account-main small{display:block;margin-top:3px;font-size:8.5px;color:var(--muted);line-height:1.35}
+.account-side{text-align:right}
+.account-side>strong{display:block;font-size:11px;color:var(--red)}
+.account-side .item-actions{margin-top:4px}
+.due-badge{display:inline-flex;padding:3px 6px;border-radius:999px;font-size:7.5px;font-weight:900;margin-left:4px}
+.due-overdue{background:var(--redSoft);color:var(--red)}
+.due-today{background:var(--amberSoft);color:var(--amber)}
+.due-soon{background:#FFF8DF;color:#86661D}
+.due-future{background:var(--soft);color:var(--green2)}
+.due-none{background:#F0F2F0;color:#737D76}
+
+.people-list{display:grid;gap:7px;max-height:330px;overflow:auto;margin-top:12px}
+.person-row{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:center;padding:9px 10px;border:1px solid var(--line);border-radius:11px;background:#fff}
+.person-row strong{display:block;font-size:10.5px}.person-row small{display:block;margin-top:3px;font-size:8.5px;color:var(--muted)}
+
+.global-note{
+  display:flex;align-items:flex-start;gap:8px;margin:8px 0 13px;padding:9px 10px;
+  border-radius:11px;border:1px solid #DCE8DF;background:#F3F8F4;color:#506257;font-size:9px;line-height:1.4
+}
+.global-note b{color:var(--green2)}
+
+@media(max-width:900px){.cadastro-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){
+  .profile-identity{align-items:flex-start;flex-direction:column}.profile-sync{text-align:left}
+  .cadastro-grid{grid-template-columns:1fr 1fr}.accounts-kpis{grid-template-columns:1fr 1fr}
+  .account-row{grid-template-columns:8px 1fr}.account-side{grid-column:2;text-align:left}.account-side .item-actions{justify-content:flex-start}
+}
+@media(max-width:390px){.cadastro-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -1041,7 +1128,7 @@ input,select,textarea{
     <div class="safra-bar-left">
       <div class="safra-mark">S</div>
       <div>
-        <small>Safra ativa</small>
+        <small>Safra ativa para novos registros</small>
         <strong id="safraAtivaNome">Safra atual</strong>
       </div>
     </div>
@@ -1052,19 +1139,19 @@ input,select,textarea{
   </div>
 
   <div class="summary">
-    <div class="metric primary"><div class="metric-top"><div class="metric-icon">R$</div><div class="metric-label">Saldo</div></div><div class="metric-value" id="mSaldo">R$ 0,00</div><div class="metric-note">recebido menos pago</div></div>
-    <div class="metric"><div class="metric-top"><div class="metric-icon">＋</div><div class="metric-label">Receitas</div></div><div class="metric-value" id="mReceitas">R$ 0,00</div><div class="metric-note">valores recebidos</div></div>
-    <div class="metric red"><div class="metric-top"><div class="metric-icon">−</div><div class="metric-label">Despesas</div></div><div class="metric-value" id="mDespesas">R$ 0,00</div><div class="metric-note">valores pagos</div></div>
-    <div class="metric blue"><div class="metric-top"><div class="metric-icon">↗</div><div class="metric-label">A receber</div></div><div class="metric-value" id="mReceber">R$ 0,00</div><div class="metric-note">receitas pendentes</div></div>
-    <div class="metric amber"><div class="metric-top"><div class="metric-icon">↘</div><div class="metric-label">A pagar</div></div><div class="metric-value" id="mPagar">R$ 0,00</div><div class="metric-note">despesas pendentes</div></div>
+    <div class="metric primary"><div class="metric-top"><div class="metric-icon">R$</div><div class="metric-label">Saldo</div></div><div class="metric-value" id="mSaldo">R$ 0,00</div><div class="metric-note">saldo geral do sítio</div></div>
+    <div class="metric"><div class="metric-top"><div class="metric-icon">＋</div><div class="metric-label">Receitas</div></div><div class="metric-value" id="mReceitas">R$ 0,00</div><div class="metric-note">todas as safras</div></div>
+    <div class="metric red"><div class="metric-top"><div class="metric-icon">−</div><div class="metric-label">Despesas</div></div><div class="metric-value" id="mDespesas">R$ 0,00</div><div class="metric-note">todas as safras</div></div>
+    <div class="metric blue"><div class="metric-top"><div class="metric-icon">↗</div><div class="metric-label">A receber</div></div><div class="metric-value" id="mReceber">R$ 0,00</div><div class="metric-note">não some ao trocar de safra</div></div>
+    <div class="metric amber"><div class="metric-top"><div class="metric-icon">↘</div><div class="metric-label">A pagar</div></div><div class="metric-value" id="mPagar">R$ 0,00</div><div class="metric-note">não some ao trocar de safra</div></div>
     <div class="metric"><div class="metric-top"><div class="metric-icon">☕</div><div class="metric-label">Produção</div></div><div class="metric-value" id="mProducao">0 sc</div><div class="metric-note">sacas registradas</div></div>
   </div>
 
   <div class="safra-insights">
     <div class="insight stock">
-      <small>Estoque de café</small>
+      <small>Estoque total de café</small>
       <strong id="iEstoque">0,00 sc</strong>
-      <span>produção menos vendas</span>
+      <span>somando todas as safras</span>
     </div>
     <div class="insight">
       <small>Custo real por saca</small>
@@ -1123,6 +1210,30 @@ input,select,textarea{
       <span class="finance-action-icon">≡</span>
       <span><strong>Categorias</strong><small>Organize receitas e despesas</small></span>
     </button>
+  </div>
+
+  <div class="global-note">
+    <span>i</span>
+    <span><b>Contas a pagar e estoque são gerais.</b> Trocar a safra ativa não esconde essas informações. A safra serve para organizar custos, produção e novos registros.</span>
+  </div>
+
+  <div class="accounts-panel">
+    <div class="accounts-head">
+      <div>
+        <h3>Contas a pagar</h3>
+        <p>Vencimentos de todas as safras, inclusive contas antigas.</p>
+      </div>
+      <button id="btnTodasContas" class="btn secondary" onclick="alternarTodasContasPagar()">Ver todas</button>
+    </div>
+
+    <div class="accounts-kpis">
+      <div class="accounts-kpi"><small>Total pendente</small><strong id="cpTotal">R$ 0,00</strong></div>
+      <div class="accounts-kpi overdue"><small>Vencido</small><strong id="cpVencido">R$ 0,00</strong></div>
+      <div class="accounts-kpi"><small>Próximos 7 dias</small><strong id="cp7Dias">R$ 0,00</strong></div>
+      <div class="accounts-kpi"><small>Quantidade</small><strong id="cpQtd">0</strong></div>
+    </div>
+
+    <div id="listaContasPagar" class="accounts-list"></div>
   </div>
 
   <div class="filter-panel">
@@ -1273,6 +1384,7 @@ input,select,textarea{
       <p>Separe custos, produção e resultados por lavoura para saber onde o café está performando melhor.</p>
     </div>
     <div class="module-head-actions">
+      <button class="btn secondary" onclick="voltarPerfil()">← Perfil</button>
       <button class="btn primary" onclick="abrirTalhao()">+ Novo talhão</button>
     </div>
   </div>
@@ -1365,24 +1477,83 @@ input,select,textarea{
 <div class="section-head no-print"><h3 class="section-title">Backup</h3></div>
   <div class="card card-pad no-print"><div class="btnrow"><button class="btn secondary" onclick="baixarBackup()">Baixar backup JSON</button><button class="btn secondary" onclick="importBackup.click()">Importar backup</button><input id="importBackup" type="file" accept=".json,application/json" class="hidden" onchange="importarBackup(event)"></div><div class="section-note" style="margin-top:10px">Os dados também ficam sincronizados no Firebase.</div></div>
 </section>
+
+<section id="tab-perfil" class="hidden">
+  <div class="module-head">
+    <div class="module-head-copy">
+      <span class="module-kicker">PERFIL E CADASTROS</span>
+      <h2>Configuração do sítio</h2>
+      <p>Centralize aqui os cadastros usados no sistema. Eles permanecem disponíveis independentemente da safra ativa.</p>
+    </div>
+  </div>
+
+  <div class="profile-identity">
+    <div class="profile-person">
+      <div class="profile-avatar" id="perfilAvatar">U</div>
+      <div style="min-width:0">
+        <strong id="perfilEmail">Usuário</strong>
+        <small>Conta conectada ao Firebase • dados privados por usuário</small>
+      </div>
+    </div>
+    <div class="profile-sync">
+      Safra ativa<br><strong id="perfilSafra">—</strong>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div>
+      <h3 class="section-title">Cadastros</h3>
+      <div class="section-note">Informações usadas em todo o sistema</div>
+    </div>
+  </div>
+
+  <div class="cadastro-grid">
+    <div class="cadastro-card">
+      <div class="cadastro-card-top"><div class="cadastro-icon">👤</div><div class="cadastro-count" id="pColhedores">0<small>cadastrados</small></div></div>
+      <h3>Colhedores</h3><p>Equipe da colheita e valor padrão pago por latão.</p>
+      <div class="btnrow"><button class="btn primary" onclick="abrirTrabalhador()">+ Novo</button><button class="btn secondary" onclick="irParaColhedores()">Ver colhedores</button></div>
+    </div>
+
+    <div class="cadastro-card coffee">
+      <div class="cadastro-card-top"><div class="cadastro-icon">S</div><div class="cadastro-count" id="pSafras">0<small>cadastradas</small></div></div>
+      <h3>Safras</h3><p>Crie safras e escolha qual será usada nos novos registros.</p>
+      <div class="btnrow"><button class="btn primary" onclick="abrirSafras()">Gerenciar</button></div>
+    </div>
+
+    <div class="cadastro-card">
+      <div class="cadastro-card-top"><div class="cadastro-icon">⌂</div><div class="cadastro-count" id="pTalhoes">0<small>cadastrados</small></div></div>
+      <h3>Talhões</h3><p>Lavouras, variedades, área e quantidade de plantas.</p>
+      <div class="btnrow"><button class="btn primary" onclick="abrirTalhao()">+ Novo</button><button class="btn secondary" onclick="irParaTalhoes()">Gerenciar</button></div>
+    </div>
+
+    <div class="cadastro-card blue">
+      <div class="cadastro-card-top"><div class="cadastro-icon">≡</div><div class="cadastro-count" id="pCategorias">0<small>categorias</small></div></div>
+      <h3>Categorias</h3><p>Receitas e despesas personalizadas do seu sítio.</p>
+      <div class="btnrow"><button class="btn primary" onclick="abrirCategorias()">Gerenciar</button></div>
+    </div>
+
+    <div class="cadastro-card coffee">
+      <div class="cadastro-card-top"><div class="cadastro-icon">P</div><div class="cadastro-count" id="pPessoas">0<small>pessoas / empresas</small></div></div>
+      <h3>Fornecedores e compradores</h3><p>Cadastre pessoas e empresas para usar nas contas e negociações.</p>
+      <div class="btnrow"><button class="btn primary" onclick="abrirPessoas()">Gerenciar</button></div>
+    </div>
+
+    <div class="cadastro-card blue">
+      <div class="cadastro-card-top"><div class="cadastro-icon">↥</div><div class="cadastro-count"><span>JSON</span><small>backup</small></div></div>
+      <h3>Dados e backup</h3><p>Faça uma cópia dos dados ou restaure um arquivo salvo.</p>
+      <div class="btnrow"><button class="btn secondary" onclick="baixarBackup()">Baixar backup</button><button class="btn secondary" onclick="document.getElementById('importBackup').click()">Importar</button></div>
+    </div>
+  </div>
+</section>
+
 </div>
 
 <nav class="bottom-nav"><div class="nav-inner">
-  <button class="navbtn active" onclick="trocarAba('resumo',this)">
-    <span class="nav-symbol">▦</span><span>Resumo</span>
-  </button>
-  <button class="navbtn" onclick="trocarAba('financeiro',this)">
-    <span class="nav-symbol">R$</span><span>Financeiro</span>
-  </button>
-  <button class="navbtn" onclick="trocarAba('producao',this)">
-    <span class="nav-symbol">☕</span><span>Colheita</span>
-  </button>
-  <button class="navbtn" onclick="trocarAba('talhoes',this)">
-    <span class="nav-symbol">⌂</span><span>Talhões</span>
-  </button>
-  <button class="navbtn" onclick="trocarAba('relatorios',this)">
-    <span class="nav-symbol">▤</span><span>Relatórios</span>
-  </button>
+  <button class="navbtn active" data-nav="resumo" onclick="trocarAba('resumo',this)"><span class="nav-symbol">▦</span><span>Resumo</span></button>
+  <button class="navbtn" data-nav="financeiro" onclick="trocarAba('financeiro',this)"><span class="nav-symbol">R$</span><span>Financeiro</span></button>
+  <button class="navbtn" data-nav="producao" onclick="trocarAba('producao',this)"><span class="nav-symbol">☕</span><span>Colheita</span></button>
+  <button class="navbtn" data-nav="relatorios" onclick="trocarAba('relatorios',this)"><span class="nav-symbol">▤</span><span>Relatórios</span></button>
+  <button class="navbtn" data-nav="perfil" onclick="trocarAba('perfil',this)"><span class="nav-symbol">●</span><span>Perfil</span></button>
 </div></nav>
 
 <div id="modalLancamento" class="modal hidden"><div class="modal-card">
@@ -1393,8 +1564,12 @@ input,select,textarea{
     <div class="field"><label>Data</label><input id="lancData" type="date"></div>
     <div class="field"><label>Valor</label><input id="lancValor" type="number" min="0" step="0.01" placeholder="0,00"></div>
     <div class="field"><label>Status</label><select id="lancStatus"><option value="pago">Pago / recebido</option><option value="pendente">Pendente</option></select></div>
+    <div class="field"><label>Vencimento</label><input id="lancVencimento" type="date"></div>
+    <div class="field"><label>Pessoa / empresa</label><select id="lancPessoa"><option value="">Não informado</option></select></div>
     <div class="field"><label>Categoria</label><select id="lancCategoria"></select></div>
     <div class="field"><label>Talhão</label><select id="lancTalhao"><option value="">Sem talhão</option></select></div><div class="field"><label>Safra</label><select id="lancSafra"></select></div>
+    <div class="field"><label>Parcela</label><input id="lancParcela" placeholder="Ex.: 1/3"></div>
+    <div class="field"><label>Documento / nota</label><input id="lancDocumento" placeholder="Opcional"></div>
   </div>
   <div class="field" style="margin-top:10px"><label>Descrição</label><input id="lancDescricao" placeholder="Ex.: adubo, mão de obra, venda de café..."></div>
   <div class="field" style="margin-top:10px"><label>Observação</label><textarea id="lancObs" placeholder="Opcional"></textarea></div>
@@ -1629,6 +1804,22 @@ input,select,textarea{
     <button class="btn secondary" onclick="fecharModal('modalExtratoColhedor')">Fechar</button>
     <button class="btn primary" id="btnPagarColhedor" onclick="pagarPendenciasColhedor()">Marcar pendências como pagas</button>
   </div>
+</div></div>
+
+
+<div id="modalPessoas" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3>Fornecedores e compradores</h3><button class="close" onclick="fecharModal('modalPessoas')">✕</button></div>
+  <input id="pessoaId" type="hidden">
+  <div class="grid2">
+    <div class="field"><label>Nome / empresa</label><input id="pessoaNome" placeholder="Nome"></div>
+    <div class="field"><label>Tipo</label><select id="pessoaTipo"><option value="fornecedor">Fornecedor</option><option value="comprador">Comprador</option><option value="ambos">Fornecedor e comprador</option></select></div>
+    <div class="field"><label>Telefone</label><input id="pessoaTelefone" placeholder="Opcional"></div>
+    <div class="field"><label>Documento</label><input id="pessoaDocumento" placeholder="CPF/CNPJ opcional"></div>
+  </div>
+  <div class="field" style="margin-top:10px"><label>Observação</label><textarea id="pessoaObs" placeholder="Opcional"></textarea></div>
+  <div class="btnrow" style="margin-top:10px"><button class="btn primary" onclick="salvarPessoa()">Salvar cadastro</button><button class="btn secondary" onclick="limparFormPessoa()">Limpar</button></div>
+  <div class="section-head" style="margin-top:15px"><div><h3 class="section-title" style="font-size:14px">Cadastrados</h3><div class="section-note">Fornecedores e compradores</div></div></div>
+  <div id="listaPessoas" class="people-list"></div>
 </div></div>
 
 <div id="toast" class="toast hidden"></div>
@@ -5133,6 +5324,136 @@ renderProducao=function(){
        Cadastre a primeira venda de café.
      </div>`;
 };
+</script>
+
+
+<script>
+/* ===== FINANCEIRO DO SÍTIO V6 ===== */
+let contasPagarExpandida=false;
+
+function garantirEstruturaV6(){
+  garantirEstruturaV4();
+  if(!Array.isArray(estado.pessoas)) estado.pessoas=[];
+}
+
+function atualizarSelectPessoas(){
+  garantirEstruturaV6();
+  let el=$("lancPessoa");
+  if(!el) return;
+  let atual=el.value||"";
+  el.innerHTML=`<option value="">Não informado</option>`+
+    estado.pessoas.slice().sort((a,b)=>(a.nome||"").localeCompare(b.nome||"","pt-BR"))
+      .map(p=>`<option value="${p.id}">${esc(p.nome)}</option>`).join("");
+  if([...el.options].some(o=>o.value===atual)) el.value=atual;
+}
+function nomePessoa(id){return estado.pessoas.find(p=>p.id===id)?.nome||""}
+
+function limparFormPessoa(){
+  $("pessoaId").value="";$("pessoaNome").value="";$("pessoaTipo").value="fornecedor";
+  $("pessoaTelefone").value="";$("pessoaDocumento").value="";$("pessoaObs").value="";
+}
+function abrirPessoas(){garantirEstruturaV6();limparFormPessoa();renderPessoas();abrirModal("modalPessoas")}
+function editarPessoa(id){
+  let p=estado.pessoas.find(x=>x.id===id);if(!p)return;
+  $("pessoaId").value=p.id;$("pessoaNome").value=p.nome||"";$("pessoaTipo").value=p.tipo||"fornecedor";
+  $("pessoaTelefone").value=p.telefone||"";$("pessoaDocumento").value=p.documento||"";$("pessoaObs").value=p.obs||"";
+}
+function salvarPessoa(){
+  let nome=$("pessoaNome").value.trim();if(!nome){toast("Informe o nome ou empresa.");return}
+  let obj={id:$("pessoaId").value||novoId(),nome,tipo:$("pessoaTipo").value,telefone:$("pessoaTelefone").value.trim(),documento:$("pessoaDocumento").value.trim(),obs:$("pessoaObs").value.trim()};
+  let i=estado.pessoas.findIndex(x=>x.id===obj.id);if(i>=0)estado.pessoas[i]=obj;else estado.pessoas.push(obj);
+  limparFormPessoa();persistir();renderPessoas();toast("Cadastro salvo.")
+}
+function excluirPessoa(id){
+  if(estado.lancamentos.some(l=>l.pessoaId===id)){toast("Essa pessoa/empresa está vinculada a lançamentos.");return}
+  if(!confirm("Excluir este cadastro?"))return;estado.pessoas=estado.pessoas.filter(x=>x.id!==id);persistir();renderPessoas()
+}
+function renderPessoas(){
+  let el=$("listaPessoas");if(!el)return;
+  let xs=estado.pessoas.slice().sort((a,b)=>(a.nome||"").localeCompare(b.nome||"","pt-BR"));
+  el.innerHTML=xs.length?xs.map(p=>`<div class="person-row"><div><strong>${esc(p.nome)}</strong><small>${p.tipo==="ambos"?"Fornecedor e comprador":p.tipo==="comprador"?"Comprador":"Fornecedor"}${p.telefone?" • "+esc(p.telefone):""}</small></div><div class="item-actions"><button class="mini-btn" onclick="editarPessoa('${p.id}')">✎</button><button class="mini-btn danger" onclick="excluirPessoa('${p.id}')">×</button></div></div>`).join(""):`<div class="empty"><strong>Nenhum cadastro</strong>Cadastre fornecedores e compradores.</div>`;
+}
+
+function atualizarSelectsSafra(){
+  garantirEstruturaV6();
+  let opcoes=estado.safras.slice().sort((a,b)=>Number(b.ano||0)-Number(a.ano||0)).map(s=>`<option value="${s.id}">${esc(s.nome)}${s.fechada?" (fechada)":""}</option>`).join("");
+  ["safraGlobal","lancSafra","apanhaSafra","loteSafra","colheitaSafraId","vendaSafra"].forEach(id=>{let el=$(id);if(!el)return;let atual=el.value||estado.safraAtivaId;el.innerHTML=opcoes;if([...el.options].some(o=>o.value===atual))el.value=atual;else el.value=estado.safraAtivaId});
+  let todos=`<option value="todos">Todas as safras</option>`+opcoes;
+  let f=$("fSafra");if(f){let atual=f.dataset.inicializadoV6==="1"?f.value:"todos";f.innerHTML=todos;f.value=[...f.options].some(o=>o.value===atual)?atual:"todos";f.dataset.inicializadoV6="1"}
+  let r=$("relSafra");if(r){let atual=r.dataset.inicializadoV6==="1"?r.value:"todos";r.innerHTML=todos;r.value=[...r.options].some(o=>o.value===atual)?atual:"todos";r.dataset.inicializadoV6="1"}
+  let ativa=safraAtiva();if($("safraAtivaNome"))$("safraAtivaNome").textContent=ativa.nome;if($("safraGlobal"))$("safraGlobal").value=ativa.id;
+}
+function trocarSafraAtiva(id){
+  garantirEstruturaV6();if(!estado.safras.some(s=>s.id===id))return;estado.safraAtivaId=id;persistir();toast("Safra ativa alterada. Contas e estoque geral continuam visíveis.")
+}
+
+function estoqueTotalGeral(){
+  let produzido=estado.colheitas.reduce((s,c)=>s+Number(c.sacas||0),0);
+  let vendido=estado.vendas.reduce((s,v)=>s+Number(v.sacas||0),0);
+  return Math.max(0,produzido-vendido)
+}
+
+function renderResumo(){
+  garantirEstruturaV6();atualizarSelectsSafra();
+  let geral=calcResumo(estado.lancamentos,estado.colheitas);
+  let ds=dadosSafra(estado.safraAtivaId);
+  $("mSaldo").textContent=moeda(geral.saldo);$("mReceitas").textContent=moeda(geral.receitas);$("mDespesas").textContent=moeda(geral.despesas);$("mReceber").textContent=moeda(geral.receber);$("mPagar").textContent=moeda(geral.pagar);$("mProducao").textContent=num(ds.produzido)+" sc";
+  $("iEstoque").textContent=num(estoqueTotalGeral())+" sc";$("iCustoSaca").textContent=moeda(ds.custoSaca);$("iPrecoMedio").textContent=moeda(ds.precoMedio);$("iMargemSaca").textContent=moeda(ds.margemSaca);
+  let xs=[...estado.lancamentos].sort((a,b)=>(b.data||"").localeCompare(a.data||"")).slice(0,6);
+  $("ultimosLancamentos").innerHTML=xs.length?xs.map(renderItemLancamento).join(""):`<div class="empty"><strong>Nenhuma movimentação</strong>Registre sua primeira receita ou despesa.</div>`;
+}
+
+function dataLocalISO(d){return new Date(d+"T12:00:00")}
+function diasAte(data){if(!data)return null;let h=dataLocalISO(hoje()),v=dataLocalISO(data);return Math.round((v-h)/86400000)}
+function classeVencimento(x){let d=diasAte(x.vencimento);if(d===null)return{row:"",badge:"due-none",texto:"Sem vencimento"};if(d<0)return{row:"overdue",badge:"due-overdue",texto:`Vencida há ${Math.abs(d)} dia${Math.abs(d)===1?"":"s"}`};if(d===0)return{row:"today",badge:"due-today",texto:"Vence hoje"};if(d<=7)return{row:"soon",badge:"due-soon",texto:`Vence em ${d} dia${d===1?"":"s"}`};return{row:"future",badge:"due-future",texto:dataBR(x.vencimento)}}
+function contasPendentes(){return estado.lancamentos.filter(x=>x.tipo==="despesa"&&x.status==="pendente")}
+function ordenarContas(xs){return xs.slice().sort((a,b)=>{let ad=a.vencimento||"9999-99-99",bd=b.vencimento||"9999-99-99";let c=ad.localeCompare(bd);return c!==0?c:(a.data||"").localeCompare(b.data||"")})}
+function renderContasPagar(){
+  if(!$("listaContasPagar"))return;
+  let xs=ordenarContas(contasPendentes());let total=xs.reduce((s,x)=>s+Number(x.valor||0),0),vencido=xs.filter(x=>{let d=diasAte(x.vencimento);return d!==null&&d<0}).reduce((s,x)=>s+Number(x.valor||0),0),sete=xs.filter(x=>{let d=diasAte(x.vencimento);return d!==null&&d>=0&&d<=7}).reduce((s,x)=>s+Number(x.valor||0),0);
+  $("cpTotal").textContent=moeda(total);$("cpVencido").textContent=moeda(vencido);$("cp7Dias").textContent=moeda(sete);$("cpQtd").textContent=xs.length;
+  let vis=contasPagarExpandida?xs:xs.slice(0,6);$("btnTodasContas").textContent=contasPagarExpandida?"Mostrar menos":`Ver todas${xs.length>6?" ("+xs.length+")":""}`;$("btnTodasContas").classList.toggle("hidden",xs.length<=6);
+  $("listaContasPagar").innerHTML=vis.length?vis.map(x=>{let st=classeVencimento(x),p=nomePessoa(x.pessoaId);return`<div class="account-row ${st.row}"><span class="account-dot"></span><div class="account-main"><strong>${esc(x.descricao)} <span class="due-badge ${st.badge}">${esc(st.texto)}</span></strong><small>${esc(x.categoria)}${p?" • "+esc(p):""}${x.parcela?" • Parcela "+esc(x.parcela):""} • ${esc(nomeSafra(x.safraId))}</small></div><div class="account-side"><strong>${moeda(x.valor)}</strong><div class="item-actions"><button class="mini-btn" title="Marcar como pago" onclick="marcarContaPaga('${x.id}')">✓</button><button class="mini-btn" onclick="abrirLancamento('despesa','${x.id}')">✎</button></div></div></div>`}).join(""):`<div class="empty"><strong>Nenhuma conta a pagar</strong>As despesas pendentes aparecerão aqui.</div>`;
+}
+function alternarTodasContasPagar(){contasPagarExpandida=!contasPagarExpandida;renderContasPagar()}
+function marcarContaPaga(id){
+  let x=estado.lancamentos.find(l=>l.id===id);if(!x)return;if(!confirm(`Marcar ${moeda(x.valor)} como pago?`))return;x.status="pago";x.dataPagamento=hoje();if(x.apanhaId){let a=estado.apanhas.find(a=>a.id===x.apanhaId);if(a)a.status="pago"}persistir();toast("Conta marcada como paga.")
+}
+
+function abrirLancamento(tipo="receita",id=""){
+  garantirEstruturaV6();atualizarSelectsTalhao();atualizarSelectsSafra();atualizarSelectPessoas();$("lancId").value=id;
+  if(id){let x=estado.lancamentos.find(v=>v.id===id);if(!x)return;$("tituloLancamento").textContent="Editar lançamento";$("lancTipo").value=x.tipo;atualizarCategoriasLancamento();$("lancData").value=x.data;$("lancValor").value=x.valor;$("lancStatus").value=x.status;$("lancVencimento").value=x.vencimento||"";$("lancPessoa").value=x.pessoaId||"";$("lancCategoria").value=x.categoria;$("lancTalhao").value=x.talhaoId||"";$("lancSafra").value=x.safraId||estado.safraAtivaId;$("lancParcela").value=x.parcela||"";$("lancDocumento").value=x.documento||"";$("lancDescricao").value=x.descricao||"";$("lancObs").value=x.obs||""}
+  else{$("tituloLancamento").textContent="Novo lançamento";$("lancTipo").value=tipo;atualizarCategoriasLancamento();$("lancData").value=hoje();$("lancValor").value="";$("lancStatus").value="pago";$("lancVencimento").value="";$("lancPessoa").value="";$("lancTalhao").value="";$("lancSafra").value=estado.safraAtivaId;$("lancParcela").value="";$("lancDocumento").value="";$("lancDescricao").value="";$("lancObs").value=""}
+  abrirModal("modalLancamento")
+}
+function salvarLancamento(){
+  let valor=Number($("lancValor").value||0);if(valor<=0){toast("Informe um valor maior que zero.");return}if(!$("lancDescricao").value.trim()){toast("Informe a descrição.");return}
+  let antigo=estado.lancamentos.find(x=>x.id===$("lancId").value);let obj={id:$("lancId").value||novoId(),tipo:$("lancTipo").value,data:$("lancData").value||hoje(),valor,status:$("lancStatus").value,vencimento:$("lancVencimento").value||"",pessoaId:$("lancPessoa").value||"",categoria:$("lancCategoria").value,talhaoId:$("lancTalhao").value||"",safraId:$("lancSafra").value||estado.safraAtivaId,parcela:$("lancParcela").value.trim(),documento:$("lancDocumento").value.trim(),descricao:$("lancDescricao").value.trim(),obs:$("lancObs").value.trim()};
+  if(antigo?.vendaId)obj.vendaId=antigo.vendaId;if(antigo?.apanhaId)obj.apanhaId=antigo.apanhaId;if(antigo?.dataPagamento)obj.dataPagamento=antigo.dataPagamento;
+  let i=estado.lancamentos.findIndex(x=>x.id===obj.id);if(i>=0)estado.lancamentos[i]=obj;else estado.lancamentos.push(obj);fecharModal("modalLancamento");persistir();toast("Lançamento salvo.")
+}
+function renderItemLancamento(x){
+  let r=x.tipo==="receita",p=nomePessoa(x.pessoaId),v=x.status==="pendente"&&x.vencimento?` • Vence ${dataBR(x.vencimento)}`:"";
+  return`<div class="item"><div class="item-icon ${r?"":"red"}">${r?"＋":"−"}</div><div class="item-main"><strong>${esc(x.descricao)}</strong><div class="item-meta">${dataBR(x.data)} • ${esc(x.categoria)}${p?" • "+esc(p):""}${x.talhaoId?" • "+esc(nomeTalhao(x.talhaoId)):""}${v} • ${x.status==="pago"?(r?"Recebido":"Pago"):"Pendente"}</div></div><div class="item-value"><strong style="color:${r?"var(--green)":"var(--red)"}">${r?"+":"-"} ${moeda(x.valor)}</strong><div class="item-actions">${!r&&x.status==="pendente"?`<button class="mini-btn" title="Pagar" onclick="marcarContaPaga('${x.id}')">✓</button>`:""}<button class="mini-btn" onclick="abrirLancamento('${x.tipo}','${x.id}')">✎</button><button class="mini-btn danger" onclick="excluirLancamento('${x.id}')">×</button></div></div></div>`
+}
+function renderFinanceiro(){
+  garantirEstruturaV6();atualizarSelectsTalhao();atualizarSelectsSafra();atualizarFiltroCategorias();atualizarSelectPessoas();renderContasPagar();let xs=[...estado.lancamentos],q=$("fBusca").value.trim().toLowerCase();if(q)xs=xs.filter(x=>((x.descricao||"")+" "+(x.categoria||"")+" "+(x.obs||"")+" "+nomePessoa(x.pessoaId)).toLowerCase().includes(q));if($("fTipo").value!=="todos")xs=xs.filter(x=>x.tipo===$("fTipo").value);if($("fStatus").value!=="todos")xs=xs.filter(x=>x.status===$("fStatus").value);if($("fTalhao").value!=="todos")xs=xs.filter(x=>x.talhaoId===$("fTalhao").value);if($("fSafra")&&$("fSafra").value!=="todos")xs=xs.filter(x=>x.safraId===$("fSafra").value);if($("fCategoria")&&$("fCategoria").value!=="todos")xs=xs.filter(x=>x.categoria===$("fCategoria").value);xs.sort((a,b)=>(b.data||"").localeCompare(a.data||""));$("listaFinanceiro").innerHTML=xs.length?xs.map(renderItemLancamento).join(""):`<div class="empty"><strong>Nenhum lançamento encontrado</strong>Ajuste os filtros ou crie um novo lançamento.</div>`
+}
+
+function renderPerfil(){
+  garantirEstruturaV6();let email=usuarioAtual?.email||"Usuário";$("perfilEmail").textContent=email;$("perfilAvatar").textContent=email.charAt(0).toUpperCase();$("perfilSafra").textContent=safraAtiva().nome;$("pColhedores").innerHTML=`${estado.trabalhadores.length}<small>cadastrados</small>`;$("pSafras").innerHTML=`${estado.safras.length}<small>cadastradas</small>`;$("pTalhoes").innerHTML=`${estado.talhoes.length}<small>cadastrados</small>`;$("pCategorias").innerHTML=`${(estado.categorias.receita||[]).length+(estado.categorias.despesa||[]).length}<small>categorias</small>`;$("pPessoas").innerHTML=`${estado.pessoas.length}<small>pessoas / empresas</small>`
+}
+function irParaTalhoes(){trocarAba("talhoes",document.querySelector('[data-nav="perfil"]'))}
+function voltarPerfil(){trocarAba("perfil",document.querySelector('[data-nav="perfil"]'))}
+function irParaColhedores(){trocarAba("producao",document.querySelector('[data-nav="producao"]'));setTimeout(()=>document.getElementById("sec-colhedores")?.scrollIntoView({behavior:"smooth",block:"start"}),100)}
+const trocarAbaV6Base=trocarAba;trocarAba=function(nome,btn){trocarAbaV6Base(nome,btn);if(nome==="perfil")renderPerfil();if(nome==="financeiro")renderContasPagar()}
+
+const setUsuarioV6=window.appBridge.setUsuario;window.appBridge.setUsuario=function(u){setUsuarioV6(u);setTimeout(()=>{if($("perfilEmail"))renderPerfil()},0)};
+window.appBridge.setEstado=function(n){suspendSync=true;try{estado={lancamentos:Array.isArray(n?.lancamentos)?n.lancamentos:[],talhoes:Array.isArray(n?.talhoes)?n.talhoes:[],colheitas:Array.isArray(n?.colheitas)?n.colheitas:[],vendas:Array.isArray(n?.vendas)?n.vendas:[],trabalhadores:Array.isArray(n?.trabalhadores)?n.trabalhadores:[],apanhas:Array.isArray(n?.apanhas)?n.apanhas:[],lotes:Array.isArray(n?.lotes)?n.lotes:[],safras:Array.isArray(n?.safras)?n.safras:[],safraAtivaId:n?.safraAtivaId||"",categorias:n?.categorias&&typeof n.categorias==="object"?n.categorias:{receita:[],despesa:[]},pessoas:Array.isArray(n?.pessoas)?n.pessoas:[]};garantirEstruturaV6();migrarLotesAntigos();salvarLocal();renderTudo()}finally{suspendSync=false}};
+window.appBridge.getEstado=function(){garantirEstruturaV6();return structuredClone(estado)};
+window.appBridge.limparUsuario=function(){usuarioAtual=null;estado={lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[],safras:[],safraAtivaId:"",categorias:{receita:[],despesa:[]},pessoas:[]};garantirEstruturaV6();$("authScreen").classList.remove("hidden");renderTudo()};
+
+renderTudo=function(){garantirEstruturaV6();migrarLotesAntigos();atualizarSelectsTalhao();atualizarSelectsTrabalhadores();atualizarSelectsSafra();atualizarFiltroCategorias();atualizarSelectPessoas();renderResumo();renderFinanceiro();renderProducao();renderTalhoes();renderRelatorios();if($("tab-perfil")&&!$("tab-perfil").classList.contains("hidden"))renderPerfil()};
 </script>
 
 <script type="module">

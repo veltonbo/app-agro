@@ -1,0 +1,43 @@
+FINANCEIRO DO SÍTIO - V6
+
+PRINCIPAIS MUDANÇAS
+
+1. PERFIL E CADASTROS
+- Nova aba Perfil.
+- Cadastros centralizados: Colhedores, Safras, Talhões, Categorias, Fornecedores/Compradores e Backup.
+- Talhões saíram da barra inferior e passam a ser gerenciados pelo Perfil, deixando a navegação mais organizada.
+
+2. SAFRA NÃO ESCONDE INFORMAÇÕES GERAIS
+- Saldo, receitas, despesas, contas a receber e contas a pagar do painel são gerais.
+- Estoque de café no painel é o estoque total de todas as safras.
+- A safra ativa serve principalmente para organizar novos registros e análises por safra.
+- O Financeiro abre mostrando Todas as Safras por padrão; o usuário filtra uma safra somente quando quiser.
+
+3. CONTAS A PAGAR MELHORADO
+- Painel próprio dentro do Financeiro.
+- Total pendente.
+- Total vencido.
+- Contas dos próximos 7 dias.
+- Quantidade de contas.
+- Ordenação por vencimento.
+- Indicação visual: vencida, vence hoje, próxima e futura.
+- Botão para marcar como paga.
+- As contas aparecem independentemente da safra ativa.
+
+4. NOVOS CAMPOS FINANCEIROS
+- Vencimento.
+- Pessoa/empresa.
+- Parcela (ex.: 1/3).
+- Documento/nota.
+- Safra continua disponível para classificação.
+
+5. FORNECEDORES E COMPRADORES
+- Novo cadastro de pessoas/empresas no Perfil.
+- Tipo: Fornecedor, Comprador ou Ambos.
+- Telefone, CPF/CNPJ opcional e observação.
+- Pode ser vinculado aos lançamentos financeiros.
+
+COMPATIBILIDADE
+- Mantém Firebase, login, safras, colheita, secador, estoque, vendas, relatórios e dados anteriores.
+- Registros antigos sem vencimento continuam funcionando e aparecem como Sem vencimento quando pendentes.
+- Regras atuais do Firebase continuam válidas.
