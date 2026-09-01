@@ -1,0 +1,62 @@
+FINANCEIRO DO SÍTIO - V5
+
+Esta versão reorganiza a interface sem remover as funções da V4.
+
+MELHORIAS DE APARÊNCIA
+- Visual mais sóbrio e profissional.
+- Melhor hierarquia de títulos, cartões, botões e informações.
+- Espaçamentos reduzidos e melhor aproveitamento da tela do celular.
+- Cabeçalho e navegação inferior mais limpos.
+- Cards financeiros e produtivos mais compactos.
+- Modais e formulários refinados.
+- Melhor contraste entre informações principais e secundárias.
+
+ORGANIZAÇÃO DO SISTEMA
+
+RESUMO
+- Painel da safra.
+- Safra ativa logo no topo.
+- Financeiro principal.
+- Estoque, custo real por saca, preço médio e margem.
+- Ações rápidas.
+- Últimas movimentações.
+
+FINANCEIRO
+- Cabeçalho próprio da área.
+- Ações separadas para Receita, Despesa e Categorias.
+- Filtros reunidos em um painel único.
+- Lista de lançamentos separada visualmente.
+
+COLHEITA
+- Fluxo organizado do latão até a saca:
+  1. Colhedores
+  2. Latões
+  3. Secador
+  4. Produção final
+- Atalhos principais no topo.
+- Indicadores mais compactos.
+
+TALHÕES
+- Cabeçalho exclusivo.
+- Cadastro de talhão em destaque.
+- Cards mais limpos e organizados.
+
+RELATÓRIOS
+- Área de análise com cabeçalho próprio.
+- Acesso rápido a PDF e CSV.
+- Filtros mais claros.
+- Indicadores financeiros, safra, colheita e colhedores mantidos.
+
+FUNCIONALIDADES MANTIDAS
+- Login e Firebase.
+- Dados separados por usuário.
+- Safras.
+- Categorias personalizáveis.
+- Estoque de sacas.
+- Custo real por saca.
+- Conta dos colhedores.
+- Colheita por latão.
+- Secador por quantidade de latões.
+- Talhões.
+- Vendas.
+- Backup e relatórios.

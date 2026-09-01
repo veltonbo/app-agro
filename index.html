@@ -365,6 +365,639 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}.app{wi
   .report-safra-grid{grid-template-columns:1fr 1fr}
 }
 
+
+/* ===== V5 - INTERFACE PROFISSIONAL E ORGANIZADA ===== */
+:root{
+  --bg:#F3F5F1;
+  --surface:#FFFFFF;
+  --surface2:#F7F9F6;
+  --text:#172019;
+  --muted:#78847C;
+  --line:#E1E7E2;
+  --green:#22663A;
+  --green2:#123B24;
+  --soft:#E8F1EA;
+  --coffee:#80633E;
+  --coffee-soft:#F3EEE7;
+  --blue:#385E75;
+  --blueSoft:#EDF3F6;
+  --amber:#9C6A28;
+  --amberSoft:#FFF5E8;
+  --red:#A7463E;
+  --redSoft:#FFF1EF;
+  --shadow-sm:0 2px 8px rgba(25,49,31,.04);
+  --shadow:0 10px 30px rgba(25,49,31,.07);
+  --shadow-lg:0 20px 55px rgba(18,59,36,.12);
+  --radius:18px;
+}
+
+body{
+  background:
+    radial-gradient(circle at 7% -4%,rgba(34,102,58,.08),transparent 24%),
+    linear-gradient(180deg,#FAFBF9 0%,#F3F5F1 45%,#EEF2EE 100%);
+  color:var(--text);
+}
+
+.app{
+  width:min(1160px,100%);
+  padding:16px 20px 30px;
+}
+
+.topbar{
+  margin:0 -20px 18px;
+  padding:10px 20px;
+  background:rgba(250,251,249,.93);
+  border-bottom:1px solid rgba(225,231,226,.92);
+  box-shadow:0 4px 18px rgba(25,49,31,.035);
+}
+
+.brand-mark{
+  width:41px;
+  height:41px;
+  border-radius:13px;
+  background:linear-gradient(145deg,#276E40,#153F27);
+  box-shadow:0 8px 19px rgba(34,102,58,.16)
+}
+
+h1{
+  font-size:clamp(21px,2.8vw,28px);
+  letter-spacing:-.035em
+}
+
+.sub{
+  color:#7F8A82;
+  font-size:9.5px
+}
+
+.user-badge{
+  height:38px;
+  border-radius:12px;
+  box-shadow:var(--shadow-sm);
+  border-color:#E1E7E2
+}
+
+.icon-btn{
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  box-shadow:var(--shadow-sm)
+}
+
+/* Page / module headers */
+.module-head{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:14px;
+  padding:17px 18px;
+  border:1px solid #DDE5DF;
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 92% 0%,rgba(34,102,58,.08),transparent 30%),
+    #FFFFFF;
+  box-shadow:var(--shadow)
+}
+.module-head-copy{min-width:0}
+.module-kicker{
+  display:block;
+  margin-bottom:4px;
+  color:var(--green);
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase
+}
+.module-head h2{
+  margin:0;
+  font-size:21px;
+  letter-spacing:-.035em
+}
+.module-head p{
+  margin:5px 0 0;
+  max-width:620px;
+  color:var(--muted);
+  font-size:10.5px;
+  line-height:1.45
+}
+.module-head-actions{
+  display:flex;
+  gap:7px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end
+}
+
+/* Main hero */
+.hero{
+  padding:21px 22px;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 92% -4%,rgba(255,255,255,.12),transparent 30%),
+    linear-gradient(135deg,#123B24 0%,#1B5732 58%,#256B40 100%);
+  box-shadow:0 17px 42px rgba(18,59,36,.16);
+  margin-bottom:12px
+}
+.hero h2{
+  font-size:clamp(22px,3vw,30px)
+}
+.hero p{
+  max-width:620px;
+  font-size:11px
+}
+.sync-pill{
+  min-width:175px;
+  border-radius:14px;
+  padding:9px 11px
+}
+
+/* Season */
+.safra-bar{
+  padding:9px 10px;
+  margin-bottom:10px;
+  border-radius:14px;
+  box-shadow:var(--shadow-sm)
+}
+.safra-mark{
+  width:31px;
+  height:31px;
+  border-radius:9px;
+  background:var(--coffee-soft);
+  color:var(--coffee)
+}
+.safra-actions select{
+  background:#FCFDFC
+}
+
+/* Dashboard metrics */
+.summary{
+  gap:9px;
+  margin-bottom:12px
+}
+.metric{
+  min-height:108px;
+  padding:13px 14px;
+  border-radius:16px;
+  box-shadow:var(--shadow-sm);
+  transition:.18s ease
+}
+.metric:hover{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow)
+}
+.metric-icon{
+  width:27px;
+  height:27px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:900
+}
+.metric-label{
+  font-size:7.5px
+}
+.metric-value{
+  margin-top:12px;
+  font-size:23px
+}
+.metric-note{
+  margin-top:5px
+}
+
+.safra-insights{
+  gap:9px;
+  margin:0 0 21px
+}
+.insight{
+  min-height:96px;
+  padding:12px 13px;
+  border-radius:16px;
+  box-shadow:var(--shadow-sm)
+}
+.insight strong{
+  margin-top:9px;
+  font-size:20px
+}
+
+/* Section structure */
+.section-head{
+  margin:21px 0 9px
+}
+.section-title{
+  font-size:15.5px
+}
+.section-note{
+  font-size:9px
+}
+
+.panel{
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:#fff;
+  box-shadow:var(--shadow-sm)
+}
+
+.card{
+  border-color:#E1E7E2;
+  border-radius:16px;
+  box-shadow:var(--shadow-sm)
+}
+
+.card:hover{
+  border-color:#D6E1D8
+}
+
+/* Quick actions */
+.quick{
+  gap:9px
+}
+.quick-btn{
+  min-height:76px;
+  padding:11px 13px;
+  border-radius:15px;
+  box-shadow:var(--shadow-sm);
+  transition:.18s ease
+}
+.quick-btn:hover{
+  transform:translateY(-1px);
+  border-color:#D3DDD5;
+  box-shadow:var(--shadow)
+}
+.qicon{
+  width:39px;
+  height:39px;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:900
+}
+.quick-btn strong{
+  font-size:13px
+}
+.quick-btn small{
+  font-size:9px
+}
+
+/* Financial */
+.finance-actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:10px
+}
+.finance-action{
+  min-height:67px;
+  padding:10px 11px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-align:left;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+  color:var(--text);
+  box-shadow:var(--shadow-sm)
+}
+.finance-action-icon{
+  width:35px;height:35px;border-radius:11px;
+  display:grid;place-items:center;flex:0 0 auto;
+  background:var(--soft);color:var(--green);font-weight:900
+}
+.finance-action.red .finance-action-icon{
+  background:var(--redSoft);color:var(--red)
+}
+.finance-action.coffee .finance-action-icon{
+  background:var(--coffee-soft);color:var(--coffee)
+}
+.finance-action strong{display:block;font-size:11.5px}
+.finance-action small{display:block;margin-top:2px;font-size:8.5px;color:var(--muted)}
+
+.filter-panel{
+  padding:11px;
+  margin-bottom:10px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:#F9FBF9
+}
+.filter-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px
+}
+.filter-title strong{
+  font-size:10px;
+  color:#48564C
+}
+.filter-title small{
+  color:var(--muted);
+  font-size:8.5px
+}
+.toolbar{
+  gap:7px;
+  margin:0
+}
+.toolbar input,.toolbar select{
+  min-height:41px;
+  border-radius:11px;
+  background:#fff;
+  font-size:10px
+}
+
+/* Harvest */
+.harvest-summary{
+  gap:8px
+}
+.harvest-kpi{
+  min-height:82px;
+  padding:10px;
+  border-radius:13px;
+  box-shadow:var(--shadow-sm)
+}
+.harvest-kpi strong{
+  font-size:15px
+}
+.harvest-flow{
+  gap:7px;
+  margin:11px 0 16px
+}
+.flow-step{
+  min-height:56px;
+  border-radius:12px;
+  padding:8px 9px
+}
+.flow-number{
+  width:25px;height:25px;border-radius:8px
+}
+.process-section{
+  padding-top:2px
+}
+.process-title{
+  gap:8px
+}
+.process-badge{
+  width:27px;height:27px;border-radius:8px
+}
+.process-copy h3{
+  font-size:14.5px
+}
+.info-box{
+  border-radius:11px;
+  background:#F5F8F5
+}
+
+.worker-card-v4,.lote-card,.talhao-card{
+  border-radius:15px;
+  box-shadow:var(--shadow-sm)
+}
+.worker-kpis,.stats,.lote-stats{
+  gap:6px
+}
+.stat,.lote-stat{
+  background:#F9FAF9
+}
+
+/* Talhões */
+.grid3{
+  gap:10px
+}
+.talhao-card{
+  position:relative;
+  overflow:hidden
+}
+.talhao-card::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,#22663A,#80A58C)
+}
+.talhao-title{
+  font-size:15px
+}
+.pill{
+  border:1px solid #DCE8DF
+}
+
+/* Lists */
+.item{
+  padding:11px 12px;
+  grid-template-columns:39px 1fr auto;
+  gap:10px
+}
+.item-icon{
+  width:33px;height:33px;border-radius:10px
+}
+.item-main strong{
+  font-size:12px
+}
+.item-meta{
+  font-size:9px
+}
+.item-value strong{
+  font-size:12px
+}
+.mini-btn{
+  width:28px;height:28px;border-radius:8px
+}
+
+/* Report */
+.report-hero{
+  padding:18px;
+  border-radius:20px;
+  box-shadow:0 13px 32px rgba(18,59,36,.15)
+}
+.report-hero h2{
+  font-size:20px
+}
+.report-kpis{
+  gap:7px
+}
+.report-kpi{
+  padding:9px
+}
+.report-kpi strong{
+  font-size:17px
+}
+.report-safra-grid,.report-harvest{
+  gap:7px
+}
+
+/* Forms/buttons */
+.btn{
+  min-height:39px;
+  padding:8px 11px;
+  border-radius:11px;
+  font-size:10px
+}
+.btn.primary{
+  background:linear-gradient(145deg,#266E42,#1A5432);
+  box-shadow:0 5px 14px rgba(34,102,58,.13)
+}
+.btn.secondary{
+  background:#fff
+}
+input,select,textarea{
+  min-height:43px;
+  border-radius:11px;
+  font-size:11px
+}
+.field label{
+  font-size:8px
+}
+
+/* Modals */
+.modal{
+  background:rgba(15,28,19,.50)
+}
+.modal-card{
+  border-radius:23px 23px 0 0;
+  box-shadow:0 -20px 55px rgba(18,40,26,.16)
+}
+.modal-head{
+  padding-bottom:9px;
+  border-bottom:1px solid #EDF1ED;
+  margin-bottom:13px
+}
+.modal-head h3{
+  font-size:17px
+}
+
+/* Auth */
+.auth-card{
+  border-radius:22px;
+  box-shadow:0 24px 65px rgba(18,59,36,.13)
+}
+.auth-logo{
+  background:linear-gradient(145deg,#276E40,#153F27)
+}
+.auth-title{
+  font-size:22px
+}
+
+/* Bottom navigation */
+.bottom-nav{
+  padding:7px 10px calc(7px + env(safe-area-inset-bottom));
+  background:rgba(248,250,248,.94);
+  box-shadow:0 -8px 28px rgba(25,49,31,.055)
+}
+.nav-inner{
+  max-width:720px;
+  border-radius:17px;
+  gap:2px;
+  padding:4px;
+  border-color:#E1E7E2;
+  box-shadow:var(--shadow-sm)
+}
+.navbtn{
+  min-height:48px;
+  border-radius:12px;
+  gap:4px;
+  font-size:14px
+}
+.navbtn span{
+  font-size:8.5px
+}
+.navbtn.active{
+  color:#17472C;
+  background:#E7F0E9;
+  box-shadow:inset 0 0 0 1px #D7E6DA
+}
+.nav-symbol{
+  display:grid;
+  place-items:center;
+  height:18px;
+  font-size:15px;
+  font-weight:800
+}
+
+/* Small top separators */
+.content-divider{
+  height:1px;
+  background:#E7ECE8;
+  margin:4px 0 2px
+}
+
+@media(min-width:900px){
+  .app{padding-bottom:95px}
+  .module-head{padding:18px 20px}
+}
+
+@media(max-width:720px){
+  .app{padding:12px 11px 22px}
+  .topbar{margin:0 -11px 13px;padding:9px 11px}
+  .brand-mark{width:37px;height:37px;border-radius:11px}
+  h1{font-size:19px}
+
+  .module-head{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:14px;
+    border-radius:17px
+  }
+  .module-head h2{font-size:19px}
+  .module-head-actions{width:100%;justify-content:flex-start}
+
+  .hero{
+    padding:16px;
+    border-radius:18px
+  }
+  .hero h2{font-size:22px}
+
+  .summary{
+    grid-template-columns:repeat(2,1fr)
+  }
+  .metric{
+    min-height:96px;
+    padding:11px
+  }
+  .metric.primary{grid-column:1/-1}
+  .metric-value{font-size:21px}
+
+  .safra-insights{
+    grid-template-columns:1fr 1fr
+  }
+  .insight{
+    min-height:90px
+  }
+  .insight strong{font-size:17px}
+
+  .finance-actions{
+    grid-template-columns:1fr 1fr
+  }
+  .finance-action:last-child{
+    grid-column:1/-1
+  }
+
+  .filter-panel{
+    padding:9px
+  }
+
+  .quick{
+    grid-template-columns:1fr 1fr
+  }
+
+  .navbtn{
+    flex-direction:column;
+    min-height:46px;
+    gap:1px
+  }
+
+  .nav-symbol{
+    height:16px
+  }
+
+  .user-badge{max-width:105px}
+}
+
+@media(max-width:390px){
+  .quick{grid-template-columns:1fr}
+  .finance-actions{grid-template-columns:1fr}
+  .finance-action:last-child{grid-column:auto}
+  .safra-insights{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -393,13 +1026,13 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}.app{wi
 
 <div class="app">
 <header class="topbar"><div class="topbar-inner">
-  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><h1>Financeiro do Sítio</h1><div class="sub">Gestão financeira e produção de café Conilon</div></div></div>
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><h1>Financeiro do Sítio</h1><div class="sub">Gestão financeira • Café Conilon</div></div></div>
   <div class="user-menu"><div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
 </div></header>
 
 <section id="tab-resumo">
   <div class="hero">
-    <div><div class="eyebrow">PAINEL FINANCEIRO</div><h2>Visão geral do sítio</h2><p>Acompanhe receitas, despesas, contas pendentes, produção e vendas do café.</p></div>
+    <div><div class="eyebrow">PAINEL FINANCEIRO</div><h2>Painel da safra</h2><p>Uma visão rápida do dinheiro, da colheita, do estoque e do resultado da safra.</p></div>
     <div class="sync-pill" id="syncPill"><span class="sync-dot"></span><div><small>Firebase</small><strong id="syncStatus">Conectando...</strong></div></div>
   </div>
 
@@ -463,23 +1096,90 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}.app{wi
 </section>
 
 <section id="tab-financeiro" class="hidden">
-  <div class="section-head"><div><h3 class="section-title">Financeiro</h3><div class="section-note">Receitas, despesas e contas pendentes</div></div><div class="btnrow"><button class="btn secondary" onclick="abrirCategorias()">Categorias</button><button class="btn primary" onclick="abrirLancamento('receita')">+ Lançamento</button></div></div>
-  <div class="toolbar">
-    <input id="fBusca" placeholder="Buscar descrição..." oninput="renderFinanceiro()">
-    <select id="fTipo" onchange="renderFinanceiro()"><option value="todos">Receitas e despesas</option><option value="receita">Somente receitas</option><option value="despesa">Somente despesas</option></select>
-    <select id="fStatus" onchange="renderFinanceiro()"><option value="todos">Todos os status</option><option value="pago">Pagos/recebidos</option><option value="pendente">Pendentes</option></select>
-    <select id="fTalhao" onchange="renderFinanceiro()"><option value="todos">Todos os talhões</option></select>
-    <select id="fSafra" onchange="renderFinanceiro()"><option value="todos">Todas as safras</option></select>
-    <select id="fCategoria" onchange="renderFinanceiro()"><option value="todos">Todas as categorias</option></select>
+  <div class="module-head">
+    <div class="module-head-copy">
+      <span class="module-kicker">GESTÃO FINANCEIRA</span>
+      <h2>Movimentações do sítio</h2>
+      <p>Controle receitas, despesas, pagamentos pendentes, categorias e custos de cada safra.</p>
+    </div>
+    <div class="module-head-actions">
+      <button class="btn secondary" onclick="abrirCategorias()">Categorias</button>
+      <button class="btn primary" onclick="abrirLancamento('receita')">+ Lançamento</button>
+    </div>
   </div>
+
+  <div class="finance-actions">
+    <button class="finance-action" onclick="abrirLancamento('receita')">
+      <span class="finance-action-icon">＋</span>
+      <span><strong>Nova receita</strong><small>Venda ou outra entrada</small></span>
+    </button>
+
+    <button class="finance-action red" onclick="abrirLancamento('despesa')">
+      <span class="finance-action-icon">−</span>
+      <span><strong>Nova despesa</strong><small>Custo ou conta do sítio</small></span>
+    </button>
+
+    <button class="finance-action coffee" onclick="abrirCategorias()">
+      <span class="finance-action-icon">≡</span>
+      <span><strong>Categorias</strong><small>Organize receitas e despesas</small></span>
+    </button>
+  </div>
+
+  <div class="filter-panel">
+    <div class="filter-title">
+      <strong>Filtros das movimentações</strong>
+      <small>Combine os filtros para localizar lançamentos</small>
+    </div>
+
+    <div class="toolbar">
+      <input id="fBusca" placeholder="Buscar descrição..." oninput="renderFinanceiro()">
+
+      <select id="fTipo" onchange="renderFinanceiro()">
+        <option value="todos">Receitas e despesas</option>
+        <option value="receita">Somente receitas</option>
+        <option value="despesa">Somente despesas</option>
+      </select>
+
+      <select id="fStatus" onchange="renderFinanceiro()">
+        <option value="todos">Todos os status</option>
+        <option value="pago">Pagos/recebidos</option>
+        <option value="pendente">Pendentes</option>
+      </select>
+
+      <select id="fTalhao" onchange="renderFinanceiro()">
+        <option value="todos">Todos os talhões</option>
+      </select>
+
+      <select id="fSafra" onchange="renderFinanceiro()">
+        <option value="todos">Todas as safras</option>
+      </select>
+
+      <select id="fCategoria" onchange="renderFinanceiro()">
+        <option value="todos">Todas as categorias</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div>
+      <h3 class="section-title">Lançamentos</h3>
+      <div class="section-note">Mais recentes primeiro</div>
+    </div>
+  </div>
+
   <div id="listaFinanceiro" class="card list"></div>
 </section>
 
 <section id="tab-producao" class="hidden">
-  <div class="section-head">
-    <div>
-      <h3 class="section-title">Colheita do café</h3>
-      <div class="section-note">Controle do latão colhido até a saca pronta</div>
+  <div class="module-head">
+    <div class="module-head-copy">
+      <span class="module-kicker">COLHEITA E BENEFICIAMENTO</span>
+      <h2>Do latão à saca pronta</h2>
+      <p>Organize colhedores, latões, envios ao secador, produção final, estoque e vendas da safra.</p>
+    </div>
+    <div class="module-head-actions">
+      <button class="btn secondary" onclick="abrirTrabalhador()">+ Colhedor</button>
+      <button class="btn primary" onclick="abrirApanha()">+ Registrar latões</button>
     </div>
   </div>
 
@@ -566,16 +1266,44 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}.app{wi
 </section>
 
 <section id="tab-talhoes" class="hidden">
-  <div class="section-head"><div><h3 class="section-title">Talhões e áreas</h3><div class="section-note">Separe custos e produção por lavoura</div></div><button class="btn primary" onclick="abrirTalhao()">+ Talhão</button></div>
+  <div class="module-head">
+    <div class="module-head-copy">
+      <span class="module-kicker">LAVOURAS</span>
+      <h2>Talhões e áreas</h2>
+      <p>Separe custos, produção e resultados por lavoura para saber onde o café está performando melhor.</p>
+    </div>
+    <div class="module-head-actions">
+      <button class="btn primary" onclick="abrirTalhao()">+ Novo talhão</button>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div>
+      <h3 class="section-title">Talhões cadastrados</h3>
+      <div class="section-note">Área, variedade, plantas, produção e custos</div>
+    </div>
+  </div>
+
   <div id="gridTalhoes" class="grid3"></div>
 </section>
 
 <section id="tab-relatorios" class="hidden">
+  <div class="module-head no-print">
+    <div class="module-head-copy">
+      <span class="module-kicker">ANÁLISE E RESULTADOS</span>
+      <h2>Relatórios do sítio</h2>
+      <p>Acompanhe rentabilidade, estoque, custos, produção, colhedores e desempenho dos talhões.</p>
+    </div>
+    <div class="module-head-actions">
+      <button class="btn secondary" onclick="exportarCSV()">Exportar CSV</button>
+      <button class="btn primary" onclick="window.print()">Salvar PDF</button>
+    </div>
+  </div>
   <div class="report-hero"><h2>Relatório financeiro e produtivo</h2><p id="relData">Situação atual</p>
     <div class="report-kpis"><div class="report-kpi"><small>Receitas</small><strong id="rReceitas">R$ 0,00</strong></div><div class="report-kpi"><small>Despesas</small><strong id="rDespesas">R$ 0,00</strong></div><div class="report-kpi"><small>Resultado</small><strong id="rResultado">R$ 0,00</strong></div><div class="report-kpi"><small>Custo por saca</small><strong id="rCustoSaca">R$ 0,00</strong></div></div>
   </div>
   <div class="section-head no-print"><h3 class="section-title">Período</h3><div class="section-note">Filtre antes de imprimir</div></div>
-  <div class="card card-pad no-print"><div class="toolbar"><input id="relInicio" type="date" onchange="renderRelatorios()"><input id="relFim" type="date" onchange="renderRelatorios()"><select id="relTalhao" onchange="renderRelatorios()"><option value="todos">Todos os talhões</option></select><select id="relSafra" onchange="renderRelatorios()"><option value="todos">Todas as safras</option></select></div><div class="btnrow"><button class="btn secondary" onclick="limparFiltroRelatorio()">Limpar período</button><button class="btn primary" onclick="window.print()">Imprimir / Salvar PDF</button><button class="btn secondary" onclick="exportarCSV()">Exportar CSV</button></div></div>
+  <div class="filter-panel no-print"><div class="filter-title"><strong>Filtros do relatório</strong><small>Selecione período, talhão e safra</small></div><div class="toolbar"><input id="relInicio" type="date" onchange="renderRelatorios()"><input id="relFim" type="date" onchange="renderRelatorios()"><select id="relTalhao" onchange="renderRelatorios()"><option value="todos">Todos os talhões</option></select><select id="relSafra" onchange="renderRelatorios()"><option value="todos">Todas as safras</option></select></div><div class="btnrow"><button class="btn secondary" onclick="limparFiltroRelatorio()">Limpar período</button><button class="btn primary" onclick="window.print()">Imprimir / Salvar PDF</button><button class="btn secondary" onclick="exportarCSV()">Exportar CSV</button></div></div>
   <div class="section-head"><h3 class="section-title">Despesas por categoria</h3></div>
   <div class="card table-wrap"><table><thead><tr><th>Categoria</th><th class="num">Valor</th><th class="num">% das despesas</th></tr></thead><tbody id="relCategorias"></tbody></table></div>
   <div class="section-head"><h3 class="section-title">Resultado por talhão</h3></div>
@@ -640,11 +1368,21 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}.app{wi
 </div>
 
 <nav class="bottom-nav"><div class="nav-inner">
-  <button class="navbtn active" onclick="trocarAba('resumo',this)">▦<span>Resumo</span></button>
-  <button class="navbtn" onclick="trocarAba('financeiro',this)">R$<span>Financeiro</span></button>
-  <button class="navbtn" onclick="trocarAba('producao',this)">☕<span>Colheita</span></button>
-  <button class="navbtn" onclick="trocarAba('talhoes',this)">⌂<span>Talhões</span></button>
-  <button class="navbtn" onclick="trocarAba('relatorios',this)">▤<span>Relatórios</span></button>
+  <button class="navbtn active" onclick="trocarAba('resumo',this)">
+    <span class="nav-symbol">▦</span><span>Resumo</span>
+  </button>
+  <button class="navbtn" onclick="trocarAba('financeiro',this)">
+    <span class="nav-symbol">R$</span><span>Financeiro</span>
+  </button>
+  <button class="navbtn" onclick="trocarAba('producao',this)">
+    <span class="nav-symbol">☕</span><span>Colheita</span>
+  </button>
+  <button class="navbtn" onclick="trocarAba('talhoes',this)">
+    <span class="nav-symbol">⌂</span><span>Talhões</span>
+  </button>
+  <button class="navbtn" onclick="trocarAba('relatorios',this)">
+    <span class="nav-symbol">▤</span><span>Relatórios</span>
+  </button>
 </div></nav>
 
 <div id="modalLancamento" class="modal hidden"><div class="modal-card">
