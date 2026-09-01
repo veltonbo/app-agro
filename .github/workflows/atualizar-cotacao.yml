@@ -1,1 +1,50 @@
+name: Atualizar cotacao do cafe
 
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualizar-cotacao-cafe
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install chromium --with-deps
+
+      - name: Ler Painel do Cafe
+        run: node scripts/atualizar-cotacao.mjs
+
+      - name: Salvar nova cotacao no repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cotacao.json
+          if git diff --cached --quiet; then
+            echo "Sem alteracoes na cotacao."
+            exit 0
+          fi
+          git commit -m "Atualiza cotacao do cafe"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
