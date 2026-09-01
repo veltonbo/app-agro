@@ -1,0 +1,83 @@
+FINANCEIRO DO SÍTIO - V4
+
+NOVIDADES PRINCIPAIS
+
+1. SAFRAS SEPARADAS
+- O app cria uma safra inicial automaticamente.
+- É possível criar novas safras, escolher a safra ativa e fechar safras antigas.
+- Financeiro, colheita, secador, produção e vendas ficam vinculados à safra.
+- Dashboard e relatórios podem ser filtrados por safra.
+
+2. ESTOQUE DE CAFÉ
+- Produção em sacas aumenta o estoque.
+- Vendas diminuem o estoque.
+- O app impede vender mais sacas do que existem na safra.
+- Dashboard mostra produção, estoque e preço médio vendido.
+
+3. CUSTO REAL POR SACA
+- Soma todas as despesas registradas na safra.
+- Divide pelo total de sacas produzidas.
+- Também calcula margem estimada por saca:
+  preço médio vendido - custo real por saca.
+
+4. CONTA INDIVIDUAL DOS COLHEDORES
+- Total de latões por colhedor.
+- Valor total.
+- Quanto já foi pago.
+- Quanto ainda falta pagar.
+- Extrato detalhado por dia.
+- Botão para marcar todas as pendências do colhedor como pagas.
+
+5. CATEGORIAS PERSONALIZÁVEIS
+O app já inclui categorias adicionais de receitas e despesas e permite criar outras.
+
+Receitas iniciais:
+- Venda de café
+- Venda de mudas
+- Venda de insumos / materiais
+- Venda de máquinas / equipamentos
+- Prestação de serviço
+- Arrendamento / aluguel
+- Reembolso
+- Outras receitas
+
+Despesas iniciais:
+- Adubo / Fertilizantes
+- Corretivos / Calcário / Gesso
+- Defensivos
+- Herbicidas
+- Biológicos
+- Mudas / Plantio
+- Mão de obra
+- Colheita
+- Secagem / Beneficiamento
+- Combustível / Lubrificantes
+- Energia elétrica
+- Irrigação
+- Manutenção
+- Peças / Reposição
+- Máquinas / Equipamentos
+- Frete / Transporte
+- Sacaria / Embalagens
+- Serviços terceirizados
+- Alimentação da equipe
+- Arrendamento / Aluguel
+- Impostos / Taxas
+- Documentação / Contabilidade
+- Construções / Benfeitorias
+- Outras despesas
+
+6. FILTROS
+- Financeiro: safra, categoria, tipo, status e talhão.
+- Relatórios: período, talhão e safra.
+
+7. COMPATIBILIDADE
+- Mantém os dados das versões anteriores.
+- Registros antigos são vinculados automaticamente à safra inicial.
+- Mantém Firebase, login e separação por usuário.
+- As regras do Firebase permanecem as mesmas da V3.
+
+OBSERVAÇÃO
+Usuário novo continua começando com valores financeiros, produção, vendas,
+talhões e colhedores zerados. O app apenas cria a estrutura da primeira safra
+para que os lançamentos possam ser organizados.
