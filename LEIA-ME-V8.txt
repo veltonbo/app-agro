@@ -1,0 +1,33 @@
+FINANCEIRO DO SÍTIO - V8 | COTAÇÃO AUTOMÁTICA
+
+O QUE MUDOU
+- A cotação do café agora foi preparada para atualizar automaticamente.
+- O repositório consulta o Painel do Café a cada 30 minutos usando GitHub Actions.
+- O resultado é salvo em cotacao.json.
+- O app consulta cotacao.json ao abrir e novamente a cada 10 minutos.
+- Continua aplicando automaticamente o desconto regional de R$ 80,00 por saca (ou o valor que você configurar).
+- A última cotação válida fica salva no Firebase e continua aparecendo mesmo se uma consulta falhar.
+- O botão “Usar na venda” aplica a estimativa regional diretamente ao preço por saca.
+
+ARQUIVOS NOVOS
+- cotacao.json
+- scripts/atualizar-cotacao.mjs
+- .github/workflows/atualizar-cotacao.yml
+
+CONFIGURAÇÃO ÚNICA NO GITHUB
+1. Envie TODOS os arquivos e pastas da V8 para o repositório do app, inclusive a pasta .github.
+2. No GitHub, abra Settings > Actions > General.
+3. Em Workflow permissions, deixe “Read and write permissions”.
+4. Abra Actions > Atualizar cotacao do cafe > Run workflow uma vez para testar.
+5. Depois disso, o GitHub executa automaticamente a cada 30 minutos.
+
+IMPORTANTE
+GitHub Actions agendado pode atrasar alguns minutos em horários de maior uso.
+O app nunca zera a cotação quando uma atualização falha; ele mantém o último valor válido.
+
+FONTE
+https://www.paineldocafe.com.br/
+Indicador esperado: CONILON 7/8.
+
+DEMAIS FUNÇÕES
+Todas as funções da V7/V6 foram mantidas: login, Firebase, Perfil, cadastros, contas a pagar, safras, colhedores, talhões, categorias, estoque, secador, vendas, relatórios e backup.

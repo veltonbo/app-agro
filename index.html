@@ -1294,7 +1294,7 @@ input,select,textarea{
         <div class="quote-icon">☕</div>
         <div style="min-width:0">
           <div class="quote-title">Cotação do café Conilon 7/8</div>
-          <div class="quote-sub">Referência: Painel do Café • estimativa regional configurável</div>
+          <div class="quote-sub">Atualização automática • Painel do Café • estimativa regional configurável</div>
         </div>
       </div>
       <button class="quote-refresh" title="Atualizar cotação" onclick="atualizarCotacaoCafe(true)">↻</button>
@@ -1316,7 +1316,7 @@ input,select,textarea{
 
     <div class="quote-foot">
       <div class="quote-status" id="cotacaoStatus">
-        O app tentará consultar a referência automaticamente.
+        Atualização automática ativa. O app verifica a nova cotação sem precisar digitar o valor.
       </div>
       <div class="quote-actions">
         <button class="quote-btn" onclick="abrirPainelDoCafe()">Abrir fonte</button>
@@ -2012,7 +2012,7 @@ input,select,textarea{
 
   <label style="display:flex;align-items:center;gap:8px;margin-top:12px;color:var(--muted);font-size:10px">
     <input id="cotacaoAuto" type="checkbox" style="width:18px;min-height:18px">
-    Tentar atualizar automaticamente pelo site Painel do Café
+    Atualização automática da cotação
   </label>
 
   <div class="quote-settings-preview">
@@ -2027,7 +2027,11 @@ input,select,textarea{
   </div>
 
   <div class="quote-source-note">
-    <strong>Como funciona:</strong> o app usa o valor de Conilon 7/8 do Painel do Café como referência e subtrai o desconto configurado. O valor regional é uma estimativa sua, não uma cotação oficial.
+    <strong>Automático:</strong> a cotação é atualizada no repositório a cada 30 minutos e o app consulta o arquivo atualizado ao abrir e periodicamente.
+  </div>
+
+  <div class="quote-source-note">
+    <strong>Como funciona:</strong> o repositório busca o valor do Conilon 7/8 do Painel do Café automaticamente e o app subtrai o desconto configurado. O valor regional é uma estimativa sua, não uma cotação oficial.
   </div>
 
   <div class="btnrow" style="margin-top:14px">
@@ -6141,6 +6145,142 @@ renderTudo=function(){
   if($("tab-perfil")&&!$("tab-perfil").classList.contains("hidden")){
     renderPerfil();
   }
+};
+</script>
+
+
+<script>
+/* ===== FINANCEIRO DO SÍTIO V8 - COTAÇÃO 100% AUTOMÁTICA ===== */
+const COTACAO_ARQUIVO_INTERVALO_MS=10*60*1000;
+let timerCotacaoArquivo=null;
+
+async function buscarCotacaoArquivoAutomatico(){
+  const url=`./cotacao.json?t=${Date.now()}`;
+  const resposta=await fetch(url,{cache:"no-store"});
+  if(!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
+  const dados=await resposta.json();
+  const valor=Number(dados?.price ?? dados?.preco ?? dados?.valor ?? 0);
+  if(!Number.isFinite(valor)||valor<=0) throw new Error("Cotação automática ainda indisponível");
+  return{
+    valor,
+    dataFonte:dados.reference_date||dados.data_referencia||dados.dataFonte||"",
+    atualizadoEm:dados.fetched_at||dados.atualizado_em||new Date().toISOString(),
+    fonte:dados.source||"Painel do Café",
+    metodo:"cotacao.json"
+  };
+}
+
+buscarCotacaoPainel=async function(){
+  // A fonte principal passa a ser o arquivo atualizado pelo GitHub Actions.
+  // Como fallback, tenta o método antigo diretamente pelo navegador.
+  try{
+    return await buscarCotacaoArquivoAutomatico();
+  }catch(erroArquivo){
+    try{
+      const texto=await fetchComTimeout(PAINEL_CAFE_URL);
+      const resultado=extrairCotacaoPainel(texto);
+      if(resultado) return {...resultado,metodo:"direto"};
+    }catch(e){}
+
+    try{
+      const texto=await fetchComTimeout("https://r.jina.ai/https://www.paineldocafe.com.br/");
+      const resultado=extrairCotacaoPainel(texto);
+      if(resultado) return {...resultado,metodo:"leitura auxiliar"};
+    }catch(e){}
+
+    throw erroArquivo;
+  }
+};
+
+atualizarCotacaoCafe=async function(forcar=false){
+  garantirEstruturaV7();
+  if(cotacaoAtualizando) return;
+
+  const c=estado.cotacaoCafe;
+  cotacaoAtualizando=true;
+
+  if($("cotacaoStatus")){
+    $("cotacaoStatus").innerHTML="<strong>Verificando cotação automática...</strong>";
+  }
+
+  try{
+    const resultado=await buscarCotacaoPainel();
+    const mudou=Math.abs(Number(c.precoPainel||0)-Number(resultado.valor||0))>0.001 ||
+      (resultado.atualizadoEm && resultado.atualizadoEm!==c.atualizadoEm);
+
+    c.precoPainel=Number(resultado.valor);
+    c.dataFonte=resultado.dataFonte||c.dataFonte||"";
+    c.atualizadoEm=resultado.atualizadoEm||new Date().toISOString();
+    c.origem="automatico";
+    c.metodo=resultado.metodo||"cotacao.json";
+    c.autoAtualizar=true;
+
+    cotacaoAtualizando=false;
+
+    if(mudou){
+      salvarLocal();
+      if(window.cloudSync) window.cloudSync.agendar();
+    }
+
+    renderCotacaoCafe();
+
+    if($("cotacaoStatus")){
+      const quando=formatarDataHoraCotacao(c.atualizadoEm);
+      $("cotacaoStatus").innerHTML=`<strong>Atualização automática ativa</strong>${quando?` • ${quando}`:""}`;
+    }
+
+    if(forcar) toast(`Cotação: ${moeda(c.precoPainel)}.`);
+  }catch(e){
+    cotacaoAtualizando=false;
+    renderCotacaoCafe();
+
+    if($("cotacaoStatus")){
+      if(Number(c.precoPainel||0)>0){
+        $("cotacaoStatus").innerHTML=`<strong>Usando a última cotação salva.</strong> A atualização automática tentará novamente.`;
+      }else{
+        $("cotacaoStatus").innerHTML=`<strong>Aguardando a primeira atualização automática.</strong>`;
+      }
+    }
+
+    if(forcar) toast("A atualização automática ainda não retornou uma nova cotação.");
+  }
+};
+
+iniciarAtualizacaoCotacao=function(){
+  clearInterval(timerCotacao);
+  clearInterval(timerCotacaoArquivo);
+  timerCotacao=null;
+
+  setTimeout(()=>atualizarCotacaoCafe(false),700);
+  timerCotacaoArquivo=setInterval(
+    ()=>atualizarCotacaoCafe(false),
+    COTACAO_ARQUIVO_INTERVALO_MS
+  );
+};
+
+salvarCotacaoConfig=function(){
+  garantirEstruturaV7();
+  const c=estado.cotacaoCafe;
+  const desconto=Number($("cotacaoDesconto").value||0);
+  const manual=Number($("cotacaoManual").value||0);
+
+  c.descontoRegional=Math.max(0,desconto);
+  c.autoAtualizar=true;
+
+  // O valor manual fica apenas como contingência. A próxima atualização
+  // automática substituirá pelo dado do Painel do Café.
+  if(manual>0&&Math.abs(manual-Number(c.precoPainel||0))>0.001){
+    c.precoPainel=manual;
+    c.atualizadoEm=new Date().toISOString();
+    c.dataFonte=hoje().split("-").reverse().join("/");
+    c.origem="manual";
+  }
+
+  if($("cotacaoAuto")) $("cotacaoAuto").checked=true;
+  fecharModal("modalCotacao");
+  persistir();
+  toast("Configuração salva. A atualização automática permanece ativa.");
+  setTimeout(()=>atualizarCotacaoCafe(false),500);
 };
 </script>
 
