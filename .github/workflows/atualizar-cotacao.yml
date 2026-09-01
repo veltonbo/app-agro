@@ -2,8 +2,16 @@ name: Atualizar cotacao do cafe
 
 "on":
   workflow_dispatch: {}
+
   schedule:
     - cron: "*/30 * * * *"
+
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/atualizar-cotacao.yml"
+      - "scripts/atualizar-cotacao.mjs"
 
 permissions:
   contents: write
