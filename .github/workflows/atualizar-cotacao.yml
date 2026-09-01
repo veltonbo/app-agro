@@ -1,9 +1,9 @@
 name: Atualizar cotacao do cafe
 
-on:
+"on":
+  workflow_dispatch: {}
   schedule:
     - cron: "*/30 * * * *"
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -41,10 +41,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add cotacao.json
+
           if git diff --cached --quiet; then
             echo "Sem alteracoes na cotacao."
             exit 0
           fi
+
           git commit -m "Atualiza cotacao do cafe"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
