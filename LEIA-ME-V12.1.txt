@@ -1,0 +1,16 @@
+FINANCEIRO DO SÍTIO — V12.1
+Base exclusiva: V12 enviada pelo usuário.
+
+MELHORIAS
+- Safras fechadas bloqueadas para novos registros e para ativação pelo painel.
+- Data real de pagamento/recebimento no Financeiro.
+- Receita pendente pode ser marcada como recebida com um toque.
+- Pagamentos e recebimentos vinculados sincronizam com colheitas e vendas.
+- Venda/colheita vinculada preserva campos extras do lançamento financeiro.
+- Relatório com regime de Competência ou Caixa realizado.
+- CSV mais completo.
+- Pagamento de colhedores grava data real.
+- Fechamento do secador com vários talhões distribui as sacas proporcionalmente.
+- Painel inicial com contas vencidas, valores a receber, colhedores, secador e solo.
+- Campos e botões maiores no celular.
+- Backup identificado como V12.1.

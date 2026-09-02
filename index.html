@@ -2088,6 +2088,42 @@ input,select,textarea{
   .soil-fields{grid-template-columns:1fr}
 }
 
+
+/* =========================================================
+   V12.1 — LÓGICA E USABILIDADE
+   ========================================================= */
+.brand-title-v121{display:flex;align-items:center;gap:7px}
+.version-v121{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:20px;padding:0 7px;border-radius:999px;border:1px solid #D7E3DA;background:#EEF5F0;color:#1B5A36;font-size:7px;font-weight:950;letter-spacing:.04em}
+.v121-field-help{margin-top:4px;color:#8B958E;font-size:7px;line-height:1.35}
+.v121-attention-head{margin-top:18px}
+.v121-attention-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.v121-alert{width:100%;min-height:88px;padding:11px 12px;border:1px solid #E1E7E2;border-radius:14px;background:#fff;text-align:left;box-shadow:0 3px 12px rgba(22,49,29,.04);cursor:pointer}
+.v121-alert:hover{transform:translateY(-1px)}
+.v121-alert .top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.v121-alert .icon{width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:#EEF5F0;color:#1D5D39;font-size:11px;font-weight:950}
+.v121-alert .tag{padding:3px 6px;border-radius:999px;background:#F1F3F1;color:#7A847D;font-size:6.5px;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
+.v121-alert strong{display:block;margin-top:9px;font-size:12px}
+.v121-alert small{display:block;margin-top:4px;color:#7C867F;font-size:8px;line-height:1.4}
+.v121-alert.urgent{border-color:#F0D6D2;background:#FFF9F8}
+.v121-alert.urgent .icon{background:#FCEBE8;color:#A5483E}
+.v121-alert.warn{border-color:#EFDFCA;background:#FFFCF6}
+.v121-alert.warn .icon{background:#FFF2DF;color:#99662B}
+.v121-alert.info .icon{background:#EDF4F7;color:#426A7D}
+.v121-alert.ok{border-style:dashed;color:#69756D;cursor:default}
+.v121-alert.ok .icon{background:#EDF6EF;color:#2F7548}
+@media(max-width:720px){
+  input,select,textarea{min-height:44px!important;font-size:12px!important}
+  .field label{font-size:8.5px!important}
+  .btn{min-height:42px!important;font-size:10px!important}
+  .mini-btn{width:34px!important;height:34px!important}
+  .navbtn{min-height:50px!important}
+  .v121-attention-grid{grid-template-columns:1fr 1fr;gap:7px}
+  .v121-alert{min-height:92px}
+  .modal-card{max-height:94vh;overflow-y:auto}
+  .modal-card>.btnrow:last-child{position:sticky;bottom:0;z-index:3;margin-left:-2px;margin-right:-2px;padding:10px 2px calc(3px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(255,255,255,.82),#fff 32%)}
+}
+@media(max-width:390px){.v121-attention-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -2116,7 +2152,7 @@ input,select,textarea{
 
 <div class="app">
 <header class="topbar"><div class="topbar-inner">
-  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><h1>Financeiro do Sítio</h1><div class="sub">Gestão financeira • Café Conilon</div></div></div>
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.1</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
   <div class="user-menu"><div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
 </div></header>
 
@@ -2286,6 +2322,15 @@ input,select,textarea{
     <div class="v11-mini"><small>Preço médio</small><strong id="v11PrecoMedio">R$ 0,00</strong><span>vendas realizadas</span></div>
     <div class="v11-mini"><small>Margem / saca</small><strong id="v11MargemSaca">R$ 0,00</strong><span>estimativa atual</span></div>
   </div>
+
+
+  <div class="section-head v121-attention-head">
+    <div>
+      <h3 class="section-title">Atenção do dia</h3>
+      <div class="section-note">Pendências e pontos que merecem sua atenção</div>
+    </div>
+  </div>
+  <div id="painelAtencaoV121" class="v121-attention-grid"></div>
 
 <div class="section-head"><h3 class="section-title">Ações rápidas</h3><div class="section-note">Registre movimentações em poucos toques</div></div>
   <div class="quick">
@@ -2527,7 +2572,7 @@ input,select,textarea{
     <div class="report-kpis"><div class="report-kpi"><small>Receitas</small><strong id="rReceitas">R$ 0,00</strong></div><div class="report-kpi"><small>Despesas</small><strong id="rDespesas">R$ 0,00</strong></div><div class="report-kpi"><small>Resultado</small><strong id="rResultado">R$ 0,00</strong></div><div class="report-kpi"><small>Custo por saca</small><strong id="rCustoSaca">R$ 0,00</strong></div></div>
   </div>
   <div class="section-head no-print"><h3 class="section-title">Período</h3><div class="section-note">Filtre antes de imprimir</div></div>
-  <div class="filter-panel no-print"><div class="filter-title"><strong>Filtros do relatório</strong><small>Selecione período, talhão e safra</small></div><div class="toolbar"><input id="relInicio" type="date" onchange="renderRelatorios()"><input id="relFim" type="date" onchange="renderRelatorios()"><select id="relTalhao" onchange="renderRelatorios()"><option value="todos">Todos os talhões</option></select><select id="relSafra" onchange="renderRelatorios()"><option value="todos">Todas as safras</option></select></div><div class="btnrow"><button class="btn secondary" onclick="limparFiltroRelatorio()">Limpar período</button><button class="btn primary" onclick="window.print()">Imprimir / Salvar PDF</button><button class="btn secondary" onclick="exportarCSV()">Exportar CSV</button></div></div>
+  <div class="filter-panel no-print"><div class="filter-title"><strong>Filtros do relatório</strong><small>Selecione período, talhão, safra e regime</small></div><div class="toolbar"><input id="relInicio" type="date" onchange="renderRelatorios()"><input id="relFim" type="date" onchange="renderRelatorios()"><select id="relTalhao" onchange="renderRelatorios()"><option value="todos">Todos os talhões</option></select><select id="relSafra" onchange="renderRelatorios()"><option value="todos">Todas as safras</option></select><select id="relRegimeV121" onchange="renderRelatorios()"><option value="competencia">Competência</option><option value="caixa">Caixa realizado</option></select></div><div class="btnrow"><button class="btn secondary" onclick="limparFiltroRelatorio()">Limpar período</button><button class="btn primary" onclick="window.print()">Imprimir / Salvar PDF</button><button class="btn secondary" onclick="exportarCSV()">Exportar CSV</button></div></div>
   <div class="section-head"><h3 class="section-title">Despesas por categoria</h3></div>
   <div class="card table-wrap"><table><thead><tr><th>Categoria</th><th class="num">Valor</th><th class="num">% das despesas</th></tr></thead><tbody id="relCategorias"></tbody></table></div>
   <div class="section-head"><h3 class="section-title">Resultado por talhão</h3></div>
@@ -2762,8 +2807,9 @@ input,select,textarea{
     <div class="field"><label>Tipo</label><select id="lancTipo" onchange="atualizarCategoriasLancamento()"><option value="receita">Receita</option><option value="despesa">Despesa</option></select></div>
     <div class="field"><label>Data</label><input id="lancData" type="date"></div>
     <div class="field"><label>Valor</label><input id="lancValor" type="number" min="0" step="0.01" placeholder="0,00"></div>
-    <div class="field"><label>Status</label><select id="lancStatus"><option value="pago">Pago / recebido</option><option value="pendente">Pendente</option></select></div>
+    <div class="field"><label>Status</label><select id="lancStatus" onchange="atualizarCampoQuitacaoV121()"><option value="pago">Pago / recebido</option><option value="pendente">Pendente</option></select></div>
     <div class="field"><label>Vencimento</label><input id="lancVencimento" type="date"></div>
+    <div class="field" id="campoDataQuitacaoV121"><label>Data do pagamento / recebimento</label><input id="lancDataPagamento" type="date"><div class="v121-field-help">Usada no relatório por regime de caixa.</div></div>
     <div class="field"><label>Pessoa / empresa</label><select id="lancPessoa"><option value="">Não informado</option></select></div>
     <div class="field"><label>Categoria</label><select id="lancCategoria"></select></div>
     <div class="field"><label>Talhão</label><select id="lancTalhao"><option value="">Sem talhão</option></select></div><div class="field"><label>Safra</label><select id="lancSafra"></select></div>
@@ -2809,7 +2855,7 @@ input,select,textarea{
     <div class="field"><label>Talhão</label><select id="apanhaTalhao"><option value="">Sem talhão</option></select></div>
     <div class="field"><label>Latões colhidos</label><input id="apanhaLatoes" type="number" min="0" step="0.01" placeholder="0" oninput="calcularApanha()"></div>
     <div class="field"><label>Valor por latão</label><input id="apanhaValor" type="number" min="0" step="0.01" placeholder="0,00" oninput="calcularApanha()"></div>
-    <div class="field"><label>Status do pagamento</label><select id="apanhaStatus"><option value="pago">Pago</option><option value="pendente">A pagar</option></select></div><div class="field"><label>Safra</label><select id="apanhaSafra"></select></div>
+    <div class="field"><label>Status do pagamento</label><select id="apanhaStatus" onchange="atualizarCampoPagamentoApanhaV121()"><option value="pago">Pago</option><option value="pendente">A pagar</option></select></div><div class="field"><label>Safra</label><select id="apanhaSafra"></select></div><div class="field" id="campoPagamentoApanhaV121"><label>Data do pagamento</label><input id="apanhaDataPagamento" type="date"></div>
   </div>
   <div class="calc-box"><div class="calc-grid"><div><small>Total a pagar</small><strong id="apanhaTotal">R$ 0,00</strong></div><div><small>Situação</small><strong id="apanhaLoteStatus">Aguardando secador</strong></div></div></div>
   <div class="field" style="margin-top:10px"><label>Observação</label><textarea id="apanhaObs" placeholder="Opcional"></textarea></div>
@@ -2915,7 +2961,7 @@ input,select,textarea{
     <div class="field"><label>Sacas vendidas</label><input id="vendaSacas" type="number" min="0" step="0.01" placeholder="0" oninput="atualizarTotalVenda()"></div>
     <div class="field"><label>Preço por saca</label><input id="vendaPreco" type="number" min="0" step="0.01" placeholder="0,00" oninput="atualizarTotalVenda()"><button type="button" class="quote-btn primary" style="margin-top:6px" onclick="preencherPrecoVendaComCotacao()">Usar cotação regional</button></div>
     <div class="field"><label>Comprador</label><input id="vendaComprador" placeholder="Nome do comprador"></div>
-    <div class="field"><label>Status financeiro</label><select id="vendaStatus"><option value="pago">Recebido</option><option value="pendente">A receber</option></select></div><div class="field"><label>Safra</label><select id="vendaSafra" onchange="atualizarEstoqueVenda()"></select></div>
+    <div class="field"><label>Status financeiro</label><select id="vendaStatus" onchange="atualizarCampoRecebimentoVendaV121()"><option value="pago">Recebido</option><option value="pendente">A receber</option></select></div><div class="field"><label>Safra</label><select id="vendaSafra" onchange="atualizarEstoqueVenda()"></select></div><div class="field" id="campoRecebimentoVendaV121"><label>Data do recebimento</label><input id="vendaDataRecebimento" type="date"></div>
   </div>
   <div class="card card-pad" style="margin-top:10px;background:var(--surface2)"><div class="section-note">Valor total da venda</div><div style="font-size:23px;font-weight:900;margin-top:4px" id="vendaTotal">R$ 0,00</div><div id="vendaEstoqueInfo" class="stock-warning stock-ok">Estoque disponível: 0,00 sacas</div></div>
   <label style="display:flex;gap:8px;align-items:center;margin-top:12px;font-size:11px;color:var(--muted)"><input id="vendaGerarReceita" type="checkbox" checked style="width:18px;min-height:18px"> Criar/atualizar automaticamente uma receita no financeiro</label>
@@ -8840,6 +8886,228 @@ renderTudo=function(){
     renderPerfil();
   }
 };
+</script>
+
+
+<script>
+/* =========================================================
+   FINANCEIRO DO SÍTIO V12.1 — LÓGICA E USABILIDADE
+   Base exclusiva: V12
+   ========================================================= */
+function safraPorIdV121(id){garantirEstruturaV12();return estado.safras.find(s=>s.id===id)||null}
+function validarSafraRegistroV121(safraId,registroAntigo=null){
+  const s=safraPorIdV121(safraId);
+  if(!s){toast("Selecione uma safra válida.");return false}
+  if(s.fechada&&registroAntigo?.safraId!==safraId){toast("Essa safra está fechada. Reabra a safra para criar novos registros nela.");return false}
+  return true
+}
+atualizarSelectsSafra=function(){
+  garantirEstruturaV12();
+  const safras=estado.safras.slice().sort((a,b)=>Number(b.ano||0)-Number(a.ano||0));
+  ["safraGlobal","v11SafraGlobal","lancSafra","apanhaSafra","loteSafra","colheitaSafraId","vendaSafra"].forEach(id=>{
+    const el=$(id);if(!el)return;
+    const atual=el.value||estado.safraAtivaId;
+    el.innerHTML=safras.map(s=>{
+      const manterFechada=s.id===atual&&id!=="safraGlobal"&&id!=="v11SafraGlobal";
+      const disabled=s.fechada&&!manterFechada?" disabled":"";
+      return `<option value="${s.id}"${disabled}>${esc(s.nome)}${s.fechada?" (fechada)":""}</option>`
+    }).join("");
+    if([...el.options].some(o=>o.value===atual))el.value=atual;else el.value=estado.safraAtivaId
+  });
+  const todas=`<option value="todos">Todas as safras</option>`+safras.map(s=>`<option value="${s.id}">${esc(s.nome)}${s.fechada?" (fechada)":""}</option>`).join("");
+  ["fSafra","relSafra"].forEach(id=>{const el=$(id);if(!el)return;const atual=el.dataset.inicializadoV121==="1"?el.value:"todos";el.innerHTML=todas;el.value=[...el.options].some(o=>o.value===atual)?atual:"todos";el.dataset.inicializadoV121="1"});
+  const ativa=safraPorIdV121(estado.safraAtivaId);
+  if($("safraAtivaNome"))$("safraAtivaNome").textContent=ativa?.nome||"Nenhuma safra";
+  if($("v11SafraNome"))$("v11SafraNome").textContent=ativa?.nome||"Nenhuma safra";
+  if($("safraGlobal")&&ativa)$("safraGlobal").value=ativa.id;
+  if($("v11SafraGlobal")&&ativa)$("v11SafraGlobal").value=ativa.id
+};
+trocarSafraAtiva=function(id){
+  garantirEstruturaV12();const s=safraPorIdV121(id);if(!s)return;
+  if(s.fechada){atualizarSelectsSafra();toast("Essa safra está fechada. Reabra antes de torná-la ativa.");return}
+  estado.safraAtivaId=id;persistir();toast("Safra ativa alterada. Contas e estoque geral continuam visíveis.")
+};
+
+function atualizarCampoQuitacaoV121(){
+  const pago=$("lancStatus")?.value==="pago",campo=$("campoDataQuitacaoV121");
+  if(campo)campo.classList.toggle("hidden",!pago);
+  if(pago&&$("lancDataPagamento")&&!$("lancDataPagamento").value)$("lancDataPagamento").value=$("lancData")?.value||hoje()
+}
+function marcarLancamentoQuitadoV121(id){
+  const x=estado.lancamentos.find(l=>l.id===id);if(!x)return;
+  const verbo=x.tipo==="receita"?"recebido":"pago";
+  if(!confirm(`Marcar ${moeda(x.valor)} como ${verbo}?`))return;
+  x.status="pago";x.dataPagamento=hoje();
+  if(x.apanhaId){const a=estado.apanhas.find(a=>a.id===x.apanhaId);if(a){a.status="pago";a.dataPagamento=x.dataPagamento}}
+  if(x.vendaId){const v=estado.vendas.find(v=>v.id===x.vendaId);if(v){v.status="pago";v.dataRecebimento=x.dataPagamento}}
+  persistir();toast(x.tipo==="receita"?"Receita marcada como recebida.":"Conta marcada como paga.")
+}
+marcarContaPaga=marcarLancamentoQuitadoV121;
+const abrirLancamentoV121Base=abrirLancamento;
+abrirLancamento=function(tipo="receita",id=""){
+  abrirLancamentoV121Base(tipo,id);
+  const x=id?estado.lancamentos.find(v=>v.id===id):null;
+  if($("lancDataPagamento"))$("lancDataPagamento").value=x?.dataPagamento||(x?.status==="pago"?(x.data||hoje()):(!id?hoje():""));
+  atualizarCampoQuitacaoV121()
+};
+salvarLancamento=function(){
+  garantirEstruturaV12();
+  const valor=Number($("lancValor").value||0);if(valor<=0){toast("Informe um valor maior que zero.");return}
+  const descricao=$("lancDescricao").value.trim();if(!descricao){toast("Informe a descrição.");return}
+  const id=$("lancId").value||novoId(),antigo=estado.lancamentos.find(x=>x.id===id)||null,safraId=$("lancSafra").value||estado.safraAtivaId;
+  if(!validarSafraRegistroV121(safraId,antigo))return;
+  const status=$("lancStatus").value,data=$("lancData").value||hoje(),dataPagamento=status==="pago"?($("lancDataPagamento").value||antigo?.dataPagamento||data):"";
+  const obj={...(antigo||{}),id,tipo:$("lancTipo").value,data,valor,status,dataPagamento,vencimento:$("lancVencimento").value||"",pessoaId:$("lancPessoa").value||"",categoria:$("lancCategoria").value,talhaoId:$("lancTalhao").value||"",safraId,parcela:$("lancParcela").value.trim(),documento:$("lancDocumento").value.trim(),descricao,obs:$("lancObs").value.trim()};
+  const i=estado.lancamentos.findIndex(x=>x.id===id);if(i>=0)estado.lancamentos[i]=obj;else estado.lancamentos.push(obj);
+  if(obj.apanhaId){const a=estado.apanhas.find(a=>a.id===obj.apanhaId);if(a){a.status=obj.status;a.dataPagamento=obj.dataPagamento||""}}
+  if(obj.vendaId){const v=estado.vendas.find(v=>v.id===obj.vendaId);if(v){v.status=obj.status;v.dataRecebimento=obj.dataPagamento||""}}
+  fecharModal("modalLancamento");persistir();toast("Lançamento salvo.")
+};
+renderItemLancamento=function(x){
+  const receita=x.tipo==="receita",pessoa=nomePessoa(x.pessoaId),venc=x.status==="pendente"&&x.vencimento?` • Vence ${dataBR(x.vencimento)}`:"",quit=x.status==="pago"&&x.dataPagamento?` • ${receita?"Recebido":"Pago"} em ${dataBR(x.dataPagamento)}`:"";
+  const acao=x.status==="pendente"?`<button class="mini-btn" title="${receita?"Marcar como recebido":"Marcar como pago"}" onclick="marcarLancamentoQuitadoV121('${x.id}')">✓</button>`:"";
+  return `<div class="item"><div class="item-icon ${receita?"":"red"}">${receita?"＋":"−"}</div><div class="item-main"><strong>${esc(x.descricao)}</strong><div class="item-meta">${dataBR(x.data)} • ${esc(x.categoria)}${pessoa?" • "+esc(pessoa):""}${x.talhaoId?" • "+esc(nomeTalhao(x.talhaoId)):""}${venc}${quit} • ${x.status==="pago"?(receita?"Recebido":"Pago"):"Pendente"}</div></div><div class="item-value"><strong style="color:${receita?"var(--green)":"var(--red)"}">${receita?"+":"-"} ${moeda(x.valor)}</strong><div class="item-actions">${acao}<button class="mini-btn" onclick="abrirLancamento('${x.tipo}','${x.id}')">✎</button><button class="mini-btn danger" onclick="excluirLancamento('${x.id}')">×</button></div></div></div>`
+};
+
+function atualizarCampoPagamentoApanhaV121(){
+  const pago=$("apanhaStatus")?.value==="pago",campo=$("campoPagamentoApanhaV121");
+  if(campo)campo.classList.toggle("hidden",!pago);
+  if(pago&&$("apanhaDataPagamento")&&!$("apanhaDataPagamento").value)$("apanhaDataPagamento").value=$("apanhaData")?.value||hoje()
+}
+const abrirApanhaV121Base=abrirApanha;
+abrirApanha=function(id=""){
+  abrirApanhaV121Base(id);const a=id?estado.apanhas.find(x=>x.id===id):null;
+  if($("apanhaDataPagamento"))$("apanhaDataPagamento").value=a?.dataPagamento||(a?.status==="pago"?(a.data||hoje()):(!id?hoje():""));
+  atualizarCampoPagamentoApanhaV121()
+};
+sincronizarDespesaApanha=function(a){
+  if(!a.financeiroId)a.financeiroId=novoId();
+  const total=Number(a.latoes||0)*Number(a.valorLatao||0),anterior=estado.lancamentos.find(x=>x.id===a.financeiroId)||{};
+  const l={...anterior,id:a.financeiroId,tipo:"despesa",data:a.data,valor:total,status:a.status||"pago",dataPagamento:(a.status||"pago")==="pago"?(a.dataPagamento||anterior.dataPagamento||a.data):"",categoria:"Colheita",talhaoId:a.talhaoId||"",safraId:a.safraId||estado.safraAtivaId,descricao:`Colheita - ${nomeTrabalhador(a.trabalhadorId)}`,obs:`${num(a.latoes)} latões × ${moeda(a.valorLatao)}`,apanhaId:a.id};
+  const i=estado.lancamentos.findIndex(x=>x.id===l.id);if(i>=0)estado.lancamentos[i]=l;else estado.lancamentos.push(l)
+};
+salvarApanha=function(){
+  garantirEstruturaV12();
+  const lat=Number($("apanhaLatoes").value||0),val=Number($("apanhaValor").value||0);
+  if(!$("apanhaTrabalhador").value){toast("Selecione o colhedor.");return}
+  if(lat<=0){toast("Informe a quantidade de latões.");return}
+  const id=$("apanhaId").value||novoId(),antiga=estado.apanhas.find(x=>x.id===id)||null;
+  if(antiga&&totalAlocadoApanha(antiga.id)>0.00001){toast("Esse registro já possui latões enviados ao secador.");return}
+  const safraId=$("apanhaSafra").value||estado.safraAtivaId;if(!validarSafraRegistroV121(safraId,antiga))return;
+  const status=$("apanhaStatus").value,data=$("apanhaData").value||hoje();
+  const a={...(antiga||{}),id,data,trabalhadorId:$("apanhaTrabalhador").value,talhaoId:$("apanhaTalhao").value||"",safraId,latoes:lat,valorLatao:val,status,dataPagamento:status==="pago"?($("apanhaDataPagamento").value||antiga?.dataPagamento||data):"",obs:$("apanhaObs").value.trim(),financeiroId:antiga?.financeiroId||""};
+  sincronizarDespesaApanha(a);
+  const i=estado.apanhas.findIndex(x=>x.id===a.id);if(i>=0)estado.apanhas[i]=a;else estado.apanhas.push(a);
+  fecharModal("modalApanha");persistir();toast("Latões registrados e custo lançado no financeiro.")
+};
+pagarPendenciasColhedor=function(){
+  const id=$("extratoColhedorId").value,pendentes=estado.apanhas.filter(a=>a.trabalhadorId===id&&a.status!=="pago");
+  if(!pendentes.length){toast("Não há pendências.");return}
+  const total=pendentes.reduce((s,a)=>s+Number(a.latoes||0)*Number(a.valorLatao||0),0);
+  if(!confirm(`Marcar ${pendentes.length} registro(s), total de ${moeda(total)}, como pagos hoje?`))return;
+  pendentes.forEach(a=>{a.status="pago";a.dataPagamento=hoje();sincronizarDespesaApanha(a)});
+  persistir();abrirExtratoColhedor(id);toast("Pendências do colhedor marcadas como pagas.")
+};
+
+function atualizarCampoRecebimentoVendaV121(){
+  const pago=$("vendaStatus")?.value==="pago",campo=$("campoRecebimentoVendaV121");
+  if(campo)campo.classList.toggle("hidden",!pago);
+  if(pago&&$("vendaDataRecebimento")&&!$("vendaDataRecebimento").value)$("vendaDataRecebimento").value=$("vendaData")?.value||hoje()
+}
+const abrirVendaV121Base=abrirVenda;
+abrirVenda=function(id=""){
+  abrirVendaV121Base(id);const v=id?estado.vendas.find(x=>x.id===id):null;
+  if($("vendaDataRecebimento"))$("vendaDataRecebimento").value=v?.dataRecebimento||(v?.status==="pago"?(v.data||hoje()):(!id?hoje():""));
+  atualizarCampoRecebimentoVendaV121()
+};
+salvarVenda=function(){
+  garantirEstruturaV12();
+  const sacas=Number($("vendaSacas").value||0),preco=Number($("vendaPreco").value||0),total=sacas*preco,vendaId=$("vendaId").value||"",antigo=estado.vendas.find(x=>x.id===vendaId)||null,safraId=$("vendaSafra").value||estado.safraAtivaId;
+  if(sacas<=0||preco<=0){toast("Informe sacas e preço por saca.");return}
+  if(!validarSafraRegistroV121(safraId,antigo))return;
+  const disponivel=estoqueDisponivelSafra(safraId,vendaId);if(sacas>disponivel+0.0001){toast(`Estoque insuficiente. Disponível: ${num(disponivel)} sacas.`);return}
+  const status=$("vendaStatus").value,data=$("vendaData").value||hoje(),dataRecebimento=status==="pago"?($("vendaDataRecebimento").value||antigo?.dataRecebimento||data):"";
+  const obj={...(antigo||{}),id:vendaId||novoId(),data,dataRecebimento,talhaoId:$("vendaTalhao").value||"",safraId,sacas,precoSaca:preco,total,comprador:$("vendaComprador").value.trim(),status,obs:$("vendaObs").value.trim(),financeiroId:antigo?.financeiroId||""};
+  if($("vendaGerarReceita").checked){
+    if(!obj.financeiroId)obj.financeiroId=novoId();
+    const anterior=estado.lancamentos.find(x=>x.id===obj.financeiroId)||{};let pessoaId=anterior.pessoaId||"";
+    if(!pessoaId&&obj.comprador){const pessoa=estado.pessoas.find(p=>(p.nome||"").trim().toLowerCase()===obj.comprador.trim().toLowerCase());if(pessoa)pessoaId=pessoa.id}
+    const l={...anterior,id:obj.financeiroId,tipo:"receita",data:obj.data,valor:obj.total,status:obj.status,dataPagamento:obj.status==="pago"?(obj.dataRecebimento||anterior.dataPagamento||obj.data):"",categoria:"Venda de café",pessoaId,talhaoId:obj.talhaoId,safraId:obj.safraId,descricao:`Venda de café${obj.comprador?" - "+obj.comprador:""}`,obs:`${num(obj.sacas)} sacas × ${moeda(obj.precoSaca)}`,vendaId:obj.id};
+    const li=estado.lancamentos.findIndex(x=>x.id===l.id);if(li>=0)estado.lancamentos[li]=l;else estado.lancamentos.push(l)
+  }else if(obj.financeiroId){estado.lancamentos=estado.lancamentos.filter(x=>x.id!==obj.financeiroId);obj.financeiroId=""}
+  const i=estado.vendas.findIndex(x=>x.id===obj.id);if(i>=0)estado.vendas[i]=obj;else estado.vendas.push(obj);
+  fecharModal("modalVenda");persistir();toast("Venda registrada e estoque atualizado.")
+};
+
+function colheitasDoLoteV121(l){return [...new Set([...(Array.isArray(l.colheitaIds)?l.colheitaIds:[]),...(l.colheitaId?[l.colheitaId]:[])].filter(Boolean))]}
+confirmarFechamentoLote=function(){
+  const l=estado.lotes.find(x=>x.id===$("fecharLoteId").value);if(!l)return;
+  const sacas=Number($("fecharLoteSacas").value||0);if(sacas<=0){toast("Informe quantas sacas deu após secar e limpar.");return}
+  if(!validarSafraRegistroV121(l.safraId||estado.safraAtivaId,l))return;
+  l.status="fechado";l.sacas=sacas;l.dataFechamento=$("fecharLoteData").value||hoje();l.obsFinal=$("fecharLoteObs").value.trim();
+  const dados=dadosLote(l),antigosIds=colheitasDoLoteV121(l);
+  if(antigosIds.length)estado.colheitas=estado.colheitas.filter(c=>!antigosIds.includes(c.id));
+  const grupos={};dados.xs.forEach(a=>{const tid=a.talhaoId||"",q=Number(a.latoesAlocados||0);grupos[tid]=(grupos[tid]||0)+q});
+  const entradas=Object.entries(grupos).filter(([,q])=>q>0.00001);const totalLatoes=entradas.reduce((s,[,q])=>s+q,0);
+  if(!entradas.length)entradas.push(["",Number(dados.latoes||0)]);
+  const novosIds=[];let sacasDistribuidas=0;
+  entradas.forEach(([talhaoId,latoes],idx)=>{
+    let sacasTalhao;if(idx===entradas.length-1)sacasTalhao=Number((sacas-sacasDistribuidas).toFixed(4));else{sacasTalhao=totalLatoes>0?Number((sacas*(latoes/totalLatoes)).toFixed(4)):0;sacasDistribuidas+=sacasTalhao}
+    const id=novoId();novosIds.push(id);estado.colheitas.push({id,data:l.dataFechamento,talhaoId,safraId:l.safraId||estado.safraAtivaId,sacas:sacasTalhao,safra:nomeSafra(l.safraId||estado.safraAtivaId),obs:`Produção final do ${l.nome}. ${num(latoes)} de ${num(dados.latoes)} latões do lote.`,loteId:l.id})
+  });
+  l.colheitaIds=novosIds;l.colheitaId=novosIds[0]||"";
+  fecharModal("modalFecharLote");persistir();toast(entradas.length>1?`Lote fechado. ${num(sacas)} sacas distribuídas proporcionalmente entre ${entradas.length} talhões.`:"Lote fechado e sacas adicionadas ao estoque.")
+};
+excluirLote=function(id){
+  const l=estado.lotes.find(x=>x.id===id);if(!l)return;
+  if(!confirm("Excluir este lote? Os latões voltarão a ficar disponíveis para o secador."))return;
+  const ids=colheitasDoLoteV121(l);estado.colheitas=estado.colheitas.filter(c=>!ids.includes(c.id)&&c.loteId!==id);estado.lotes=estado.lotes.filter(x=>x.id!==id);persistir()
+};
+renderLotes=function(){
+  const lista=$("listaLotes");if(!lista)return;migrarLotesAntigos();
+  const xs=[...estado.lotes].sort((a,b)=>(b.dataEnvio||"").localeCompare(a.dataEnvio||""));
+  lista.innerHTML=xs.length?xs.map(l=>{const d=dadosLote(l),conversao=l.sacas?d.latoes/l.sacas:0,custoSaca=l.sacas?d.custo/l.sacas:0,talhoes=[...new Set(d.xs.map(a=>a.talhaoId).filter(Boolean))],origem=talhoes.length===1?nomeTalhao(talhoes[0]):talhoes.length>1?`${talhoes.length} talhões`:(l.talhaoFiltro&&l.talhaoFiltro!=="todos"?nomeTalhao(l.talhaoFiltro):"Geral");
+    return `<div class="card lote-card"><div class="lote-top"><div><div class="lote-title">${esc(l.nome)}</div><div class="lote-meta">Enviado ${dataBR(l.dataEnvio)} • ${esc(origem)} • ${esc(nomeSafra(l.safraId))} • ${l.status==="fechado"?"Finalizado "+dataBR(l.dataFechamento):"Em secagem / aguardando resultado"}</div></div><span class="pill">${l.status==="fechado"?"Finalizado":"Secador"}</span></div><div class="lote-stats"><div class="lote-stat"><small>Latões</small><strong>${num(d.latoes)}</strong></div><div class="lote-stat"><small>Sacas</small><strong>${l.sacas?num(l.sacas):"—"}</strong></div><div class="lote-stat"><small>Latões/sc</small><strong>${l.sacas?num(conversao):"—"}</strong></div><div class="lote-stat"><small>Custo colheita/sc</small><strong>${l.sacas?moeda(custoSaca):"—"}</strong></div></div><div class="btnrow" style="margin-top:11px">${l.status==="fechado"?"":`<button class="btn primary" onclick="abrirFecharLote('${l.id}')">Informar sacas</button><button class="btn secondary" onclick="abrirLote('${l.id}')">Editar lote</button>`}<button class="btn danger" onclick="excluirLote('${l.id}')">Excluir</button></div></div>`
+  }).join(""):`<div class="card empty" style="grid-column:1/-1"><strong>Nenhum lote no secador</strong>Envie os latões colhidos para secagem.</div>`
+};
+
+function dataRelatorioLancamentoV121(x){const regime=$("relRegimeV121")?.value||"competencia";if(regime==="caixa"){if(x.status!=="pago")return "";return x.dataPagamento||x.data||""}return x.data||""}
+filtrarPeriodo=function(arr){
+  const ini=$("relInicio").value,fim=$("relFim").value,t=$("relTalhao").value,s=$("relSafra")?.value||"todos",ehLancamentos=arr===estado.lancamentos;
+  return arr.filter(x=>{const data=ehLancamentos?dataRelatorioLancamentoV121(x):(x.data||"");if(ehLancamentos&&($("relRegimeV121")?.value==="caixa")&&!data)return false;return(!ini||data>=ini)&&(!fim||data<=fim)&&(t==="todos"||x.talhaoId===t)&&(!x.safraId||s==="todos"||x.safraId===s)})
+};
+const renderRelatoriosV121Base=renderRelatorios;
+renderRelatorios=function(){renderRelatoriosV121Base();const regime=$("relRegimeV121")?.value||"competencia";if($("relData")){const base=$("relData").textContent.replace(/\s•\sRegime:.+$/,"");$("relData").textContent=`${base} • Regime: ${regime==="caixa"?"Caixa realizado":"Competência"}`}}
+limparFiltroRelatorio=function(){$("relInicio").value="";$("relFim").value="";$("relTalhao").value="todos";if($("relSafra"))$("relSafra").value="todos";if($("relRegimeV121"))$("relRegimeV121").value="competencia";renderRelatorios()}
+exportarCSV=function(){
+  const rows=[["Data do lançamento","Data pagamento/recebimento","Tipo","Categoria","Descrição","Pessoa/empresa","Talhão","Safra","Status","Vencimento","Documento","Parcela","Valor"]];
+  filtrarPeriodo(estado.lancamentos).forEach(x=>rows.push([x.data||"",x.dataPagamento||"",x.tipo||"",x.categoria||"",x.descricao||"",nomePessoa(x.pessoaId),nomeTalhao(x.talhaoId),nomeSafra(x.safraId),x.status||"",x.vencimento||"",x.documento||"",x.parcela||"",x.valor||0]));
+  const csv="\uFEFF"+rows.map(r=>r.map(v=>`"${String(v??"").replaceAll('"','""')}"`).join(";")).join("\n"),blob=new Blob([csv],{type:"text/csv;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`financeiro-sitio-${$("relRegimeV121")?.value||"competencia"}.csv`;a.click();URL.revokeObjectURL(a.href)
+};
+
+function diasDesdeV121(data){if(!data)return Infinity;const d=new Date(data+"T12:00:00");if(Number.isNaN(d.getTime()))return Infinity;return Math.floor((new Date()-d)/86400000)}
+function irFinanceiroV121(tipo="todos"){trocarAba("financeiro",document.querySelector('[data-nav="financeiro"]'));if($("fStatus"))$("fStatus").value="pendente";if($("fTipo"))$("fTipo").value=tipo;renderFinanceiro();setTimeout(()=>document.querySelector(".accounts-panel")?.scrollIntoView({behavior:"smooth",block:"start"}),80)}
+function irSecadorV121(){trocarAba("producao",document.querySelector('[data-nav="producao"]'));setTimeout(()=>document.getElementById("sec-secador")?.scrollIntoView({behavior:"smooth",block:"start"}),80)}
+function irColhedoresV121(){trocarAba("producao",document.querySelector('[data-nav="producao"]'));setTimeout(()=>document.getElementById("sec-colhedores")?.scrollIntoView({behavior:"smooth",block:"start"}),80)}
+function renderPainelAtencaoV121(){
+  const el=$("painelAtencaoV121");if(!el)return;
+  const pendDesp=estado.lancamentos.filter(x=>x.tipo==="despesa"&&x.status==="pendente"),vencidas=pendDesp.filter(x=>{const d=diasAte(x.vencimento);return d!==null&&d<0}),proximas=pendDesp.filter(x=>{const d=diasAte(x.vencimento);return d!==null&&d>=0&&d<=7}),receber=estado.lancamentos.filter(x=>x.tipo==="receita"&&x.status==="pendente"),colhedoresPendente=estado.apanhas.filter(a=>a.status!=="pago"),lotesSecando=estado.lotes.filter(l=>l.status!=="fechado");
+  const totalVencido=vencidas.reduce((s,x)=>s+Number(x.valor||0),0),totalProximas=proximas.reduce((s,x)=>s+Number(x.valor||0),0),totalReceber=receber.reduce((s,x)=>s+Number(x.valor||0),0),totalColhedores=colhedoresPendente.reduce((s,a)=>s+Number(a.latoes||0)*Number(a.valorLatao||0),0),latSecando=lotesSecando.reduce((s,l)=>s+dadosLote(l).latoes,0);
+  const soloPendente=estado.talhoes.filter(t=>{const a=ultimaAnaliseTalhao(t.id);return !a||diasDesdeV121(a.data)>365}),cards=[];
+  if(vencidas.length)cards.push(`<button class="v121-alert urgent" onclick="irFinanceiroV121('despesa')"><div class="top"><span class="icon">!</span><span class="tag">urgente</span></div><strong>${vencidas.length} conta${vencidas.length===1?"":"s"} vencida${vencidas.length===1?"":"s"}</strong><small>${moeda(totalVencido)} em pagamentos atrasados.</small></button>`);
+  if(proximas.length)cards.push(`<button class="v121-alert warn" onclick="irFinanceiroV121('despesa')"><div class="top"><span class="icon">7</span><span class="tag">próximos dias</span></div><strong>${moeda(totalProximas)} a vencer</strong><small>${proximas.length} conta${proximas.length===1?"":"s"} vence${proximas.length===1?"":"m"} nos próximos 7 dias.</small></button>`);
+  if(receber.length)cards.push(`<button class="v121-alert info" onclick="irFinanceiroV121('receita')"><div class="top"><span class="icon">↗</span><span class="tag">receber</span></div><strong>${moeda(totalReceber)} a receber</strong><small>${receber.length} receita${receber.length===1?"":"s"} ainda pendente${receber.length===1?"":"s"}.</small></button>`);
+  if(colhedoresPendente.length)cards.push(`<button class="v121-alert warn" onclick="irColhedoresV121()"><div class="top"><span class="icon">C</span><span class="tag">colhedores</span></div><strong>${moeda(totalColhedores)} a pagar</strong><small>${colhedoresPendente.length} registro${colhedoresPendente.length===1?"":"s"} de colheita pendente${colhedoresPendente.length===1?"":"s"}.</small></button>`);
+  if(lotesSecando.length)cards.push(`<button class="v121-alert info" onclick="irSecadorV121()"><div class="top"><span class="icon">☕</span><span class="tag">secador</span></div><strong>${lotesSecando.length} lote${lotesSecando.length===1?"":"s"} no secador</strong><small>${num(latSecando)} latões aguardando resultado em sacas.</small></button>`);
+  if(soloPendente.length)cards.push(`<button class="v121-alert" onclick="abrirGerenciadorSolo()"><div class="top"><span class="icon">S</span><span class="tag">solo</span></div><strong>${soloPendente.length} talhão${soloPendente.length===1?"":"ões"} para revisar</strong><small>Sem análise de solo ou com análise cadastrada há mais de 12 meses.</small></button>`);
+  if(!cards.length)cards.push(`<div class="v121-alert ok"><div class="top"><span class="icon">✓</span><span class="tag">em dia</span></div><strong>Nenhuma pendência importante agora</strong><small>Contas, colhedores e secador não têm alertas imediatos.</small></div>`);
+  el.innerHTML=cards.slice(0,6).join("")
+}
+baixarBackup=function(){garantirEstruturaV12();const payload={versao:"12.1",exportadoEm:new Date().toISOString(),estado},blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`backup-financeiro-sitio-v12-1-${hoje()}.json`;a.click();URL.revokeObjectURL(a.href)}
+const renderResumoV121Base=renderResumo;
+renderResumo=function(){renderResumoV121Base();renderPainelAtencaoV121()}
+const renderTudoV121Base=renderTudo;
+renderTudo=function(){renderTudoV121Base();renderPainelAtencaoV121();atualizarCampoQuitacaoV121();atualizarCampoPagamentoApanhaV121();atualizarCampoRecebimentoVendaV121()}
 </script>
 
 <script type="module">
