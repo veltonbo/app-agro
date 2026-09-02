@@ -1,0 +1,47 @@
+FINANCEIRO DO SÍTIO - V10
+COTAÇÃO AUTOMÁTICA COM VÁRIAS FONTES
+
+A V10 deixa de depender do Painel do Café como fonte principal.
+
+FONTES DISPONÍVEIS
+
+1. Notícias Agrícolas - Café Conilon Disponível (Espírito Santo)
+   - Tipo 7/8
+   - Fonte publicada na página: CCCV / Cooabriel / BCSP
+   - Esta é a fonte principal no modo automático.
+
+2. Safras & Mercado
+   - Café Conilon Tipo 7/8 Vitória/ES
+   - Usada como segunda opção automática.
+
+3. CEPEA/ESALQ
+   - Indicador Café Robusta
+   - Usada como referência adicional / fallback.
+
+4. Cooabriel
+   - Cotação Conilon 7/8
+   - Tentativa adicional de fallback.
+
+MODO AUTOMÁTICO
+Ao abrir o app, ele tenta as fontes em sequência.
+Se a primeira estiver indisponível, tenta a próxima.
+A última cotação válida fica salva no Firebase.
+
+ATUALIZAÇÃO
+- Ao abrir / entrar no app.
+- Ao voltar para o app.
+- Quando a internet retorna.
+- Periodicamente enquanto o app estiver aberto.
+
+PREÇO REGIONAL
+O cálculo continua:
+  referência de mercado - desconto regional
+
+O desconto padrão permanece R$ 80,00 e pode ser alterado em:
+  Perfil > Cotação do café > Configurar
+
+É possível também escolher manualmente a fonte preferida.
+
+IMPORTANTE
+O valor regional calculado é uma estimativa configurada pelo usuário,
+não uma cotação oficial da cidade.

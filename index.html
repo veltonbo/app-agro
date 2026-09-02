@@ -1203,6 +1203,27 @@ input,select,textarea{
   .quote-settings-preview{grid-template-columns:1fr}
 }
 
+
+/* ===== V10 COTAÇÃO MULTIFONTES ===== */
+.quote-source-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 7px;
+  margin-top:5px;
+  border-radius:999px;
+  border:1px solid #DDE7DF;
+  background:#F7FAF7;
+  color:#526158;
+  font-size:8px;
+  font-weight:850
+}
+.quote-source-badge::before{
+  content:"";
+  width:6px;height:6px;border-radius:50%;
+  background:#2F7B49
+}
+
 </style>
 </head>
 <body>
@@ -1302,7 +1323,7 @@ input,select,textarea{
 
     <div class="quote-grid">
       <div class="quote-value">
-        <small>Painel do Café</small>
+        <small id="cotacaoFonteLabel">Referência de mercado</small>
         <strong id="cotacaoPainelValor" class="quote-empty">—</strong>
         <span id="cotacaoPainelData">Aguardando cotação</span>
       </div>
@@ -1310,7 +1331,7 @@ input,select,textarea{
       <div class="quote-value region">
         <small>Estimativa na região</small>
         <strong id="cotacaoRegionalValor" class="quote-empty">—</strong>
-        <span id="cotacaoAjusteTexto">Painel − R$ 80,00</span>
+        <span id="cotacaoAjusteTexto">Referência − R$ 80,00</span>
       </div>
     </div>
 
@@ -2000,12 +2021,22 @@ input,select,textarea{
 
   <div class="grid2">
     <div class="field">
+      <label>Fonte da cotação</label>
+      <select id="cotacaoFontePreferida">
+        <option value="auto">Automático (recomendado)</option>
+        <option value="noticias_es">Notícias Agrícolas - Conilon 7/8 ES</option>
+        <option value="safras">Safras & Mercado - Vitória/ES</option>
+        <option value="cepea">CEPEA/ESALQ - Robusta</option>
+        <option value="cooabriel">Cooabriel - Conilon 7/8</option>
+      </select>
+    </div>
+    <div class="field">
       <label>Desconto na sua região (R$/saca)</label>
       <input id="cotacaoDesconto" type="number" min="0" step="0.01" placeholder="80,00" oninput="previewCotacaoConfig()">
     </div>
 
     <div class="field">
-      <label>Cotação manual do Painel (R$/saca)</label>
+      <label>Cotação manual de referência (R$/saca)</label>
       <input id="cotacaoManual" type="number" min="0" step="0.01" placeholder="Ex.: 1.000,00" oninput="previewCotacaoConfig()">
     </div>
   </div>
@@ -2017,7 +2048,7 @@ input,select,textarea{
 
   <div class="quote-settings-preview">
     <div class="quote-preview-box">
-      <small>Referência Painel</small>
+      <small>Referência</small>
       <strong id="cotacaoPreviewPainel">R$ 0,00</strong>
     </div>
     <div class="quote-preview-box">
@@ -2027,15 +2058,15 @@ input,select,textarea{
   </div>
 
   <div class="quote-source-note">
-    <strong>Automático:</strong> a cotação é atualizada no repositório a cada 30 minutos e o app consulta o arquivo atualizado ao abrir e periodicamente.
+    <strong>Automático:</strong> o app tenta várias fontes públicas de cotação. A principal é Notícias Agrícolas (Conilon disponível no ES), com fontes CCCV/Cooabriel/BCSP.
   </div>
 
   <div class="quote-source-note">
-    <strong>Como funciona:</strong> o repositório busca o valor do Conilon 7/8 do Painel do Café automaticamente e o app subtrai o desconto configurado. O valor regional é uma estimativa sua, não uma cotação oficial.
+    <strong>Como funciona:</strong> a referência selecionada é consultada automaticamente e o app subtrai o desconto regional configurado. O valor regional é uma estimativa, não uma cotação oficial da sua cidade.
   </div>
 
   <div class="btnrow" style="margin-top:14px">
-    <button class="btn secondary" onclick="abrirPainelDoCafe()">Abrir Painel do Café</button>
+    <button class="btn secondary" onclick="abrirPainelDoCafe()">Abrir fonte</button>
     <button class="btn secondary" onclick="atualizarCotacaoCafe(true)">Buscar agora</button>
     <button class="btn primary" onclick="salvarCotacaoConfig()">Salvar configuração</button>
   </div>
@@ -6599,6 +6630,515 @@ renderCotacaoCafe = function(){
     $("cotacaoAuto").checked = true;
     $("cotacaoAuto").disabled = true;
   }
+};
+</script>
+
+
+<script>
+/* ===== FINANCEIRO DO SÍTIO V10 - COTAÇÃO MULTIFONTES ===== */
+
+const FONTES_CAFE_V10 = {
+  noticias_es: {
+    nome: "Notícias Agrícolas - Conilon 7/8 ES",
+    curto: "Notícias Agrícolas",
+    detalhe: "CCCV / Cooabriel / BCSP",
+    url: "https://www.noticiasagricolas.com.br/cotacoes/cafe/cafe-conillon-disponivel-vitoria-es"
+  },
+  safras: {
+    nome: "Safras & Mercado - Conilon 7/8 Vitória/ES",
+    curto: "Safras & Mercado",
+    detalhe: "Mercado físico Vitória/ES",
+    url: "https://www.noticiasagricolas.com.br/cotacoes/mercado-fisico-safras-e-mercado"
+  },
+  cepea: {
+    nome: "CEPEA/ESALQ - Café Robusta",
+    curto: "CEPEA/ESALQ",
+    detalhe: "Indicador Robusta",
+    url: "https://www.noticiasagricolas.com.br/cotacoes/cafe/indicador-cepea-esalq-cafe-conillon"
+  },
+  cooabriel: {
+    nome: "Cooabriel - Conilon 7/8",
+    curto: "Cooabriel",
+    detalhe: "Cotação do dia",
+    url: "https://cooabriel.com.br/cotacao-do-dia"
+  }
+};
+
+function garantirEstruturaV10(){
+  garantirEstruturaV7();
+
+  const c = estado.cotacaoCafe;
+
+  if(!c.fontePreferida){
+    c.fontePreferida = "auto";
+  }
+
+  if(!["auto","noticias_es","safras","cepea","cooabriel"].includes(c.fontePreferida)){
+    c.fontePreferida = "auto";
+  }
+
+  c.fonteAtual = c.fonteAtual || "";
+  c.urlFonteAtual = c.urlFonteAtual || "";
+  c.detalheFonte = c.detalheFonte || "";
+}
+
+function jinaUrl(url){
+  return "https://r.jina.ai/" + url;
+}
+
+async function fetchTextoFonteV10(url, timeoutMs=25000){
+  const ctrl = new AbortController();
+  const timer = setTimeout(()=>ctrl.abort(), timeoutMs);
+
+  try{
+    const r = await fetch(url, {
+      cache: "no-store",
+      signal: ctrl.signal,
+      headers: {"Accept":"text/plain,text/html,*/*"}
+    });
+
+    if(!r.ok){
+      throw new Error("HTTP " + r.status);
+    }
+
+    return await r.text();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function obterTextoFonteV10(url){
+  const erros = [];
+
+  // Primeiro via Jina Reader: evita CORS e transforma a página em texto legível.
+  try{
+    return await fetchTextoFonteV10(jinaUrl(url), 30000);
+  }catch(e){
+    erros.push(e);
+  }
+
+  // Fallback direto caso a fonte permita CORS.
+  try{
+    return await fetchTextoFonteV10(url, 15000);
+  }catch(e){
+    erros.push(e);
+  }
+
+  throw erros[0] || new Error("Fonte indisponível");
+}
+
+function dataMaisProximaDoTrechoV10(texto, indice){
+  const inicio = Math.max(0, indice - 700);
+  const fim = Math.min(texto.length, indice + 1200);
+  const trecho = texto.slice(inicio, fim);
+
+  const m =
+    trecho.match(/Fechamento:\s*(\d{2}\/\d{2}\/\d{4})/i) ||
+    trecho.match(/Atualizado em:\s*(\d{2}\/\d{2}\/\d{4})/i) ||
+    trecho.match(/(\d{2}\/\d{2}\/\d{4})/);
+
+  return m ? m[1] : "";
+}
+
+function parseNoticiasESV10(texto){
+  const t = String(texto || "").replace(/\u00a0/g, " ");
+  const idx = t.search(/Tipo\s*7\s*\/\s*8\s*\(com até 13%/i);
+
+  if(idx < 0) return null;
+
+  const trecho = t.slice(Math.max(0, idx - 500), idx + 650);
+  const m = trecho.match(
+    /Tipo\s*7\s*\/\s*8[\s\S]{0,220}?\|\s*([0-9]{1,4}(?:\.[0-9]{3})*(?:,[0-9]{1,2})?)\s*\|/i
+  );
+
+  if(!m) return null;
+
+  const valor = parsePrecoCafeBR(m[1]);
+
+  if(!Number.isFinite(valor) || valor < 300 || valor > 5000){
+    return null;
+  }
+
+  return {
+    valor,
+    dataFonte: dataMaisProximaDoTrechoV10(t, idx)
+  };
+}
+
+function parseSafrasV10(texto){
+  const t = String(texto || "").replace(/\u00a0/g, " ");
+  const idx = t.search(/Cafe\s+Conilon\s+Tipo\s+7\s*\/\s*8\s+Vitoria-Es/i);
+
+  if(idx < 0) return null;
+
+  const trecho = t.slice(Math.max(0, idx - 250), idx + 500);
+  const m = trecho.match(
+    /Cafe\s+Conilon\s+Tipo\s+7\s*\/\s*8\s+Vitoria-Es[\s\S]{0,180}?\|\s*([0-9]{1,4}(?:\.[0-9]{3})*(?:,[0-9]{1,2})?)/i
+  );
+
+  if(!m) return null;
+
+  const valor = parsePrecoCafeBR(m[1]);
+
+  if(!Number.isFinite(valor) || valor < 300 || valor > 5000){
+    return null;
+  }
+
+  const dm =
+    t.match(/Atualizado em:\s*(\d{2}\/\d{2}\/\d{4})/i) ||
+    t.match(/(\d{2}\/\d{2}\/\d{4})/);
+
+  return {
+    valor,
+    dataFonte: dm ? dm[1] : ""
+  };
+}
+
+function parseCepeaV10(texto){
+  const t = String(texto || "").replace(/\u00a0/g, " ");
+  const idx = t.search(/Indicador\s+Café\s+Robusta\s*-\s*Cepea\/Esalq/i);
+
+  if(idx < 0) return null;
+
+  const trecho = t.slice(idx, idx + 1100);
+
+  const m =
+    trecho.match(
+      /(?:Fechamento:\s*(\d{2}\/\d{2}\/\d{4})[\s\S]{0,320}?)?\|\s*([0-9]{1,4}(?:\.[0-9]{3})*,[0-9]{2})\s*\|/
+    ) ||
+    trecho.match(
+      /(\d{2}\/\d{2}\/\d{4})[\s\S]{0,120}?\|\s*([0-9]{1,4}(?:\.[0-9]{3})*,[0-9]{2})\s*\|/
+    );
+
+  if(!m) return null;
+
+  const bruto = m[2] || m[1];
+  const valor = parsePrecoCafeBR(bruto);
+  const dataFonte = m[2] ? (m[1] || "") : "";
+
+  if(!Number.isFinite(valor) || valor < 300 || valor > 5000){
+    return null;
+  }
+
+  return {valor, dataFonte};
+}
+
+function parseCooabrielV10(texto){
+  const t = String(texto || "").replace(/\u00a0/g, " ");
+  const idx = t.search(/Conilon\s+7\s*\/\s*8/i);
+
+  if(idx < 0) return null;
+
+  const trecho = t.slice(Math.max(0, idx - 300), idx + 650);
+
+  const m =
+    trecho.match(
+      /Conilon\s+7\s*\/\s*8\s*\|\s*(\d{2}\/\d{2}\/\d{4})\s*\|\s*[0-9:]+\s*\|\s*R\$\s*([0-9]{1,4}(?:\.[0-9]{3})*(?:,[0-9]{1,2})?)/i
+    ) ||
+    trecho.match(
+      /Conilon\s+7\s*\/\s*8[\s\S]{0,220}?R\$\s*([0-9]{1,4}(?:\.[0-9]{3})*(?:,[0-9]{1,2})?)/i
+    );
+
+  if(!m) return null;
+
+  let dataFonte = "";
+  let bruto = "";
+
+  if(m.length >= 3){
+    dataFonte = m[1] || "";
+    bruto = m[2] || "";
+  }else{
+    bruto = m[1] || "";
+    dataFonte = dataMaisProximaDoTrechoV10(t, idx);
+  }
+
+  const valor = parsePrecoCafeBR(bruto);
+
+  if(!Number.isFinite(valor) || valor < 300 || valor > 5000){
+    return null;
+  }
+
+  return {valor, dataFonte};
+}
+
+const PARSERS_V10 = {
+  noticias_es: parseNoticiasESV10,
+  safras: parseSafrasV10,
+  cepea: parseCepeaV10,
+  cooabriel: parseCooabrielV10
+};
+
+async function consultarFonteV10(chave){
+  const cfg = FONTES_CAFE_V10[chave];
+  const parser = PARSERS_V10[chave];
+
+  if(!cfg || !parser){
+    throw new Error("Fonte inválida");
+  }
+
+  const texto = await obterTextoFonteV10(cfg.url);
+  const resultado = parser(texto);
+
+  if(!resultado){
+    throw new Error("Cotação não localizada em " + cfg.curto);
+  }
+
+  return {
+    ...resultado,
+    fonteKey: chave,
+    fonte: cfg.nome,
+    fonteCurta: cfg.curto,
+    detalheFonte: cfg.detalhe,
+    urlFonte: cfg.url,
+    atualizadoEm: new Date().toISOString(),
+    metodo: "consulta automática"
+  };
+}
+
+async function buscarCotacaoMultiFonteV10(){
+  garantirEstruturaV10();
+
+  const preferida = estado.cotacaoCafe.fontePreferida || "auto";
+
+  let ordem;
+
+  if(preferida === "auto"){
+    ordem = ["noticias_es","safras","cepea","cooabriel"];
+  }else{
+    ordem = [preferida, ...["noticias_es","safras","cepea","cooabriel"].filter(x=>x!==preferida)];
+  }
+
+  const erros = [];
+
+  for(const fonte of ordem){
+    try{
+      return await consultarFonteV10(fonte);
+    }catch(e){
+      erros.push(`${fonte}: ${e.message || e}`);
+    }
+  }
+
+  throw new Error(erros.join(" | "));
+}
+
+buscarCotacaoPainel = buscarCotacaoMultiFonteV10;
+
+function textoFonteAtualV10(){
+  garantirEstruturaV10();
+
+  const c = estado.cotacaoCafe;
+
+  if(c.fonteAtual){
+    return c.fonteAtual;
+  }
+
+  if(c.fontePreferida && c.fontePreferida !== "auto" && FONTES_CAFE_V10[c.fontePreferida]){
+    return FONTES_CAFE_V10[c.fontePreferida].nome;
+  }
+
+  return "Referência de mercado";
+}
+
+abrirPainelDoCafe = function(){
+  garantirEstruturaV10();
+
+  const c = estado.cotacaoCafe;
+
+  let url = c.urlFonteAtual;
+
+  if(!url && c.fontePreferida !== "auto"){
+    url = FONTES_CAFE_V10[c.fontePreferida]?.url;
+  }
+
+  if(!url){
+    url = FONTES_CAFE_V10.noticias_es.url;
+  }
+
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
+const renderCotacaoCafeV10Base = renderCotacaoCafe;
+
+renderCotacaoCafe = function(){
+  garantirEstruturaV10();
+  renderCotacaoCafeV10Base();
+
+  const c = estado.cotacaoCafe;
+  const regional = cotacaoRegional();
+  const temPreco = Number(c.precoPainel || 0) > 0;
+
+  if($("cotacaoFonteLabel")){
+    $("cotacaoFonteLabel").textContent =
+      c.fonteAtual
+        ? c.fonteAtual
+        : "Referência de mercado";
+  }
+
+  const sub = document.querySelector(".quote-sub");
+  if(sub){
+    sub.textContent =
+      c.detalheFonte
+        ? `${c.detalheFonte} • atualização automática`
+        : "Notícias Agrícolas • Cooabriel • CEPEA/ESALQ";
+  }
+
+  if($("cotacaoAjusteTexto")){
+    $("cotacaoAjusteTexto").textContent =
+      `Referência − ${moeda(c.descontoRegional)}`;
+  }
+
+  if($("cotacaoStatus") && !cotacaoAtualizando){
+    if(temPreco){
+      const data = c.dataFonte ? ` • ${c.dataFonte}` : "";
+      const hora = c.atualizadoEm ? ` • consulta ${formatarDataHoraCotacao(c.atualizadoEm)}` : "";
+
+      $("cotacaoStatus").innerHTML =
+        `<strong>${c.fonteAtual || "Cotação automática"}</strong>${data}${hora}`;
+    }
+  }
+};
+
+abrirCotacaoConfig = function(){
+  garantirEstruturaV10();
+
+  const c = estado.cotacaoCafe;
+
+  $("cotacaoDesconto").value =
+    Number(c.descontoRegional || 80).toFixed(2);
+
+  $("cotacaoManual").value =
+    Number(c.precoPainel || 0) > 0
+      ? Number(c.precoPainel).toFixed(2)
+      : "";
+
+  if($("cotacaoFontePreferida")){
+    $("cotacaoFontePreferida").value = c.fontePreferida || "auto";
+  }
+
+  if($("cotacaoAuto")){
+    $("cotacaoAuto").checked = true;
+    $("cotacaoAuto").disabled = true;
+  }
+
+  previewCotacaoConfig();
+  abrirModal("modalCotacao");
+};
+
+salvarCotacaoConfig = function(){
+  garantirEstruturaV10();
+
+  const c = estado.cotacaoCafe;
+  const desconto = Number($("cotacaoDesconto").value || 0);
+  const manual = Number($("cotacaoManual").value || 0);
+
+  c.descontoRegional = Math.max(0, desconto);
+  c.autoAtualizar = true;
+
+  if($("cotacaoFontePreferida")){
+    c.fontePreferida = $("cotacaoFontePreferida").value || "auto";
+  }
+
+  if(manual > 0 && Math.abs(manual - Number(c.precoPainel || 0)) > 0.001){
+    c.precoPainel = manual;
+    c.atualizadoEm = new Date().toISOString();
+    c.origem = "manual";
+    c.metodo = "manual";
+    c.fonteAtual = "Valor manual";
+    c.urlFonteAtual = "";
+    c.detalheFonte = "";
+  }
+
+  fecharModal("modalCotacao");
+  persistir();
+  toast("Configuração salva. Buscando cotação...");
+  setTimeout(()=>atualizarCotacaoCafe(true), 350);
+};
+
+atualizarCotacaoCafe = async function(forcar=false){
+  garantirEstruturaV10();
+
+  if(cotacaoAtualizando) return;
+
+  const agora = Date.now();
+
+  if(!forcar && typeof ultimaTentativaCotacaoV9 !== "undefined"){
+    if(agora - ultimaTentativaCotacaoV9 < COTACAO_V9_MIN_RECONSULTA_MS){
+      return;
+    }
+    ultimaTentativaCotacaoV9 = agora;
+  }
+
+  const c = estado.cotacaoCafe;
+  cotacaoAtualizando = true;
+
+  if($("cotacaoStatus")){
+    $("cotacaoStatus").innerHTML =
+      "<strong>Consultando fontes de mercado...</strong>";
+  }
+
+  try{
+    const r = await buscarCotacaoMultiFonteV10();
+    const valorNovo = Number(r.valor || 0);
+
+    if(!Number.isFinite(valorNovo) || valorNovo <= 0){
+      throw new Error("Preço inválido");
+    }
+
+    const mudou =
+      Math.abs(Number(c.precoPainel || 0) - valorNovo) > 0.001 ||
+      c.dataFonte !== (r.dataFonte || "") ||
+      c.fonteAtual !== r.fonte;
+
+    c.precoPainel = valorNovo;
+    c.dataFonte = r.dataFonte || "";
+    c.atualizadoEm = r.atualizadoEm || new Date().toISOString();
+    c.origem = "automatico";
+    c.metodo = r.metodo;
+    c.fonteAtual = r.fonte;
+    c.urlFonteAtual = r.urlFonte;
+    c.detalheFonte = r.detalheFonte || "";
+    c.autoAtualizar = true;
+
+    cotacaoAtualizando = false;
+
+    if(mudou){
+      salvarLocal();
+      if(window.cloudSync){
+        window.cloudSync.agendar();
+      }
+    }
+
+    renderCotacaoCafe();
+
+    if(forcar){
+      toast(`${r.fonteCurta}: ${moeda(valorNovo)} • Região: ${moeda(cotacaoRegional())}`);
+    }
+  }catch(e){
+    cotacaoAtualizando = false;
+    renderCotacaoCafe();
+
+    if($("cotacaoStatus")){
+      if(Number(c.precoPainel || 0) > 0){
+        $("cotacaoStatus").innerHTML =
+          "<strong>Fontes indisponíveis agora.</strong> Mantendo a última cotação válida.";
+      }else{
+        $("cotacaoStatus").innerHTML =
+          "<strong>Não foi possível obter a cotação.</strong> O app tentará novamente automaticamente.";
+      }
+    }
+
+    if(forcar){
+      toast("Não consegui consultar as fontes agora. Tentarei novamente automaticamente.");
+    }
+  }
+};
+
+/* Estado: adiciona configurações V10 sem quebrar versões anteriores. */
+const garantirEstruturaV10RenderBase = renderTudo;
+renderTudo = function(){
+  garantirEstruturaV10();
+  garantirEstruturaV10RenderBase();
+  renderCotacaoCafe();
 };
 </script>
 
