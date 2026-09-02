@@ -2124,6 +2124,50 @@ input,select,textarea{
 }
 @media(max-width:390px){.v121-attention-grid{grid-template-columns:1fr}}
 
+
+/* =========================================================
+   V12.2 — PAGAMENTOS, PARCELAS, RECORRÊNCIAS E CONTAS
+   ========================================================= */
+.v122-bank-panel,.v122-cashflow-panel{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 4px 16px rgba(25,55,35,.035)}
+.v122-bank-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.v122-bank-head h3{margin:0;font-size:13px}
+.v122-bank-head p{margin:3px 0 0;color:var(--muted);font-size:8px;line-height:1.4}
+.v122-bank-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.v122-bank-card{padding:11px;border:1px solid #E1E7E2;border-radius:13px;background:#FBFCFB}
+.v122-bank-card small,.v122-flow-card small{display:block;color:#7E8881;font-size:7px;font-weight:850;text-transform:uppercase;letter-spacing:.05em}
+.v122-bank-card strong,.v122-flow-card strong{display:block;margin-top:7px;font-size:15px}
+.v122-bank-card span,.v122-flow-card span{display:block;margin-top:5px;color:#879089;font-size:7.5px;line-height:1.35}
+.v122-flow-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.v122-flow-card{padding:12px;border:1px solid #E4E8E4;border-radius:13px;background:#FCFDFC}
+.v122-launch-options{display:flex;align-items:flex-end;gap:10px;margin-top:10px;padding:10px;border:1px dashed #D9E1DB;border-radius:12px;background:#FAFCFA}
+.v122-check{display:flex;align-items:center;gap:7px;color:#526057;font-size:9px;font-weight:800}
+.v122-check input{width:17px!important;min-height:17px!important}
+.v122-launch-options .field{min-width:180px}
+.v122-payment-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.v122-payment-summary>div{padding:11px;border:1px solid var(--line);border-radius:12px;background:#FAFCFA}
+.v122-payment-summary small{display:block;color:var(--muted);font-size:7px;text-transform:uppercase;font-weight:850}
+.v122-payment-summary strong{display:block;margin-top:5px;font-size:15px}
+.v122-payment-list,.v122-account-list,.v122-rec-list{display:grid;gap:7px}
+.v122-payment-row,.v122-account-row,.v122-rec-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 11px;border:1px solid #E5E9E6;border-radius:12px;background:#fff}
+.v122-payment-row strong,.v122-account-row strong,.v122-rec-row strong{display:block;font-size:10px}
+.v122-payment-row small,.v122-account-row small,.v122-rec-row small{display:block;margin-top:3px;color:#7C867F;font-size:7.5px;line-height:1.4}
+.v122-partial{color:#9A6629!important}
+.v122-open-balance{display:block;margin-top:3px;color:#9A6629;font-size:7.5px;font-weight:850}
+.v122-status-pill{display:inline-flex;padding:2px 6px;border-radius:999px;background:#FFF1DD;color:#956426;font-size:6.5px;font-weight:900}
+.v122-status-pill.paid{background:#EAF5ED;color:#2D7246}
+.v122-empty{padding:12px;border:1px dashed #DDE3DE;border-radius:12px;color:#7C867F;font-size:8px}
+@media(max-width:820px){
+  .v122-bank-grid,.v122-flow-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .v122-bank-head{align-items:flex-start}
+  .v122-bank-grid,.v122-flow-grid{grid-template-columns:1fr 1fr}
+  .v122-launch-options{align-items:stretch;flex-direction:column}
+  .v122-launch-options .field{min-width:0;width:100%}
+  .v122-payment-summary{grid-template-columns:1fr 1fr}
+  .v122-payment-summary>div:last-child{grid-column:1/-1}
+}
+
 </style>
 </head>
 <body>
@@ -2152,7 +2196,7 @@ input,select,textarea{
 
 <div class="app">
 <header class="topbar"><div class="topbar-inner">
-  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.1</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.2</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
   <div class="user-menu"><div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
 </div></header>
 
@@ -2352,6 +2396,8 @@ input,select,textarea{
       <p>Controle receitas, despesas, pagamentos pendentes, categorias e custos de cada safra.</p>
     </div>
     <div class="module-head-actions">
+      <button class="btn secondary" onclick="abrirContasFinanceirasV122()">Contas e caixas</button>
+      <button class="btn secondary" onclick="abrirRecorrenciasV122()">Recorrências</button>
       <button class="btn secondary" onclick="abrirCategorias()">Categorias</button>
       <button class="btn primary" onclick="abrirLancamento('receita')">+ Lançamento</button>
     </div>
@@ -2367,6 +2413,33 @@ input,select,textarea{
     <button onclick="document.querySelector('.accounts-panel')?.scrollIntoView({behavior:'smooth',block:'start'})">
       <span>Pendências</span><strong>Ver contas a pagar</strong>
     </button>
+  </div>
+
+
+  <div class="v122-bank-panel">
+    <div class="v122-bank-head">
+      <div>
+        <h3>Caixas e contas bancárias</h3>
+        <p>Saldo realizado por conta. Movimentações sem conta continuam no saldo geral.</p>
+      </div>
+      <button class="btn secondary" onclick="abrirContasFinanceirasV122()">Gerenciar</button>
+    </div>
+    <div id="resumoContasFinanceirasV122" class="v122-bank-grid"></div>
+  </div>
+
+  <div class="v122-cashflow-panel">
+    <div class="v122-bank-head">
+      <div>
+        <h3>Fluxo de caixa futuro</h3>
+        <p>Projeção com o saldo realizado e valores pendentes por vencimento.</p>
+      </div>
+    </div>
+    <div class="v122-flow-grid">
+      <div class="v122-flow-card"><small>Saldo realizado</small><strong id="fluxoSaldoAtualV122">R$ 0,00</strong><span>pagamentos e recebimentos já baixados</span></div>
+      <div class="v122-flow-card"><small>Em 7 dias</small><strong id="fluxo7V122">R$ 0,00</strong><span id="fluxo7MetaV122">sem movimentações previstas</span></div>
+      <div class="v122-flow-card"><small>Em 30 dias</small><strong id="fluxo30V122">R$ 0,00</strong><span id="fluxo30MetaV122">sem movimentações previstas</span></div>
+      <div class="v122-flow-card"><small>Em 60 dias</small><strong id="fluxo60V122">R$ 0,00</strong><span id="fluxo60MetaV122">sem movimentações previstas</span></div>
+    </div>
   </div>
 
   <div class="global-note">
@@ -2411,6 +2484,7 @@ input,select,textarea{
       <select id="fStatus" onchange="renderFinanceiro()">
         <option value="todos">Todos os status</option>
         <option value="pago">Pagos/recebidos</option>
+        <option value="parcial">Parcialmente pagos/recebidos</option>
         <option value="pendente">Pendentes</option>
       </select>
 
@@ -2761,6 +2835,21 @@ input,select,textarea{
           <div class="btnrow"><button class="btn primary" onclick="abrirPessoas()">Gerenciar</button></div>
         </div>
 
+
+        <div class="cadastro-card blue">
+          <div class="cadastro-card-top"><div class="cadastro-icon">R$</div><div class="cadastro-count" id="pContasFinanceirasV122">0<small>contas / caixas</small></div></div>
+          <h3>Contas e caixas</h3>
+          <p>Dinheiro, bancos, carteiras e outros locais onde o saldo fica disponível.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirContasFinanceirasV122()">Gerenciar</button></div>
+        </div>
+
+        <div class="cadastro-card coffee">
+          <div class="cadastro-card-top"><div class="cadastro-icon">↻</div><div class="cadastro-count" id="pRecorrenciasV122">0<small>recorrências</small></div></div>
+          <h3>Contas recorrentes</h3>
+          <p>Energia, internet, salários e outras contas que se repetem automaticamente.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirRecorrenciasV122()">Gerenciar</button></div>
+        </div>
+
         <div class="cadastro-card coffee">
           <div class="cadastro-card-top"><div class="cadastro-icon">☕</div><div class="cadastro-count" id="pCotacao">R$ 80<small>ajuste regional</small></div></div>
           <h3>Cotação do café</h3>
@@ -2807,14 +2896,19 @@ input,select,textarea{
     <div class="field"><label>Tipo</label><select id="lancTipo" onchange="atualizarCategoriasLancamento()"><option value="receita">Receita</option><option value="despesa">Despesa</option></select></div>
     <div class="field"><label>Data</label><input id="lancData" type="date"></div>
     <div class="field"><label>Valor</label><input id="lancValor" type="number" min="0" step="0.01" placeholder="0,00"></div>
-    <div class="field"><label>Status</label><select id="lancStatus" onchange="atualizarCampoQuitacaoV121()"><option value="pago">Pago / recebido</option><option value="pendente">Pendente</option></select></div>
+    <div class="field"><label>Status</label><select id="lancStatus" onchange="atualizarCampoQuitacaoV121()"><option value="pago">Pago / recebido</option><option value="parcial" disabled>Parcial (calculado)</option><option value="pendente">Pendente</option></select></div>
     <div class="field"><label>Vencimento</label><input id="lancVencimento" type="date"></div>
     <div class="field" id="campoDataQuitacaoV121"><label>Data do pagamento / recebimento</label><input id="lancDataPagamento" type="date"><div class="v121-field-help">Usada no relatório por regime de caixa.</div></div>
     <div class="field"><label>Pessoa / empresa</label><select id="lancPessoa"><option value="">Não informado</option></select></div>
+    <div class="field"><label>Conta / caixa</label><select id="lancContaV122"><option value="">Sem conta definida</option></select><div class="v121-field-help">Usada quando o lançamento for pago/recebido agora.</div></div>
     <div class="field"><label>Categoria</label><select id="lancCategoria"></select></div>
     <div class="field"><label>Talhão</label><select id="lancTalhao"><option value="">Sem talhão</option></select></div><div class="field"><label>Safra</label><select id="lancSafra"></select></div>
     <div class="field"><label>Parcela</label><input id="lancParcela" placeholder="Ex.: 1/3"></div>
     <div class="field"><label>Documento / nota</label><input id="lancDocumento" placeholder="Opcional"></div>
+  </div>
+  <div class="v122-launch-options" id="opcoesNovoLancamentoV122">
+    <label class="v122-check"><input id="lancParcelarV122" type="checkbox" onchange="atualizarOpcoesParcelamentoV122()"> Parcelar este lançamento</label>
+    <div class="field hidden" id="campoParcelasV122"><label>Número de parcelas</label><input id="lancQtdParcelasV122" type="number" min="2" max="60" step="1" value="2"><div class="v121-field-help">O valor informado acima será dividido entre as parcelas.</div></div>
   </div>
   <div class="field" style="margin-top:10px"><label>Descrição</label><input id="lancDescricao" placeholder="Ex.: adubo, mão de obra, venda de café..."></div>
   <div class="field" style="margin-top:10px"><label>Observação</label><textarea id="lancObs" placeholder="Opcional"></textarea></div>
@@ -3235,6 +3329,66 @@ input,select,textarea{
     <button class="btn secondary" onclick="fecharModal('modalAnaliseSolo')">Cancelar</button>
     <button class="btn primary" onclick="salvarAnaliseSolo()">Salvar análise</button>
   </div>
+</div></div>
+
+
+<div id="modalBaixaV122" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3 id="tituloBaixaV122">Registrar pagamento</h3><button class="close" onclick="fecharModal('modalBaixaV122')">✕</button></div>
+  <input id="baixaLancamentoIdV122" type="hidden">
+  <div class="v122-payment-summary">
+    <div><small>Valor total</small><strong id="baixaTotalV122">R$ 0,00</strong></div>
+    <div><small>Já realizado</small><strong id="baixaPagoV122">R$ 0,00</strong></div>
+    <div><small>Saldo restante</small><strong id="baixaSaldoV122">R$ 0,00</strong></div>
+  </div>
+  <div class="grid2">
+    <div class="field"><label>Data</label><input id="baixaDataV122" type="date"></div>
+    <div class="field"><label>Valor</label><input id="baixaValorV122" type="number" min="0" step="0.01" placeholder="0,00"></div>
+    <div class="field"><label>Conta / caixa</label><select id="baixaContaV122"><option value="">Sem conta definida</option></select></div>
+  </div>
+  <div class="field" style="margin-top:10px"><label>Observação</label><input id="baixaObsV122" placeholder="Ex.: Pix, dinheiro, parcela recebida..."></div>
+  <div class="btnrow" style="margin-top:12px">
+    <button class="btn secondary" onclick="preencherSaldoBaixaV122()">Usar saldo restante</button>
+    <button class="btn primary" onclick="salvarBaixaV122()">Registrar</button>
+  </div>
+  <div class="section-head" style="margin-top:16px"><div><h3 class="section-title" style="font-size:14px">Histórico</h3><div class="section-note">Pagamentos e recebimentos já registrados</div></div></div>
+  <div id="listaBaixasV122" class="v122-payment-list"></div>
+</div></div>
+
+<div id="modalContasFinanceirasV122" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3>Contas e caixas</h3><button class="close" onclick="fecharModal('modalContasFinanceirasV122')">✕</button></div>
+  <input id="contaFinanceiraIdV122" type="hidden">
+  <div class="grid2">
+    <div class="field"><label>Nome</label><input id="contaFinanceiraNomeV122" placeholder="Ex.: Dinheiro, Sicoob, Banco do Brasil"></div>
+    <div class="field"><label>Tipo</label><select id="contaFinanceiraTipoV122"><option value="dinheiro">Dinheiro</option><option value="banco">Banco</option><option value="carteira">Carteira digital</option><option value="outro">Outro</option></select></div>
+    <div class="field"><label>Saldo inicial</label><input id="contaFinanceiraSaldoInicialV122" type="number" step="0.01" placeholder="0,00"></div>
+    <div class="field"><label>Situação</label><select id="contaFinanceiraAtivaV122"><option value="1">Ativa</option><option value="0">Inativa</option></select></div>
+  </div>
+  <div class="field" style="margin-top:10px"><label>Observação</label><input id="contaFinanceiraObsV122" placeholder="Opcional"></div>
+  <div class="btnrow" style="margin-top:12px"><button class="btn primary" onclick="salvarContaFinanceiraV122()">Salvar conta</button><button class="btn secondary" onclick="limparContaFinanceiraV122()">Limpar</button></div>
+  <div class="section-head" style="margin-top:16px"><div><h3 class="section-title" style="font-size:14px">Cadastradas</h3><div class="section-note">Saldo calculado pelas baixas financeiras</div></div></div>
+  <div id="listaContasFinanceirasV122" class="v122-account-list"></div>
+</div></div>
+
+<div id="modalRecorrenciasV122" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3>Contas recorrentes</h3><button class="close" onclick="fecharModal('modalRecorrenciasV122')">✕</button></div>
+  <input id="recIdV122" type="hidden">
+  <div class="grid2">
+    <div class="field"><label>Tipo</label><select id="recTipoV122" onchange="atualizarCategoriasRecV122()"><option value="despesa">Despesa</option><option value="receita">Receita</option></select></div>
+    <div class="field"><label>Valor</label><input id="recValorV122" type="number" min="0" step="0.01" placeholder="0,00"></div>
+    <div class="field"><label>Categoria</label><select id="recCategoriaV122"></select></div>
+    <div class="field"><label>Primeiro / próximo vencimento</label><input id="recProximaDataV122" type="date"></div>
+    <div class="field"><label>Frequência</label><select id="recFrequenciaV122"><option value="mensal">Mensal</option><option value="quinzenal">A cada 15 dias</option><option value="semanal">Semanal</option><option value="anual">Anual</option></select></div>
+    <div class="field"><label>Pessoa / empresa</label><select id="recPessoaV122"><option value="">Não informado</option></select></div>
+    <div class="field"><label>Talhão</label><select id="recTalhaoV122"><option value="">Sem talhão</option></select></div>
+    <div class="field"><label>Safra</label><select id="recSafraV122"></select></div>
+    <div class="field"><label>Conta / caixa padrão</label><select id="recContaV122"><option value="">Sem conta definida</option></select></div>
+    <div class="field"><label>Situação</label><select id="recAtivaV122"><option value="1">Ativa</option><option value="0">Pausada</option></select></div>
+  </div>
+  <div class="field" style="margin-top:10px"><label>Descrição</label><input id="recDescricaoV122" placeholder="Ex.: Energia da irrigação"></div>
+  <div class="field" style="margin-top:10px"><label>Observação</label><input id="recObsV122" placeholder="Opcional"></div>
+  <div class="btnrow" style="margin-top:12px"><button class="btn primary" onclick="salvarRecorrenciaV122()">Salvar recorrência</button><button class="btn secondary" onclick="limparRecorrenciaV122()">Limpar</button><button class="btn secondary" onclick="gerarRecorrenciasManualV122()">Gerar próximas</button></div>
+  <div class="section-head" style="margin-top:16px"><div><h3 class="section-title" style="font-size:14px">Cadastradas</h3><div class="section-note">O app cria lançamentos futuros automaticamente</div></div></div>
+  <div id="listaRecorrenciasV122" class="v122-rec-list"></div>
 </div></div>
 
 <div id="toast" class="toast hidden"></div>
@@ -9108,6 +9262,682 @@ const renderResumoV121Base=renderResumo;
 renderResumo=function(){renderResumoV121Base();renderPainelAtencaoV121()}
 const renderTudoV121Base=renderTudo;
 renderTudo=function(){renderTudoV121Base();renderPainelAtencaoV121();atualizarCampoQuitacaoV121();atualizarCampoPagamentoApanhaV121();atualizarCampoRecebimentoVendaV121()}
+</script>
+
+
+<script>
+/* =========================================================
+   FINANCEIRO DO SÍTIO V12.2
+   Pagamentos parciais • Parcelas • Recorrências • Contas
+   ========================================================= */
+
+function garantirEstruturaV122(){
+  garantirEstruturaV12();
+  if(!Array.isArray(estado.baixasFinanceiras)) estado.baixasFinanceiras=[];
+  if(!Array.isArray(estado.contasFinanceiras)) estado.contasFinanceiras=[];
+  if(!Array.isArray(estado.recorrenciasFinanceiras)) estado.recorrenciasFinanceiras=[];
+
+  estado.contasFinanceiras.forEach(c=>{
+    if(c.ativo===undefined) c.ativo=true;
+    c.saldoInicial=Number(c.saldoInicial||0);
+  });
+  estado.recorrenciasFinanceiras.forEach(r=>{
+    if(r.ativo===undefined) r.ativo=true;
+    if(!r.frequencia) r.frequencia="mensal";
+  });
+
+  migrarBaixasLegadasV122();
+}
+
+function isoSomarDiasV122(data,dias){
+  const d=new Date((data||hoje())+"T12:00:00");
+  d.setDate(d.getDate()+Number(dias||0));
+  return d.toISOString().slice(0,10);
+}
+function isoSomarMesesV122(data,meses){
+  const d=new Date((data||hoje())+"T12:00:00");
+  const dia=d.getDate();
+  d.setDate(1);
+  d.setMonth(d.getMonth()+Number(meses||0));
+  const ultimo=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();
+  d.setDate(Math.min(dia,ultimo));
+  return d.toISOString().slice(0,10);
+}
+function avancarRecorrenciaV122(data,freq,diaBase=null){
+  if(freq==="semanal") return isoSomarDiasV122(data,7);
+  if(freq==="quinzenal") return isoSomarDiasV122(data,15);
+  const meses=freq==="anual"?12:1;
+  const d=new Date((data||hoje())+"T12:00:00");
+  const alvo=Number(diaBase||d.getDate());
+  d.setDate(1);
+  d.setMonth(d.getMonth()+meses);
+  const ultimo=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();
+  d.setDate(Math.min(alvo,ultimo));
+  return d.toISOString().slice(0,10);
+}
+function fimHorizonteV122(dias){return isoSomarDiasV122(hoje(),dias)}
+
+function baixasLancamentoV122(id){
+  garantirEstruturaV12();
+  return (estado.baixasFinanceiras||[])
+    .filter(b=>b.lancamentoId===id)
+    .sort((a,b)=>(a.data||"").localeCompare(b.data||""));
+}
+function valorPagoLancamentoV122(x){
+  if(!x) return 0;
+  return baixasLancamentoV122(x.id).reduce((s,b)=>s+Number(b.valor||0),0);
+}
+function saldoLancamentoV122(x){
+  return Math.max(0,Number(x?.valor||0)-valorPagoLancamentoV122(x));
+}
+function statusCalculadoV122(x){
+  const total=Number(x?.valor||0),pago=valorPagoLancamentoV122(x);
+  if(total<=0) return x?.status||"pendente";
+  if(pago>=total-0.005) return "pago";
+  if(pago>0.005) return "parcial";
+  return "pendente";
+}
+function sincronizarStatusLancamentoV122(x){
+  if(!x) return;
+  const st=statusCalculadoV122(x);
+  x.status=st;
+  const bs=baixasLancamentoV122(x.id);
+  if(bs.length) x.dataPagamento=bs[bs.length-1].data||"";
+  else if(st!=="pago") x.dataPagamento="";
+}
+
+function sincronizarVinculosLancamentoV122(x){
+  if(!x)return;
+  const st=statusCalculadoV122(x);
+  if(x.apanhaId){
+    const a=estado.apanhas.find(a=>a.id===x.apanhaId);
+    if(a){
+      a.status=st==="pago"?"pago":"pendente";
+      a.dataPagamento=st==="pago"?(x.dataPagamento||""):"";
+    }
+  }
+  if(x.vendaId){
+    const v=estado.vendas.find(v=>v.id===x.vendaId);
+    if(v){
+      v.status=st==="pago"?"pago":"pendente";
+      v.dataRecebimento=st==="pago"?(x.dataPagamento||""):"";
+    }
+  }
+}
+function migrarBaixasLegadasV122(){
+  if(!Array.isArray(estado.baixasFinanceiras)) estado.baixasFinanceiras=[];
+  let alterou=false;
+  for(const x of estado.lancamentos||[]){
+    const tem=estado.baixasFinanceiras.some(b=>b.lancamentoId===x.id);
+    if(!tem && x.status==="pago" && Number(x.valor||0)>0){
+      estado.baixasFinanceiras.push({
+        id:"legacy_"+x.id,
+        lancamentoId:x.id,
+        data:x.dataPagamento||x.data||hoje(),
+        valor:Number(x.valor||0),
+        contaId:x.contaId||"",
+        obs:"Migração automática de lançamento já quitado",
+        legado:true,
+        criadoEm:new Date().toISOString()
+      });
+      alterou=true;
+    }
+    if(!tem && x.status==="parcial") x.status="pendente";
+  }
+  if(alterou){
+    for(const x of estado.lancamentos||[]) sincronizarStatusLancamentoV122(x);
+  }
+  return alterou;
+}
+
+function nomeContaFinanceiraV122(id){
+  return (estado.contasFinanceiras||[]).find(c=>c.id===id)?.nome||"";
+}
+function saldoContaFinanceiraV122(id){
+  const c=(estado.contasFinanceiras||[]).find(c=>c.id===id);
+  if(!c) return 0;
+  let saldo=Number(c.saldoInicial||0);
+  for(const b of estado.baixasFinanceiras||[]){
+    if(b.contaId!==id) continue;
+    const l=estado.lancamentos.find(x=>x.id===b.lancamentoId);
+    if(!l) continue;
+    saldo += (l.tipo==="receita"?1:-1)*Number(b.valor||0);
+  }
+  return saldo;
+}
+function saldoRealizadoGeralV122(){
+  let receitas=0,despesas=0;
+  for(const b of estado.baixasFinanceiras||[]){
+    const l=estado.lancamentos.find(x=>x.id===b.lancamentoId);
+    if(!l) continue;
+    if(l.tipo==="receita") receitas+=Number(b.valor||0);
+    else despesas+=Number(b.valor||0);
+  }
+  return receitas-despesas;
+}
+function atualizarSelectContasV122(){
+  garantirEstruturaV122();
+  const ativas=estado.contasFinanceiras.filter(c=>c.ativo!==false).sort((a,b)=>(a.nome||"").localeCompare(b.nome||"","pt-BR"));
+  const opts=`<option value="">Sem conta definida</option>`+ativas.map(c=>`<option value="${c.id}">${esc(c.nome)}</option>`).join("");
+  ["lancContaV122","baixaContaV122","recContaV122"].forEach(id=>{
+    const el=$(id); if(!el) return;
+    const atual=el.value||"";
+    el.innerHTML=opts;
+    if([...el.options].some(o=>o.value===atual)) el.value=atual;
+  });
+}
+
+function renderResumoContasV122(){
+  const el=$("resumoContasFinanceirasV122"); if(!el) return;
+  garantirEstruturaV122();
+  const xs=estado.contasFinanceiras.filter(c=>c.ativo!==false).sort((a,b)=>(a.nome||"").localeCompare(b.nome||"","pt-BR"));
+  el.innerHTML=xs.length?xs.map(c=>`<div class="v122-bank-card">
+    <small>${c.tipo==="banco"?"Banco":c.tipo==="dinheiro"?"Dinheiro":c.tipo==="carteira"?"Carteira":"Conta"}</small>
+    <strong>${moeda(saldoContaFinanceiraV122(c.id))}</strong>
+    <span>${esc(c.nome)}</span>
+  </div>`).join(""):`<div class="v122-empty" style="grid-column:1/-1">Nenhuma conta cadastrada. Você pode continuar usando o saldo geral ou cadastrar Dinheiro, banco e outras contas.</div>`;
+}
+
+function limparContaFinanceiraV122(){
+  $("contaFinanceiraIdV122").value="";
+  $("contaFinanceiraNomeV122").value="";
+  $("contaFinanceiraTipoV122").value="dinheiro";
+  $("contaFinanceiraSaldoInicialV122").value="";
+  $("contaFinanceiraAtivaV122").value="1";
+  $("contaFinanceiraObsV122").value="";
+}
+function abrirContasFinanceirasV122(){
+  garantirEstruturaV122(); limparContaFinanceiraV122(); renderContasFinanceirasV122(); abrirModal("modalContasFinanceirasV122");
+}
+function editarContaFinanceiraV122(id){
+  const c=estado.contasFinanceiras.find(x=>x.id===id); if(!c)return;
+  $("contaFinanceiraIdV122").value=c.id;
+  $("contaFinanceiraNomeV122").value=c.nome||"";
+  $("contaFinanceiraTipoV122").value=c.tipo||"dinheiro";
+  $("contaFinanceiraSaldoInicialV122").value=c.saldoInicial??"";
+  $("contaFinanceiraAtivaV122").value=c.ativo===false?"0":"1";
+  $("contaFinanceiraObsV122").value=c.obs||"";
+}
+function salvarContaFinanceiraV122(){
+  garantirEstruturaV122();
+  const nome=$("contaFinanceiraNomeV122").value.trim();
+  if(!nome){toast("Informe o nome da conta ou caixa.");return}
+  const id=$("contaFinanceiraIdV122").value||novoId();
+  const antigo=estado.contasFinanceiras.find(c=>c.id===id)||{};
+  const obj={...antigo,id,nome,tipo:$("contaFinanceiraTipoV122").value,saldoInicial:Number($("contaFinanceiraSaldoInicialV122").value||0),ativo:$("contaFinanceiraAtivaV122").value==="1",obs:$("contaFinanceiraObsV122").value.trim()};
+  const i=estado.contasFinanceiras.findIndex(c=>c.id===id);
+  if(i>=0) estado.contasFinanceiras[i]=obj; else estado.contasFinanceiras.push(obj);
+  limparContaFinanceiraV122(); persistir(); renderContasFinanceirasV122(); toast("Conta salva.");
+}
+function excluirContaFinanceiraV122(id){
+  if((estado.baixasFinanceiras||[]).some(b=>b.contaId===id)){toast("Essa conta possui movimentações. Desative em vez de excluir.");return}
+  if(!confirm("Excluir esta conta?")) return;
+  estado.contasFinanceiras=estado.contasFinanceiras.filter(c=>c.id!==id); persistir(); renderContasFinanceirasV122();
+}
+function renderContasFinanceirasV122(){
+  const el=$("listaContasFinanceirasV122"); if(!el)return;
+  garantirEstruturaV122();
+  const xs=estado.contasFinanceiras.slice().sort((a,b)=>(a.nome||"").localeCompare(b.nome||"","pt-BR"));
+  el.innerHTML=xs.length?xs.map(c=>`<div class="v122-account-row">
+    <div><strong>${esc(c.nome)} ${c.ativo===false?'<span class="v122-status-pill">Inativa</span>':""}</strong><small>${c.tipo} • Saldo inicial ${moeda(c.saldoInicial||0)} • Saldo atual ${moeda(saldoContaFinanceiraV122(c.id))}</small></div>
+    <div class="item-actions"><button class="mini-btn" onclick="editarContaFinanceiraV122('${c.id}')">✎</button><button class="mini-btn danger" onclick="excluirContaFinanceiraV122('${c.id}')">×</button></div>
+  </div>`).join(""):`<div class="v122-empty">Nenhuma conta ou caixa cadastrado.</div>`;
+}
+
+/* ===== PAGAMENTOS / RECEBIMENTOS PARCIAIS ===== */
+function preencherSaldoBaixaV122(){
+  const l=estado.lancamentos.find(x=>x.id===$("baixaLancamentoIdV122").value); if(!l)return;
+  $("baixaValorV122").value=saldoLancamentoV122(l).toFixed(2);
+}
+function abrirBaixaV122(id){
+  garantirEstruturaV122();
+  const l=estado.lancamentos.find(x=>x.id===id); if(!l)return;
+  atualizarSelectContasV122();
+  $("baixaLancamentoIdV122").value=id;
+  $("tituloBaixaV122").textContent=l.tipo==="receita"?"Registrar recebimento":"Registrar pagamento";
+  $("baixaDataV122").value=hoje();
+  $("baixaValorV122").value=saldoLancamentoV122(l).toFixed(2);
+  $("baixaContaV122").value=l.contaId||"";
+  $("baixaObsV122").value="";
+  renderBaixasV122();
+  abrirModal("modalBaixaV122");
+}
+function salvarBaixaV122(){
+  garantirEstruturaV122();
+  const l=estado.lancamentos.find(x=>x.id===$("baixaLancamentoIdV122").value); if(!l)return;
+  const saldo=saldoLancamentoV122(l),valor=Number($("baixaValorV122").value||0);
+  if(valor<=0){toast("Informe um valor maior que zero.");return}
+  if(valor>saldo+0.005){toast(`O valor excede o saldo restante de ${moeda(saldo)}.`);return}
+  estado.baixasFinanceiras.push({
+    id:novoId(),lancamentoId:l.id,data:$("baixaDataV122").value||hoje(),valor,
+    contaId:$("baixaContaV122").value||"",obs:$("baixaObsV122").value.trim(),criadoEm:new Date().toISOString()
+  });
+  if($("baixaContaV122").value) l.contaId=$("baixaContaV122").value;
+  sincronizarStatusLancamentoV122(l);
+  sincronizarVinculosLancamentoV122(l);
+  persistir(); renderBaixasV122(); toast(l.tipo==="receita"?"Recebimento registrado.":"Pagamento registrado.");
+}
+function excluirBaixaV122(id){
+  const b=estado.baixasFinanceiras.find(x=>x.id===id); if(!b)return;
+  if(!confirm("Excluir este pagamento/recebimento?"))return;
+  const lancId=b.lancamentoId;
+  estado.baixasFinanceiras=estado.baixasFinanceiras.filter(x=>x.id!==id);
+  const l=estado.lancamentos.find(x=>x.id===lancId);
+  sincronizarStatusLancamentoV122(l);
+  sincronizarVinculosLancamentoV122(l);
+  persistir(); renderBaixasV122();
+}
+function renderBaixasV122(){
+  const l=estado.lancamentos.find(x=>x.id===$("baixaLancamentoIdV122").value); if(!l)return;
+  const pago=valorPagoLancamentoV122(l),saldo=saldoLancamentoV122(l);
+  $("baixaTotalV122").textContent=moeda(l.valor||0); $("baixaPagoV122").textContent=moeda(pago); $("baixaSaldoV122").textContent=moeda(saldo);
+  const xs=baixasLancamentoV122(l.id).slice().reverse(),el=$("listaBaixasV122");
+  el.innerHTML=xs.length?xs.map(b=>`<div class="v122-payment-row"><div><strong>${moeda(b.valor)}</strong><small>${dataBR(b.data)}${b.contaId?" • "+esc(nomeContaFinanceiraV122(b.contaId)):" • Sem conta"}${b.obs?" • "+esc(b.obs):""}</small></div><button class="mini-btn danger" onclick="excluirBaixaV122('${b.id}')">×</button></div>`).join(""):`<div class="v122-empty">Nenhum pagamento ou recebimento registrado.</div>`;
+  if(saldo<=0.005) $("baixaValorV122").value="";
+}
+marcarContaPaga=function(id){abrirBaixaV122(id)};
+marcarLancamentoQuitadoV121=function(id){abrirBaixaV122(id)};
+
+/* ===== PARCELAMENTO ===== */
+function atualizarOpcoesParcelamentoV122(){
+  const novo=!$("lancId")?.value,marcado=$("lancParcelarV122")?.checked;
+  const campo=$("campoParcelasV122");
+  if(campo) campo.classList.toggle("hidden",!(novo&&marcado));
+}
+function valorParcelaV122(total,qtd,indice){
+  const cents=Math.round(Number(total||0)*100),base=Math.floor(cents/qtd),rest=cents-base*qtd;
+  return (base+(indice<rest?1:0))/100;
+}
+function criarParcelasV122(base,qtd){
+  const grupo=novoId(),primeiro=base.vencimento||base.data||hoje(),out=[];
+  for(let i=0;i<qtd;i++){
+    const venc=isoSomarMesesV122(primeiro,i);
+    out.push({...base,id:novoId(),valor:valorParcelaV122(base.valor,qtd,i),status:"pendente",dataPagamento:"",data:base.dataOrigem||base.data||hoje(),vencimento:venc,parcela:`${i+1}/${qtd}`,grupoParcelasId:grupo,parcelaNumero:i+1,parcelaTotal:qtd});
+  }
+  return out;
+}
+
+/* ===== RECORRÊNCIAS ===== */
+function atualizarCategoriasRecV122(){
+  garantirEstruturaV12();
+  const tipo=$("recTipoV122").value;
+  const arr=estado.categorias?.[tipo]||[];
+  const el=$("recCategoriaV122"),atual=el.value;
+  el.innerHTML=arr.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
+  if([...el.options].some(o=>o.value===atual))el.value=atual;
+}
+function atualizarSelectsRecV122(){
+  atualizarSelectContasV122(); atualizarSelectPessoas(); atualizarSelectsTalhao(); atualizarSelectsSafra();
+  const pessoa=$("recPessoaV122"); if(pessoa){
+    const atual=pessoa.value;
+    pessoa.innerHTML=`<option value="">Não informado</option>`+estado.pessoas.map(p=>`<option value="${p.id}">${esc(p.nome)}</option>`).join("");
+    if([...pessoa.options].some(o=>o.value===atual)) pessoa.value=atual;
+  }
+  const tal=$("recTalhaoV122"); if(tal){
+    const atual=tal.value;
+    tal.innerHTML=`<option value="">Sem talhão</option>`+estado.talhoes.map(t=>`<option value="${t.id}">${esc(t.nome)}</option>`).join("");
+    if([...tal.options].some(o=>o.value===atual)) tal.value=atual;
+  }
+  const saf=$("recSafraV122"); if(saf){
+    const atual=saf.value||estado.safraAtivaId;
+    saf.innerHTML=estado.safras.filter(s=>!s.fechada||s.id===atual).map(s=>`<option value="${s.id}">${esc(s.nome)}${s.fechada?" (fechada)":""}</option>`).join("");
+    if([...saf.options].some(o=>o.value===atual)) saf.value=atual;
+  }
+  atualizarCategoriasRecV122();
+}
+function limparRecorrenciaV122(){
+  $("recIdV122").value=""; $("recTipoV122").value="despesa"; $("recValorV122").value="";
+  $("recProximaDataV122").value=isoSomarDiasV122(hoje(),1); $("recFrequenciaV122").value="mensal";
+  $("recPessoaV122").value=""; $("recTalhaoV122").value=""; $("recSafraV122").value=estado.safraAtivaId||"";
+  $("recContaV122").value=""; $("recAtivaV122").value="1"; $("recDescricaoV122").value=""; $("recObsV122").value="";
+  atualizarCategoriasRecV122();
+}
+function abrirRecorrenciasV122(){
+  garantirEstruturaV122(); atualizarSelectsRecV122(); limparRecorrenciaV122(); renderRecorrenciasV122(); abrirModal("modalRecorrenciasV122");
+}
+function editarRecorrenciaV122(id){
+  const r=estado.recorrenciasFinanceiras.find(x=>x.id===id); if(!r)return;
+  atualizarSelectsRecV122();
+  $("recIdV122").value=r.id; $("recTipoV122").value=r.tipo||"despesa"; atualizarCategoriasRecV122();
+  $("recValorV122").value=r.valor??""; $("recCategoriaV122").value=r.categoria||"";
+  $("recProximaDataV122").value=r.proximaData||hoje(); $("recFrequenciaV122").value=r.frequencia||"mensal";
+  $("recPessoaV122").value=r.pessoaId||""; $("recTalhaoV122").value=r.talhaoId||""; $("recSafraV122").value=r.safraId||estado.safraAtivaId;
+  $("recContaV122").value=r.contaId||""; $("recAtivaV122").value=r.ativo===false?"0":"1"; $("recDescricaoV122").value=r.descricao||""; $("recObsV122").value=r.obs||"";
+}
+function salvarRecorrenciaV122(){
+  garantirEstruturaV122();
+  const desc=$("recDescricaoV122").value.trim(),valor=Number($("recValorV122").value||0);
+  if(!desc){toast("Informe a descrição da recorrência.");return}
+  if(valor<=0){toast("Informe um valor maior que zero.");return}
+  const safraId=$("recSafraV122").value||estado.safraAtivaId;
+  if(!validarSafraRegistroV121(safraId,estado.recorrenciasFinanceiras.find(x=>x.id===$("recIdV122").value)||null))return;
+  const id=$("recIdV122").value||novoId(),ant=estado.recorrenciasFinanceiras.find(x=>x.id===id)||{};
+  const proximaData=$("recProximaDataV122").value||hoje();
+  const obj={...ant,id,tipo:$("recTipoV122").value,valor,categoria:$("recCategoriaV122").value,proximaData,diaBase:Number(proximaData.slice(8,10)||1),frequencia:$("recFrequenciaV122").value,pessoaId:$("recPessoaV122").value||"",talhaoId:$("recTalhaoV122").value||"",safraId,contaId:$("recContaV122").value||"",ativo:$("recAtivaV122").value==="1",descricao:desc,obs:$("recObsV122").value.trim()};
+  const i=estado.recorrenciasFinanceiras.findIndex(x=>x.id===id); if(i>=0)estado.recorrenciasFinanceiras[i]=obj; else estado.recorrenciasFinanceiras.push(obj);
+  gerarRecorrenciasAteV122(fimHorizonteV122(60)); limparRecorrenciaV122(); persistir(); renderRecorrenciasV122(); toast("Recorrência salva.");
+}
+function excluirRecorrenciaV122(id){
+  if(!confirm("Excluir esta recorrência? Os lançamentos já gerados serão mantidos."))return;
+  estado.recorrenciasFinanceiras=estado.recorrenciasFinanceiras.filter(x=>x.id!==id);persistir();renderRecorrenciasV122();
+}
+function gerarRecorrenciasAteV122(limite){
+  garantirEstruturaV12();
+  let count=0;
+  for(const r of estado.recorrenciasFinanceiras||[]){
+    if(r.ativo===false||!r.proximaData)continue;
+    const safraRec=safraPorIdV121(r.safraId);
+    if(safraRec?.fechada) continue;
+    let guard=0;
+    while(r.proximaData<=limite&&guard++<120){
+      const comp=r.proximaData;
+      const existe=estado.lancamentos.some(l=>l.recorrenciaId===r.id&&l.competenciaRecorrencia===comp);
+      if(!existe){
+        estado.lancamentos.push({
+          id:novoId(),tipo:r.tipo||"despesa",data:comp,valor:Number(r.valor||0),status:"pendente",dataPagamento:"",
+          vencimento:comp,pessoaId:r.pessoaId||"",categoria:r.categoria||"",talhaoId:r.talhaoId||"",safraId:r.safraId||estado.safraAtivaId,
+          contaId:r.contaId||"",parcela:"",documento:"",descricao:r.descricao||"Conta recorrente",obs:r.obs||"",
+          recorrenciaId:r.id,competenciaRecorrencia:comp
+        });
+        count++;
+      }
+      if(!r.diaBase) r.diaBase=Number((r.proximaData||"").slice(8,10)||1);
+      r.proximaData=avancarRecorrenciaV122(r.proximaData,r.frequencia,r.diaBase);
+    }
+  }
+  return count;
+}
+function gerarRecorrenciasManualV122(){
+  const n=gerarRecorrenciasAteV122(fimHorizonteV122(60)); persistir(); renderRecorrenciasV122();
+  toast(n?`${n} lançamento(s) recorrente(s) gerado(s).`:"Nenhum novo lançamento precisava ser gerado.");
+}
+function renderRecorrenciasV122(){
+  const el=$("listaRecorrenciasV122");if(!el)return;
+  const xs=(estado.recorrenciasFinanceiras||[]).slice().sort((a,b)=>(a.proximaData||"").localeCompare(b.proximaData||""));
+  el.innerHTML=xs.length?xs.map(r=>`<div class="v122-rec-row"><div><strong>${esc(r.descricao)} ${r.ativo===false?'<span class="v122-status-pill">Pausada</span>':""}</strong><small>${r.tipo==="receita"?"Receita":"Despesa"} • ${moeda(r.valor)} • ${esc(r.frequencia)} • próxima ${dataBR(r.proximaData)}${r.categoria?" • "+esc(r.categoria):""}</small></div><div class="item-actions"><button class="mini-btn" onclick="editarRecorrenciaV122('${r.id}')">✎</button><button class="mini-btn danger" onclick="excluirRecorrenciaV122('${r.id}')">×</button></div></div>`).join(""):`<div class="v122-empty">Nenhuma conta recorrente cadastrada.</div>`;
+}
+
+/* ===== LANÇAMENTOS V12.2 ===== */
+const abrirLancamentoV122Base=abrirLancamento;
+abrirLancamento=function(tipo="receita",id=""){
+  garantirEstruturaV122(); abrirLancamentoV122Base(tipo,id); atualizarSelectContasV122();
+  const x=id?estado.lancamentos.find(v=>v.id===id):null;
+  if($("lancContaV122")) $("lancContaV122").value=x?.contaId||"";
+  if($("lancParcelarV122")) $("lancParcelarV122").checked=false;
+  if($("opcoesNovoLancamentoV122")) $("opcoesNovoLancamentoV122").classList.toggle("hidden",!!id);
+  if($("lancStatus")){
+    sincronizarStatusLancamentoV122(x);
+    $("lancStatus").value=x?statusCalculadoV122(x):"pago";
+    $("lancStatus").disabled=!!x&&valorPagoLancamentoV122(x)>0.005;
+  }
+  atualizarCampoQuitacaoV121(); atualizarOpcoesParcelamentoV122();
+};
+
+salvarLancamento=function(){
+  garantirEstruturaV122();
+  const valor=Number($("lancValor").value||0),descricao=$("lancDescricao").value.trim();
+  if(valor<=0){toast("Informe um valor maior que zero.");return}
+  if(!descricao){toast("Informe a descrição.");return}
+  const idAtual=$("lancId").value||"",antigo=idAtual?estado.lancamentos.find(x=>x.id===idAtual):null,safraId=$("lancSafra").value||estado.safraAtivaId;
+  if(!validarSafraRegistroV121(safraId,antigo))return;
+  const data=$("lancData").value||hoje(),statusTela=$("lancStatus").value;
+  const base={...(antigo||{}),id:idAtual||novoId(),tipo:$("lancTipo").value,data,valor,vencimento:$("lancVencimento").value||"",pessoaId:$("lancPessoa").value||"",categoria:$("lancCategoria").value,talhaoId:$("lancTalhao").value||"",safraId,contaId:$("lancContaV122").value||"",parcela:$("lancParcela").value.trim(),documento:$("lancDocumento").value.trim(),descricao,obs:$("lancObs").value.trim()};
+
+  if(!antigo && $("lancParcelarV122")?.checked){
+    const qtd=Math.max(2,Math.min(60,Number($("lancQtdParcelasV122").value||2)));
+    const parcelas=criarParcelasV122({...base,dataOrigem:data},qtd);
+    estado.lancamentos.push(...parcelas);
+    fecharModal("modalLancamento"); persistir(); toast(`${qtd} parcelas criadas.`); return;
+  }
+
+  if(antigo && valorPagoLancamentoV122(antigo)>valor+0.005){toast(`Não é possível reduzir o valor para menos do que já foi pago/recebido (${moeda(valorPagoLancamentoV122(antigo))}).`);return}
+
+  const i=estado.lancamentos.findIndex(x=>x.id===base.id);
+  if(i>=0) estado.lancamentos[i]=base; else estado.lancamentos.push(base);
+
+  const x=estado.lancamentos.find(l=>l.id===base.id);
+  if(!antigo && statusTela==="pago"){
+    estado.baixasFinanceiras.push({id:novoId(),lancamentoId:x.id,data:$("lancDataPagamento").value||data,valor:Number(x.valor||0),contaId:x.contaId||"",obs:"Quitação no cadastro do lançamento",criadoEm:new Date().toISOString()});
+  }
+  sincronizarStatusLancamentoV122(x);
+  fecharModal("modalLancamento"); persistir(); toast("Lançamento salvo.");
+};
+
+renderItemLancamento=function(x){
+  garantirEstruturaV122(); sincronizarStatusLancamentoV122(x);
+  const r=x.tipo==="receita",p=nomePessoa(x.pessoaId),st=statusCalculadoV122(x),pago=valorPagoLancamentoV122(x),saldo=saldoLancamentoV122(x);
+  const venc=st!=="pago"&&x.vencimento?` • Vence ${dataBR(x.vencimento)}`:"";
+  const conta=x.contaId?` • ${esc(nomeContaFinanceiraV122(x.contaId))}`:"";
+  const statusTxt=st==="pago"?(r?"Recebido":"Pago"):st==="parcial"?"Parcial":"Pendente";
+  return `<div class="item"><div class="item-icon ${r?"":"red"}">${r?"＋":"−"}</div><div class="item-main"><strong>${esc(x.descricao)}</strong><div class="item-meta">${dataBR(x.data)} • ${esc(x.categoria)}${p?" • "+esc(p):""}${x.talhaoId?" • "+esc(nomeTalhao(x.talhaoId)):""}${conta}${venc} • ${statusTxt}</div>${st==="parcial"?`<span class="v122-open-balance">${r?"Recebido":"Pago"} ${moeda(pago)} • Falta ${moeda(saldo)}</span>`:""}</div><div class="item-value"><strong style="color:${r?"var(--green)":"var(--red)"}">${r?"+":"-"} ${moeda(x.valor)}</strong><div class="item-actions">${st!=="pago"?`<button class="mini-btn" title="${r?"Receber":"Pagar"}" onclick="abrirBaixaV122('${x.id}')">R$</button>`:`<button class="mini-btn" title="Ver pagamentos" onclick="abrirBaixaV122('${x.id}')">✓</button>`}<button class="mini-btn" onclick="abrirLancamento('${x.tipo}','${x.id}')">✎</button><button class="mini-btn danger" onclick="excluirLancamento('${x.id}')">×</button></div></div></div>`;
+};
+
+excluirLancamento=function(id){
+  const x=estado.lancamentos.find(l=>l.id===id);if(!x)return;
+  if((estado.baixasFinanceiras||[]).some(b=>b.lancamentoId===id)){toast("Esse lançamento possui pagamentos/recebimentos. Exclua as baixas primeiro.");return}
+  if(!confirm("Excluir este lançamento?"))return;
+  if(x.vendaId){const v=estado.vendas.find(v=>v.id===x.vendaId);if(v)v.financeiroId=""}
+  if(x.apanhaId){const a=estado.apanhas.find(a=>a.id===x.apanhaId);if(a)a.financeiroId=""}
+  estado.lancamentos=estado.lancamentos.filter(l=>l.id!==id);persistir()
+};
+
+/* Resumo e contas a pagar usando saldo em aberto */
+calcResumo=function(lancs=estado.lancamentos,cols=estado.colheitas){
+  garantirEstruturaV122();
+  let receitas=0,despesas=0,receber=0,pagar=0;
+  for(const x of lancs){
+    if(x._baixaV122){
+      if(x.tipo==="receita")receitas+=Number(x.valor||0);else despesas+=Number(x.valor||0);
+      continue;
+    }
+    const realizado=valorPagoLancamentoV122(x),saldo=saldoLancamentoV122(x);
+    if(x.tipo==="receita"){receitas+=realizado;receber+=saldo}else{despesas+=realizado;pagar+=saldo}
+  }
+  const producao=cols.reduce((a,b)=>a+Number(b.sacas||0),0);
+  return{receitas,despesas,receber,pagar,saldo:receitas-despesas,producao}
+};
+contasPendentes=function(){return estado.lancamentos.filter(x=>x.tipo==="despesa"&&saldoLancamentoV122(x)>0.005)};
+renderContasPagar=function(){
+  if(!$("listaContasPagar"))return;
+  garantirEstruturaV122();
+  const xs=ordenarContas(contasPendentes());
+  const total=xs.reduce((s,x)=>s+saldoLancamentoV122(x),0),vencido=xs.filter(x=>{const d=diasAte(x.vencimento);return d!==null&&d<0}).reduce((s,x)=>s+saldoLancamentoV122(x),0),sete=xs.filter(x=>{const d=diasAte(x.vencimento);return d!==null&&d>=0&&d<=7}).reduce((s,x)=>s+saldoLancamentoV122(x),0);
+  $("cpTotal").textContent=moeda(total);$("cpVencido").textContent=moeda(vencido);$("cp7Dias").textContent=moeda(sete);$("cpQtd").textContent=xs.length;
+  const vis=contasPagarExpandida?xs:xs.slice(0,6);$("btnTodasContas").textContent=contasPagarExpandida?"Mostrar menos":`Ver todas${xs.length>6?" ("+xs.length+")":""}`;$("btnTodasContas").classList.toggle("hidden",xs.length<=6);
+  $("listaContasPagar").innerHTML=vis.length?vis.map(x=>{const st=classeVencimento(x),p=nomePessoa(x.pessoaId),saldo=saldoLancamentoV122(x),pago=valorPagoLancamentoV122(x);return`<div class="account-row ${st.row}"><span class="account-dot"></span><div class="account-main"><strong>${esc(x.descricao)} <span class="due-badge ${st.badge}">${esc(st.texto)}</span></strong><small>${esc(x.categoria)}${p?" • "+esc(p):""}${x.parcela?" • Parcela "+esc(x.parcela):""} • ${esc(nomeSafra(x.safraId))}${pago>0?` • pago ${moeda(pago)}`:""}</small></div><div class="account-side"><strong>${moeda(saldo)}</strong><div class="item-actions"><button class="mini-btn" title="Registrar pagamento" onclick="abrirBaixaV122('${x.id}')">R$</button><button class="mini-btn" onclick="abrirLancamento('despesa','${x.id}')">✎</button></div></div></div>`}).join(""):`<div class="empty"><strong>Nenhuma conta a pagar</strong>As despesas com saldo em aberto aparecerão aqui.</div>`;
+};
+
+const renderFinanceiroV122Base=renderFinanceiro;
+renderFinanceiro=function(){
+  garantirEstruturaV122();
+  for(const x of estado.lancamentos) sincronizarStatusLancamentoV122(x);
+  renderFinanceiroV122Base();
+  renderResumoContasV122(); renderFluxoCaixaV122();
+};
+
+/* Fluxo futuro */
+function valoresAteV122(dias){
+  const limite=fimHorizonteV122(dias);
+  let entradas=0,saidas=0,qtd=0;
+  for(const x of estado.lancamentos){
+    const saldo=saldoLancamentoV122(x),v=x.vencimento||x.data||"";
+    if(saldo<=0.005||!v||v>limite)continue;
+    qtd++;
+    if(x.tipo==="receita")entradas+=saldo;else saidas+=saldo;
+  }
+  const saldoAtual=saldoRealizadoGeralV122();
+  return{entradas,saidas,qtd,projetado:saldoAtual+entradas-saidas}
+}
+function renderFluxoCaixaV122(){
+  if(!$("fluxoSaldoAtualV122"))return;
+  const saldo=saldoRealizadoGeralV122();$("fluxoSaldoAtualV122").textContent=moeda(saldo);
+  [7,30,60].forEach(d=>{
+    const v=valoresAteV122(d),id=d===7?"7":d===30?"30":"60";
+    $(`fluxo${id}V122`).textContent=moeda(v.projetado);
+    $(`fluxo${id}MetaV122`).textContent=v.qtd?`${moeda(v.entradas)} entra • ${moeda(v.saidas)} sai`:"sem movimentações previstas";
+  })
+}
+
+/* Relatório caixa: cada baixa vira uma movimentação individual */
+const filtrarPeriodoV122Base=filtrarPeriodo;
+filtrarPeriodo=function(arr){
+  const regime=$("relRegimeV121")?.value||"competencia";
+  if(arr===estado.lancamentos&&regime==="caixa"){
+    const ini=$("relInicio").value,fim=$("relFim").value,t=$("relTalhao").value,s=$("relSafra")?.value||"todos";
+    return (estado.baixasFinanceiras||[]).map(b=>{
+      const l=estado.lancamentos.find(x=>x.id===b.lancamentoId);if(!l)return null;
+      return {...l,valor:Number(b.valor||0),data:b.data||l.data,dataPagamento:b.data||"",status:"pago",contaId:b.contaId||l.contaId||"",_baixaV122:true,_baixaId:b.id}
+    }).filter(Boolean).filter(x=>(!ini||x.data>=ini)&&(!fim||x.data<=fim)&&(t==="todos"||x.talhaoId===t)&&(!x.safraId||s==="todos"||x.safraId===s));
+  }
+  return filtrarPeriodoV122Base(arr);
+};
+
+/* Recorrências e pagamentos automáticos vindos de venda/colheita */
+function garantirBaixaAutomaticaV122(l,data,valor,contaId="",obs=""){
+  if(!l||Number(valor||0)<=0)return;
+  const existentes=baixasLancamentoV122(l.id);
+  const total=existentes.reduce((s,b)=>s+Number(b.valor||0),0),falta=Math.max(0,Number(valor||0)-total);
+  if(falta>0.005) estado.baixasFinanceiras.push({id:novoId(),lancamentoId:l.id,data:data||hoje(),valor:falta,contaId:contaId||l.contaId||"",obs,criadoEm:new Date().toISOString()});
+  sincronizarStatusLancamentoV122(l);
+}
+const sincronizarDespesaApanhaV122Base=sincronizarDespesaApanha;
+sincronizarDespesaApanha=function(a){
+  sincronizarDespesaApanhaV122Base(a);
+  const l=estado.lancamentos.find(x=>x.id===a.financeiroId);
+  if(!l)return;
+  if(a.status==="pago") garantirBaixaAutomaticaV122(l,a.dataPagamento||a.data,l.valor,l.contaId||"","Pagamento da colheita");
+  sincronizarStatusLancamentoV122(l);
+};
+
+const salvarVendaV122Base=salvarVenda;
+salvarVenda=function(){
+  const editId=$("vendaId")?.value||"";
+  const antesIds=new Set(estado.vendas.map(v=>v.id));
+  salvarVendaV122Base();
+  garantirEstruturaV122();
+  const v=editId
+    ?estado.vendas.find(x=>x.id===editId)
+    :estado.vendas.find(x=>!antesIds.has(x.id));
+  if(v?.financeiroId){
+    const l=estado.lancamentos.find(x=>x.id===v.financeiroId);
+    if(l&&v.status==="pago") garantirBaixaAutomaticaV122(l,v.dataRecebimento||v.data,l.valor,l.contaId||"","Recebimento da venda");
+    if(l){
+      sincronizarStatusLancamentoV122(l);
+      v.status=statusCalculadoV122(l);
+      if(v.status==="pago") v.dataRecebimento=l.dataPagamento||v.dataRecebimento||v.data;
+    }
+  }
+  salvarLocal();
+  if(window.cloudSync) window.cloudSync.agendar();
+};
+
+
+/* Painel de atenção com saldos parciais */
+renderPainelAtencaoV121=function(){
+  const el=$("painelAtencaoV121");if(!el)return;
+  garantirEstruturaV122();
+  const pendDesp=estado.lancamentos.filter(x=>x.tipo==="despesa"&&saldoLancamentoV122(x)>0.005);
+  const vencidas=pendDesp.filter(x=>{const d=diasAte(x.vencimento);return d!==null&&d<0});
+  const proximas=pendDesp.filter(x=>{const d=diasAte(x.vencimento);return d!==null&&d>=0&&d<=7});
+  const receber=estado.lancamentos.filter(x=>x.tipo==="receita"&&saldoLancamentoV122(x)>0.005);
+  const colhedoresPendente=estado.apanhas.filter(a=>{
+    const l=a.financeiroId?estado.lancamentos.find(x=>x.id===a.financeiroId):null;
+    return l?saldoLancamentoV122(l)>0.005:a.status!=="pago";
+  });
+  const lotesSecando=estado.lotes.filter(l=>l.status!=="fechado");
+  const totalVencido=vencidas.reduce((s,x)=>s+saldoLancamentoV122(x),0);
+  const totalProximas=proximas.reduce((s,x)=>s+saldoLancamentoV122(x),0);
+  const totalReceber=receber.reduce((s,x)=>s+saldoLancamentoV122(x),0);
+  const totalColhedores=colhedoresPendente.reduce((s,a)=>{
+    const l=a.financeiroId?estado.lancamentos.find(x=>x.id===a.financeiroId):null;
+    return s+(l?saldoLancamentoV122(l):Number(a.latoes||0)*Number(a.valorLatao||0));
+  },0);
+  const latSecando=lotesSecando.reduce((s,l)=>s+dadosLote(l).latoes,0);
+  const soloPendente=estado.talhoes.filter(t=>{const a=ultimaAnaliseTalhao(t.id);return !a||diasDesdeV121(a.data)>365});
+  const cards=[];
+  if(vencidas.length)cards.push(`<button class="v121-alert urgent" onclick="irFinanceiroV121('despesa')"><div class="top"><span class="icon">!</span><span class="tag">urgente</span></div><strong>${vencidas.length} conta${vencidas.length===1?"":"s"} vencida${vencidas.length===1?"":"s"}</strong><small>${moeda(totalVencido)} ainda em aberto.</small></button>`);
+  if(proximas.length)cards.push(`<button class="v121-alert warn" onclick="irFinanceiroV121('despesa')"><div class="top"><span class="icon">7</span><span class="tag">próximos dias</span></div><strong>${moeda(totalProximas)} a vencer</strong><small>${proximas.length} conta${proximas.length===1?"":"s"} vence${proximas.length===1?"":"m"} nos próximos 7 dias.</small></button>`);
+  if(receber.length)cards.push(`<button class="v121-alert info" onclick="irFinanceiroV121('receita')"><div class="top"><span class="icon">↗</span><span class="tag">receber</span></div><strong>${moeda(totalReceber)} a receber</strong><small>${receber.length} receita${receber.length===1?"":"s"} com saldo em aberto.</small></button>`);
+  if(colhedoresPendente.length)cards.push(`<button class="v121-alert warn" onclick="irColhedoresV121()"><div class="top"><span class="icon">C</span><span class="tag">colhedores</span></div><strong>${moeda(totalColhedores)} a pagar</strong><small>${colhedoresPendente.length} registro${colhedoresPendente.length===1?"":"s"} de colheita com saldo pendente.</small></button>`);
+  if(lotesSecando.length)cards.push(`<button class="v121-alert info" onclick="irSecadorV121()"><div class="top"><span class="icon">☕</span><span class="tag">secador</span></div><strong>${lotesSecando.length} lote${lotesSecando.length===1?"":"s"} no secador</strong><small>${num(latSecando)} latões aguardando resultado em sacas.</small></button>`);
+  if(soloPendente.length)cards.push(`<button class="v121-alert" onclick="abrirGerenciadorSolo()"><div class="top"><span class="icon">S</span><span class="tag">solo</span></div><strong>${soloPendente.length} talhão${soloPendente.length===1?"":"ões"} para revisar</strong><small>Sem análise de solo ou com análise cadastrada há mais de 12 meses.</small></button>`);
+  if(!cards.length)cards.push(`<div class="v121-alert ok"><div class="top"><span class="icon">✓</span><span class="tag">em dia</span></div><strong>Nenhuma pendência importante agora</strong><small>Contas, colhedores e secador não têm alertas imediatos.</small></div>`);
+  el.innerHTML=cards.slice(0,6).join("");
+}
+
+/* Perfil */
+const renderPerfilV122Base=renderPerfil;
+renderPerfil=function(){
+  garantirEstruturaV122(); renderPerfilV122Base();
+  if($("pContasFinanceirasV122"))$("pContasFinanceirasV122").innerHTML=`${estado.contasFinanceiras.length}<small>contas / caixas</small>`;
+  if($("pRecorrenciasV122"))$("pRecorrenciasV122").innerHTML=`${estado.recorrenciasFinanceiras.filter(r=>r.ativo!==false).length}<small>ativas</small>`;
+};
+
+/* Estado Firebase / backup */
+window.appBridge.setEstado=function(n){
+  suspendSync=true;
+  let gerados=0;
+  try{
+    estado={
+      lancamentos:Array.isArray(n?.lancamentos)?n.lancamentos:[],
+      talhoes:Array.isArray(n?.talhoes)?n.talhoes:[],
+      colheitas:Array.isArray(n?.colheitas)?n.colheitas:[],
+      vendas:Array.isArray(n?.vendas)?n.vendas:[],
+      trabalhadores:Array.isArray(n?.trabalhadores)?n.trabalhadores:[],
+      apanhas:Array.isArray(n?.apanhas)?n.apanhas:[],
+      lotes:Array.isArray(n?.lotes)?n.lotes:[],
+      safras:Array.isArray(n?.safras)?n.safras:[],
+      safraAtivaId:n?.safraAtivaId||"",
+      categorias:n?.categorias&&typeof n.categorias==="object"?n.categorias:{receita:[],despesa:[]},
+      pessoas:Array.isArray(n?.pessoas)?n.pessoas:[],
+      cotacaoCafe:n?.cotacaoCafe&&typeof n.cotacaoCafe==="object"?n.cotacaoCafe:{},
+      analisesSolo:Array.isArray(n?.analisesSolo)?n.analisesSolo:[],
+      baixasFinanceiras:Array.isArray(n?.baixasFinanceiras)?n.baixasFinanceiras:[],
+      contasFinanceiras:Array.isArray(n?.contasFinanceiras)?n.contasFinanceiras:[],
+      recorrenciasFinanceiras:Array.isArray(n?.recorrenciasFinanceiras)?n.recorrenciasFinanceiras:[]
+    };
+    garantirEstruturaV122(); migrarLotesAntigos();
+    gerados=gerarRecorrenciasAteV122(fimHorizonteV122(60));
+    salvarLocal(); renderTudo(); iniciarAtualizacaoCotacao();
+  }finally{suspendSync=false}
+  if(gerados>0)setTimeout(()=>{salvarLocal();if(window.cloudSync)window.cloudSync.agendar()},100)
+};
+window.appBridge.getEstado=function(){garantirEstruturaV122();return structuredClone(estado)};
+window.appBridge.limparUsuario=function(){
+  usuarioAtual=null;
+  try{clearInterval(timerCotacao);clearInterval(timerCotacaoArquivo);if(typeof timerCotacaoV9!=="undefined")clearInterval(timerCotacaoV9)}catch(e){}
+  estado={lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[],safras:[],safraAtivaId:"",categorias:{receita:[],despesa:[]},pessoas:[],cotacaoCafe:{},analisesSolo:[],baixasFinanceiras:[],contasFinanceiras:[],recorrenciasFinanceiras:[]};
+  garantirEstruturaV122();$("authScreen").classList.remove("hidden");renderTudo()
+};
+
+baixarBackup=function(){
+  garantirEstruturaV122();
+  const payload={versao:"12.2",exportadoEm:new Date().toISOString(),estado};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download=`backup-financeiro-sitio-v12-2-${hoje()}.json`;a.click();URL.revokeObjectURL(a.href)
+};
+
+const renderTudoV122Base=renderTudo;
+renderTudo=function(){
+  garantirEstruturaV122();
+  for(const x of estado.lancamentos) sincronizarStatusLancamentoV122(x);
+  renderTudoV122Base();
+  atualizarSelectContasV122(); renderResumoContasV122(); renderFluxoCaixaV122();
+  if($("tab-perfil")&&!$("tab-perfil").classList.contains("hidden"))renderPerfil()
+};
+
+function processarRecorrenciasAutomaticasV122(){
+  try{
+    if(!usuarioAtual) return;
+    const n=gerarRecorrenciasAteV122(fimHorizonteV122(60));
+    if(n>0) persistir();
+  }catch(e){}
+}
+window.addEventListener("focus",processarRecorrenciasAutomaticasV122);
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")processarRecorrenciasAutomaticasV122()});
+document.addEventListener("DOMContentLoaded",()=>{
+  setTimeout(()=>{try{garantirEstruturaV122();atualizarSelectContasV122();renderResumoContasV122();renderFluxoCaixaV122()}catch(e){}},250)
+});
 </script>
 
 <script type="module">

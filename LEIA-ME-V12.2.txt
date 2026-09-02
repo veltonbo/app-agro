@@ -1,0 +1,51 @@
+FINANCEIRO DO SÍTIO — V12.2
+Base: linha V12 do aplicativo.
+
+NOVO NA V12.2
+
+1. PAGAMENTOS E RECEBIMENTOS PARCIAIS
+- Cada conta pode receber várias baixas.
+- O app mostra valor total, já pago/recebido e saldo restante.
+- Status automático: Pendente, Parcial ou Pago/Recebido.
+- Pagamentos podem ser removidos sem apagar o lançamento principal.
+- Lançamentos antigos já pagos são migrados automaticamente para o novo modelo sem perder dados.
+
+2. CONTAS E CAIXAS
+- Cadastros para Dinheiro, Banco, Carteira digital e outros.
+- Saldo inicial por conta.
+- Saldo atual calculado pelas baixas financeiras.
+- Contas com movimentação não podem ser excluídas; podem ser desativadas.
+
+3. PARCELAMENTO
+- Novo lançamento pode ser dividido em até 60 parcelas.
+- O valor total é dividido com correção de centavos.
+- Vencimentos mensais são criados automaticamente.
+- Parcelas ficam vinculadas a um mesmo grupo.
+
+4. CONTAS RECORRENTES
+- Receita ou despesa recorrente.
+- Frequências: semanal, quinzenal, mensal e anual.
+- O app gera lançamentos futuros em uma janela de 60 dias.
+- Recorrências podem ser pausadas.
+- Safras fechadas bloqueiam novas gerações.
+
+5. FLUXO DE CAIXA FUTURO
+- Saldo realizado.
+- Projeção para 7, 30 e 60 dias.
+- Considera saldos pendentes por vencimento.
+- Exibe entradas e saídas previstas.
+
+6. CONTAS A PAGAR
+- Passaram a mostrar o saldo realmente em aberto.
+- Pagamentos parciais reduzem o valor pendente.
+- Contas parcialmente pagas continuam nos vencimentos até zerar.
+
+7. RELATÓRIO POR CAIXA
+- No regime “Caixa realizado”, cada pagamento/recebimento é tratado pela data e pelo valor da baixa.
+- Pagamentos parciais não são mais considerados como se o valor inteiro tivesse sido quitado.
+
+8. COMPATIBILIDADE
+- Firebase e backup preservam os novos campos:
+  baixasFinanceiras, contasFinanceiras e recorrenciasFinanceiras.
+- Usuário novo continua começando sem dados pré-carregados.
+- Dados antigos da V12/V12.1 continuam compatíveis.
