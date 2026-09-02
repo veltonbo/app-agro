@@ -6284,6 +6284,324 @@ salvarCotacaoConfig=function(){
 };
 </script>
 
+
+<script>
+/* ===== FINANCEIRO DO SÍTIO V9 - COTAÇÃO AUTOMÁTICA SEM GITHUB ACTIONS =====
+   A atualização acontece no próprio app:
+   - imediatamente ao abrir / entrar;
+   - ao voltar para o app;
+   - quando a internet volta;
+   - a cada 15 minutos enquanto o app estiver aberto.
+   Fonte auxiliar de leitura: Jina Reader -> Painel do Café.
+*/
+const COTACAO_V9_INTERVALO_MS = 15 * 60 * 1000;
+const COTACAO_V9_MIN_RECONSULTA_MS = 5 * 60 * 1000;
+const JINA_PAINEL_URL = "https://r.jina.ai/https://www.paineldocafe.com.br/";
+let timerCotacaoV9 = null;
+let ultimaTentativaCotacaoV9 = 0;
+
+function parsePrecoCafeBR(valorBruto){
+  let s = String(valorBruto || "")
+    .replace(/R\$/gi, "")
+    .replace(/\s/g, "")
+    .trim();
+
+  if(!s) return 0;
+
+  // Padrão brasileiro: 1.234,56 ou 1234,56
+  if(s.includes(",")){
+    s = s.replace(/\./g, "").replace(",", ".");
+    let n = Number(s);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  // Ex.: 2.018 = dois mil e dezoito (cotação publicada sem centavos)
+  if(/^\d{1,3}(?:\.\d{3})+$/.test(s)){
+    let n = Number(s.replace(/\./g, ""));
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  let n = Number(s);
+  return Number.isFinite(n) ? n : 0;
+}
+
+extrairCotacaoPainel = function(texto){
+  let original = String(texto || "");
+  let t = original
+    .replace(/\u00a0/g, " ")
+    .replace(/[ \t]+/g, " ");
+
+  const patterns = [
+    /CONILON\s*(?:TIPO\s*)?7\s*\/\s*8[\s\S]{0,220}?R\$\s*([0-9]{1,4}(?:\.[0-9]{3})*(?:,[0-9]{1,2})?)/i,
+    /CONILON\s*(?:BICA\s*CORRIDA\s*)?(?:TIPO\s*)?7\s*\/\s*8[\s\S]{0,260}?([0-9]{3,4}(?:,[0-9]{1,2})?)/i,
+    /CONILON[\s\S]{0,180}?R\$\s*([0-9]{1,4}(?:\.[0-9]{3})*(?:,[0-9]{1,2})?)/i
+  ];
+
+  let bruto = "";
+  let match = null;
+
+  for(const p of patterns){
+    match = t.match(p);
+    if(match){
+      bruto = match[1];
+      break;
+    }
+  }
+
+  if(!bruto) return null;
+
+  let valor = parsePrecoCafeBR(bruto);
+
+  // Faixa de segurança para evitar capturar datas, percentuais ou outros números.
+  if(!Number.isFinite(valor) || valor < 300 || valor > 5000){
+    return null;
+  }
+
+  let idx = t.toUpperCase().indexOf("CONILON");
+  let trecho = idx >= 0 ? t.slice(Math.max(0, idx - 250), idx + 900) : t;
+  let dm = trecho.match(/(\d{2})\s*\/\s*(\d{2})\s*\/\s*(\d{4})/);
+
+  return {
+    valor,
+    dataFonte: dm ? `${dm[1]}/${dm[2]}/${dm[3]}` : ""
+  };
+};
+
+async function fetchTextoV9(url, timeoutMs=25000){
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+
+  try{
+    const r = await fetch(url, {
+      cache: "no-store",
+      signal: ctrl.signal,
+      headers: { "Accept": "text/plain,text/html,*/*" }
+    });
+
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    return await r.text();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function buscarCotacaoJinaV9(){
+  const texto = await fetchTextoV9(JINA_PAINEL_URL, 30000);
+  const resultado = extrairCotacaoPainel(texto);
+
+  if(!resultado){
+    throw new Error("Conilon 7/8 não localizado na leitura do Painel do Café");
+  }
+
+  return {
+    ...resultado,
+    atualizadoEm: new Date().toISOString(),
+    fonte: "Painel do Café",
+    metodo: "Painel do Café via leitura automática"
+  };
+}
+
+async function buscarCotacaoDiretaV9(){
+  const texto = await fetchTextoV9(PAINEL_CAFE_URL, 12000);
+  const resultado = extrairCotacaoPainel(texto);
+
+  if(!resultado){
+    throw new Error("Cotação não localizada diretamente");
+  }
+
+  return {
+    ...resultado,
+    atualizadoEm: new Date().toISOString(),
+    fonte: "Painel do Café",
+    metodo: "Painel do Café direto"
+  };
+}
+
+async function buscarCotacaoSalvaV9(){
+  // Apenas contingência para quem já possuía cotacao.json.
+  try{
+    return await buscarCotacaoArquivoAutomatico();
+  }catch(e){
+    throw new Error("Sem cotação de contingência");
+  }
+}
+
+buscarCotacaoPainel = async function(){
+  let erros = [];
+
+  // Principal: Reader consegue renderizar páginas que dependem de JavaScript.
+  try{
+    return await buscarCotacaoJinaV9();
+  }catch(e){
+    erros.push(e);
+  }
+
+  // Fallback: tentativa direta.
+  try{
+    return await buscarCotacaoDiretaV9();
+  }catch(e){
+    erros.push(e);
+  }
+
+  // Última contingência: arquivo antigo/local.
+  try{
+    return await buscarCotacaoSalvaV9();
+  }catch(e){
+    erros.push(e);
+  }
+
+  throw erros[0] || new Error("Não foi possível consultar a cotação");
+};
+
+atualizarCotacaoCafe = async function(forcar=false){
+  garantirEstruturaV7();
+
+  if(cotacaoAtualizando) return;
+
+  const agora = Date.now();
+  if(!forcar && agora - ultimaTentativaCotacaoV9 < COTACAO_V9_MIN_RECONSULTA_MS){
+    return;
+  }
+
+  ultimaTentativaCotacaoV9 = agora;
+  const c = estado.cotacaoCafe;
+  cotacaoAtualizando = true;
+
+  if($("cotacaoStatus")){
+    $("cotacaoStatus").innerHTML = "<strong>Consultando o Painel do Café...</strong>";
+  }
+
+  try{
+    const resultado = await buscarCotacaoPainel();
+    const valorNovo = Number(resultado.valor || 0);
+
+    if(!Number.isFinite(valorNovo) || valorNovo <= 0){
+      throw new Error("Preço inválido");
+    }
+
+    const mudou =
+      Math.abs(Number(c.precoPainel || 0) - valorNovo) > 0.001 ||
+      (resultado.dataFonte && resultado.dataFonte !== c.dataFonte);
+
+    c.precoPainel = valorNovo;
+    c.dataFonte = resultado.dataFonte || c.dataFonte || "";
+    c.atualizadoEm = resultado.atualizadoEm || new Date().toISOString();
+    c.origem = "automatico";
+    c.metodo = resultado.metodo || "Painel do Café";
+    c.autoAtualizar = true;
+
+    cotacaoAtualizando = false;
+
+    // Salva no aparelho e também no Firebase para os outros dispositivos.
+    if(mudou){
+      salvarLocal();
+      if(window.cloudSync) window.cloudSync.agendar();
+    }
+
+    renderCotacaoCafe();
+
+    if($("cotacaoStatus")){
+      const quando = formatarDataHoraCotacao(c.atualizadoEm);
+      $("cotacaoStatus").innerHTML =
+        `<strong>Atualizado automaticamente</strong>${quando ? ` • ${quando}` : ""}`;
+    }
+
+    if(forcar){
+      toast(`Painel: ${moeda(c.precoPainel)} • Região: ${moeda(cotacaoRegional())}`);
+    }
+  }catch(e){
+    cotacaoAtualizando = false;
+    renderCotacaoCafe();
+
+    if($("cotacaoStatus")){
+      if(Number(c.precoPainel || 0) > 0){
+        $("cotacaoStatus").innerHTML =
+          "<strong>Sem nova consulta agora.</strong> Mantendo a última cotação salva; o app tentará novamente automaticamente.";
+      }else{
+        $("cotacaoStatus").innerHTML =
+          "<strong>Não foi possível obter a primeira cotação.</strong> O app tentará novamente automaticamente.";
+      }
+    }
+
+    if(forcar){
+      toast("Não consegui consultar a cotação agora. Tentarei novamente automaticamente.");
+    }
+  }
+};
+
+iniciarAtualizacaoCotacao = function(){
+  clearInterval(timerCotacao);
+  clearInterval(timerCotacaoArquivo);
+  clearInterval(timerCotacaoV9);
+
+  timerCotacao = null;
+  timerCotacaoArquivo = null;
+
+  // Consulta quase imediatamente ao abrir/logar.
+  setTimeout(() => atualizarCotacaoCafe(false), 900);
+
+  timerCotacaoV9 = setInterval(
+    () => atualizarCotacaoCafe(false),
+    COTACAO_V9_INTERVALO_MS
+  );
+};
+
+salvarCotacaoConfig = function(){
+  garantirEstruturaV7();
+
+  const c = estado.cotacaoCafe;
+  const desconto = Number($("cotacaoDesconto").value || 0);
+  const manual = Number($("cotacaoManual").value || 0);
+
+  c.descontoRegional = Math.max(0, desconto);
+  c.autoAtualizar = true;
+
+  // Manual é somente contingência até a próxima atualização automática.
+  if(manual > 0 && Math.abs(manual - Number(c.precoPainel || 0)) > 0.001){
+    c.precoPainel = manual;
+    c.atualizadoEm = new Date().toISOString();
+    c.dataFonte = hoje().split("-").reverse().join("/");
+    c.origem = "manual";
+    c.metodo = "manual (contingência)";
+  }
+
+  if($("cotacaoAuto")){
+    $("cotacaoAuto").checked = true;
+    $("cotacaoAuto").disabled = true;
+  }
+
+  fecharModal("modalCotacao");
+  persistir();
+  toast("Configuração salva. A cotação continuará automática.");
+  setTimeout(() => atualizarCotacaoCafe(true), 400);
+};
+
+// Ao voltar para o aplicativo, tenta atualizar.
+document.addEventListener("visibilitychange", () => {
+  if(document.visibilityState === "visible" && usuarioAtual){
+    atualizarCotacaoCafe(false);
+  }
+});
+
+// Ao recuperar internet, tenta atualizar.
+window.addEventListener("online", () => {
+  if(usuarioAtual){
+    setTimeout(() => atualizarCotacaoCafe(false), 700);
+  }
+});
+
+// Reforça texto/configuração visual após render.
+const renderCotacaoCafeV9Base = renderCotacaoCafe;
+renderCotacaoCafe = function(){
+  renderCotacaoCafeV9Base();
+
+  if($("cotacaoAuto")){
+    $("cotacaoAuto").checked = true;
+    $("cotacaoAuto").disabled = true;
+  }
+};
+</script>
+
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import{getAuth,onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword,signOut}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";

@@ -1,0 +1,33 @@
+FINANCEIRO DO SÍTIO - V9
+COTAÇÃO AUTOMÁTICA SEM GITHUB ACTIONS
+
+Esta versão NÃO depende do GitHub Actions e não depende de cobrança do GitHub.
+
+COMO A COTAÇÃO FUNCIONA
+- O app consulta automaticamente o Painel do Café quando é aberto.
+- Tenta novamente quando você volta para o app.
+- Tenta novamente quando a conexão com a internet retorna.
+- Enquanto o app estiver aberto, verifica novamente a cada 15 minutos.
+- O valor obtido é salvo no Firebase e fica disponível nos outros aparelhos.
+- A estimativa regional continua sendo:
+  preço do Painel do Café - desconto regional configurado.
+- O desconto padrão permanece R$ 80,00 e pode ser alterado no Perfil.
+
+FONTE
+O app usa o Jina Reader como camada de leitura da página do Painel do Café.
+Isso ajuda a ler sites que carregam informações com JavaScript.
+Se a leitura falhar temporariamente, o app mantém a última cotação válida.
+
+IMPORTANTE
+- Não é necessário executar nenhum workflow.
+- Não é necessário configurar Billing no GitHub.
+- Não é necessário manter a pasta .github/workflows para a cotação.
+- Para parar os e-mails de erro antigos, exclua do seu repositório:
+  .github/workflows/atualizar-cotacao.yml
+
+ATUALIZAÇÃO QUANDO O APP ESTÁ FECHADO
+A V9 não executa código enquanto o navegador/app está totalmente fechado.
+Ao abrir novamente, a consulta é feita automaticamente quase imediatamente.
+
+ARQUIVOS
+O pacote contém o app completo e todos os recursos necessários para o GitHub Pages.
