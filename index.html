@@ -1224,6 +1224,870 @@ input,select,textarea{
   background:#2F7B49
 }
 
+
+/* =========================================================
+   V11 — ORGANIZAÇÃO E APARÊNCIA PROFISSIONAL
+   ========================================================= */
+:root{
+  --v11-bg:#F4F6F2;
+  --v11-panel:#FFFFFF;
+  --v11-panel-soft:#F8FAF7;
+  --v11-ink:#172019;
+  --v11-muted:#748078;
+  --v11-line:#DFE6E0;
+  --v11-green:#1F653A;
+  --v11-green-dark:#123D25;
+  --v11-green-soft:#E8F2EB;
+  --v11-coffee:#7B603F;
+  --v11-coffee-soft:#F3EEE7;
+  --v11-red:#A4473E;
+  --v11-red-soft:#FFF0EE;
+  --v11-blue:#3B6278;
+  --v11-blue-soft:#EEF4F7;
+  --v11-amber:#9B6A2E;
+  --v11-amber-soft:#FFF5E8;
+  --v11-radius:18px;
+  --v11-shadow:0 9px 28px rgba(22,49,29,.06);
+  --v11-shadow-sm:0 3px 12px rgba(22,49,29,.04);
+}
+
+html{background:var(--v11-bg)}
+body{
+  background:
+    radial-gradient(circle at 8% -8%,rgba(31,101,58,.07),transparent 26%),
+    linear-gradient(180deg,#FAFBF9 0%,var(--v11-bg) 48%,#EEF2EE 100%);
+  color:var(--v11-ink);
+}
+.app{
+  width:min(1180px,100%);
+  margin:auto;
+  padding:14px 20px 104px;
+}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:32;
+  margin:0 -20px 14px;
+  padding:9px 20px;
+  background:rgba(249,251,249,.93);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(223,230,224,.92);
+  box-shadow:0 4px 18px rgba(22,49,29,.035);
+}
+.topbar-inner{min-height:48px}
+.brand-mark{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(145deg,#2A7244,#143F27);
+  box-shadow:0 7px 18px rgba(31,101,58,.16)
+}
+.brand h1{
+  font-size:19px;
+  letter-spacing:-.035em;
+}
+.sub{
+  margin-top:1px;
+  font-size:8.5px;
+  color:#849087;
+}
+.user-badge{
+  height:36px;
+  max-width:210px;
+  padding:4px 9px 4px 5px;
+  border-radius:12px;
+  border:1px solid var(--v11-line);
+  background:#fff;
+  box-shadow:var(--v11-shadow-sm);
+}
+.user-avatar{
+  width:27px;height:27px;
+  background:var(--v11-green-soft);
+  color:var(--v11-green-dark);
+}
+.icon-btn{
+  width:36px;height:36px;border-radius:11px;
+  box-shadow:var(--v11-shadow-sm);
+}
+
+/* Universal module header */
+.module-head{
+  margin-bottom:12px;
+  padding:16px 17px;
+  border:1px solid var(--v11-line);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 95% -10%,rgba(31,101,58,.07),transparent 31%),
+    #fff;
+  box-shadow:var(--v11-shadow);
+}
+.module-kicker{
+  margin-bottom:3px;
+  font-size:7.5px;
+  letter-spacing:.14em;
+  color:var(--v11-green);
+}
+.module-head h2{
+  font-size:20px;
+  letter-spacing:-.038em;
+}
+.module-head p{
+  max-width:650px;
+  margin-top:4px;
+  font-size:9.5px;
+  line-height:1.5;
+}
+.module-head-actions{gap:6px}
+
+/* Dashboard */
+.v11-dashboard-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:14px;
+  align-items:center;
+  margin-bottom:10px;
+  padding:16px 17px;
+  border-radius:20px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 92% -12%,rgba(255,255,255,.12),transparent 28%),
+    linear-gradient(135deg,#113A23 0%,#1A5431 62%,#226A3E 100%);
+  box-shadow:0 16px 38px rgba(18,61,37,.16);
+}
+.v11-dashboard-head .eyebrow{
+  font-size:7.5px;
+  letter-spacing:.14em;
+  opacity:.7
+}
+.v11-dashboard-head h2{
+  margin:3px 0 0;
+  font-size:25px;
+  line-height:1.05;
+  letter-spacing:-.045em
+}
+.v11-dashboard-head p{
+  margin:6px 0 0;
+  max-width:650px;
+  color:rgba(255,255,255,.7);
+  font-size:9.5px;
+  line-height:1.5
+}
+.v11-sync{
+  min-width:170px;
+  padding:9px 11px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:13px;
+  background:rgba(255,255,255,.07)
+}
+.v11-sync small{
+  display:block;
+  color:rgba(255,255,255,.58);
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+.v11-sync strong{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-top:3px;
+  font-size:9.5px
+}
+.v11-sync strong::before{
+  content:"";
+  width:7px;height:7px;border-radius:50%;
+  background:#69D08A;
+  box-shadow:0 0 0 4px rgba(105,208,138,.11)
+}
+
+.v11-context-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:9px;
+  margin-bottom:10px
+}
+.v11-context-card{
+  border:1px solid var(--v11-line);
+  border-radius:16px;
+  background:#fff;
+  box-shadow:var(--v11-shadow-sm);
+}
+.v11-season{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  min-height:82px;
+  padding:12px 13px
+}
+.v11-season-copy{
+  display:flex;align-items:center;gap:10px;min-width:0
+}
+.v11-season-icon{
+  width:35px;height:35px;border-radius:11px;
+  display:grid;place-items:center;flex:0 0 auto;
+  background:var(--v11-coffee-soft);
+  color:var(--v11-coffee);
+  font-weight:900
+}
+.v11-season small{
+  display:block;
+  color:var(--v11-muted);
+  font-size:7.5px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+.v11-season strong{
+  display:block;
+  margin-top:3px;
+  font-size:12px
+}
+.v11-season-actions{
+  display:flex;align-items:center;gap:6px
+}
+.v11-season-actions select{
+  min-width:145px;
+  min-height:37px;
+  padding:7px 9px;
+  font-size:9.5px
+}
+
+.v11-market{
+  min-height:82px;
+  padding:11px 12px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:9px;
+  align-items:center
+}
+.v11-market-label{
+  display:block;
+  color:var(--v11-muted);
+  font-size:7.5px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+.v11-market-price{
+  display:block;
+  margin-top:4px;
+  color:var(--v11-green-dark);
+  font-size:20px;
+  letter-spacing:-.04em
+}
+.v11-market-meta{
+  display:block;
+  margin-top:3px;
+  color:var(--v11-muted);
+  font-size:8px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
+}
+.v11-market-actions{
+  display:flex;flex-direction:column;gap:5px
+}
+.v11-market-actions button{
+  min-width:75px;
+  min-height:29px;
+  border:1px solid var(--v11-line);
+  border-radius:9px;
+  background:#fff;
+  color:#445148;
+  font-size:8px;
+  font-weight:850
+}
+.v11-market-actions button.primary{
+  border-color:#D4E4D8;
+  background:var(--v11-green-soft);
+  color:var(--v11-green-dark)
+}
+
+.v11-essential-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+  margin-bottom:9px
+}
+.v11-essential{
+  position:relative;
+  overflow:hidden;
+  min-height:116px;
+  padding:13px 14px;
+  border:1px solid var(--v11-line);
+  border-radius:17px;
+  background:#fff;
+  box-shadow:var(--v11-shadow-sm)
+}
+.v11-essential::after{
+  content:"";
+  position:absolute;
+  right:-17px;bottom:-25px;
+  width:75px;height:75px;border-radius:50%;
+  background:rgba(31,101,58,.045)
+}
+.v11-essential.primary{
+  color:#fff;
+  border-color:transparent;
+  background:linear-gradient(145deg,#17472C,#246A3F)
+}
+.v11-essential.primary::after{background:rgba(255,255,255,.065)}
+.v11-essential.warn{
+  background:linear-gradient(180deg,#fff,#FFF9F1)
+}
+.v11-essential .label{
+  display:flex;align-items:center;gap:7px;
+  color:var(--v11-muted);
+  font-size:7.5px;
+  font-weight:900;
+  letter-spacing:.075em;
+  text-transform:uppercase
+}
+.v11-essential.primary .label{color:rgba(255,255,255,.66)}
+.v11-essential .doticon{
+  width:23px;height:23px;border-radius:8px;
+  display:grid;place-items:center;
+  background:var(--v11-green-soft);
+  color:var(--v11-green-dark);
+  font-size:9px;
+  letter-spacing:0
+}
+.v11-essential.primary .doticon{
+  background:rgba(255,255,255,.12);color:#fff
+}
+.v11-essential.warn .doticon{
+  background:var(--v11-amber-soft);color:var(--v11-amber)
+}
+.v11-essential .value{
+  display:block;
+  margin-top:15px;
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:-.045em
+}
+.v11-essential .note{
+  display:block;
+  margin-top:4px;
+  color:var(--v11-muted);
+  font-size:8px
+}
+.v11-essential.primary .note{color:rgba(255,255,255,.55)}
+
+.v11-detail-strip{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:7px;
+  margin-bottom:18px
+}
+.v11-mini{
+  min-height:70px;
+  padding:9px 10px;
+  border:1px solid var(--v11-line);
+  border-radius:13px;
+  background:rgba(255,255,255,.78)
+}
+.v11-mini small{
+  display:block;
+  color:var(--v11-muted);
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase
+}
+.v11-mini strong{
+  display:block;
+  margin-top:6px;
+  font-size:13px;
+  letter-spacing:-.025em
+}
+.v11-mini span{
+  display:block;
+  margin-top:3px;
+  color:#929B95;
+  font-size:7.5px
+}
+
+/* Sections and cards */
+.section-head{margin:18px 0 8px}
+.section-title{font-size:14px}
+.section-note{font-size:8.5px}
+.card,.accounts-panel,.filter-panel,.cadastro-card,.worker-card-v4,.lote-card{
+  border-color:var(--v11-line)!important;
+  box-shadow:var(--v11-shadow-sm)!important;
+}
+.card{border-radius:15px}
+.list{overflow:hidden}
+.item{
+  padding:10px 11px;
+  gap:9px
+}
+.item-icon{width:32px;height:32px;border-radius:9px}
+.item-main strong{font-size:11.5px}
+.item-meta{font-size:8.5px}
+.item-value strong{font-size:11.5px}
+
+/* Quick actions */
+.quick{
+  grid-template-columns:repeat(4,1fr);
+  gap:8px
+}
+.quick-btn{
+  min-height:70px;
+  padding:10px 11px;
+  border-radius:14px;
+  box-shadow:var(--v11-shadow-sm)
+}
+.qicon{
+  width:36px;height:36px;border-radius:11px;
+  font-size:13px
+}
+.quick-btn strong{font-size:11.5px}
+.quick-btn small{font-size:8px}
+
+/* Financeiro */
+.v11-finance-nav{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-bottom:9px
+}
+.v11-finance-nav button{
+  min-height:58px;
+  padding:9px 10px;
+  border:1px solid var(--v11-line);
+  border-radius:13px;
+  background:#fff;
+  color:var(--v11-ink);
+  text-align:left;
+  box-shadow:var(--v11-shadow-sm)
+}
+.v11-finance-nav button span{
+  display:block;
+  color:var(--v11-muted);
+  font-size:7.5px;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase
+}
+.v11-finance-nav button strong{
+  display:block;
+  margin-top:4px;
+  font-size:11px
+}
+.v11-finance-nav button.primary{
+  border-color:#D5E5D9;
+  background:var(--v11-green-soft)
+}
+.global-note{
+  margin-bottom:9px;
+  padding:9px 10px;
+  border-radius:12px;
+  font-size:8.5px
+}
+.accounts-panel{
+  padding:13px;
+  border-radius:16px;
+  background:#fff
+}
+.accounts-head h3{font-size:14px}
+.accounts-head p{font-size:8.5px}
+.accounts-kpis{gap:7px}
+.accounts-kpi{
+  min-height:72px;
+  padding:9px;
+  border-radius:12px
+}
+.accounts-kpi small{font-size:7px}
+.accounts-kpi strong{font-size:14px}
+.filter-panel{
+  margin-top:10px;
+  padding:10px;
+  border-radius:14px;
+  background:#F8FAF8
+}
+.filter-title{margin-bottom:7px}
+.toolbar{gap:6px}
+.toolbar input,.toolbar select{
+  min-height:39px;
+  border-radius:10px;
+  font-size:9px
+}
+
+/* Colheita */
+.harvest-summary{
+  grid-template-columns:repeat(6,1fr);
+  gap:7px;
+  margin-bottom:9px
+}
+.harvest-kpi{
+  min-height:76px;
+  padding:9px;
+  border-radius:12px
+}
+.harvest-kpi small{font-size:6.8px}
+.harvest-kpi strong{font-size:14px}
+.harvest-flow{
+  position:relative;
+  gap:6px;
+  margin:9px 0 14px
+}
+.flow-step{
+  min-height:54px;
+  padding:8px;
+  border-radius:12px
+}
+.flow-number{width:24px;height:24px}
+.flow-step strong{font-size:9.5px}
+.flow-step small{font-size:7.5px}
+.process-section{
+  margin-top:14px;
+  padding:12px;
+  border:1px solid var(--v11-line);
+  border-radius:16px;
+  background:rgba(255,255,255,.58)
+}
+.process-section>.section-head{margin:0 0 9px}
+.process-badge{
+  width:25px;height:25px;border-radius:8px
+}
+.process-copy h3{font-size:13px}
+.process-copy small{font-size:8px}
+.info-box{margin-top:0;font-size:8.5px}
+
+/* Reports */
+.report-hero{
+  padding:16px;
+  border-radius:18px
+}
+.report-hero h2{font-size:18px}
+.report-kpis{gap:6px}
+.report-kpi{padding:8px}
+.report-kpi strong{font-size:14px}
+.report-safra-grid,.report-harvest{gap:6px}
+.report-safra-grid .stat,.report-harvest .stat{min-height:66px;padding:9px}
+.table-wrap{border-radius:14px}
+table{font-size:9px}
+th{font-size:7.5px}
+
+/* Profile organization */
+.v11-profile-groups{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px
+}
+.v11-profile-group{
+  padding:12px;
+  border:1px solid var(--v11-line);
+  border-radius:17px;
+  background:rgba(255,255,255,.62)
+}
+.v11-profile-group-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:9px
+}
+.v11-profile-group-head h3{
+  margin:0;
+  font-size:13.5px
+}
+.v11-profile-group-head p{
+  margin:3px 0 0;
+  color:var(--v11-muted);
+  font-size:8.5px
+}
+.v11-profile-group .cadastro-grid{
+  gap:8px
+}
+.cadastro-card{
+  padding:12px;
+  border-radius:14px
+}
+.cadastro-card h3{font-size:12.5px}
+.cadastro-card p{font-size:8.5px;min-height:30px}
+.cadastro-icon{width:33px;height:33px;border-radius:10px}
+.cadastro-count{font-size:13px}
+.profile-identity{
+  margin-bottom:12px;
+  padding:11px 12px;
+  border-radius:15px
+}
+
+/* Modals / forms */
+.modal{background:rgba(12,25,16,.52)}
+.modal-card{
+  border-radius:22px 22px 0 0;
+  box-shadow:0 -18px 55px rgba(14,34,20,.18)
+}
+.modal-head{
+  padding-bottom:8px;
+  margin-bottom:12px;
+  border-bottom:1px solid #EDF1ED
+}
+.modal-head h3{font-size:16px}
+input,select,textarea{
+  min-height:41px;
+  border-radius:10px;
+  font-size:10px
+}
+.field label{font-size:7.5px}
+.btn{
+  min-height:37px;
+  padding:7px 10px;
+  border-radius:10px;
+  font-size:9px
+}
+.btn.primary{
+  background:linear-gradient(145deg,#287246,#1A5432);
+  box-shadow:0 4px 13px rgba(31,101,58,.12)
+}
+.mini-btn{
+  width:27px;height:27px;border-radius:8px
+}
+
+/* Bottom nav */
+.bottom-nav{
+  padding:7px 10px calc(7px + env(safe-area-inset-bottom));
+  background:rgba(247,250,247,.94);
+  border-top:1px solid rgba(223,230,224,.88);
+  box-shadow:0 -8px 26px rgba(22,49,29,.055)
+}
+.nav-inner{
+  width:min(690px,100%);
+  gap:2px;
+  padding:4px;
+  border-radius:16px;
+  border:1px solid var(--v11-line);
+  box-shadow:var(--v11-shadow-sm)
+}
+.navbtn{
+  min-height:46px;
+  border-radius:11px
+}
+.navbtn span{font-size:7.8px}
+.nav-symbol{
+  height:17px;
+  font-size:14px
+}
+.navbtn.active{
+  color:var(--v11-green-dark);
+  background:var(--v11-green-soft);
+  box-shadow:inset 0 0 0 1px #D5E4D8
+}
+
+/* Hide the older standalone quote-card in favor of compact market card */
+#tab-resumo > .quote-card{display:none!important}
+/* Hide old metric/insight blocks after V11 dashboard replacement */
+#tab-resumo > .summary,
+#tab-resumo > .safra-insights,
+#tab-resumo > .safra-bar,
+#tab-resumo > .hero{display:none!important}
+
+@media(max-width:920px){
+  .v11-essential-grid{grid-template-columns:repeat(2,1fr)}
+  .v11-detail-strip{grid-template-columns:repeat(3,1fr)}
+  .harvest-summary{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:720px){
+  .app{padding:10px 10px 96px}
+  .topbar{margin:0 -10px 10px;padding:8px 10px}
+  .brand-mark{width:35px;height:35px;border-radius:10px}
+  .brand h1{font-size:17.5px}
+  .sub{display:none}
+  .user-badge{max-width:100px;height:34px}
+  .user-badge #usuarioLogado{
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+  }
+
+  .v11-dashboard-head{
+    grid-template-columns:1fr;
+    padding:14px;
+    border-radius:17px
+  }
+  .v11-dashboard-head h2{font-size:22px}
+  .v11-sync{min-width:0;width:100%}
+
+  .v11-context-grid{grid-template-columns:1fr}
+  .v11-season{min-height:72px;padding:10px}
+  .v11-season-actions{width:100%;justify-content:flex-end}
+  .v11-season-actions select{min-width:120px;max-width:160px}
+  .v11-market{min-height:75px}
+
+  .v11-essential-grid{
+    grid-template-columns:1fr 1fr;
+    gap:7px
+  }
+  .v11-essential{
+    min-height:102px;
+    padding:11px
+  }
+  .v11-essential .value{font-size:18px;margin-top:12px}
+  .v11-essential.primary{grid-column:1/-1}
+  .v11-detail-strip{
+    display:flex;
+    overflow-x:auto;
+    gap:6px;
+    padding-bottom:3px;
+    scrollbar-width:none
+  }
+  .v11-detail-strip::-webkit-scrollbar{display:none}
+  .v11-mini{min-width:118px}
+
+  .quick{grid-template-columns:1fr 1fr}
+  .quick-btn{min-height:66px}
+  .quick-btn small{display:none}
+
+  .v11-finance-nav{grid-template-columns:1fr 1fr}
+  .v11-finance-nav button:last-child{grid-column:1/-1}
+
+  .harvest-summary{
+    grid-template-columns:1fr 1fr;
+    gap:6px
+  }
+  .harvest-flow{
+    display:flex;
+    overflow-x:auto;
+    scrollbar-width:none
+  }
+  .harvest-flow::-webkit-scrollbar{display:none}
+  .flow-step{min-width:160px}
+  .process-section{padding:10px}
+
+  .module-head{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:13px;
+    border-radius:16px
+  }
+  .module-head h2{font-size:18px}
+  .module-head-actions{width:100%;justify-content:flex-start}
+
+  .v11-profile-group{padding:9px}
+  .v11-profile-group .cadastro-grid{grid-template-columns:1fr}
+}
+@media(max-width:390px){
+  .v11-essential-grid{grid-template-columns:1fr}
+  .v11-essential.primary{grid-column:auto}
+  .quick{grid-template-columns:1fr}
+  .v11-finance-nav{grid-template-columns:1fr}
+  .v11-finance-nav button:last-child{grid-column:auto}
+}
+
+
+/* ===== V12 — ANÁLISE DE SOLO ===== */
+.soil-toolbar{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 180px auto;
+  gap:7px;
+  margin-bottom:10px
+}
+.soil-toolbar input,.soil-toolbar select{min-height:39px}
+.soil-list{display:grid;gap:9px}
+.soil-card{
+  position:relative;
+  overflow:hidden;
+  padding:13px;
+  border:1px solid var(--v11-line);
+  border-radius:15px;
+  background:#fff;
+  box-shadow:var(--v11-shadow-sm)
+}
+.soil-card::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,#7B603F,#B99B72)
+}
+.soil-card-head{
+  display:flex;justify-content:space-between;gap:10px;align-items:flex-start
+}
+.soil-card-title{font-size:12.5px;font-weight:900}
+.soil-card-meta{margin-top:3px;color:var(--v11-muted);font-size:8.5px;line-height:1.45}
+.soil-kpis{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:6px;
+  margin-top:10px
+}
+.soil-kpi{
+  min-height:59px;
+  padding:8px;
+  border:1px solid #E7ECE8;
+  border-radius:10px;
+  background:#F9FAF8
+}
+.soil-kpi small{
+  display:block;color:var(--v11-muted);font-size:6.8px;
+  font-weight:900;letter-spacing:.05em;text-transform:uppercase
+}
+.soil-kpi strong{
+  display:block;margin-top:5px;font-size:11.5px
+}
+.soil-note{
+  margin-top:9px;padding:8px 9px;border-radius:10px;
+  background:#F7F4EF;color:#665844;font-size:8.5px;line-height:1.45
+}
+.soil-group{
+  margin-top:13px;
+  padding:10px;
+  border:1px solid var(--v11-line);
+  border-radius:13px;
+  background:#FAFBFA
+}
+.soil-group-title{
+  margin-bottom:8px;
+  font-size:9px;font-weight:900;color:#46534A;
+  letter-spacing:.07em;text-transform:uppercase
+}
+.soil-fields{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px
+}
+.soil-unit{
+  margin-top:3px;color:#98A099;font-size:7px
+}
+.soil-latest{
+  margin-top:9px;
+  padding:8px 9px;
+  border:1px solid #E8E3DB;
+  border-radius:10px;
+  background:#FBF8F3
+}
+.soil-latest small{
+  display:block;color:#8B7963;font-size:7px;font-weight:900;text-transform:uppercase
+}
+.soil-latest strong{
+  display:block;margin-top:4px;font-size:10px
+}
+.soil-latest span{
+  display:block;margin-top:3px;color:#877A6A;font-size:8px
+}
+.soil-report-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px
+}
+.soil-report-grid .stat{min-height:65px;padding:9px}
+.soil-empty{
+  padding:18px;text-align:center;color:var(--v11-muted);font-size:9px
+}
+@media(max-width:900px){
+  .soil-kpis{grid-template-columns:repeat(3,1fr)}
+  .soil-fields{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+  .soil-toolbar{grid-template-columns:1fr 1fr}
+  .soil-toolbar .btn{grid-column:1/-1}
+  .soil-kpis{grid-template-columns:repeat(3,1fr)}
+  .soil-report-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:390px){
+  .soil-kpis{grid-template-columns:1fr 1fr}
+  .soil-fields{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -1315,7 +2179,7 @@ input,select,textarea{
         <div class="quote-icon">☕</div>
         <div style="min-width:0">
           <div class="quote-title">Cotação do café Conilon 7/8</div>
-          <div class="quote-sub">Atualização automática • Painel do Café • estimativa regional configurável</div>
+          <div class="quote-sub">Atualização automática • múltiplas fontes • estimativa regional</div>
         </div>
       </div>
       <button class="quote-refresh" title="Atualizar cotação" onclick="atualizarCotacaoCafe(true)">↻</button>
@@ -1347,7 +2211,83 @@ input,select,textarea{
     </div>
   </div>
 
-  <div class="section-head"><h3 class="section-title">Ações rápidas</h3><div class="section-note">Registre movimentações em poucos toques</div></div>
+  
+  <div class="v11-dashboard-head">
+    <div>
+      <div class="eyebrow">GESTÃO DO SÍTIO</div>
+      <h2>Visão geral</h2>
+      <p>Os números mais importantes do sítio em uma única tela, sem perder o controle por safra.</p>
+    </div>
+    <div class="v11-sync">
+      <small>Sincronização</small>
+      <strong id="v11SyncStatus">Conectando ao Firebase...</strong>
+    </div>
+  </div>
+
+  <div class="v11-context-grid">
+    <div class="v11-context-card v11-season">
+      <div class="v11-season-copy">
+        <div class="v11-season-icon">S</div>
+        <div>
+          <small>Safra ativa para novos registros</small>
+          <strong id="v11SafraNome">Safra atual</strong>
+        </div>
+      </div>
+      <div class="v11-season-actions">
+        <select id="v11SafraGlobal" onchange="trocarSafraAtiva(this.value)"></select>
+        <button class="btn secondary" onclick="abrirSafras()">Gerenciar</button>
+      </div>
+    </div>
+
+    <div class="v11-context-card v11-market">
+      <div style="min-width:0">
+        <span class="v11-market-label" id="v11CotacaoFonte">Cotação Conilon 7/8</span>
+        <strong class="v11-market-price" id="v11CotacaoRegional">—</strong>
+        <span class="v11-market-meta" id="v11CotacaoMeta">Buscando referência de mercado...</span>
+      </div>
+      <div class="v11-market-actions">
+        <button onclick="atualizarCotacaoCafe(true)">Atualizar</button>
+        <button class="primary" onclick="abrirVendaComCotacao()">Usar na venda</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="v11-essential-grid">
+    <div class="v11-essential primary">
+      <div class="label"><span class="doticon">R$</span>Saldo geral</div>
+      <strong class="value" id="v11Saldo">R$ 0,00</strong>
+      <span class="note">receitas recebidas − despesas pagas</span>
+    </div>
+
+    <div class="v11-essential warn">
+      <div class="label"><span class="doticon">!</span>Contas a pagar</div>
+      <strong class="value" id="v11Pagar">R$ 0,00</strong>
+      <span class="note">pendências de todas as safras</span>
+    </div>
+
+    <div class="v11-essential">
+      <div class="label"><span class="doticon">↗</span>Contas a receber</div>
+      <strong class="value" id="v11Receber">R$ 0,00</strong>
+      <span class="note">valores ainda não recebidos</span>
+    </div>
+
+    <div class="v11-essential">
+      <div class="label"><span class="doticon">☕</span>Estoque de café</div>
+      <strong class="value" id="v11Estoque">0,00 sc</strong>
+      <span class="note">estoque total disponível</span>
+    </div>
+  </div>
+
+  <div class="v11-detail-strip">
+    <div class="v11-mini"><small>Receitas</small><strong id="v11Receitas">R$ 0,00</strong><span>todas as safras</span></div>
+    <div class="v11-mini"><small>Despesas</small><strong id="v11Despesas">R$ 0,00</strong><span>todas as safras</span></div>
+    <div class="v11-mini"><small>Produção</small><strong id="v11Producao">0 sc</strong><span>sacas registradas</span></div>
+    <div class="v11-mini"><small>Custo / saca</small><strong id="v11CustoSaca">R$ 0,00</strong><span>custo real</span></div>
+    <div class="v11-mini"><small>Preço médio</small><strong id="v11PrecoMedio">R$ 0,00</strong><span>vendas realizadas</span></div>
+    <div class="v11-mini"><small>Margem / saca</small><strong id="v11MargemSaca">R$ 0,00</strong><span>estimativa atual</span></div>
+  </div>
+
+<div class="section-head"><h3 class="section-title">Ações rápidas</h3><div class="section-note">Registre movimentações em poucos toques</div></div>
   <div class="quick">
     <button class="quick-btn" onclick="abrirLancamento('receita')"><div class="qicon">＋</div><div><strong>Nova receita</strong><small>Venda, serviço ou outra entrada</small></div></button>
     <button class="quick-btn" onclick="abrirLancamento('despesa')"><div class="qicon blue">−</div><div><strong>Nova despesa</strong><small>Custos da lavoura e do sítio</small></div></button>
@@ -1372,20 +2312,15 @@ input,select,textarea{
     </div>
   </div>
 
-  <div class="finance-actions">
-    <button class="finance-action" onclick="abrirLancamento('receita')">
-      <span class="finance-action-icon">＋</span>
-      <span><strong>Nova receita</strong><small>Venda ou outra entrada</small></span>
+  <div class="v11-finance-nav">
+    <button class="primary" onclick="abrirLancamento('receita')">
+      <span>Entrada</span><strong>+ Nova receita</strong>
     </button>
-
-    <button class="finance-action red" onclick="abrirLancamento('despesa')">
-      <span class="finance-action-icon">−</span>
-      <span><strong>Nova despesa</strong><small>Custo ou conta do sítio</small></span>
+    <button onclick="abrirLancamento('despesa')">
+      <span>Saída</span><strong>− Nova despesa / conta</strong>
     </button>
-
-    <button class="finance-action coffee" onclick="abrirCategorias()">
-      <span class="finance-action-icon">≡</span>
-      <span><strong>Categorias</strong><small>Organize receitas e despesas</small></span>
+    <button onclick="document.querySelector('.accounts-panel')?.scrollIntoView({behavior:'smooth',block:'start'})">
+      <span>Pendências</span><strong>Ver contas a pagar</strong>
     </button>
   </div>
 
@@ -1651,6 +2586,41 @@ input,select,textarea{
     <div class="worker-report-note">Os valores acima são calculados pelos registros de latões de cada colhedor.</div>
   </div>
 
+
+  <div class="section-head">
+    <div>
+      <h3 class="section-title">Análises de solo</h3>
+      <div class="section-note">Última análise cadastrada de cada talhão</div>
+    </div>
+  </div>
+
+  <div class="soil-report-grid">
+    <div class="card stat"><small>Talhões analisados</small><strong id="relSoloTalhoes">0</strong></div>
+    <div class="card stat"><small>Análises cadastradas</small><strong id="relSoloTotal">0</strong></div>
+    <div class="card stat"><small>pH médio*</small><strong id="relSoloPh">—</strong></div>
+    <div class="card stat"><small>V% médio*</small><strong id="relSoloV">—</strong></div>
+  </div>
+
+  <div class="card table-wrap" style="margin-top:8px">
+    <table>
+      <thead>
+        <tr>
+          <th>Talhão</th>
+          <th>Data</th>
+          <th>Prof.</th>
+          <th class="num">pH</th>
+          <th class="num">P</th>
+          <th class="num">K</th>
+          <th class="num">Ca</th>
+          <th class="num">Mg</th>
+          <th class="num">V%</th>
+        </tr>
+      </thead>
+      <tbody id="relSoloTabela"></tbody>
+    </table>
+    <div class="worker-report-note">*Médias simples apenas dos valores informados. A interpretação agronômica depende do método do laboratório, solo, cultura e recomendação técnica.</div>
+  </div>
+
 <div class="section-head no-print"><h3 class="section-title">Backup</h3></div>
   <div class="card card-pad no-print"><div class="btnrow"><button class="btn secondary" onclick="baixarBackup()">Baixar backup JSON</button><button class="btn secondary" onclick="importBackup.click()">Importar backup</button><input id="importBackup" type="file" accept=".json,application/json" class="hidden" onchange="importarBackup(event)"></div><div class="section-note" style="margin-top:10px">Os dados também ficam sincronizados no Firebase.</div></div>
 </section>
@@ -1658,9 +2628,9 @@ input,select,textarea{
 <section id="tab-perfil" class="hidden">
   <div class="module-head">
     <div class="module-head-copy">
-      <span class="module-kicker">PERFIL E CADASTROS</span>
-      <h2>Configuração do sítio</h2>
-      <p>Centralize aqui os cadastros usados no sistema. Eles permanecem disponíveis independentemente da safra ativa.</p>
+      <span class="module-kicker">PERFIL E CONFIGURAÇÕES</span>
+      <h2>Cadastros do sítio</h2>
+      <p>Organize os dados básicos uma vez e reutilize em lançamentos, colheitas, contas e relatórios.</p>
     </div>
   </div>
 
@@ -1677,61 +2647,100 @@ input,select,textarea{
     </div>
   </div>
 
-  <div class="section-head">
-    <div>
-      <h3 class="section-title">Cadastros</h3>
-      <div class="section-note">Informações usadas em todo o sistema</div>
-    </div>
-  </div>
-
-  <div class="cadastro-grid">
-    <div class="cadastro-card">
-      <div class="cadastro-card-top"><div class="cadastro-icon">👤</div><div class="cadastro-count" id="pColhedores">0<small>cadastrados</small></div></div>
-      <h3>Colhedores</h3><p>Equipe da colheita e valor padrão pago por latão.</p>
-      <div class="btnrow"><button class="btn primary" onclick="abrirTrabalhador()">+ Novo</button><button class="btn secondary" onclick="irParaColhedores()">Ver colhedores</button></div>
-    </div>
-
-    <div class="cadastro-card coffee">
-      <div class="cadastro-card-top"><div class="cadastro-icon">S</div><div class="cadastro-count" id="pSafras">0<small>cadastradas</small></div></div>
-      <h3>Safras</h3><p>Crie safras e escolha qual será usada nos novos registros.</p>
-      <div class="btnrow"><button class="btn primary" onclick="abrirSafras()">Gerenciar</button></div>
-    </div>
-
-    <div class="cadastro-card">
-      <div class="cadastro-card-top"><div class="cadastro-icon">⌂</div><div class="cadastro-count" id="pTalhoes">0<small>cadastrados</small></div></div>
-      <h3>Talhões</h3><p>Lavouras, variedades, área e quantidade de plantas.</p>
-      <div class="btnrow"><button class="btn primary" onclick="abrirTalhao()">+ Novo</button><button class="btn secondary" onclick="irParaTalhoes()">Gerenciar</button></div>
-    </div>
-
-    <div class="cadastro-card blue">
-      <div class="cadastro-card-top"><div class="cadastro-icon">≡</div><div class="cadastro-count" id="pCategorias">0<small>categorias</small></div></div>
-      <h3>Categorias</h3><p>Receitas e despesas personalizadas do seu sítio.</p>
-      <div class="btnrow"><button class="btn primary" onclick="abrirCategorias()">Gerenciar</button></div>
-    </div>
-
-    <div class="cadastro-card coffee">
-      <div class="cadastro-card-top"><div class="cadastro-icon">P</div><div class="cadastro-count" id="pPessoas">0<small>pessoas / empresas</small></div></div>
-      <h3>Fornecedores e compradores</h3><p>Cadastre pessoas e empresas para usar nas contas e negociações.</p>
-      <div class="btnrow"><button class="btn primary" onclick="abrirPessoas()">Gerenciar</button></div>
-    </div>
-
-    <div class="cadastro-card coffee">
-      <div class="cadastro-card-top">
-        <div class="cadastro-icon">☕</div>
-        <div class="cadastro-count" id="pCotacao">R$ 80<small>ajuste regional</small></div>
+  <div class="v11-profile-groups">
+    <div class="v11-profile-group">
+      <div class="v11-profile-group-head">
+        <div>
+          <h3>Produção e equipe</h3>
+          <p>Cadastros usados na lavoura e na colheita.</p>
+        </div>
       </div>
-      <h3>Cotação do café</h3>
-      <p>Referência do Painel do Café com desconto regional configurável.</p>
-      <div class="btnrow">
-        <button class="btn primary" onclick="abrirCotacaoConfig()">Configurar</button>
-        <button class="btn secondary" onclick="atualizarCotacaoCafe(true)">Atualizar</button>
+
+      <div class="cadastro-grid">
+        <div class="cadastro-card">
+          <div class="cadastro-card-top"><div class="cadastro-icon">👤</div><div class="cadastro-count" id="pColhedores">0<small>cadastrados</small></div></div>
+          <h3>Colhedores</h3>
+          <p>Equipe da colheita e valor padrão pago por latão.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirTrabalhador()">+ Novo</button><button class="btn secondary" onclick="irParaColhedores()">Gerenciar</button></div>
+        </div>
+
+        <div class="cadastro-card coffee">
+          <div class="cadastro-card-top"><div class="cadastro-icon">S</div><div class="cadastro-count" id="pSafras">0<small>cadastradas</small></div></div>
+          <h3>Safras</h3>
+          <p>Crie, feche e selecione a safra usada nos novos registros.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirSafras()">Gerenciar</button></div>
+        </div>
+
+        <div class="cadastro-card">
+          <div class="cadastro-card-top"><div class="cadastro-icon">⌂</div><div class="cadastro-count" id="pTalhoes">0<small>cadastrados</small></div></div>
+          <h3>Talhões</h3>
+          <p>Lavouras, variedades, área e quantidade de plantas.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirTalhao()">+ Novo</button><button class="btn secondary" onclick="irParaTalhoes()">Gerenciar</button></div>
+        </div>
+
+        <div class="cadastro-card coffee">
+          <div class="cadastro-card-top">
+            <div class="cadastro-icon">◉</div>
+            <div class="cadastro-count" id="pAnalisesSolo">0<small>análises</small></div>
+          </div>
+          <h3>Análises de solo</h3>
+          <p>Histórico químico do solo por talhão, profundidade e data.</p>
+          <div class="btnrow">
+            <button class="btn primary" onclick="abrirAnaliseSolo()">+ Nova</button>
+            <button class="btn secondary" onclick="abrirGerenciadorSolo()">Gerenciar</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="cadastro-card blue">
-      <div class="cadastro-card-top"><div class="cadastro-icon">↥</div><div class="cadastro-count"><span>JSON</span><small>backup</small></div></div>
-      <h3>Dados e backup</h3><p>Faça uma cópia dos dados ou restaure um arquivo salvo.</p>
-      <div class="btnrow"><button class="btn secondary" onclick="baixarBackup()">Baixar backup</button><button class="btn secondary" onclick="document.getElementById('importBackup').click()">Importar</button></div>
+    <div class="v11-profile-group">
+      <div class="v11-profile-group-head">
+        <div>
+          <h3>Financeiro e negociações</h3>
+          <p>Cadastros usados nas contas, compras e vendas.</p>
+        </div>
+      </div>
+
+      <div class="cadastro-grid">
+        <div class="cadastro-card blue">
+          <div class="cadastro-card-top"><div class="cadastro-icon">≡</div><div class="cadastro-count" id="pCategorias">0<small>categorias</small></div></div>
+          <h3>Categorias</h3>
+          <p>Receitas e despesas personalizadas do seu sítio.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirCategorias()">Gerenciar</button></div>
+        </div>
+
+        <div class="cadastro-card coffee">
+          <div class="cadastro-card-top"><div class="cadastro-icon">P</div><div class="cadastro-count" id="pPessoas">0<small>pessoas / empresas</small></div></div>
+          <h3>Fornecedores e compradores</h3>
+          <p>Pessoas e empresas usadas nas contas e negociações.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirPessoas()">Gerenciar</button></div>
+        </div>
+
+        <div class="cadastro-card coffee">
+          <div class="cadastro-card-top"><div class="cadastro-icon">☕</div><div class="cadastro-count" id="pCotacao">R$ 80<small>ajuste regional</small></div></div>
+          <h3>Cotação do café</h3>
+          <p>Escolha a fonte de referência e ajuste a diferença regional.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirCotacaoConfig()">Configurar</button><button class="btn secondary" onclick="atualizarCotacaoCafe(true)">Atualizar</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="v11-profile-group">
+      <div class="v11-profile-group-head">
+        <div>
+          <h3>Sistema e segurança</h3>
+          <p>Backup e manutenção dos dados do aplicativo.</p>
+        </div>
+      </div>
+
+      <div class="cadastro-grid">
+        <div class="cadastro-card blue">
+          <div class="cadastro-card-top"><div class="cadastro-icon">↥</div><div class="cadastro-count"><span>JSON</span><small>backup</small></div></div>
+          <h3>Dados e backup</h3>
+          <p>Faça uma cópia dos dados ou restaure um arquivo salvo.</p>
+          <div class="btnrow"><button class="btn secondary" onclick="baixarBackup()">Baixar backup</button><button class="btn secondary" onclick="document.getElementById('importBackup').click()">Importar</button></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1739,7 +2748,7 @@ input,select,textarea{
 </div>
 
 <nav class="bottom-nav"><div class="nav-inner">
-  <button class="navbtn active" data-nav="resumo" onclick="trocarAba('resumo',this)"><span class="nav-symbol">▦</span><span>Resumo</span></button>
+  <button class="navbtn active" data-nav="resumo" onclick="trocarAba('resumo',this)"><span class="nav-symbol">⌂</span><span>Início</span></button>
   <button class="navbtn" data-nav="financeiro" onclick="trocarAba('financeiro',this)"><span class="nav-symbol">R$</span><span>Financeiro</span></button>
   <button class="navbtn" data-nav="producao" onclick="trocarAba('producao',this)"><span class="nav-symbol">☕</span><span>Colheita</span></button>
   <button class="navbtn" data-nav="relatorios" onclick="trocarAba('relatorios',this)"><span class="nav-symbol">▤</span><span>Relatórios</span></button>
@@ -2069,6 +3078,116 @@ input,select,textarea{
     <button class="btn secondary" onclick="abrirPainelDoCafe()">Abrir fonte</button>
     <button class="btn secondary" onclick="atualizarCotacaoCafe(true)">Buscar agora</button>
     <button class="btn primary" onclick="salvarCotacaoConfig()">Salvar configuração</button>
+  </div>
+</div></div>
+
+
+<div id="modalGerenciadorSolo" class="modal hidden"><div class="modal-card">
+  <div class="modal-head">
+    <h3>Análises de solo</h3>
+    <button class="close" onclick="fecharModal('modalGerenciadorSolo')">✕</button>
+  </div>
+
+  <div class="soil-toolbar">
+    <input id="soloBusca" placeholder="Buscar talhão, laboratório ou amostra..." oninput="renderGerenciadorSolo()">
+    <select id="soloFiltroTalhao" onchange="renderGerenciadorSolo()">
+      <option value="todos">Todos os talhões</option>
+    </select>
+    <button class="btn primary" onclick="abrirAnaliseSolo()">+ Nova análise</button>
+  </div>
+
+  <div id="listaAnalisesSolo" class="soil-list"></div>
+</div></div>
+
+<div id="modalAnaliseSolo" class="modal hidden"><div class="modal-card">
+  <div class="modal-head">
+    <h3 id="tituloAnaliseSolo">Nova análise de solo</h3>
+    <button class="close" onclick="fecharModal('modalAnaliseSolo')">✕</button>
+  </div>
+
+  <input id="soloId" type="hidden">
+
+  <div class="grid2">
+    <div class="field">
+      <label>Data da coleta / análise</label>
+      <input id="soloData" type="date">
+    </div>
+    <div class="field">
+      <label>Talhão</label>
+      <select id="soloTalhao"><option value="">Selecione</option></select>
+    </div>
+    <div class="field">
+      <label>Profundidade</label>
+      <select id="soloProfundidade">
+        <option value="0-20 cm">0–20 cm</option>
+        <option value="20-40 cm">20–40 cm</option>
+        <option value="0-10 cm">0–10 cm</option>
+        <option value="outro">Outra</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Identificação da amostra</label>
+      <input id="soloAmostra" placeholder="Ex.: T1-2026-01">
+    </div>
+    <div class="field">
+      <label>Laboratório</label>
+      <input id="soloLaboratorio" placeholder="Nome do laboratório">
+    </div>
+    <div class="field">
+      <label>Método / observação da análise</label>
+      <input id="soloMetodo" placeholder="Ex.: Mehlich-1, pH em água">
+    </div>
+  </div>
+
+  <div class="soil-group">
+    <div class="soil-group-title">Acidez e matéria orgânica</div>
+    <div class="soil-fields">
+      <div class="field"><label>pH</label><input id="soloPh" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">conforme método do laboratório</div></div>
+      <div class="field"><label>Matéria orgânica</label><input id="soloMo" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">g/dm³ (ou unidade do laudo)</div></div>
+      <div class="field"><label>Al</label><input id="soloAl" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">cmolc/dm³</div></div>
+      <div class="field"><label>H + Al</label><input id="soloHAl" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">cmolc/dm³</div></div>
+    </div>
+  </div>
+
+  <div class="soil-group">
+    <div class="soil-group-title">Macronutrientes e bases</div>
+    <div class="soil-fields">
+      <div class="field"><label>Fósforo (P)</label><input id="soloP" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">mg/dm³</div></div>
+      <div class="field"><label>Potássio (K)</label><input id="soloK" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">mg/dm³</div></div>
+      <div class="field"><label>Cálcio (Ca)</label><input id="soloCa" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">cmolc/dm³</div></div>
+      <div class="field"><label>Magnésio (Mg)</label><input id="soloMg" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">cmolc/dm³</div></div>
+      <div class="field"><label>Enxofre (S)</label><input id="soloS" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">mg/dm³</div></div>
+      <div class="field"><label>CTC (T)</label><input id="soloCtc" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">cmolc/dm³</div></div>
+      <div class="field"><label>Saturação por bases (V)</label><input id="soloV" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">%</div></div>
+      <div class="field"><label>Saturação por Al (m)</label><input id="soloM" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">%</div></div>
+    </div>
+  </div>
+
+  <div class="soil-group">
+    <div class="soil-group-title">Micronutrientes</div>
+    <div class="soil-fields">
+      <div class="field"><label>Boro (B)</label><input id="soloB" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">mg/dm³</div></div>
+      <div class="field"><label>Zinco (Zn)</label><input id="soloZn" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">mg/dm³</div></div>
+      <div class="field"><label>Cobre (Cu)</label><input id="soloCu" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">mg/dm³</div></div>
+      <div class="field"><label>Manganês (Mn)</label><input id="soloMn" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">mg/dm³</div></div>
+      <div class="field"><label>Ferro (Fe)</label><input id="soloFe" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">mg/dm³</div></div>
+      <div class="field"><label>Argila</label><input id="soloArgila" type="number" step="0.01" placeholder="0,00"><div class="soil-unit">%</div></div>
+    </div>
+  </div>
+
+  <div class="field" style="margin-top:10px">
+    <label>Observações do laudo / recomendação técnica</label>
+    <textarea id="soloObs" placeholder="Ex.: recomendações do laboratório ou do agrônomo, correções planejadas, observações da coleta..."></textarea>
+  </div>
+
+  <div class="info-box" style="margin-top:10px">
+    <span class="info-icon">i</span>
+    <span>O app armazena e compara os resultados, mas não prescreve automaticamente doses de calcário, gesso ou adubos. A recomendação deve considerar o método do laboratório e a orientação técnica para o seu talhão.</span>
+  </div>
+
+  <div class="btnrow" style="margin-top:14px">
+    <button class="btn secondary" onclick="fecharModal('modalAnaliseSolo')">Cancelar</button>
+    <button class="btn primary" onclick="salvarAnaliseSolo()">Salvar análise</button>
   </div>
 </div></div>
 
@@ -7139,6 +8258,587 @@ renderTudo = function(){
   garantirEstruturaV10();
   garantirEstruturaV10RenderBase();
   renderCotacaoCafe();
+};
+</script>
+
+
+<script>
+/* ===== V11 — ORGANIZAÇÃO VISUAL ===== */
+
+function v11Texto(id){
+  return document.getElementById(id)?.textContent || "";
+}
+
+function v11CopiarTexto(origem,destino){
+  const o=document.getElementById(origem);
+  const d=document.getElementById(destino);
+  if(o&&d) d.textContent=o.textContent;
+}
+
+function atualizarDashboardV11(){
+  v11CopiarTexto("mSaldo","v11Saldo");
+  v11CopiarTexto("mPagar","v11Pagar");
+  v11CopiarTexto("mReceber","v11Receber");
+  v11CopiarTexto("iEstoque","v11Estoque");
+  v11CopiarTexto("mReceitas","v11Receitas");
+  v11CopiarTexto("mDespesas","v11Despesas");
+  v11CopiarTexto("mProducao","v11Producao");
+  v11CopiarTexto("iCustoSaca","v11CustoSaca");
+  v11CopiarTexto("iPrecoMedio","v11PrecoMedio");
+  v11CopiarTexto("iMargemSaca","v11MargemSaca");
+
+  const safraNome=document.getElementById("safraAtivaNome");
+  const v11SafraNome=document.getElementById("v11SafraNome");
+  if(safraNome&&v11SafraNome) v11SafraNome.textContent=safraNome.textContent;
+
+  const originalSafra=document.getElementById("safraGlobal");
+  const novoSafra=document.getElementById("v11SafraGlobal");
+  if(originalSafra&&novoSafra){
+    const atual=novoSafra.value || originalSafra.value;
+    novoSafra.innerHTML=originalSafra.innerHTML;
+    const alvo=[...novoSafra.options].some(o=>o.value===atual)
+      ? atual
+      : originalSafra.value;
+    novoSafra.value=alvo;
+  }
+
+  const sync=document.getElementById("syncStatus");
+  const v11Sync=document.getElementById("v11SyncStatus");
+  if(sync&&v11Sync) v11Sync.textContent=sync.textContent;
+
+  const fonte=document.getElementById("cotacaoFonteLabel");
+  const regional=document.getElementById("cotacaoRegionalValor");
+  const data=document.getElementById("cotacaoPainelData");
+  const vFonte=document.getElementById("v11CotacaoFonte");
+  const vRegional=document.getElementById("v11CotacaoRegional");
+  const vMeta=document.getElementById("v11CotacaoMeta");
+
+  if(fonte&&vFonte){
+    vFonte.textContent=fonte.textContent || "Cotação Conilon 7/8";
+  }
+  if(regional&&vRegional){
+    vRegional.textContent=regional.textContent;
+  }
+  if(vMeta){
+    let partes=[];
+    if(data?.textContent) partes.push(data.textContent);
+    const ajuste=document.getElementById("cotacaoAjusteTexto")?.textContent;
+    if(ajuste) partes.push(ajuste);
+    vMeta.textContent=partes.join(" • ") || "Atualização automática";
+  }
+}
+
+/* Espelha a safra selecionada na barra nova para a estrutura antiga */
+const trocarSafraAtivaV11Base=trocarSafraAtiva;
+trocarSafraAtiva=function(id){
+  trocarSafraAtivaV11Base(id);
+  const original=document.getElementById("safraGlobal");
+  if(original) original.value=id;
+  setTimeout(atualizarDashboardV11,40);
+};
+
+/* Hooks de renderização existentes */
+const renderResumoV11Base=renderResumo;
+renderResumo=function(){
+  renderResumoV11Base();
+  atualizarDashboardV11();
+};
+
+const renderCotacaoCafeV11Base=renderCotacaoCafe;
+renderCotacaoCafe=function(){
+  renderCotacaoCafeV11Base();
+  atualizarDashboardV11();
+};
+
+const renderTudoV11Base=renderTudo;
+renderTudo=function(){
+  renderTudoV11Base();
+  atualizarDashboardV11();
+};
+
+/* Atualiza a cópia do status Firebase sem alterar a lógica existente */
+const atualizarStatusFirebaseV11Base =
+  typeof atualizarStatusFirebase==="function"
+    ? atualizarStatusFirebase
+    : null;
+
+if(atualizarStatusFirebaseV11Base){
+  atualizarStatusFirebase=function(texto,tipo="normal"){
+    atualizarStatusFirebaseV11Base(texto,tipo);
+    const v=document.getElementById("v11SyncStatus");
+    if(v) v.textContent=texto;
+  };
+}
+
+/* Também observa mudanças em elementos legados que podem ocorrer fora de renderResumo */
+const v11Observer=new MutationObserver(()=>atualizarDashboardV11());
+["mSaldo","mPagar","mReceber","iEstoque","syncStatus","cotacaoRegionalValor","cotacaoFonteLabel","cotacaoPainelData"]
+  .forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) v11Observer.observe(el,{childList:true,subtree:true,characterData:true});
+  });
+
+document.addEventListener("DOMContentLoaded",()=>{
+  setTimeout(atualizarDashboardV11,150);
+});
+</script>
+
+
+<script>
+/* ===== V12 — ANÁLISE DE SOLO ===== */
+
+function garantirEstruturaV12(){
+  garantirEstruturaV10();
+  if(!Array.isArray(estado.analisesSolo)){
+    estado.analisesSolo=[];
+  }
+}
+
+function valorSolo(v){
+  if(v===null||v===undefined||v==="") return null;
+  const n=Number(v);
+  return Number.isFinite(n)?n:null;
+}
+
+function fmtSolo(v,casas=2){
+  const n=valorSolo(v);
+  if(n===null) return "—";
+  return n.toLocaleString("pt-BR",{
+    minimumFractionDigits:0,
+    maximumFractionDigits:casas
+  });
+}
+
+function analisesTalhao(talhaoId){
+  garantirEstruturaV12();
+  return estado.analisesSolo
+    .filter(a=>a.talhaoId===talhaoId)
+    .sort((a,b)=>(b.data||"").localeCompare(a.data||""));
+}
+
+function ultimaAnaliseTalhao(talhaoId){
+  return analisesTalhao(talhaoId)[0]||null;
+}
+
+function atualizarSelectsSolo(){
+  garantirEstruturaV12();
+
+  const opts=estado.talhoes
+    .map(t=>`<option value="${t.id}">${esc(t.nome)}</option>`)
+    .join("");
+
+  const s=$("soloTalhao");
+  if(s){
+    const atual=s.value;
+    s.innerHTML=`<option value="">Selecione o talhão</option>`+opts;
+    if([...s.options].some(o=>o.value===atual)) s.value=atual;
+  }
+
+  const f=$("soloFiltroTalhao");
+  if(f){
+    const atual=f.value||"todos";
+    f.innerHTML=`<option value="todos">Todos os talhões</option>`+opts;
+    if([...f.options].some(o=>o.value===atual)) f.value=atual;
+  }
+}
+
+function abrirGerenciadorSolo(){
+  garantirEstruturaV12();
+  atualizarSelectsSolo();
+  if($("soloBusca")) $("soloBusca").value="";
+  if($("soloFiltroTalhao")) $("soloFiltroTalhao").value="todos";
+  renderGerenciadorSolo();
+  abrirModal("modalGerenciadorSolo");
+}
+
+function abrirAnaliseSolo(id="",talhaoId=""){
+  garantirEstruturaV12();
+  atualizarSelectsSolo();
+
+  $("soloId").value=id;
+
+  const campos=[
+    "Ph","Mo","Al","HAl","P","K","Ca","Mg","S","Ctc","V","M",
+    "B","Zn","Cu","Mn","Fe","Argila"
+  ];
+
+  if(id){
+    const a=estado.analisesSolo.find(x=>x.id===id);
+    if(!a) return;
+
+    $("tituloAnaliseSolo").textContent="Editar análise de solo";
+    $("soloData").value=a.data||hoje();
+    $("soloTalhao").value=a.talhaoId||"";
+    $("soloProfundidade").value=a.profundidade||"0-20 cm";
+    $("soloAmostra").value=a.amostra||"";
+    $("soloLaboratorio").value=a.laboratorio||"";
+    $("soloMetodo").value=a.metodo||"";
+    $("soloObs").value=a.obs||"";
+
+    const mapa={
+      Ph:"ph",Mo:"mo",Al:"al",HAl:"hAl",P:"p",K:"k",Ca:"ca",Mg:"mg",
+      S:"s",Ctc:"ctc",V:"v",M:"m",B:"b",Zn:"zn",Cu:"cu",Mn:"mn",
+      Fe:"fe",Argila:"argila"
+    };
+
+    campos.forEach(c=>{
+      const el=$("solo"+c);
+      if(el) el.value=a[mapa[c]]??"";
+    });
+  }else{
+    $("tituloAnaliseSolo").textContent="Nova análise de solo";
+    $("soloData").value=hoje();
+    $("soloTalhao").value=talhaoId||(
+      estado.talhoes.length===1?estado.talhoes[0].id:""
+    );
+    $("soloProfundidade").value="0-20 cm";
+    $("soloAmostra").value="";
+    $("soloLaboratorio").value="";
+    $("soloMetodo").value="";
+    $("soloObs").value="";
+    campos.forEach(c=>{
+      const el=$("solo"+c);
+      if(el) el.value="";
+    });
+  }
+
+  abrirModal("modalAnaliseSolo");
+}
+
+function salvarAnaliseSolo(){
+  garantirEstruturaV12();
+
+  const talhaoId=$("soloTalhao").value;
+  if(!talhaoId){
+    toast("Selecione o talhão.");
+    return;
+  }
+
+  const obj={
+    id:$("soloId").value||novoId(),
+    data:$("soloData").value||hoje(),
+    talhaoId,
+    profundidade:$("soloProfundidade").value||"0-20 cm",
+    amostra:$("soloAmostra").value.trim(),
+    laboratorio:$("soloLaboratorio").value.trim(),
+    metodo:$("soloMetodo").value.trim(),
+    ph:valorSolo($("soloPh").value),
+    mo:valorSolo($("soloMo").value),
+    al:valorSolo($("soloAl").value),
+    hAl:valorSolo($("soloHAl").value),
+    p:valorSolo($("soloP").value),
+    k:valorSolo($("soloK").value),
+    ca:valorSolo($("soloCa").value),
+    mg:valorSolo($("soloMg").value),
+    s:valorSolo($("soloS").value),
+    ctc:valorSolo($("soloCtc").value),
+    v:valorSolo($("soloV").value),
+    m:valorSolo($("soloM").value),
+    b:valorSolo($("soloB").value),
+    zn:valorSolo($("soloZn").value),
+    cu:valorSolo($("soloCu").value),
+    mn:valorSolo($("soloMn").value),
+    fe:valorSolo($("soloFe").value),
+    argila:valorSolo($("soloArgila").value),
+    obs:$("soloObs").value.trim()
+  };
+
+  let i=estado.analisesSolo.findIndex(x=>x.id===obj.id);
+  if(i>=0) estado.analisesSolo[i]=obj;
+  else estado.analisesSolo.push(obj);
+
+  fecharModal("modalAnaliseSolo");
+  persistir();
+  toast("Análise de solo salva.");
+
+  if(!$("modalGerenciadorSolo").classList.contains("hidden")){
+    renderGerenciadorSolo();
+  }
+}
+
+function excluirAnaliseSolo(id){
+  const a=estado.analisesSolo.find(x=>x.id===id);
+  if(!a) return;
+
+  if(!confirm("Excluir esta análise de solo?")) return;
+
+  estado.analisesSolo=estado.analisesSolo.filter(x=>x.id!==id);
+  persistir();
+  renderGerenciadorSolo();
+}
+
+function cardAnaliseSolo(a){
+  const talhao=nomeTalhao(a.talhaoId);
+  const meta=[
+    dataBR(a.data),
+    a.profundidade||"",
+    a.laboratorio||"",
+    a.amostra?`Amostra ${a.amostra}`:""
+  ].filter(Boolean).join(" • ");
+
+  return`<div class="soil-card">
+    <div class="soil-card-head">
+      <div>
+        <div class="soil-card-title">${esc(talhao)}</div>
+        <div class="soil-card-meta">${esc(meta)}</div>
+      </div>
+      <span class="pill">${a.metodo?esc(a.metodo):"Solo"}</span>
+    </div>
+
+    <div class="soil-kpis">
+      <div class="soil-kpi"><small>pH</small><strong>${fmtSolo(a.ph)}</strong></div>
+      <div class="soil-kpi"><small>P mg/dm³</small><strong>${fmtSolo(a.p)}</strong></div>
+      <div class="soil-kpi"><small>K mg/dm³</small><strong>${fmtSolo(a.k)}</strong></div>
+      <div class="soil-kpi"><small>Ca</small><strong>${fmtSolo(a.ca)}</strong></div>
+      <div class="soil-kpi"><small>Mg</small><strong>${fmtSolo(a.mg)}</strong></div>
+      <div class="soil-kpi"><small>V%</small><strong>${fmtSolo(a.v)}</strong></div>
+    </div>
+
+    ${a.obs?`<div class="soil-note">${esc(a.obs)}</div>`:""}
+
+    <div class="btnrow" style="margin-top:10px">
+      <button class="btn secondary" onclick="abrirAnaliseSolo('${a.id}')">Editar</button>
+      <button class="btn danger" onclick="excluirAnaliseSolo('${a.id}')">Excluir</button>
+    </div>
+  </div>`;
+}
+
+function renderGerenciadorSolo(){
+  garantirEstruturaV12();
+  atualizarSelectsSolo();
+
+  let xs=[...estado.analisesSolo];
+
+  const q=($("soloBusca")?.value||"").trim().toLowerCase();
+  const tal=$("soloFiltroTalhao")?.value||"todos";
+
+  if(tal!=="todos"){
+    xs=xs.filter(a=>a.talhaoId===tal);
+  }
+
+  if(q){
+    xs=xs.filter(a=>(
+      `${nomeTalhao(a.talhaoId)} ${a.laboratorio||""} ${a.amostra||""} ${a.metodo||""} ${a.obs||""}`
+    ).toLowerCase().includes(q));
+  }
+
+  xs.sort((a,b)=>(b.data||"").localeCompare(a.data||""));
+
+  $("listaAnalisesSolo").innerHTML=xs.length
+    ?xs.map(cardAnaliseSolo).join("")
+    :`<div class="card soil-empty"><strong>Nenhuma análise de solo encontrada.</strong><br>Cadastre o primeiro laudo de um talhão.</div>`;
+}
+
+/* Talhões: inclui última análise */
+renderTalhoes=function(){
+  garantirEstruturaV12();
+  atualizarSelectsTalhao();
+
+  $("gridTalhoes").innerHTML=estado.talhoes.length
+    ?estado.talhoes.map(t=>{
+      const prod=estado.colheitas
+        .filter(c=>c.talhaoId===t.id)
+        .reduce((a,b)=>a+Number(b.sacas||0),0);
+
+      const custos=estado.lancamentos
+        .filter(l=>l.talhaoId===t.id&&l.tipo==="despesa"&&l.status==="pago")
+        .reduce((a,b)=>a+Number(b.valor||0),0);
+
+      const solo=ultimaAnaliseTalhao(t.id);
+
+      return`<div class="card talhao-card">
+        <div class="talhao-head">
+          <div>
+            <h4 class="talhao-title">${esc(t.nome)}</h4>
+            <div class="talhao-var">${esc(t.variedade||"Variedade não informada")}</div>
+          </div>
+          <span class="pill">${num(t.area||0)} ha</span>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><small>Plantas</small><strong>${Number(t.plantas||0).toLocaleString("pt-BR")}</strong></div>
+          <div class="stat"><small>Produção</small><strong>${num(prod)} sc</strong></div>
+          <div class="stat"><small>Custos</small><strong>${moeda(custos)}</strong></div>
+        </div>
+
+        ${solo
+          ?`<div class="soil-latest">
+              <small>Última análise de solo • ${dataBR(solo.data)} • ${esc(solo.profundidade||"")}</small>
+              <strong>pH ${fmtSolo(solo.ph)} • P ${fmtSolo(solo.p)} • K ${fmtSolo(solo.k)} • V% ${fmtSolo(solo.v)}</strong>
+              <span>${solo.laboratorio?esc(solo.laboratorio):"Laboratório não informado"}</span>
+            </div>`
+          :`<div class="soil-latest">
+              <small>Análise de solo</small>
+              <strong>Nenhuma análise cadastrada</strong>
+              <span>Registre o primeiro laudo deste talhão.</span>
+            </div>`
+        }
+
+        <div class="btnrow" style="margin-top:10px">
+          <button class="btn primary" onclick="abrirAnaliseSolo('','${t.id}')">+ Análise</button>
+          <button class="btn secondary" onclick="abrirTalhao('${t.id}')">Editar</button>
+          <button class="btn danger" onclick="excluirTalhao('${t.id}')">Excluir</button>
+        </div>
+      </div>`;
+    }).join("")
+    :`<div class="card empty" style="grid-column:1/-1">
+       <strong>Nenhum talhão cadastrado</strong>
+       Cadastre suas lavouras para acompanhar custos, produção e análises de solo.
+     </div>`;
+};
+
+/* Não permite excluir talhão que já tem análise */
+const excluirTalhaoV12Base=excluirTalhao;
+excluirTalhao=function(id){
+  garantirEstruturaV12();
+  if(estado.analisesSolo.some(a=>a.talhaoId===id)){
+    toast("Esse talhão possui análises de solo cadastradas.");
+    return;
+  }
+  excluirTalhaoV12Base(id);
+};
+
+function ultimasAnalisesPorTalhao(){
+  garantirEstruturaV12();
+  return estado.talhoes
+    .map(t=>ultimaAnaliseTalhao(t.id))
+    .filter(Boolean);
+}
+
+function mediaSolo(lista,campo){
+  const vals=lista
+    .map(x=>valorSolo(x[campo]))
+    .filter(x=>x!==null);
+  if(!vals.length) return null;
+  return vals.reduce((a,b)=>a+b,0)/vals.length;
+}
+
+function renderRelatorioSolo(){
+  garantirEstruturaV12();
+  if(!$("relSoloTabela")) return;
+
+  const ultimas=ultimasAnalisesPorTalhao();
+
+  $("relSoloTalhoes").textContent=ultimas.length;
+  $("relSoloTotal").textContent=estado.analisesSolo.length;
+
+  const ph=mediaSolo(ultimas,"ph");
+  const v=mediaSolo(ultimas,"v");
+
+  $("relSoloPh").textContent=ph===null?"—":fmtSolo(ph);
+  $("relSoloV").textContent=v===null?"—":fmtSolo(v)+"%";
+
+  $("relSoloTabela").innerHTML=ultimas.length
+    ?ultimas.map(a=>`<tr>
+      <td>${esc(nomeTalhao(a.talhaoId))}</td>
+      <td>${dataBR(a.data)}</td>
+      <td>${esc(a.profundidade||"—")}</td>
+      <td class="num">${fmtSolo(a.ph)}</td>
+      <td class="num">${fmtSolo(a.p)}</td>
+      <td class="num">${fmtSolo(a.k)}</td>
+      <td class="num">${fmtSolo(a.ca)}</td>
+      <td class="num">${fmtSolo(a.mg)}</td>
+      <td class="num">${a.v===null||a.v===undefined?"—":fmtSolo(a.v)+"%"}</td>
+    </tr>`).join("")
+    :`<tr><td colspan="9">Nenhuma análise de solo cadastrada.</td></tr>`;
+}
+
+const renderRelatoriosV12Base=renderRelatorios;
+renderRelatorios=function(){
+  renderRelatoriosV12Base();
+  renderRelatorioSolo();
+};
+
+/* Perfil: contador de análises */
+const renderPerfilV12Base=renderPerfil;
+renderPerfil=function(){
+  renderPerfilV12Base();
+  garantirEstruturaV12();
+  if($("pAnalisesSolo")){
+    $("pAnalisesSolo").innerHTML=`${estado.analisesSolo.length}<small>análises</small>`;
+  }
+};
+
+/* Estado Firebase / backup — preserva análises de solo */
+window.appBridge.setEstado=function(n){
+  suspendSync=true;
+
+  try{
+    estado={
+      lancamentos:Array.isArray(n?.lancamentos)?n.lancamentos:[],
+      talhoes:Array.isArray(n?.talhoes)?n.talhoes:[],
+      colheitas:Array.isArray(n?.colheitas)?n.colheitas:[],
+      vendas:Array.isArray(n?.vendas)?n.vendas:[],
+      trabalhadores:Array.isArray(n?.trabalhadores)?n.trabalhadores:[],
+      apanhas:Array.isArray(n?.apanhas)?n.apanhas:[],
+      lotes:Array.isArray(n?.lotes)?n.lotes:[],
+      safras:Array.isArray(n?.safras)?n.safras:[],
+      safraAtivaId:n?.safraAtivaId||"",
+      categorias:
+        n?.categorias&&typeof n.categorias==="object"
+          ?n.categorias
+          :{receita:[],despesa:[]},
+      pessoas:Array.isArray(n?.pessoas)?n.pessoas:[],
+      cotacaoCafe:
+        n?.cotacaoCafe&&typeof n.cotacaoCafe==="object"
+          ?n.cotacaoCafe
+          :{},
+      analisesSolo:Array.isArray(n?.analisesSolo)?n.analisesSolo:[]
+    };
+
+    garantirEstruturaV12();
+    migrarLotesAntigos();
+    salvarLocal();
+    renderTudo();
+    iniciarAtualizacaoCotacao();
+  }finally{
+    suspendSync=false;
+  }
+};
+
+window.appBridge.getEstado=function(){
+  garantirEstruturaV12();
+  return structuredClone(estado);
+};
+
+window.appBridge.limparUsuario=function(){
+  usuarioAtual=null;
+
+  try{
+    clearInterval(timerCotacao);
+    clearInterval(timerCotacaoArquivo);
+    if(typeof timerCotacaoV9!=="undefined") clearInterval(timerCotacaoV9);
+  }catch(e){}
+
+  estado={
+    lancamentos:[],
+    talhoes:[],
+    colheitas:[],
+    vendas:[],
+    trabalhadores:[],
+    apanhas:[],
+    lotes:[],
+    safras:[],
+    safraAtivaId:"",
+    categorias:{receita:[],despesa:[]},
+    pessoas:[],
+    cotacaoCafe:{},
+    analisesSolo:[]
+  };
+
+  garantirEstruturaV12();
+  $("authScreen").classList.remove("hidden");
+  renderTudo();
+};
+
+const renderTudoV12Base=renderTudo;
+renderTudo=function(){
+  garantirEstruturaV12();
+  renderTudoV12Base();
+  renderRelatorioSolo();
+  if($("tab-perfil")&&!$("tab-perfil").classList.contains("hidden")){
+    renderPerfil();
+  }
 };
 </script>
 

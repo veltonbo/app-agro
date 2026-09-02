@@ -1,0 +1,66 @@
+FINANCEIRO DO SÍTIO - V11
+ORGANIZAÇÃO E APARÊNCIA PROFISSIONAL
+
+OBJETIVO
+A V11 reorganiza a interface sem remover funções da V10.
+
+INÍCIO / VISÃO GERAL
+- Novo painel principal mais limpo.
+- Os quatro números principais aparecem primeiro:
+  • Saldo geral
+  • Contas a pagar
+  • Contas a receber
+  • Estoque de café
+- Indicadores secundários ficam em uma faixa compacta:
+  • Receitas
+  • Despesas
+  • Produção
+  • Custo por saca
+  • Preço médio
+  • Margem por saca
+- Safra ativa e cotação ficam em uma faixa contextual compacta.
+- Cotação regional pode ser usada diretamente em uma venda.
+- Ações rápidas e últimas movimentações ficam abaixo dos indicadores.
+
+FINANCEIRO
+- Ações principais foram simplificadas.
+- Nova receita, nova despesa e contas a pagar ficam em destaque.
+- Contas a pagar continuam gerais e não desaparecem ao trocar de safra.
+- Filtros e lista de movimentações continuam disponíveis.
+
+COLHEITA
+- Mantém o fluxo:
+  1. Colhedores
+  2. Latões
+  3. Secador
+  4. Produção final
+- Cada etapa ganhou uma área visual própria.
+- Indicadores da colheita ficaram mais compactos.
+
+PERFIL
+- Cadastros agora estão agrupados em:
+  1. Produção e equipe
+  2. Financeiro e negociações
+  3. Sistema e segurança
+- Mantidos:
+  • Colhedores
+  • Safras
+  • Talhões
+  • Categorias
+  • Fornecedores/compradores
+  • Cotação
+  • Backup
+
+APARÊNCIA
+- Menos espaços desperdiçados.
+- Tipografia e hierarquia mais consistentes.
+- Cards menores e mais profissionais.
+- Navegação inferior simplificada.
+- Melhor aproveitamento do celular.
+- Mantém responsividade para computador/tablet.
+
+COMPATIBILIDADE
+- Firebase e login preservados.
+- Dados existentes preservados.
+- Cotação multifontes da V10 preservada.
+- Safras, estoque, contas, colheita, vendas e relatórios preservados.

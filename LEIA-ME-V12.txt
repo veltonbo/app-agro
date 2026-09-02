@@ -1,0 +1,69 @@
+FINANCEIRO DO SÍTIO - V12
+ANÁLISE DE SOLO
+
+A V12 mantém todas as funções da V11 e adiciona controle de análises de solo.
+
+ONDE FICA
+Perfil > Produção e equipe > Análises de solo
+
+Também há um botão + Análise dentro de cada card de Talhão.
+
+DADOS CADASTRADOS
+Identificação:
+- Data
+- Talhão
+- Profundidade
+- Identificação da amostra
+- Laboratório
+- Método / observação do laboratório
+
+Acidez / matéria orgânica:
+- pH
+- Matéria orgânica
+- Al
+- H + Al
+
+Macronutrientes e bases:
+- P
+- K
+- Ca
+- Mg
+- S
+- CTC (T)
+- V%
+- m%
+
+Micronutrientes / textura:
+- B
+- Zn
+- Cu
+- Mn
+- Fe
+- Argila %
+
+Também existe campo para observações do laudo e recomendações do laboratório/agronomia.
+
+HISTÓRICO
+- Todas as análises ficam salvas por talhão e data.
+- O gerenciador permite busca e filtro por talhão.
+- É possível editar ou excluir uma análise.
+- Cada card de talhão mostra um resumo da análise mais recente.
+
+RELATÓRIOS
+Foi adicionada uma seção de solo no relatório com:
+- quantidade de talhões analisados;
+- total de análises;
+- pH médio das últimas análises;
+- V% médio;
+- tabela com a análise mais recente de cada talhão.
+
+IMPORTANTE
+O app não prescreve automaticamente doses de calcário, gesso ou adubos.
+Os resultados de laboratórios podem usar métodos e unidades diferentes.
+A interpretação deve considerar o método do laudo, o solo, a cultura e a
+recomendação técnica adequada.
+
+FIREBASE / BACKUP
+As análises de solo são salvas junto com os demais dados do usuário no Firebase
+e passam a fazer parte do backup JSON.
+Usuários existentes mantêm todos os dados anteriores.
