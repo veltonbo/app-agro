@@ -4,9 +4,9 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f7f2e8",
-  "theme_color": "#14382a",
-  "description": "Gestão premium do sítio para cafeicultura: financeiro, safra, colheita, manejo e estoque.",
+  "background_color": "#f3f4ef",
+  "theme_color": "#1c5a3f",
+  "description": "Gestão premium do sítio com paleta refinada em verdes e neutros claros.",
   "icons": [
     {
       "src": "icon-192.png",
