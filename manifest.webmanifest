@@ -5,8 +5,8 @@
   "scope": "./",
   "display": "standalone",
   "background_color": "#f2f5f2",
-  "theme_color": "#174f37",
-  "description": "Gestão premium do sítio com paleta equilibrada em verde, branco e neutros.",
+  "theme_color": "#174c36",
+  "description": "Gestão premium do sítio com interface refinada e compacta para cafeicultura.",
   "icons": [
     {
       "src": "icon-192.png",

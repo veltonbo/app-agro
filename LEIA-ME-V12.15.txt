@@ -1,0 +1,19 @@
+FINANCEIRO DO SÍTIO — V12.15 REFINAMENTO VISUAL
+
+Base: V12.14 Cores Equilibradas
+
+AJUSTES FEITOS
+- bordas dos botões do topo mais discretas;
+- tag de versão menor e mais elegante;
+- cabeçalho mais compacto;
+- menor espaço entre topo e painel principal;
+- Central de gestão mais enxuta;
+- caixa de sincronização mais baixa;
+- cards de safra e cotação mais compactos;
+- indicadores com proporções mais equilibradas;
+- navegação inferior mais leve e sofisticada;
+- botão flutuante + menor e com sombra suave;
+- menu de adicionar mais refinado;
+- melhor acabamento no iPhone.
+
+Nenhuma lógica do aplicativo foi alterada.
