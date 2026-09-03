@@ -2612,9 +2612,207 @@ tr:hover td{background:#fbfcfb!important}
   .quick{grid-template-columns:1fr!important}
 }
 
+
+/* =========================================================
+   V12.9 — FAB DE ADICIONAR + VALOR DO ESTOQUE
+   ========================================================= */
+.v129-stock-value-card{
+  position:relative;
+  overflow:hidden;
+}
+.v129-stock-money{
+  margin-top:8px!important;
+  color:#235f3c!important;
+  font-size:9px!important;
+  font-weight:900!important;
+}
+.v129-stock-price{
+  margin-top:2px!important;
+  color:#819087!important;
+  font-size:7.5px!important;
+}
+.v129-stock-value-card::before{
+  content:"";
+  position:absolute;
+  right:-22px;
+  bottom:-28px;
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  background:rgba(31,93,58,.045);
+  pointer-events:none;
+}
+
+.v129-add-fab{
+  position:fixed;
+  right:17px;
+  bottom:calc(136px + env(safe-area-inset-bottom));
+  z-index:58;
+  width:54px;
+  height:54px;
+  border:0;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#286b45,#17462f);
+  color:#fff;
+  box-shadow:0 14px 34px rgba(23,70,47,.28);
+  cursor:pointer;
+  transition:.18s ease;
+}
+.v129-add-fab span{
+  font-size:28px;
+  line-height:1;
+  font-weight:500;
+  transform:translateY(-1px);
+}
+.v129-add-fab:hover{
+  transform:translateY(-2px);
+  box-shadow:0 17px 38px rgba(23,70,47,.32);
+}
+.v129-add-fab.open{
+  transform:rotate(45deg);
+  border-radius:50%;
+}
+.v129-add-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:54;
+  background:rgba(15,28,19,.26);
+  backdrop-filter:blur(3px);
+}
+.v129-add-menu{
+  position:fixed;
+  right:17px;
+  bottom:calc(198px + env(safe-area-inset-bottom));
+  z-index:57;
+  width:min(360px,calc(100vw - 24px));
+  padding:12px;
+  background:rgba(255,255,255,.985);
+  border:1px solid #dce4dd;
+  border-radius:18px;
+  box-shadow:0 24px 70px rgba(18,46,29,.20);
+  transform-origin:bottom right;
+  animation:v129MenuIn .16s ease-out;
+}
+@keyframes v129MenuIn{
+  from{opacity:0;transform:translateY(8px) scale(.98)}
+  to{opacity:1;transform:none}
+}
+.v129-add-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:3px 3px 10px;
+}
+.v129-add-head small{
+  display:block;
+  font-size:6.5px;
+  color:#7b887f;
+  font-weight:950;
+  letter-spacing:.11em;
+}
+.v129-add-head strong{
+  display:block;
+  margin-top:2px;
+  font-size:14px;
+  color:#223129;
+}
+.v129-add-head>button{
+  width:30px;
+  height:30px;
+  border:1px solid #e0e6e1;
+  border-radius:9px;
+  background:#fff;
+  color:#6b756e;
+  font-size:18px;
+  cursor:pointer;
+}
+.v129-add-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+.v129-add-grid>button{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:10px;
+  border:1px solid #e1e7e2;
+  border-radius:12px;
+  background:#fafcfb;
+  color:#26342c;
+  text-align:left;
+  cursor:pointer;
+  transition:.14s ease;
+}
+.v129-add-grid>button:hover{
+  transform:translateY(-1px);
+  background:#f4f8f5;
+  border-color:#cbd9ce;
+}
+.v129-add-grid>button>span:last-child{
+  min-width:0;
+}
+.v129-add-grid strong{
+  display:block;
+  font-size:9px;
+}
+.v129-add-grid small{
+  display:block;
+  margin-top:2px;
+  color:#818b84;
+  font-size:7px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.v129-add-icon{
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:#edf3ef;
+  color:#265d3b;
+  font-size:9px;
+  font-weight:950;
+}
+.v129-add-icon.green{
+  background:#e8f3eb;
+  color:#21613b;
+}
+.v129-add-icon.red{
+  background:#f8ecea;
+  color:#9f4a43;
+}
+
+@media(max-width:720px){
+  .v129-add-fab{
+    right:11px;
+    bottom:calc(128px + env(safe-area-inset-bottom));
+    width:52px;
+    height:52px;
+    border-radius:16px;
+  }
+  .v129-add-menu{
+    right:10px;
+    bottom:calc(188px + env(safe-area-inset-bottom));
+    width:calc(100vw - 20px);
+  }
+}
+@media(max-width:390px){
+  .v129-add-grid{grid-template-columns:1fr}
+  .v129-add-menu{max-height:62vh;overflow:auto}
+}
+
 </style>
-  <link rel="stylesheet" href="./assistant-v123.css?v=12.8-pro">
-<link rel="stylesheet" href="./v127.css?v=12.7">
+  <link rel="stylesheet" href="./assistant-v123.css?v=12.10">
+<link rel="stylesheet" href="./v127.css?v=12.10">
+<link rel="stylesheet" href="./v1210.css?v=12.10">
 </head>
 <body>
 
@@ -2642,8 +2840,15 @@ tr:hover td{background:#fbfcfb!important}
 
 <div class="app">
 <header class="topbar"><div class="topbar-inner">
-  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.8</span></div><div class="sub">Gestão rural • Café Conilon</div></div></div>
-  <div class="user-menu"><button class="icon-btn search-top-v126" onclick="abrirBuscaGlobalV126()" aria-label="Buscar no app" title="Buscar no app">⌕</button><div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.10</span></div><div class="sub">Gestão rural • Café Conilon</div></div></div>
+  <div class="user-menu">
+    <button class="icon-btn search-top-v126 pro-top-action" onclick="abrirBuscaGlobalV126()" aria-label="Buscar no app" title="Buscar no app">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="icon-btn pro-top-action" onclick="abrirAssistenteIA()" aria-label="Ajuda do aplicativo" title="Ajuda do aplicativo">
+      <span class="pro-help-mark">?</span>
+    </button>
+    <div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
 </div></header>
 
 <section id="tab-resumo">
@@ -2796,10 +3001,11 @@ tr:hover td{background:#fbfcfb!important}
       <span class="note">valores ainda não recebidos</span>
     </div>
 
-    <div class="v11-essential">
-      <div class="label"><span class="doticon">☕</span>Estoque de café</div>
+    <div class="v11-essential v129-stock-value-card">
+      <div class="label"><span class="doticon">C</span>Sacas disponíveis</div>
       <strong class="value" id="v11Estoque">0,00 sc</strong>
-      <span class="note">estoque total disponível</span>
+      <span class="note v129-stock-money" id="v129EstoqueValor">Valor de mercado: aguardando cotação</span>
+      <span class="note v129-stock-price" id="v129EstoquePreco">Estimativa pelas sacas disponíveis</span>
     </div>
   </div>
 
@@ -2848,8 +3054,8 @@ tr:hover td{background:#fbfcfb!important}
   </div>
   <div id="painelAtencaoV121" class="v121-attention-grid"></div>
 
-<div class="section-head"><h3 class="section-title">Ações rápidas</h3><div class="section-note">Registre movimentações em poucos toques</div></div>
-  <div class="quick">
+<div class="section-head v1210-quick-head"><h3 class="section-title">Ações rápidas</h3><div class="section-note">Registre movimentações em poucos toques</div></div>
+  <div class="quick v1210-quick-grid">
     <button class="quick-btn" onclick="abrirLancamento('receita')"><div class="qicon">＋</div><div><strong>Nova receita</strong><small>Venda, serviço ou outra entrada</small></div></button>
     <button class="quick-btn" onclick="abrirLancamento('despesa')"><div class="qicon blue">−</div><div><strong>Nova despesa</strong><small>Custos da lavoura e do sítio</small></div></button>
     <button class="quick-btn" onclick="abrirApanha()"><div class="qicon">L</div><div><strong>Registrar latões</strong><small>Colhedor, talhão e quantidade</small></div></button>
@@ -11865,7 +12071,7 @@ renderTudo=function(){
 document.addEventListener("DOMContentLoaded",()=>setTimeout(()=>{try{garantirEstruturaV126();renderResumoMensalV126();renderFavoritosV126()}catch(e){console.error(e)}},350));
 </script>
 
-<script src="./v127.js?v=12.7"></script>
+<script src="./v127.js?v=12.10"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
@@ -11937,12 +12143,226 @@ onAuthStateChanged(auth,async u=>{
  }catch(e){console.error(e);setSync(e?.message?.toLowerCase().includes("permission")?"permissão negada":"erro ao carregar dados","erro")}
 });
 </script>
+
+<script>
+/* =========================================================
+   V12.9 — AÇÕES FLUTUANTES + VALOR DO ESTOQUE
+   ========================================================= */
+
+function precoAtualCafeV129(){
+  try{
+    if(typeof cotacaoRegional==="function"){
+      const n=Number(cotacaoRegional()||0);
+      if(Number.isFinite(n)&&n>0)return n;
+    }
+  }catch(e){}
+  try{
+    const c=estado?.cotacaoCafe||{};
+    const ref=Number(c.precoPainel||c.precoReferencia||c.preco||0);
+    const desc=Number(c.descontoRegional||0);
+    const n=Math.max(0,ref-desc);
+    if(Number.isFinite(n)&&n>0)return n;
+  }catch(e){}
+  return 0;
+}
+
+function atualizarValorEstoqueV129(){
+  const valorEl=document.getElementById("v129EstoqueValor");
+  const precoEl=document.getElementById("v129EstoquePreco");
+  if(!valorEl||!precoEl)return;
+
+  let sacas=0;
+  try{
+    sacas=typeof estoqueTotalGeral==="function"
+      ?Number(estoqueTotalGeral()||0)
+      :0;
+  }catch(e){sacas=0}
+
+  const preco=precoAtualCafeV129();
+
+  if(preco>0){
+    const total=sacas*preco;
+    valorEl.textContent=`Valor pela cotação atual: ${moeda(total)}`;
+    precoEl.textContent=`${moeda(preco)} por saca • ${num(sacas)} sc disponíveis`;
+  }else{
+    valorEl.textContent="Valor atual: aguardando cotação";
+    precoEl.textContent=`${num(sacas)} sc disponíveis`;
+  }
+}
+
+/* Atualiza sempre que o dashboard ou a cotação forem redesenhados */
+if(typeof renderResumo==="function"){
+  const renderResumoV129Base=renderResumo;
+  renderResumo=function(){
+    renderResumoV129Base();
+    atualizarValorEstoqueV129();
+  };
+}
+if(typeof renderCotacaoCafe==="function"){
+  const renderCotacaoCafeV129Base=renderCotacaoCafe;
+  renderCotacaoCafe=function(){
+    renderCotacaoCafeV129Base();
+    atualizarValorEstoqueV129();
+  };
+}
+
+function alternarAdicionarV129(){
+  const menu=document.getElementById("v129AddMenu");
+  const bg=document.getElementById("v129AddBackdrop");
+  const fab=document.getElementById("v129AddFab");
+  if(!menu||!bg||!fab)return;
+
+  const vaiAbrir=menu.classList.contains("hidden");
+  menu.classList.toggle("hidden",!vaiAbrir);
+  bg.classList.toggle("hidden",!vaiAbrir);
+  fab.classList.toggle("open",vaiAbrir);
+  menu.setAttribute("aria-hidden",vaiAbrir?"false":"true");
+}
+
+function fecharAdicionarV129(){
+  document.getElementById("v129AddMenu")?.classList.add("hidden");
+  document.getElementById("v129AddBackdrop")?.classList.add("hidden");
+  document.getElementById("v129AddFab")?.classList.remove("open");
+  document.getElementById("v129AddMenu")?.setAttribute("aria-hidden","true");
+}
+
+function acaoAdicionarV129(tipo){
+  fecharAdicionarV129();
+
+  try{
+    if(tipo==="receita"){
+      abrirLancamento("receita");
+      return;
+    }
+    if(tipo==="despesa"){
+      abrirLancamento("despesa");
+      return;
+    }
+    if(tipo==="latoes"){
+      abrirApanha();
+      return;
+    }
+    if(tipo==="secador"){
+      abrirLote();
+      return;
+    }
+    if(tipo==="venda"){
+      abrirVenda();
+      return;
+    }
+    if(tipo==="manejo"){
+      if(typeof abrirManejoV127==="function")abrirManejoV127();
+      else toast("Módulo de manejo indisponível.");
+      return;
+    }
+    if(tipo==="producao"){
+      abrirColheita();
+      return;
+    }
+    if(tipo==="insumo"){
+      if(typeof abrirMovimentoInsumoV126==="function")abrirMovimentoInsumoV126();
+      else toast("Módulo de insumos indisponível.");
+      return;
+    }
+  }catch(e){
+    console.error(e);
+    toast("Não foi possível abrir essa opção.");
+  }
+}
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")fecharAdicionarV129();
+});
+
+document.addEventListener("DOMContentLoaded",()=>{
+  setTimeout(atualizarValorEstoqueV129,250);
+
+  const estoque=document.getElementById("v11Estoque");
+  const cotacao=document.getElementById("v11CotacaoRegional");
+  const observer=new MutationObserver(()=>atualizarValorEstoqueV129());
+  if(estoque)observer.observe(estoque,{childList:true,subtree:true,characterData:true});
+  if(cotacao)observer.observe(cotacao,{childList:true,subtree:true,characterData:true});
+});
+</script>
+
 <script>
 if("serviceWorker" in navigator){
-  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js",{updateViaCache:"none"}).then(r=>r.update().catch(()=>{})).catch(()=>{}));
 }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="./assistant-v123.js?v=12.8-pro"></script>
+
+<!-- V12.9 — Ações rápidas flutuantes -->
+<div id="v129AddBackdrop" class="v129-add-backdrop hidden" onclick="fecharAdicionarV129()"></div>
+
+<div id="v129AddMenu" class="v129-add-menu hidden" aria-hidden="true">
+  <div class="v129-add-head">
+    <div>
+      <small>ADICIONAR</small>
+      <strong>Novo registro</strong>
+    </div>
+    <button type="button" onclick="fecharAdicionarV129()" aria-label="Fechar">×</button>
+  </div>
+
+  <div class="v129-add-grid">
+    <button type="button" onclick="acaoAdicionarV129('receita')">
+      <span class="v129-add-icon green">+</span>
+      <span><strong>Receita</strong><small>Nova entrada</small></span>
+    </button>
+
+    <button type="button" onclick="acaoAdicionarV129('despesa')">
+      <span class="v129-add-icon red">−</span>
+      <span><strong>Despesa</strong><small>Conta ou gasto</small></span>
+    </button>
+
+    <button type="button" onclick="acaoAdicionarV129('latoes')">
+      <span class="v129-add-icon">L</span>
+      <span><strong>Latões</strong><small>Registrar colheita</small></span>
+    </button>
+
+    <button type="button" onclick="acaoAdicionarV129('secador')">
+      <span class="v129-add-icon">S</span>
+      <span><strong>Secador</strong><small>Enviar lote</small></span>
+    </button>
+
+    <button type="button" onclick="acaoAdicionarV129('venda')">
+      <span class="v129-add-icon green">R$</span>
+      <span><strong>Venda</strong><small>Vender café</small></span>
+    </button>
+
+    <button type="button" onclick="acaoAdicionarV129('manejo')">
+      <span class="v129-add-icon">M</span>
+      <span><strong>Manejo</strong><small>Aplicação ou serviço</small></span>
+    </button>
+
+    <button type="button" onclick="acaoAdicionarV129('producao')">
+      <span class="v129-add-icon">P</span>
+      <span><strong>Produção</strong><small>Registrar sacas</small></span>
+    </button>
+
+    <button type="button" onclick="acaoAdicionarV129('insumo')">
+      <span class="v129-add-icon">I</span>
+      <span><strong>Insumo</strong><small>Entrada ou saída</small></span>
+    </button>
+
+    <button type="button" onclick="acaoAdicionarV1210('solo')">
+      <span class="v129-add-icon">A</span>
+      <span><strong>Análise de solo</strong><small>Novo laudo</small></span>
+    </button>
+
+    <button type="button" onclick="acaoAdicionarV1210('talhao')">
+      <span class="v129-add-icon">T</span>
+      <span><strong>Talhão</strong><small>Nova área</small></span>
+    </button>
+  </div>
+</div>
+
+<button id="v129AddFab" class="v129-add-fab" type="button"
+        onclick="alternarAdicionarV129()" aria-label="Adicionar novo registro">
+  <span class="v1210-fab-plus">＋</span><strong class="v1210-fab-label">Adicionar</strong>
+</button>
+
+<script src="./assistant-v123.js?v=12.10"></script>
+<script src="./v1210.js?v=12.10"></script>
 </body>
 </html>

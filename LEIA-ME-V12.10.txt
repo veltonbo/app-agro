@@ -1,0 +1,25 @@
+FINANCEIRO DO SÍTIO — V12.10 PROFESSIONAL REVISADA
+
+CORREÇÕES IMPORTANTES
+- v127.js e v127.css voltaram para dentro do pacote.
+- Manejo da lavoura volta a funcionar.
+- Tela de detalhes da sincronização volta a funcionar.
+- cotacao.json restaurado para contingência da cotação.
+- database.rules.json restaurado para referência do Firebase.
+- Service Worker atualizado para armazenar também Manejo, cotação e a nova camada visual.
+- Atualização do PWA força verificação de versão nova, reduzindo cache antigo.
+- Navegação de alertas/resultados de Manejo corrigida.
+- Backup passa a sair corretamente como V12.10.
+- Histórico incluído na mesclagem por registro.
+
+APARÊNCIA / USABILIDADE
+- Ajuda movida para o cabeçalho.
+- Somente o botão Adicionar fica flutuante.
+- Botão Adicionar mostra rótulo no computador e fica compacto no celular.
+- Menu Adicionar ganhou Análise de solo e Talhão.
+- Ações rápidas repetidas são ocultadas no celular.
+- Sacas disponíveis mostram valor estimado de mercado e a cotação usada.
+- Campos no iPhone usam tamanho que evita zoom automático.
+- Manejo recebeu acabamento visual compatível com a versão Professional.
+- Textos longos no cabeçalho ficam mais bem tratados.
+- Estados vazios, botões e listas foram padronizados.
