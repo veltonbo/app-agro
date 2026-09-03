@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#153F27">
+<meta name="theme-color" content="#173f2b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Financeiro Sítio">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>Financeiro do Sítio</title>
+<title>Financeiro do Sítio • Gestão Rural</title>
 <style>
 :root{--bg:#f4f7f3;--surface:#fff;--surface2:#f8faf8;--text:#172019;--muted:#718078;--line:#e1e8e2;--green:#236a3b;--green2:#153f27;--soft:#eaf3ec;--blue:#315f7d;--blueSoft:#ecf3f7;--amber:#9a651d;--amberSoft:#fff5e8;--red:#a93b35;--redSoft:#fff1ef;--shadow:0 4px 16px rgba(24,52,32,.06)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 8% -8%,rgba(35,106,59,.1),transparent 28%),linear-gradient(180deg,#fafcfa,#f4f7f3 45%,#eef3ef);padding-bottom:92px}
@@ -2326,8 +2326,294 @@ input,select,textarea{
   .v126-fav-picker{grid-template-columns:1fr}
 }
 
+
+/* =========================================================
+   V12.8 PROFESSIONAL
+   ========================================================= */
+:root{
+  --pro-bg:#f3f5f1;
+  --pro-surface:#fff;
+  --pro-ink:#1b251f;
+  --pro-muted:#6e7b72;
+  --pro-border:#dde4de;
+  --pro-green:#1f5d3a;
+  --pro-green-dark:#173f2b;
+  --pro-soft:#eaf2ec;
+  --pro-shadow:0 8px 26px rgba(22,52,33,.055);
+}
+body{
+  background:linear-gradient(180deg,#f9faf8 0,#f3f5f1 230px,#f1f4f0 100%)!important;
+  color:var(--pro-ink)!important;
+  letter-spacing:-.005em
+}
+.app{width:min(1180px,100%)!important;padding-top:14px!important}
+
+/* Componentes antigos continuam no DOM para compatibilidade,
+   mas deixam de duplicar visualmente o dashboard. */
+#tab-resumo>.hero,
+#tab-resumo>.safra-bar,
+#tab-resumo>.summary,
+#tab-resumo>.safra-insights,
+#tab-resumo>.quote-card{display:none!important}
+
+/* Barra superior */
+.topbar{
+  background:rgba(249,250,248,.95)!important;
+  border-bottom:1px solid #dce4dd!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.9)!important
+}
+.topbar-inner{width:min(1180px,100%)!important}
+.brand-mark{
+  width:42px!important;height:42px!important;border-radius:12px!important;
+  background:linear-gradient(145deg,#235f3e,#153d29)!important;
+  box-shadow:0 8px 20px rgba(29,86,53,.15)!important
+}
+.brand-title-v121 h1{font-size:22px!important;font-weight:800!important;letter-spacing:-.035em!important}
+.version-v121{
+  background:#e8efe9!important;color:#315a42!important;border:1px solid #d5e1d7!important;
+  padding:4px 7px!important;border-radius:7px!important;font-size:8px!important;font-weight:900!important
+}
+.sub{font-size:10px!important;color:#748078!important}
+.user-badge,.icon-btn{
+  border-color:var(--pro-border)!important;background:rgba(255,255,255,.94)!important;
+  box-shadow:0 2px 10px rgba(22,52,33,.025)!important
+}
+.icon-btn{transition:.15s ease}
+.icon-btn:hover{background:#f8fbf8!important;border-color:#c8d5ca!important;transform:translateY(-1px)}
+
+/* Painel executivo */
+.v11-dashboard-head{margin:4px 0 12px!important;padding:0 2px!important;align-items:flex-end!important}
+.v11-dashboard-head .eyebrow{color:#6f8074!important;font-size:8px!important;letter-spacing:.12em!important}
+.v11-dashboard-head h2{
+  font-size:27px!important;color:#1d2a22!important;font-weight:820!important;
+  letter-spacing:-.045em!important
+}
+.v11-dashboard-head p{font-size:11px!important;color:#758178!important;max-width:570px!important}
+.v11-sync{
+  min-width:190px!important;border:1px solid var(--pro-border)!important;
+  background:#fff!important;border-radius:12px!important;padding:9px 11px!important;box-shadow:none!important
+}
+.v11-sync small{font-size:7px!important;color:#859087!important}
+.v11-sync strong{font-size:9px!important;color:#33433a!important}
+
+.v11-context-grid{gap:10px!important;margin-bottom:10px!important}
+.v11-context-card{
+  border:1px solid var(--pro-border)!important;border-radius:14px!important;
+  background:#fff!important;box-shadow:var(--pro-shadow)!important;padding:13px!important
+}
+.v11-season{
+  background:linear-gradient(135deg,#1a4b31,#245f3d)!important;
+  border-color:transparent!important;color:#fff!important
+}
+.v11-season select{background:rgba(255,255,255,.97)!important}
+.v11-market{background:#fff!important}
+.v11-market-price{font-size:21px!important;letter-spacing:-.035em!important}
+
+.v11-essential-grid{gap:9px!important;margin-bottom:9px!important}
+.v11-essential{
+  min-height:116px!important;padding:14px!important;border-radius:14px!important;
+  border:1px solid var(--pro-border)!important;background:#fff!important;
+  box-shadow:var(--pro-shadow)!important
+}
+.v11-essential::after{display:none!important}
+.v11-essential.primary{
+  background:linear-gradient(145deg,#173f2b,#205c39)!important;
+  border-color:transparent!important;box-shadow:0 12px 30px rgba(22,72,43,.13)!important
+}
+.v11-essential.warn{background:#fff!important;border-color:#eadbc6!important}
+.v11-essential .label{font-size:8px!important;letter-spacing:.07em!important;color:#75827a!important}
+.v11-essential .value{font-size:22px!important;letter-spacing:-.04em!important;margin-top:16px!important}
+.v11-essential .note{font-size:8.5px!important;color:#89938c!important}
+.v11-essential .doticon{border-radius:8px!important}
+
+.v11-detail-strip{
+  border:1px solid var(--pro-border)!important;border-radius:14px!important;
+  background:#fff!important;box-shadow:none!important;gap:0!important;
+  overflow:hidden!important;margin-bottom:12px!important
+}
+.v11-mini{
+  padding:11px 12px!important;border-right:1px solid #edf0ed!important;
+  background:#fff!important
+}
+.v11-mini:last-child{border-right:0!important}
+.v11-mini small{font-size:7px!important;color:#829087!important}
+.v11-mini strong{font-size:12px!important;margin-top:5px!important;color:#27362e!important}
+.v11-mini span{font-size:7px!important;color:#929b95!important}
+
+/* Mês e favoritos */
+.v126-dashboard-row{gap:10px!important;margin:0 0 14px!important}
+.v126-month-card,.v126-favorites-card{
+  border:1px solid var(--pro-border)!important;border-radius:14px!important;
+  box-shadow:var(--pro-shadow)!important;padding:14px!important;background:#fff!important
+}
+.v126-card-head small{font-size:7px!important;color:#809087!important}
+.v126-card-head strong{font-size:13px!important;color:#223128!important}
+.v126-month-badge{font-size:8px!important;border-radius:7px!important;padding:5px 8px!important}
+.v126-month-grid{gap:7px!important}
+.v126-month-grid div{border:1px solid #edf0ed!important;background:#fafbf9!important;border-radius:9px!important}
+.v126-month-grid small{font-size:7px!important}
+.v126-month-grid strong{font-size:10px!important}
+.v126-fav{
+  border-radius:10px!important;background:#fafbf9!important;
+  border-color:#e3e8e4!important;transition:.15s ease!important
+}
+.v126-fav:hover{transform:translateY(-1px);border-color:#cbd9ce!important;background:#f5f8f5!important}
+.v126-fav span{font-size:11px!important;font-weight:900!important;color:#285e3e!important}
+.v126-fav strong{font-size:8px!important}
+
+/* Seções */
+.section-head{margin:20px 0 9px!important}
+.section-title{font-size:15px!important;font-weight:800!important;color:#25332b!important}
+.section-note{font-size:9px!important;color:#7e8981!important}
+.v121-attention-grid{gap:8px!important}
+.v121-attention-card{
+  border-radius:12px!important;border:1px solid var(--pro-border)!important;
+  box-shadow:none!important
+}
+
+/* Ações rápidas */
+.quick{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:8px!important}
+.quick-btn{
+  min-height:76px!important;padding:11px 12px!important;border-radius:12px!important;
+  border:1px solid var(--pro-border)!important;background:#fff!important;
+  box-shadow:none!important;transition:.15s ease!important
+}
+.quick-btn:hover{transform:translateY(-1px);box-shadow:var(--pro-shadow)!important;border-color:#ccd8ce!important}
+.qicon{
+  width:34px!important;height:34px!important;border-radius:9px!important;
+  background:#edf4ef!important;color:#245d3a!important;font-size:11px!important;font-weight:950!important
+}
+.quick-btn strong{font-size:11px!important}
+.quick-btn small{font-size:8px!important;line-height:1.35!important}
+
+/* Cabeçalhos dos módulos */
+.module-head{
+  border-radius:16px!important;border:1px solid var(--pro-border)!important;
+  background:linear-gradient(135deg,#fff,#f8faf8)!important;
+  box-shadow:var(--pro-shadow)!important;padding:18px 20px!important;margin-bottom:12px!important
+}
+.module-kicker{font-size:7px!important;color:#6d7e72!important;letter-spacing:.12em!important}
+.module-head h2{font-size:21px!important;font-weight:820!important;letter-spacing:-.035em!important;color:#1f2d25!important}
+.module-head p{font-size:10px!important;color:#758178!important;max-width:660px!important}
+.module-head-actions{gap:6px!important}
+
+/* Cards e painéis */
+.card,.v122-bank-panel,.v122-cashflow-panel,.accounts-panel,
+.v124-panel,.v126-stock-card,.cadastro-card,.v127-manejo-card,.v127-manejo-kpi{
+  border-color:var(--pro-border)!important;border-radius:14px!important;
+  box-shadow:var(--pro-shadow)!important
+}
+.v122-bank-panel,.v122-cashflow-panel,.accounts-panel{background:#fff!important}
+.cadastro-card{background:#fff!important;transition:.15s ease!important}
+.cadastro-card:hover{border-color:#cad7cc!important;transform:translateY(-1px)}
+
+/* Formulários e botões */
+.field label{font-size:8px!important;letter-spacing:.055em!important;color:#6f7d73!important}
+input,select,textarea{
+  min-height:44px!important;border-radius:10px!important;border-color:#dbe3dc!important;
+  background:#fff!important;font-size:12px!important;padding:9px 10px!important
+}
+input:focus,select:focus,textarea:focus{
+  border-color:#7fa18a!important;box-shadow:0 0 0 3px rgba(31,93,58,.075)!important
+}
+.btn{
+  min-height:40px!important;border-radius:9px!important;font-size:10px!important;
+  font-weight:800!important;padding:8px 12px!important;box-shadow:none!important;transition:.15s ease!important
+}
+.btn.primary{background:#245f3d!important;border-color:#245f3d!important}
+.btn.primary:hover{background:#1e5234!important;transform:translateY(-1px)}
+.btn.secondary{border-color:#dbe3dc!important;background:#fff!important;color:#334139!important}
+.btn.danger{border-color:#edd7d4!important}
+.mini-btn{border-radius:8px!important}
+
+/* Listas e tabelas */
+.item{padding:12px 13px!important}
+.item-main strong{font-size:11px!important}
+.item-meta{font-size:9px!important}
+.item-value strong{font-size:11px!important}
+.table-wrap{border:1px solid #e5eae6!important;border-radius:12px!important;overflow:auto!important;background:#fff!important}
+table{background:#fff!important}
+th{
+  position:sticky;top:0;z-index:1;background:#f7f9f7!important;
+  font-size:7.5px!important;letter-spacing:.055em!important;color:#738077!important
+}
+td{font-size:10px!important;color:#334039!important}
+tr:hover td{background:#fbfcfb!important}
+
+/* Modais */
+.modal{background:rgba(16,27,20,.42)!important;backdrop-filter:blur(6px)!important}
+.modal-card{border:1px solid rgba(220,227,221,.9)!important;box-shadow:0 28px 80px rgba(15,39,24,.18)!important}
+.modal-head{padding-bottom:9px!important;border-bottom:1px solid #edf0ed!important;margin-bottom:13px!important}
+.modal-head h3{font-size:16px!important;font-weight:820!important;letter-spacing:-.025em!important}
+.close{border-radius:9px!important}
+
+/* Busca, estoque, lixeira e manejo */
+.v126-search-item,.v126-trash-item,.v126-activity-item{border-radius:10px!important;box-shadow:none!important}
+.v126-search-item strong,.v126-trash-item strong,.v126-activity-item strong{font-size:10px!important}
+.v126-search-item small,.v126-trash-item small,.v126-activity-item small{font-size:8px!important}
+.v126-stock-card .saldo{font-size:15px!important}
+.v127-manejo-kpis{gap:8px!important}
+.v127-status{border-radius:7px!important;font-size:7px!important}
+
+/* Navegação inferior */
+.bottom-nav{
+  background:rgba(247,249,246,.96)!important;border-top:1px solid #dce4dd!important;
+  padding-top:7px!important;backdrop-filter:blur(20px)!important
+}
+.nav-inner{
+  width:min(720px,100%)!important;border:1px solid #dce4dd!important;
+  border-radius:14px!important;padding:3px!important;box-shadow:0 6px 22px rgba(21,55,34,.055)!important
+}
+.navbtn{min-height:47px!important;border-radius:10px!important;color:#707d74!important}
+.navbtn.active{background:#e8f0ea!important;color:#1f5b39!important}
+.nav-symbol{font-size:11px!important;font-weight:950!important}
+.navbtn span:last-child{font-size:8px!important}
+
+@media(min-width:721px){
+  .modal{align-items:center!important;padding:24px!important}
+  .modal-card{border-radius:18px!important;padding:18px!important}
+}
+@media(max-width:900px){
+  .quick{grid-template-columns:repeat(3,1fr)!important}
+  .v11-detail-strip{display:grid!important;grid-template-columns:repeat(3,1fr)!important}
+  .v11-mini{border-bottom:1px solid #edf0ed!important}
+}
+@media(max-width:720px){
+  body{padding-bottom:82px!important}
+  .app{padding:10px 10px 18px!important}
+  .topbar{margin:0 -10px 12px!important;padding:9px 10px!important}
+  .brand-mark{width:38px!important;height:38px!important}
+  .brand-title-v121 h1{font-size:18px!important}
+  .sub{display:block!important;font-size:8px!important}
+  .user-badge{max-width:92px!important}
+  .v11-dashboard-head{align-items:flex-start!important;margin-bottom:10px!important}
+  .v11-dashboard-head h2{font-size:22px!important}
+  .v11-dashboard-head p{font-size:10px!important}
+  .v11-sync{width:100%!important;min-width:0!important}
+  .v11-essential-grid{grid-template-columns:1fr 1fr!important}
+  .v11-essential.primary{grid-column:1/-1!important}
+  .v11-essential{min-height:105px!important;padding:12px!important}
+  .v11-essential .value{font-size:18px!important}
+  .v11-detail-strip{grid-template-columns:1fr 1fr!important}
+  .v126-dashboard-row{grid-template-columns:1fr!important}
+  .v126-month-grid{grid-template-columns:1fr 1fr!important}
+  .quick{grid-template-columns:1fr 1fr!important}
+  .quick-btn{min-height:68px!important}
+  .quick-btn small{display:block!important;font-size:7.5px!important}
+  .module-head{padding:14px!important;border-radius:13px!important}
+  .module-head h2{font-size:18px!important}
+  .module-head-actions{width:100%!important}
+  .module-head-actions .btn{flex:1 1 auto!important}
+  .modal-card{border-radius:18px 18px 0 0!important}
+}
+@media(max-width:420px){
+  .v11-essential-grid{grid-template-columns:1fr!important}
+  .v11-essential.primary{grid-column:auto!important}
+  .quick{grid-template-columns:1fr!important}
+}
+
 </style>
-  <link rel="stylesheet" href="./assistant-v123.css?v=12.3-ajuda">
+  <link rel="stylesheet" href="./assistant-v123.css?v=12.8-pro">
 <link rel="stylesheet" href="./v127.css?v=12.7">
 </head>
 <body>
@@ -2356,7 +2642,7 @@ input,select,textarea{
 
 <div class="app">
 <header class="topbar"><div class="topbar-inner">
-  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.7</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.8</span></div><div class="sub">Gestão rural • Café Conilon</div></div></div>
   <div class="user-menu"><button class="icon-btn search-top-v126" onclick="abrirBuscaGlobalV126()" aria-label="Buscar no app" title="Buscar no app">⌕</button><div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
 </div></header>
 
@@ -2389,31 +2675,6 @@ input,select,textarea{
     <div class="metric amber"><div class="metric-top"><div class="metric-icon">↘</div><div class="metric-label">A pagar</div></div><div class="metric-value" id="mPagar">R$ 0,00</div><div class="metric-note">não some ao trocar de safra</div></div>
     <div class="metric"><div class="metric-top"><div class="metric-icon">☕</div><div class="metric-label">Produção</div></div><div class="metric-value" id="mProducao">0 sc</div><div class="metric-note">sacas registradas</div></div>
   </div>
-
-  
-  <div class="v126-dashboard-row">
-    <div class="v126-month-card">
-      <div class="v126-card-head">
-        <div><small>RESUMO DO MÊS</small><strong id="v126MesTitulo">Mês atual</strong></div>
-        <span id="v126MesSaldo" class="v126-month-badge">R$ 0,00</span>
-      </div>
-      <div class="v126-month-grid">
-        <div><small>Receitas</small><strong id="v126MesReceitas">R$ 0,00</strong></div>
-        <div><small>Despesas</small><strong id="v126MesDespesas">R$ 0,00</strong></div>
-        <div><small>Recebido</small><strong id="v126MesRecebido">R$ 0,00</strong></div>
-        <div><small>Pago</small><strong id="v126MesPago">R$ 0,00</strong></div>
-      </div>
-    </div>
-
-    <div class="v126-favorites-card">
-      <div class="v126-card-head">
-        <div><small>ATALHOS</small><strong>Favoritos</strong></div>
-        <button class="v126-link-btn" onclick="abrirFavoritosV126()">Editar</button>
-      </div>
-      <div id="favoritosHomeV126" class="v126-fav-grid"></div>
-    </div>
-  </div>
-
 <div class="safra-insights">
     <div class="insight stock">
       <small>Estoque total de café</small>
@@ -2440,7 +2701,7 @@ input,select,textarea{
   <div class="quote-card">
     <div class="quote-head">
       <div class="quote-title-wrap">
-        <div class="quote-icon">☕</div>
+        <div class="quote-icon">C</div>
         <div style="min-width:0">
           <div class="quote-title">Cotação do café Conilon 7/8</div>
           <div class="quote-sub">Atualização automática • múltiplas fontes • estimativa regional</div>
@@ -2478,9 +2739,9 @@ input,select,textarea{
   
   <div class="v11-dashboard-head">
     <div>
-      <div class="eyebrow">GESTÃO DO SÍTIO</div>
-      <h2>Visão geral</h2>
-      <p>Os números mais importantes do sítio em uma única tela, sem perder o controle por safra.</p>
+      <div class="eyebrow">VISÃO EXECUTIVA</div>
+      <h2>Central de gestão</h2>
+      <p>Financeiro, safra, estoque e operação reunidos em uma visão objetiva.</p>
     </div>
     <div class="v11-sync">
       <small>Sincronização</small>
@@ -2552,7 +2813,34 @@ input,select,textarea{
   </div>
 
 
-  <div class="section-head v121-attention-head">
+  
+
+  
+  <div class="v126-dashboard-row">
+    <div class="v126-month-card">
+      <div class="v126-card-head">
+        <div><small>RESUMO DO MÊS</small><strong id="v126MesTitulo">Mês atual</strong></div>
+        <span id="v126MesSaldo" class="v126-month-badge">R$ 0,00</span>
+      </div>
+      <div class="v126-month-grid">
+        <div><small>Receitas</small><strong id="v126MesReceitas">R$ 0,00</strong></div>
+        <div><small>Despesas</small><strong id="v126MesDespesas">R$ 0,00</strong></div>
+        <div><small>Recebido</small><strong id="v126MesRecebido">R$ 0,00</strong></div>
+        <div><small>Pago</small><strong id="v126MesPago">R$ 0,00</strong></div>
+      </div>
+    </div>
+
+    <div class="v126-favorites-card">
+      <div class="v126-card-head">
+        <div><small>ATALHOS</small><strong>Favoritos</strong></div>
+        <button class="v126-link-btn" onclick="abrirFavoritosV126()">Editar</button>
+      </div>
+      <div id="favoritosHomeV126" class="v126-fav-grid"></div>
+    </div>
+  </div>
+
+
+<div class="section-head v121-attention-head">
     <div>
       <h3 class="section-title">Atenção do dia</h3>
       <div class="section-note">Pendências e pontos que merecem sua atenção</div>
@@ -2564,9 +2852,9 @@ input,select,textarea{
   <div class="quick">
     <button class="quick-btn" onclick="abrirLancamento('receita')"><div class="qicon">＋</div><div><strong>Nova receita</strong><small>Venda, serviço ou outra entrada</small></div></button>
     <button class="quick-btn" onclick="abrirLancamento('despesa')"><div class="qicon blue">−</div><div><strong>Nova despesa</strong><small>Custos da lavoura e do sítio</small></div></button>
-    <button class="quick-btn" onclick="abrirApanha()"><div class="qicon">🪣</div><div><strong>Registrar latões</strong><small>Colhedor, talhão e quantidade</small></div></button>
+    <button class="quick-btn" onclick="abrirApanha()"><div class="qicon">L</div><div><strong>Registrar latões</strong><small>Colhedor, talhão e quantidade</small></div></button>
     <button class="quick-btn" onclick="abrirVenda()"><div class="qicon blue">R$</div><div><strong>Registrar venda</strong><small>Sacas, preço e comprador</small></div></button>
-    <button class="quick-btn" onclick="abrirManejoV127()"><div class="qicon">🌱</div><div><strong>Registrar manejo</strong><small>Aplicação, irrigação, poda ou serviço</small></div></button>
+    <button class="quick-btn" onclick="abrirManejoV127()"><div class="qicon">M</div><div><strong>Registrar manejo</strong><small>Aplicação, irrigação, poda ou serviço</small></div></button>
   </div>
 
   <div class="section-head"><h3 class="section-title">Últimas movimentações</h3><div class="section-note">Mais recentes primeiro</div></div>
@@ -3124,7 +3412,7 @@ input,select,textarea{
 <nav class="bottom-nav"><div class="nav-inner">
   <button class="navbtn active" data-nav="resumo" onclick="trocarAba('resumo',this)"><span class="nav-symbol">⌂</span><span>Início</span></button>
   <button class="navbtn" data-nav="financeiro" onclick="trocarAba('financeiro',this)"><span class="nav-symbol">R$</span><span>Financeiro</span></button>
-  <button class="navbtn" data-nav="producao" onclick="trocarAba('producao',this)"><span class="nav-symbol">☕</span><span>Colheita</span></button>
+  <button class="navbtn" data-nav="producao" onclick="trocarAba('producao',this)"><span class="nav-symbol">C</span><span>Colheita</span></button>
   <button class="navbtn" data-nav="relatorios" onclick="trocarAba('relatorios',this)"><span class="nav-symbol">▤</span><span>Relatórios</span></button>
   <button class="navbtn" data-nav="perfil" onclick="trocarAba('perfil',this)"><span class="nav-symbol">●</span><span>Perfil</span></button>
 </div></nav>
@@ -11579,6 +11867,11 @@ document.addEventListener("DOMContentLoaded",()=>setTimeout(()=>{try{garantirEst
 
 <script src="./v127.js?v=12.7"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  document.body.classList.add("v128-professional");
+});
+</script>
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import{getAuth,onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword,signOut}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
@@ -11650,6 +11943,6 @@ if("serviceWorker" in navigator){
 }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="./assistant-v123.js?v=12.3-ajuda"></script>
+<script src="./assistant-v123.js?v=12.8-pro"></script>
 </body>
 </html>

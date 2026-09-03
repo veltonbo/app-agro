@@ -1,0 +1,21 @@
+FINANCEIRO DO SÍTIO — V12.8 PROFESSIONAL
+
+Esta versão mantém as funções da V12.7 e melhora apresentação, consistência e usabilidade.
+
+PRINCIPAIS MELHORIAS
+- Dashboard sem a duplicação visual de blocos das versões antigas.
+- Visual executivo com verde-floresta, fundo neutro e sombras discretas.
+- Hierarquia melhor entre safra, cotação, indicadores, resumo mensal, alertas e ações.
+- Tipografia e espaçamento mais legíveis no celular.
+- Cards, botões, formulários, tabelas e modais padronizados.
+- Modais centralizados no computador e bottom-sheet no celular.
+- Navegação inferior mais compacta.
+- Ícones mais consistentes e menos aparência de emoji.
+- Mantidas as funções de financeiro, safra, colheita, secador, manejo, insumos, solo, relatórios, lixeira, busca e sincronização.
+
+CORREÇÃO IMPORTANTE DO PACOTE
+- assistant-v123.css incluído.
+- assistant-v123.js incluído.
+- manifest.webmanifest incluído.
+- sw.js incluído.
+- Pacote autocontido para GitHub Pages.
