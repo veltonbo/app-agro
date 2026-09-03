@@ -1,0 +1,57 @@
+FINANCEIRO DO SÍTIO — V12.4
+GESTÃO POR TALHÃO • FECHAMENTO DE SAFRA • ORÇAMENTO
+
+Base: V12.3 Assistente de Ajuda, mantendo toda a linha funcional da V12.
+
+NOVIDADES
+
+1. FICHA COMPLETA DO TALHÃO
+- Produção e produtividade (sacas/ha).
+- Custos totais.
+- Custo por saca.
+- Custo por hectare.
+- Custo por planta.
+- Receitas e resultado.
+- Despesas pagas e saldo em aberto.
+- Sacas vendidas.
+- Custos por categoria.
+- Última análise de solo.
+- Histórico por safra.
+- Botão "Ver ficha" em cada talhão.
+
+2. ORÇAMENTO DA SAFRA
+- Planejamento de despesas por categoria.
+- Orçado x Gasto registrado x Pago.
+- Saldo de orçamento.
+- Percentual consumido por categoria.
+- Indicador visual quando o gasto ultrapassa o planejado.
+- Orçamento separado por safra.
+
+3. GESTÃO E FECHAMENTO DA SAFRA
+- Produção total.
+- Produtividade.
+- Sacas vendidas.
+- Estoque restante.
+- Preço médio de venda.
+- Receitas e despesas.
+- Recebido e pago.
+- Resultado por competência.
+- Caixa realizado.
+- Custo médio por saca.
+- Orçamento e saldo do orçamento.
+- Contas a pagar e receber pendentes.
+- Lotes ainda no secador.
+- Resultado por talhão.
+- Fechamento gera snapshot consolidado.
+- Safra fechada pode ser reaberta.
+- O fechamento não apaga pendências.
+
+4. ASSISTENTE DE AJUDA
+- Novos tópicos: orçamento, fechamento da safra e ficha do talhão.
+
+5. DADOS
+Novas coleções preservadas no Firebase e no backup:
+- orcamentosSafra
+- fechamentosSafra
+
+Backup atualizado para versão 12.4.

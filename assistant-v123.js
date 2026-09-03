@@ -198,6 +198,103 @@ const TOPICOS = [
     acoes:[["Abrir análises de solo","solo"],["Ir ao Perfil","perfil"]]
   },
   {
+    id:"orcamento_safra",
+    palavras:["orcamento","orçamento","planejamento","orcado","orçado","gasto planejado","previsao de gasto"],
+    titulo:"Criar o orçamento da safra",
+    passos:[
+      "Abra Perfil.",
+      "Na área Financeiro e negociações, toque em Orçamento da safra.",
+      "Escolha a safra e adicione uma categoria de despesa.",
+      "Informe quanto pretende gastar naquela categoria.",
+      "A tabela mostra Orçado x Gasto x Pago e o saldo restante."
+    ],
+    dica:"O gasto considera a despesa registrada; o pago considera o que já saiu do caixa.",
+    acoes:[["Abrir orçamento","orcamento"],["Ir ao Perfil","perfil"]]
+  },
+  {
+    id:"fechamento_safra",
+    palavras:["fechamento","fechar safra","encerrar safra","resultado da safra","gestao da safra"],
+    titulo:"Conferir e fechar uma safra",
+    passos:[
+      "Abra Perfil e toque em Gestão da safra.",
+      "Escolha a safra que deseja conferir.",
+      "Revise produção, vendas, estoque, receitas, despesas, resultado, custo por saca e pendências.",
+      "Veja também o desempenho de cada talhão.",
+      "Para fechar, primeiro deixe outra safra como ativa e depois toque em Fechar safra."
+    ],
+    dica:"O fechamento salva um resumo consolidado e não apaga contas pendentes nem estoque.",
+    acoes:[["Abrir gestão da safra","gestao_safra"],["Ir ao Perfil","perfil"]]
+  },
+  {
+    id:"ficha_talhao",
+    palavras:["ficha do talhao","ficha talhao","gestao por talhao","custo por talhao","produtividade do talhao","resultado do talhao"],
+    titulo:"Ver a ficha completa de um talhão",
+    passos:[
+      "Abra Perfil e entre em Talhões.",
+      "No cartão do talhão, toque em Ver ficha.",
+      "Escolha uma safra específica ou Todas as safras.",
+      "Veja produção, produtividade, custos, custo por saca, custo por hectare, custo por planta, receitas e resultado.",
+      "Na mesma ficha você também encontra custos por categoria e a análise de solo mais recente."
+    ],
+    dica:"Use a ficha para comparar o desempenho do mesmo talhão entre safras.",
+    acoes:[["Ir aos talhões","talhoes"],["Ir ao Perfil","perfil"]]
+  },
+  {
+    id:"busca_global",
+    palavras:["buscar","busca geral","procurar","achar lançamento","achar venda"],
+    titulo:"Usar a busca geral",
+    passos:[
+      "Toque na lupa no canto superior do aplicativo.",
+      "Digite nome, fornecedor, talhão, venda, lote, produto ou qualquer termo.",
+      "O app procura em financeiro, talhões, colhedores, vendas, secador, solo, pessoas e insumos.",
+      "Toque no resultado para abrir diretamente o registro."
+    ],
+    dica:"A busca é a forma mais rápida de encontrar algo antigo.",
+    acoes:[["Abrir busca","busca"]]
+  },
+  {
+    id:"estoque_insumos",
+    palavras:["insumo","estoque de insumos","adubo estoque","defensivo estoque","entrada de produto","saida de produto"],
+    titulo:"Controlar estoque de insumos",
+    passos:[
+      "Abra Perfil e toque em Estoque de insumos.",
+      "Cadastre o produto, unidade e estoque mínimo.",
+      "Use Movimentar para registrar compras, entradas ou uso no campo.",
+      "Nas saídas, escolha o talhão quando souber onde o produto foi utilizado.",
+      "O app mostra saldo, custo médio e valor estimado do estoque."
+    ],
+    dica:"O sistema impede uma saída maior que o saldo disponível.",
+    acoes:[["Abrir insumos","insumos"]]
+  },
+  {
+    id:"lixeira",
+    palavras:["lixeira","restaurar","exclui sem querer","recuperar registro","atividade recente"],
+    titulo:"Recuperar um registro excluído",
+    passos:[
+      "Abra Perfil.",
+      "Entre em Lixeira e atividade.",
+      "Na aba Lixeira, localize o registro.",
+      "Toque em Restaurar para devolvê-lo ao aplicativo.",
+      "A aba Atividade recente mostra ações importantes registradas."
+    ],
+    dica:"Apagar definitivamente da lixeira não pode ser desfeito.",
+    acoes:[["Abrir lixeira","lixeira"]]
+  },
+  {
+    id:"pdf",
+    palavras:["pdf","relatorio pdf","exportar pdf","gerar pdf"],
+    titulo:"Gerar relatório em PDF",
+    passos:[
+      "Abra Relatórios.",
+      "Na seção Exportar, toque em Gerar relatório PDF.",
+      "Escolha o tipo de relatório e a safra.",
+      "Toque em Gerar PDF.",
+      "O arquivo é baixado para o aparelho."
+    ],
+    dica:"Você pode gerar PDF de safra, financeiro, talhões, colhedores, insumos e solo.",
+    acoes:[["Abrir Relatórios","relatorios"]]
+  },
+  {
     id:"backup",
     palavras:["backup","copia","salvar dados","restaurar","importar backup"],
     titulo:"Fazer backup dos dados",
@@ -349,6 +446,18 @@ window.executarAjudaAcaoV123=function(acao){
       irAba("relatorios"); break;
     case "perfil":
       irAba("perfil"); break;
+    case "busca":
+      fecharAjuda(); setTimeout(()=>abrirBuscaGlobalV126(),50); break;
+    case "insumos":
+      fecharAjuda(); setTimeout(()=>abrirEstoqueInsumosV126(),50); break;
+    case "lixeira":
+      fecharAjuda(); setTimeout(()=>abrirLixeiraV126(),50); break;
+    case "orcamento":
+      fecharAjuda(); setTimeout(()=>abrirOrcamentoV124(),60); break;
+    case "gestao_safra":
+      fecharAjuda(); setTimeout(()=>abrirGestaoSafraV124(),60); break;
+    case "talhoes":
+      fecharAjuda(); irAba("perfil"); setTimeout(()=>irParaTalhoes(),100); break;
     case "solo":
       fecharAjuda(); setTimeout(()=>abrirGerenciadorSolo(),60); break;
     case "safras":

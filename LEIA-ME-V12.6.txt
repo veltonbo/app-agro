@@ -1,0 +1,65 @@
+FINANCEIRO DO SÍTIO — V12.6
+GESTÃO COMPLETA
+
+Base: evolução direta da V12, passando pela V12.4.
+
+NOVIDADES PRINCIPAIS
+
+1. BUSCA GERAL
+- Busca em financeiro, talhões, colhedores, vendas, secador, análises de solo, pessoas/empresas e insumos.
+- Abre o resultado diretamente.
+
+2. FAVORITOS
+- Até 6 atalhos no painel inicial.
+- Receita, despesa, latões, secador, venda, contas, relatórios, insumos, solo e orçamento.
+
+3. RESUMO MENSAL
+- Receitas, despesas, recebido, pago e saldo de caixa do mês atual.
+
+4. DUPLICAR LANÇAMENTO
+- Botão para copiar um lançamento anterior e revisar apenas data, valor e vencimento.
+
+5. LIXEIRA E ATIVIDADE
+- Lançamentos, vendas, análises de solo e insumos sem movimentação podem ir para a lixeira.
+- Restauração de registros.
+- Histórico das principais ações.
+- Exclusão definitiva opcional.
+
+6. ESTOQUE DE INSUMOS
+- Produtos, categoria, unidade e estoque mínimo.
+- Entrada / compra.
+- Saída / uso.
+- Vínculo da saída com talhão.
+- Saldo atual.
+- Custo médio de compra.
+- Valor estimado do estoque.
+- Alerta de estoque baixo.
+- Histórico de movimentações.
+- Bloqueio de saída maior que o saldo.
+
+7. COMPARAÇÃO DE SOLO
+- Compara duas análises do mesmo talhão.
+- Mostra valor anterior, atual, variação e tendência.
+- pH, matéria orgânica, P, K, Ca, Mg, Al, H+Al, CTC, V%, m%, B, Zn, Cu, Mn e Fe.
+- Não gera recomendação agronômica automática.
+
+8. RELATÓRIOS PDF
+- Resumo da safra.
+- Financeiro.
+- Talhões.
+- Colhedores.
+- Estoque de insumos.
+- Análises de solo.
+
+9. ASSISTENTE DE AJUDA
+- Novos tópicos para busca, insumos, lixeira e PDF.
+
+10. FIREBASE / BACKUP
+Novas coleções preservadas:
+- insumos
+- movimentacoesInsumos
+- lixeiraV126
+- historicoV126
+- favoritosV126
+
+Backup identificado como V12.6.

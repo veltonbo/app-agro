@@ -2168,6 +2168,164 @@ input,select,textarea{
   .v122-payment-summary>div:last-child{grid-column:1/-1}
 }
 
+
+/* =========================================================
+   V12.4 — GESTÃO POR TALHÃO • SAFRA • ORÇAMENTO
+   ========================================================= */
+.green-v124{background:linear-gradient(180deg,#fff,#f7fbf8)!important}
+.v124-kicker{font-size:7px;font-weight:950;letter-spacing:.12em;color:#668071;margin-bottom:3px}
+.v124-modal-wide{width:min(980px,96vw)!important;max-width:980px!important}
+.v124-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:0 0 11px;padding:10px;border:1px solid #e3e8e4;border-radius:14px;background:#fafcfb}
+.v124-toolbar .field{min-width:210px;margin:0}
+.v124-toolbar-actions{display:flex;gap:7px;flex-wrap:wrap}
+.v124-hero-card{padding:15px;border-radius:17px;background:linear-gradient(135deg,#123f2a,#1d6942);color:#fff;margin-bottom:10px}
+.v124-hero-card .v124-hero-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.v124-hero-card h4{font-size:20px;margin:0}
+.v124-hero-card small{display:block;margin-top:4px;color:rgba(255,255,255,.68);font-size:8px}
+.v124-hero-card .badge{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.12);font-size:7px;font-weight:900}
+.v124-metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0}
+.v124-metric-grid.compact{grid-template-columns:repeat(4,minmax(0,1fr))}
+.v124-metric{padding:12px;border:1px solid #e2e7e3;border-radius:14px;background:#fff;min-height:82px}
+.v124-metric small{display:block;color:#7a867e;font-size:7px;text-transform:uppercase;font-weight:900;letter-spacing:.07em}
+.v124-metric strong{display:block;margin-top:8px;font-size:17px;color:#203029}
+.v124-metric span{display:block;margin-top:4px;color:#879087;font-size:7px;line-height:1.35}
+.v124-metric.good strong{color:#247044}
+.v124-metric.warn strong{color:#a26d2b}
+.v124-metric.bad strong{color:#a7473f}
+.v124-two-col{display:grid;grid-template-columns:1.15fr .85fr;gap:10px}
+.v124-panel{border:1px solid #e2e7e3;border-radius:15px;background:#fff;padding:12px}
+.v124-panel-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:9px}
+.v124-panel-head strong{font-size:11px}
+.v124-panel-head small{display:block;margin-top:3px;color:#879087;font-size:7.5px}
+.v124-budget-form{background:#fbfcfb}
+.v124-progress{width:105px;max-width:18vw;height:8px;border-radius:999px;background:#edf0ed;overflow:hidden}
+.v124-progress>span{display:block;height:100%;border-radius:999px;background:#34754d}
+.v124-progress.over>span{background:#b4554c}
+.v124-progress-label{font-size:7px;color:#6f7b73;margin-top:3px}
+.v124-soil-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.v124-soil-summary div{padding:8px;border-radius:10px;background:#f7f9f7}
+.v124-soil-summary small{display:block;font-size:6.5px;color:#879087}
+.v124-soil-summary strong{display:block;margin-top:4px;font-size:10px}
+.v124-empty{padding:15px;text-align:center;color:#7d887f;font-size:8px;border:1px dashed #dfe5e0;border-radius:12px}
+.v124-status{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:13px;margin-bottom:9px;border:1px solid #dee6df;background:#f8fbf9}
+.v124-status strong{font-size:10px}
+.v124-status small{display:block;margin-top:3px;color:#7e8981;font-size:7.5px}
+.v124-status.closed{background:#f5f5f3;border-color:#deded8}
+.v124-status .pill-v124{padding:5px 8px;border-radius:999px;background:#e8f2eb;color:#2a6942;font-size:7px;font-weight:950}
+.v124-status.closed .pill-v124{background:#e9e9e5;color:#61675f}
+.v124-fin-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.v124-fin-row{padding:9px;border-radius:11px;background:#f8faf8}
+.v124-fin-row small{display:block;font-size:6.8px;color:#879087}
+.v124-fin-row strong{display:block;margin-top:4px;font-size:12px}
+.v124-pendency{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #edf0ed}
+.v124-pendency:last-child{border-bottom:0}
+.v124-pendency strong{font-size:9px}
+.v124-pendency span{font-size:8px;color:#7d877f}
+.v124-close-box{margin-top:11px;padding:12px;border-radius:15px;border:1px solid #dde5df;background:#fafcfb}
+.v124-close-box textarea{min-height:70px}
+.talhao-card .v124-active-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:9px}
+.talhao-card .v124-active-strip div{padding:7px 6px;border-radius:9px;background:#f6f9f7}
+.talhao-card .v124-active-strip small{display:block;font-size:6px;color:#849088}
+.talhao-card .v124-active-strip strong{display:block;margin-top:3px;font-size:8.5px}
+.v124-budget-negative{color:#a7473f!important}
+.v124-budget-positive{color:#247044!important}
+
+@media(max-width:760px){
+  .v124-modal-wide{width:100%!important;max-width:100%!important}
+  .v124-toolbar{align-items:stretch;flex-direction:column}
+  .v124-toolbar .field{min-width:0}
+  .v124-toolbar-actions .btn{flex:1}
+  .v124-metric-grid,.v124-metric-grid.compact{grid-template-columns:1fr 1fr}
+  .v124-two-col{grid-template-columns:1fr}
+  .v124-soil-summary{grid-template-columns:1fr 1fr}
+  .v124-progress{max-width:90px}
+  .talhao-card .v124-active-strip{grid-template-columns:1fr 1fr}
+}
+@media(max-width:390px){
+  .v124-metric-grid,.v124-metric-grid.compact{grid-template-columns:1fr}
+}
+
+
+/* =========================================================
+   V12.6 — GESTÃO COMPLETA
+   ========================================================= */
+.green-v126{background:linear-gradient(180deg,#fff,#f5faf6)!important}
+.red-v126{background:linear-gradient(180deg,#fff,#fdf7f6)!important}
+.search-top-v126{font-size:20px;font-weight:900}
+.v126-kicker{font-size:7px;font-weight:950;letter-spacing:.12em;color:#6e8074;margin-bottom:3px}
+.v126-wide{width:min(980px,96vw)!important;max-width:980px!important}
+.v126-dashboard-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.v126-month-card,.v126-favorites-card{padding:13px;border:1px solid #e3e8e4;border-radius:16px;background:#fff}
+.v126-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.v126-card-head small{display:block;color:#7a867e;font-size:6.5px;font-weight:950;letter-spacing:.1em}
+.v126-card-head strong{display:block;margin-top:3px;font-size:12px}
+.v126-month-badge{padding:5px 8px;border-radius:999px;background:#edf5ef;color:#286a43;font-size:8px;font-weight:950}
+.v126-month-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.v126-month-grid div{padding:8px;border-radius:10px;background:#f7f9f7}
+.v126-month-grid small{display:block;font-size:6px;color:#849088}
+.v126-month-grid strong{display:block;margin-top:4px;font-size:9px}
+.v126-link-btn{border:0;background:transparent;color:#276642;font-size:7.5px;font-weight:900;cursor:pointer}
+.v126-fav-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.v126-fav{border:1px solid #e2e7e3;border-radius:11px;padding:8px;background:#fafcfb;text-align:left;cursor:pointer}
+.v126-fav span{display:block;font-size:13px}
+.v126-fav strong{display:block;margin-top:5px;font-size:7.5px}
+.v126-fav-picker{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.v126-fav-option{display:flex;align-items:center;gap:9px;padding:10px;border:1px solid #e0e6e1;border-radius:12px;cursor:pointer}
+.v126-fav-option.active{border-color:#76a184;background:#f0f6f2}
+.v126-fav-option .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#eef4ef;font-weight:950}
+.v126-fav-option strong{font-size:9px}
+.v126-search-wrap{position:relative}
+.v126-search-wrap input{width:100%;padding-right:40px!important}
+.v126-search-wrap>span{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:17px;color:#768078}
+.v126-search-wrap.compact{min-width:260px;flex:1}
+.v126-search-results{display:grid;gap:7px;max-height:65vh;overflow:auto}
+.v126-search-item{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #e2e6e3;border-radius:12px;background:#fff;cursor:pointer;text-align:left;width:100%}
+.v126-search-item:hover{background:#f7faf8}
+.v126-search-item .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#eef4ef;flex:0 0 auto}
+.v126-search-item .main{flex:1;min-width:0}
+.v126-search-item strong{display:block;font-size:9.5px}
+.v126-search-item small{display:block;margin-top:3px;font-size:7.5px;color:#808a83;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v126-search-item .type{padding:4px 7px;border-radius:999px;background:#f0f2f0;font-size:6px;font-weight:900;color:#6b756e}
+.v126-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.v126-stock-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.v126-stock-card{padding:12px;border:1px solid #e2e7e3;border-radius:14px;background:#fff}
+.v126-stock-card.low{border-color:#ebd7bf;background:#fffaf4}
+.v126-stock-card .top{display:flex;justify-content:space-between;gap:8px}
+.v126-stock-card h4{font-size:11px;margin:0}
+.v126-stock-card .cat{display:block;margin-top:3px;font-size:7px;color:#818b84}
+.v126-stock-card .saldo{font-size:17px;font-weight:950;color:#245d3a}
+.v126-stock-card .stats{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:9px}
+.v126-stock-card .stats div{padding:7px;border-radius:9px;background:#f7f9f7}
+.v126-stock-card .stats small{display:block;font-size:6px;color:#879087}
+.v126-stock-card .stats strong{display:block;margin-top:3px;font-size:8.5px}
+.v126-stock-info{margin-top:10px;padding:9px;border-radius:10px;background:#f5f8f5;color:#59645c;font-size:8px}
+.v126-info-box{padding:10px;border-radius:12px;background:#f7f9f7;border:1px solid #e2e7e3;color:#657168;font-size:8px;line-height:1.45}
+.v126-trend{font-weight:950}
+.v126-trend.up{color:#277247}
+.v126-trend.down{color:#a64d45}
+.v126-trend.flat{color:#7d877f}
+.v126-tabs{display:flex;gap:6px;margin-bottom:10px;padding:5px;background:#f1f4f2;border-radius:11px}
+.v126-tabs button{flex:1;border:0;border-radius:8px;padding:8px;background:transparent;font-size:8px;font-weight:900;color:#68736b;cursor:pointer}
+.v126-tabs button.active{background:#fff;color:#245d3a;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.v126-trash-list,.v126-activity-list{display:grid;gap:7px;max-height:62vh;overflow:auto}
+.v126-trash-item,.v126-activity-item{display:flex;align-items:flex-start;gap:9px;padding:10px;border:1px solid #e2e7e3;border-radius:12px;background:#fff}
+.v126-trash-item .main,.v126-activity-item .main{flex:1;min-width:0}
+.v126-trash-item strong,.v126-activity-item strong{display:block;font-size:9px}
+.v126-trash-item small,.v126-activity-item small{display:block;margin-top:3px;color:#7f8982;font-size:7.5px;line-height:1.4}
+.v126-trash-actions{display:flex;gap:5px}
+.v126-activity-dot{width:9px;height:9px;border-radius:50%;background:#4b7e5d;margin-top:4px}
+.v126-pdf-note{font-size:7px;color:#7c867f}
+@media(max-width:760px){
+  .v126-dashboard-row{grid-template-columns:1fr}
+  .v126-month-grid{grid-template-columns:1fr 1fr}
+  .v126-fav-grid{grid-template-columns:repeat(3,1fr)}
+  .v126-wide{width:100%!important;max-width:100%!important}
+  .v126-toolbar{align-items:stretch;flex-direction:column}
+  .v126-search-wrap.compact{min-width:0}
+  .v126-stock-grid{grid-template-columns:1fr}
+  .v126-fav-picker{grid-template-columns:1fr}
+}
+
 </style>
   <link rel="stylesheet" href="./assistant-v123.css?v=12.3-ajuda">
 </head>
@@ -2197,8 +2355,8 @@ input,select,textarea{
 
 <div class="app">
 <header class="topbar"><div class="topbar-inner">
-  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.3</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
-  <div class="user-menu"><div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.6</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
+  <div class="user-menu"><button class="icon-btn search-top-v126" onclick="abrirBuscaGlobalV126()" aria-label="Buscar no app" title="Buscar no app">⌕</button><div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
 </div></header>
 
 <section id="tab-resumo">
@@ -2231,7 +2389,31 @@ input,select,textarea{
     <div class="metric"><div class="metric-top"><div class="metric-icon">☕</div><div class="metric-label">Produção</div></div><div class="metric-value" id="mProducao">0 sc</div><div class="metric-note">sacas registradas</div></div>
   </div>
 
-  <div class="safra-insights">
+  
+  <div class="v126-dashboard-row">
+    <div class="v126-month-card">
+      <div class="v126-card-head">
+        <div><small>RESUMO DO MÊS</small><strong id="v126MesTitulo">Mês atual</strong></div>
+        <span id="v126MesSaldo" class="v126-month-badge">R$ 0,00</span>
+      </div>
+      <div class="v126-month-grid">
+        <div><small>Receitas</small><strong id="v126MesReceitas">R$ 0,00</strong></div>
+        <div><small>Despesas</small><strong id="v126MesDespesas">R$ 0,00</strong></div>
+        <div><small>Recebido</small><strong id="v126MesRecebido">R$ 0,00</strong></div>
+        <div><small>Pago</small><strong id="v126MesPago">R$ 0,00</strong></div>
+      </div>
+    </div>
+
+    <div class="v126-favorites-card">
+      <div class="v126-card-head">
+        <div><small>ATALHOS</small><strong>Favoritos</strong></div>
+        <button class="v126-link-btn" onclick="abrirFavoritosV126()">Editar</button>
+      </div>
+      <div id="favoritosHomeV126" class="v126-fav-grid"></div>
+    </div>
+  </div>
+
+<div class="safra-insights">
     <div class="insight stock">
       <small>Estoque total de café</small>
       <strong id="iEstoque">0,00 sc</strong>
@@ -2741,6 +2923,8 @@ input,select,textarea{
     <div class="worker-report-note">*Médias simples apenas dos valores informados. A interpretação agronômica depende do método do laboratório, solo, cultura e recomendação técnica.</div>
   </div>
 
+<div class="section-head no-print"><h3 class="section-title">Exportar</h3></div><div class="card card-pad no-print"><div class="btnrow"><button class="btn primary" onclick="abrirRelatorioPDFV126()">Gerar relatório PDF</button></div><div class="section-note" style="margin-top:8px">Gere um resumo profissional de safra, financeiro, talhões, colhedores, insumos ou solo.</div></div>
+
 <div class="section-head no-print"><h3 class="section-title">Backup</h3></div>
   <div class="card card-pad no-print"><div class="btnrow"><button class="btn secondary" onclick="baixarBackup()">Baixar backup JSON</button><button class="btn secondary" onclick="importBackup.click()">Importar backup</button><input id="importBackup" type="file" accept=".json,application/json" class="hidden" onchange="importarBackup(event)"></div><div class="section-note" style="margin-top:10px">Os dados também ficam sincronizados no Firebase.</div></div>
 </section>
@@ -2791,6 +2975,13 @@ input,select,textarea{
           <div class="btnrow"><button class="btn primary" onclick="abrirSafras()">Gerenciar</button></div>
         </div>
 
+        <div class="cadastro-card green-v124">
+          <div class="cadastro-card-top"><div class="cadastro-icon">▤</div><div class="cadastro-count" id="pFechamentosV124">0<small>fechadas</small></div></div>
+          <h3>Gestão da safra</h3>
+          <p>Veja o resultado completo da safra e faça o fechamento com um resumo consolidado.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirGestaoSafraV124()">Resumo / fechamento</button></div>
+        </div>
+
         <div class="cadastro-card">
           <div class="cadastro-card-top"><div class="cadastro-icon">⌂</div><div class="cadastro-count" id="pTalhoes">0<small>cadastrados</small></div></div>
           <h3>Talhões</h3>
@@ -2809,6 +3000,13 @@ input,select,textarea{
             <button class="btn primary" onclick="abrirAnaliseSolo()">+ Nova</button>
             <button class="btn secondary" onclick="abrirGerenciadorSolo()">Gerenciar</button>
           </div>
+        </div>
+
+        <div class="cadastro-card green-v126">
+          <div class="cadastro-card-top"><div class="cadastro-icon">▣</div><div class="cadastro-count" id="pInsumosV126">0<small>produtos</small></div></div>
+          <h3>Estoque de insumos</h3>
+          <p>Adubos, defensivos, biológicos, sacaria e outros materiais com entrada, saída e custo médio.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirEstoqueInsumosV126()">Gerenciar</button></div>
         </div>
       </div>
     </div>
@@ -2851,6 +3049,13 @@ input,select,textarea{
           <div class="btnrow"><button class="btn primary" onclick="abrirRecorrenciasV122()">Gerenciar</button></div>
         </div>
 
+        <div class="cadastro-card green-v124">
+          <div class="cadastro-card-top"><div class="cadastro-icon">R$</div><div class="cadastro-count" id="pOrcamentosV124">0<small>itens orçados</small></div></div>
+          <h3>Orçamento da safra</h3>
+          <p>Planeje despesas por categoria e compare o orçamento com o gasto real.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirOrcamentoV124()">Gerenciar orçamento</button></div>
+        </div>
+
         <div class="cadastro-card coffee">
           <div class="cadastro-card-top"><div class="cadastro-icon">☕</div><div class="cadastro-count" id="pCotacao">R$ 80<small>ajuste regional</small></div></div>
           <h3>Cotação do café</h3>
@@ -2881,7 +3086,14 @@ input,select,textarea{
           <h3>Dados e backup</h3>
           <p>Faça uma cópia dos dados ou restaure um arquivo salvo.</p>
           <div class="btnrow"><button class="btn secondary" onclick="baixarBackup()">Baixar backup</button><button class="btn secondary" onclick="document.getElementById('importBackup').click()">Importar</button></div>
+        
+        <div class="cadastro-card red-v126">
+          <div class="cadastro-card-top"><div class="cadastro-icon">↺</div><div class="cadastro-count" id="pLixeiraV126">0<small>na lixeira</small></div></div>
+          <h3>Lixeira e atividade</h3>
+          <p>Recupere registros excluídos e consulte ações importantes feitas no aplicativo.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirLixeiraV126()">Abrir</button></div>
         </div>
+</div>
       </div>
     </div>
   </div>
@@ -3451,6 +3663,228 @@ input,select,textarea{
   <div class="btnrow" style="margin-top:12px"><button class="btn primary" onclick="salvarRecorrenciaV122()">Salvar recorrência</button><button class="btn secondary" onclick="limparRecorrenciaV122()">Limpar</button><button class="btn secondary" onclick="gerarRecorrenciasManualV122()">Gerar próximas</button></div>
   <div class="section-head" style="margin-top:16px"><div><h3 class="section-title" style="font-size:14px">Cadastradas</h3><div class="section-note">O app cria lançamentos futuros automaticamente</div></div></div>
   <div id="listaRecorrenciasV122" class="v122-rec-list"></div>
+</div></div>
+
+
+<!-- V12.4 — Ficha completa do talhão -->
+<div id="modalFichaTalhaoV124" class="modal hidden"><div class="modal-card v124-modal-wide">
+  <div class="modal-head">
+    <div><div class="v124-kicker">GESTÃO POR TALHÃO</div><h3 id="fichaTalhaoTituloV124">Ficha do talhão</h3></div>
+    <button class="close" onclick="fecharModal('modalFichaTalhaoV124')">✕</button>
+  </div>
+  <input id="fichaTalhaoIdV124" type="hidden">
+  <div class="v124-toolbar">
+    <div class="field"><label>Período</label><select id="fichaTalhaoSafraV124" onchange="renderFichaTalhaoV124()"><option value="todos">Todas as safras</option></select></div>
+    <div class="v124-toolbar-actions">
+      <button class="btn secondary" onclick="abrirAnaliseFichaTalhaoV124()">+ Análise de solo</button>
+      <button class="btn secondary" onclick="editarTalhaoFichaV124()">Editar talhão</button>
+    </div>
+  </div>
+  <div id="fichaTalhaoResumoV124" class="v124-hero-card"></div>
+  <div id="fichaTalhaoMetricasV124" class="v124-metric-grid"></div>
+
+  <div class="v124-two-col">
+    <div class="v124-panel">
+      <div class="v124-panel-head"><div><strong>Custos por categoria</strong><small>Despesas registradas no período selecionado</small></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Categoria</th><th class="num">Valor</th><th class="num">%</th></tr></thead><tbody id="fichaTalhaoCategoriasV124"></tbody></table></div>
+    </div>
+    <div class="v124-panel">
+      <div class="v124-panel-head"><div><strong>Análise de solo</strong><small>Último laudo cadastrado para o talhão</small></div></div>
+      <div id="fichaTalhaoSoloV124"></div>
+    </div>
+  </div>
+
+  <div class="v124-panel" style="margin-top:10px">
+    <div class="v124-panel-head"><div><strong>Histórico por safra</strong><small>Produção, custo e resultado do talhão</small></div></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Safra</th><th class="num">Produção</th><th class="num">Produtividade</th><th class="num">Custos</th><th class="num">Custo/sc</th><th class="num">Receitas</th><th class="num">Resultado</th></tr></thead>
+      <tbody id="fichaTalhaoHistoricoV124"></tbody>
+    </table></div>
+  </div>
+</div></div>
+
+<!-- V12.4 — Orçamento da safra -->
+<div id="modalOrcamentoV124" class="modal hidden"><div class="modal-card v124-modal-wide">
+  <div class="modal-head">
+    <div><div class="v124-kicker">PLANEJAMENTO</div><h3>Orçamento da safra</h3></div>
+    <button class="close" onclick="fecharModal('modalOrcamentoV124')">✕</button>
+  </div>
+
+  <div class="v124-toolbar">
+    <div class="field"><label>Safra</label><select id="orcSafraV124" onchange="renderOrcamentoV124()"></select></div>
+    <div class="v124-toolbar-actions"><button class="btn secondary" onclick="novoOrcamentoV124()">+ Novo item</button></div>
+  </div>
+
+  <div id="orcResumoV124" class="v124-metric-grid compact"></div>
+
+  <div class="v124-panel v124-budget-form">
+    <input id="orcIdV124" type="hidden">
+    <div class="grid2">
+      <div class="field"><label>Categoria de despesa</label><select id="orcCategoriaV124"></select></div>
+      <div class="field"><label>Valor orçado</label><input id="orcValorV124" type="number" min="0" step="0.01" placeholder="0,00"></div>
+    </div>
+    <div class="field" style="margin-top:8px"><label>Observação</label><input id="orcObsV124" placeholder="Ex.: previsão de adubação para toda a safra"></div>
+    <div class="btnrow" style="margin-top:10px">
+      <button class="btn primary" onclick="salvarOrcamentoV124()">Salvar item</button>
+      <button class="btn secondary" onclick="novoOrcamentoV124()">Limpar</button>
+    </div>
+  </div>
+
+  <div class="v124-panel" style="margin-top:10px">
+    <div class="v124-panel-head"><div><strong>Orçado x gasto</strong><small>O gasto considera as despesas registradas na safra; o pago considera as baixas financeiras.</small></div></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Categoria</th><th class="num">Orçado</th><th class="num">Gasto</th><th class="num">Pago</th><th class="num">Saldo</th><th>Uso</th><th></th></tr></thead>
+      <tbody id="orcTabelaV124"></tbody>
+    </table></div>
+  </div>
+</div></div>
+
+<!-- V12.4 — Gestão / fechamento de safra -->
+<div id="modalGestaoSafraV124" class="modal hidden"><div class="modal-card v124-modal-wide">
+  <div class="modal-head">
+    <div><div class="v124-kicker">RESULTADO DA SAFRA</div><h3 id="gestaoSafraTituloV124">Gestão da safra</h3></div>
+    <button class="close" onclick="fecharModal('modalGestaoSafraV124')">✕</button>
+  </div>
+
+  <div class="v124-toolbar">
+    <div class="field"><label>Safra</label><select id="gestaoSafraSelectV124" onchange="renderGestaoSafraV124()"></select></div>
+    <div class="v124-toolbar-actions">
+      <button class="btn secondary" onclick="abrirOrcamentoDaGestaoV124()">Ver orçamento</button>
+      <button class="btn secondary" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+
+  <div id="gestaoSafraStatusV124"></div>
+  <div id="gestaoSafraMetricasV124" class="v124-metric-grid"></div>
+
+  <div class="v124-two-col">
+    <div class="v124-panel">
+      <div class="v124-panel-head"><div><strong>Financeiro</strong><small>Competência e caixa realizado</small></div></div>
+      <div id="gestaoSafraFinanceiroV124"></div>
+    </div>
+    <div class="v124-panel">
+      <div class="v124-panel-head"><div><strong>Pendências</strong><small>Itens que ainda merecem atenção</small></div></div>
+      <div id="gestaoSafraPendenciasV124"></div>
+    </div>
+  </div>
+
+  <div class="v124-panel" style="margin-top:10px">
+    <div class="v124-panel-head"><div><strong>Desempenho por talhão</strong><small>Produção e resultado dentro da safra</small></div></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Talhão</th><th class="num">Área</th><th class="num">Produção</th><th class="num">sc/ha</th><th class="num">Custos</th><th class="num">Custo/sc</th><th class="num">Receitas</th><th class="num">Resultado</th></tr></thead>
+      <tbody id="gestaoSafraTalhoesV124"></tbody>
+    </table></div>
+  </div>
+
+  <div id="gestaoSafraFechamentoBoxV124" class="v124-close-box">
+    <div class="field"><label>Observação de fechamento</label><textarea id="gestaoSafraObsV124" placeholder="Ex.: safra encerrada após conferência do estoque, contas e produção."></textarea></div>
+    <div class="btnrow">
+      <button id="btnFecharSafraV124" class="btn primary" onclick="confirmarFechamentoSafraV124()">Fechar safra</button>
+      <button id="btnReabrirSafraV124" class="btn secondary hidden" onclick="reabrirSafraV124()">Reabrir safra</button>
+    </div>
+  </div>
+</div></div>
+
+
+<!-- V12.6 — Busca global -->
+<div id="modalBuscaGlobalV126" class="modal hidden"><div class="modal-card v126-wide">
+  <div class="modal-head"><div><div class="v126-kicker">BUSCA GERAL</div><h3>Buscar no aplicativo</h3></div><button class="close" onclick="fecharModal('modalBuscaGlobalV126')">✕</button></div>
+  <div class="v126-search-wrap">
+    <input id="buscaGlobalV126" type="search" placeholder="Ex.: João, adubo, Talhão 2, venda, lote..." oninput="renderBuscaGlobalV126()">
+    <span>⌕</span>
+  </div>
+  <div id="buscaGlobalResumoV126" class="section-note" style="margin:8px 0"></div>
+  <div id="buscaGlobalResultadosV126" class="v126-search-results"></div>
+</div></div>
+
+<!-- V12.6 — Favoritos -->
+<div id="modalFavoritosV126" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><div><div class="v126-kicker">ATALHOS</div><h3>Escolher favoritos</h3></div><button class="close" onclick="fecharModal('modalFavoritosV126')">✕</button></div>
+  <div class="section-note">Escolha até 6 atalhos para aparecerem no painel inicial.</div>
+  <div id="listaFavoritosV126" class="v126-fav-picker"></div>
+</div></div>
+
+<!-- V12.6 — Estoque de insumos -->
+<div id="modalInsumosV126" class="modal hidden"><div class="modal-card v126-wide">
+  <div class="modal-head"><div><div class="v126-kicker">ESTOQUE</div><h3>Insumos e materiais</h3></div><button class="close" onclick="fecharModal('modalInsumosV126')">✕</button></div>
+
+  <div class="v126-toolbar">
+    <div class="v126-search-wrap compact"><input id="filtroInsumosV126" type="search" placeholder="Buscar produto..." oninput="renderInsumosV126()"><span>⌕</span></div>
+    <div class="btnrow"><button class="btn secondary" onclick="abrirMovimentoInsumoV126()">+ Movimentação</button><button class="btn primary" onclick="abrirCadastroInsumoV126()">+ Produto</button></div>
+  </div>
+
+  <div id="resumoInsumosV126" class="v124-metric-grid compact"></div>
+  <div id="listaInsumosV126" class="v126-stock-grid"></div>
+</div></div>
+
+<div id="modalCadastroInsumoV126" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3 id="tituloInsumoV126">Novo insumo</h3><button class="close" onclick="fecharModal('modalCadastroInsumoV126')">✕</button></div>
+  <input id="insumoIdV126" type="hidden">
+  <div class="grid2">
+    <div class="field"><label>Produto</label><input id="insumoNomeV126" placeholder="Ex.: Nitrato de cálcio"></div>
+    <div class="field"><label>Categoria</label><select id="insumoCategoriaV126"><option>Adubo / Fertilizantes</option><option>Defensivos</option><option>Biológicos</option><option>Corretivos</option><option>Combustível</option><option>Sacaria / Embalagens</option><option>Peças / Reposição</option><option>Outros</option></select></div>
+    <div class="field"><label>Unidade</label><select id="insumoUnidadeV126"><option value="kg">kg</option><option value="L">L</option><option value="un">un</option><option value="saco">saco</option><option value="caixa">caixa</option><option value="m">m</option></select></div>
+    <div class="field"><label>Estoque mínimo</label><input id="insumoMinimoV126" type="number" step="0.01" min="0" placeholder="0"></div>
+  </div>
+  <div class="field" style="margin-top:8px"><label>Observação</label><textarea id="insumoObsV126" placeholder="Opcional"></textarea></div>
+  <div class="btnrow" style="margin-top:12px"><button class="btn secondary" onclick="fecharModal('modalCadastroInsumoV126')">Cancelar</button><button class="btn primary" onclick="salvarInsumoV126()">Salvar produto</button></div>
+</div></div>
+
+<div id="modalMovInsumoV126" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><h3>Movimentar estoque</h3><button class="close" onclick="fecharModal('modalMovInsumoV126')">✕</button></div>
+  <div class="grid2">
+    <div class="field"><label>Produto</label><select id="movInsumoIdV126"></select></div>
+    <div class="field"><label>Tipo</label><select id="movTipoV126" onchange="ajustarMovInsumoV126()"><option value="entrada">Entrada / compra</option><option value="saida">Saída / uso</option><option value="ajuste">Ajuste de estoque</option></select></div>
+    <div class="field"><label>Data</label><input id="movDataV126" type="date"></div>
+    <div class="field"><label>Quantidade</label><input id="movQtdV126" type="number" step="0.01" min="0" placeholder="0"></div>
+    <div class="field" id="movCustoFieldV126"><label>Custo unitário</label><input id="movCustoV126" type="number" step="0.01" min="0" placeholder="0,00"></div>
+    <div class="field"><label>Talhão / destino</label><select id="movTalhaoV126"><option value="">Geral / sem talhão</option></select></div>
+  </div>
+  <div class="field" style="margin-top:8px"><label>Observação</label><input id="movObsV126" placeholder="Ex.: aplicação no Talhão 2"></div>
+  <div id="movSaldoInfoV126" class="v126-stock-info"></div>
+  <div class="btnrow" style="margin-top:12px"><button class="btn secondary" onclick="fecharModal('modalMovInsumoV126')">Cancelar</button><button class="btn primary" onclick="salvarMovInsumoV126()">Salvar movimentação</button></div>
+</div></div>
+
+<div id="modalHistoricoInsumoV126" class="modal hidden"><div class="modal-card v126-wide">
+  <div class="modal-head"><div><div class="v126-kicker">MOVIMENTAÇÕES</div><h3 id="histInsumoTituloV126">Histórico do produto</h3></div><button class="close" onclick="fecharModal('modalHistoricoInsumoV126')">✕</button></div>
+  <input id="histInsumoIdV126" type="hidden">
+  <div id="histInsumoResumoV126" class="v124-metric-grid compact"></div>
+  <div class="table-wrap"><table><thead><tr><th>Data</th><th>Tipo</th><th class="num">Quantidade</th><th class="num">Custo un.</th><th>Talhão</th><th>Observação</th></tr></thead><tbody id="histInsumoTabelaV126"></tbody></table></div>
+</div></div>
+
+<!-- V12.6 — Comparação solo -->
+<div id="modalCompararSoloV126" class="modal hidden"><div class="modal-card v126-wide">
+  <div class="modal-head"><div><div class="v126-kicker">EVOLUÇÃO DO SOLO</div><h3 id="compSoloTituloV126">Comparar análises</h3></div><button class="close" onclick="fecharModal('modalCompararSoloV126')">✕</button></div>
+  <div class="grid2">
+    <div class="field"><label>Análise anterior</label><select id="compSoloA_V126" onchange="renderComparacaoSoloV126()"></select></div>
+    <div class="field"><label>Análise mais recente</label><select id="compSoloB_V126" onchange="renderComparacaoSoloV126()"></select></div>
+  </div>
+  <div id="compSoloAvisoV126" class="v126-info-box"></div>
+  <div class="table-wrap" style="margin-top:10px"><table><thead><tr><th>Indicador</th><th class="num">Anterior</th><th class="num">Atual</th><th class="num">Variação</th><th>Tendência</th></tr></thead><tbody id="compSoloTabelaV126"></tbody></table></div>
+</div></div>
+
+<!-- V12.6 — Lixeira e atividade -->
+<div id="modalLixeiraV126" class="modal hidden"><div class="modal-card v126-wide">
+  <div class="modal-head"><div><div class="v126-kicker">SEGURANÇA</div><h3>Lixeira e atividade</h3></div><button class="close" onclick="fecharModal('modalLixeiraV126')">✕</button></div>
+  <div class="v126-tabs">
+    <button id="tabLixeiraBtnV126" class="active" onclick="trocarPainelLixeiraV126('lixeira')">Lixeira</button>
+    <button id="tabAtividadeBtnV126" onclick="trocarPainelLixeiraV126('atividade')">Atividade recente</button>
+  </div>
+  <div id="painelLixeiraV126">
+    <div class="section-note" style="margin-bottom:8px">Os registros ficam aqui até você restaurar ou apagar definitivamente.</div>
+    <div id="listaLixeiraV126" class="v126-trash-list"></div>
+  </div>
+  <div id="painelAtividadeV126" class="hidden">
+    <div id="listaAtividadeV126" class="v126-activity-list"></div>
+  </div>
+</div></div>
+
+<!-- V12.6 — PDF -->
+<div id="modalRelatorioPDFV126" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><div><div class="v126-kicker">RELATÓRIO</div><h3>Gerar PDF</h3></div><button class="close" onclick="fecharModal('modalRelatorioPDFV126')">✕</button></div>
+  <div class="field"><label>Tipo de relatório</label><select id="pdfTipoV126"><option value="safra">Resumo da safra</option><option value="financeiro">Financeiro</option><option value="talhoes">Talhões</option><option value="colhedores">Colhedores</option><option value="insumos">Estoque de insumos</option><option value="solo">Análises de solo</option></select></div>
+  <div class="field" style="margin-top:8px"><label>Safra</label><select id="pdfSafraV126"><option value="todos">Todas as safras</option></select></div>
+  <div class="btnrow" style="margin-top:12px"><button class="btn secondary" onclick="fecharModal('modalRelatorioPDFV126')">Cancelar</button><button class="btn primary" onclick="gerarPDFV126()">Gerar PDF</button></div>
 </div></div>
 
 <div id="toast" class="toast hidden"></div>
@@ -10002,6 +10436,1099 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 </script>
 
+
+<script>
+/* =========================================================
+   FINANCEIRO DO SÍTIO V12.4
+   Gestão por talhão • Fechamento de safra • Orçamento
+   ========================================================= */
+
+function garantirEstruturaV124(){
+  garantirEstruturaV122();
+  if(!Array.isArray(estado.orcamentosSafra)) estado.orcamentosSafra=[];
+  if(!Array.isArray(estado.fechamentosSafra)) estado.fechamentosSafra=[];
+  estado.orcamentosSafra.forEach(o=>{
+    o.valor=Number(o.valor||0);
+    if(!o.tipo) o.tipo="despesa";
+  });
+}
+
+function listaCategoriasDespesaV124(){
+  garantirEstruturaV124();
+  const base=[...(estado.categorias?.despesa||[]),...(typeof categoriasDespesa!=="undefined"?categoriasDespesa:[])];
+  return [...new Set(base.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pt-BR"));
+}
+
+function somaV124(xs,campo="valor"){
+  return xs.reduce((s,x)=>s+Number(x?.[campo]||0),0);
+}
+
+function baixaTotalDoLancamentoV124(l){
+  return typeof valorPagoLancamentoV122==="function" ? valorPagoLancamentoV122(l) : (l.status==="pago"?Number(l.valor||0):0);
+}
+
+function lancamentosSafraV124(safraId,tipo=null,talhaoId=null){
+  return estado.lancamentos.filter(l=>
+    (!safraId||safraId==="todos"||l.safraId===safraId)&&
+    (!tipo||l.tipo===tipo)&&
+    (!talhaoId||l.talhaoId===talhaoId)
+  );
+}
+
+function producaoSafraV124(safraId,talhaoId=null){
+  return somaV124(estado.colheitas.filter(c=>
+    (!safraId||safraId==="todos"||c.safraId===safraId)&&
+    (!talhaoId||c.talhaoId===talhaoId)
+  ),"sacas");
+}
+
+function vendasSafraV124(safraId,talhaoId=null){
+  return estado.vendas.filter(v=>
+    (!safraId||safraId==="todos"||v.safraId===safraId)&&
+    (!talhaoId||v.talhaoId===talhaoId)
+  );
+}
+
+function financeiroPeriodoV124(safraId,talhaoId=null){
+  const receitas=lancamentosSafraV124(safraId,"receita",talhaoId);
+  const despesas=lancamentosSafraV124(safraId,"despesa",talhaoId);
+  return{
+    receitas:somaV124(receitas),
+    despesas:somaV124(despesas),
+    recebido:receitas.reduce((s,l)=>s+baixaTotalDoLancamentoV124(l),0),
+    pago:despesas.reduce((s,l)=>s+baixaTotalDoLancamentoV124(l),0),
+    receitasLista:receitas,
+    despesasLista:despesas
+  };
+}
+
+function metricV124(label,valor,sub="",classe=""){
+  return `<div class="v124-metric ${classe}"><small>${esc(label)}</small><strong>${valor}</strong>${sub?`<span>${sub}</span>`:""}</div>`;
+}
+
+function preencherSelectSafrasV124(el,comTodos=false,valorPreferido=""){
+  if(!el)return;
+  garantirEstruturaV124();
+  const safras=estado.safras.slice().sort((a,b)=>Number(b.ano||0)-Number(a.ano||0));
+  el.innerHTML=(comTodos?`<option value="todos">Todas as safras</option>`:"")+
+    safras.map(s=>`<option value="${s.id}">${esc(s.nome)}${s.fechada?" (fechada)":""}</option>`).join("");
+  const alvo=valorPreferido||estado.safraAtivaId||(comTodos?"todos":safras[0]?.id||"");
+  if([...el.options].some(o=>o.value===alvo))el.value=alvo;
+}
+
+function safraNomeV124(id){
+  return estado.safras.find(s=>s.id===id)?.nome||"Safra";
+}
+
+/* ---------------------------------------------------------
+   FICHA COMPLETA DO TALHÃO
+   --------------------------------------------------------- */
+function resumoTalhaoV124(talhaoId,safraId="todos"){
+  const t=estado.talhoes.find(x=>x.id===talhaoId);
+  if(!t)return null;
+  const fin=financeiroPeriodoV124(safraId,talhaoId);
+  const producao=producaoSafraV124(safraId,talhaoId);
+  const vendas=vendasSafraV124(safraId,talhaoId);
+  const sacasVendidas=somaV124(vendas,"sacas");
+  const valorVendas=somaV124(vendas,"total");
+  const area=Number(t.area||0),plantas=Number(t.plantas||0);
+  const produtividade=area>0?producao/area:0;
+  const custoSaca=producao>0?fin.despesas/producao:0;
+  const custoHa=area>0?fin.despesas/area:0;
+  const custoPlanta=plantas>0?fin.despesas/plantas:0;
+  const resultado=fin.receitas-fin.despesas;
+  return{t,fin,producao,vendas,sacasVendidas,valorVendas,area,plantas,produtividade,custoSaca,custoHa,custoPlanta,resultado};
+}
+
+window.abrirFichaTalhaoV124=function(id,safraId=""){
+  garantirEstruturaV124();
+  const t=estado.talhoes.find(x=>x.id===id);
+  if(!t)return;
+  $("fichaTalhaoIdV124").value=id;
+  $("fichaTalhaoTituloV124").textContent=t.nome||"Ficha do talhão";
+  preencherSelectSafrasV124($("fichaTalhaoSafraV124"),true,safraId||estado.safraAtivaId||"todos");
+  renderFichaTalhaoV124();
+  abrirModal("modalFichaTalhaoV124");
+};
+
+window.renderFichaTalhaoV124=function(){
+  garantirEstruturaV124();
+  const id=$("fichaTalhaoIdV124").value,safraId=$("fichaTalhaoSafraV124").value||"todos";
+  const r=resumoTalhaoV124(id,safraId);if(!r)return;
+  const {t,fin,producao,sacasVendidas,area,plantas,produtividade,custoSaca,custoHa,custoPlanta,resultado}=r;
+  const periodo=safraId==="todos"?"Todas as safras":safraNomeV124(safraId);
+
+  $("fichaTalhaoResumoV124").innerHTML=`<div class="v124-hero-top"><div><h4>${esc(t.nome)}</h4><small>${esc(t.variedade||"Variedade não informada")} • ${num(area)} ha • ${plantas.toLocaleString("pt-BR")} plantas</small></div><span class="badge">${esc(periodo)}</span></div>`;
+  $("fichaTalhaoMetricasV124").innerHTML=[
+    metricV124("Produção",`${num(producao)} sc`,area?`${num(produtividade,1)} sc/ha`:"Área não informada"),
+    metricV124("Custos",moeda(fin.despesas),`${moeda(custoHa)} / ha`),
+    metricV124("Custo por saca",moeda(custoSaca),`${moeda(custoPlanta)} / planta`),
+    metricV124("Resultado",moeda(resultado),`${moeda(fin.receitas)} em receitas`,resultado>=0?"good":"bad"),
+    metricV124("Receitas",moeda(fin.receitas),`${moeda(fin.recebido)} já recebido`),
+    metricV124("Despesas pagas",moeda(fin.pago),`${moeda(Math.max(0,fin.despesas-fin.pago))} ainda em aberto`),
+    metricV124("Sacas vendidas",`${num(sacasVendidas)} sc`,`Produção do período: ${num(producao)} sc`),
+    metricV124("Plantas",plantas.toLocaleString("pt-BR"),area?`${Math.round(plantas/area).toLocaleString("pt-BR")} plantas/ha`:"")
+  ].join("");
+
+  const cats={};
+  fin.despesasLista.forEach(l=>cats[l.categoria||"Sem categoria"]=(cats[l.categoria||"Sem categoria"]||0)+Number(l.valor||0));
+  const ce=Object.entries(cats).sort((a,b)=>b[1]-a[1]);
+  $("fichaTalhaoCategoriasV124").innerHTML=ce.length
+    ?ce.map(([c,v])=>`<tr><td>${esc(c)}</td><td class="num">${moeda(v)}</td><td class="num">${fin.despesas?num(v/fin.despesas*100,1):"0,0"}%</td></tr>`).join("")
+    :`<tr><td colspan="3">Sem despesas vinculadas ao talhão no período.</td></tr>`;
+
+  const solo=ultimaAnaliseTalhao(id);
+  $("fichaTalhaoSoloV124").innerHTML=solo
+    ?`<div class="v124-soil-summary">
+        <div><small>Data</small><strong>${dataBR(solo.data)}</strong></div>
+        <div><small>pH</small><strong>${fmtSolo(solo.ph)}</strong></div>
+        <div><small>P</small><strong>${fmtSolo(solo.p)}</strong></div>
+        <div><small>K</small><strong>${fmtSolo(solo.k)}</strong></div>
+        <div><small>Ca</small><strong>${fmtSolo(solo.ca)}</strong></div>
+        <div><small>Mg</small><strong>${fmtSolo(solo.mg)}</strong></div>
+        <div><small>V%</small><strong>${fmtSolo(solo.v)}</strong></div>
+        <div><small>Profundidade</small><strong>${esc(solo.profundidade||"—")}</strong></div>
+      </div>
+      <div class="section-note" style="margin-top:8px">${solo.laboratorio?`Laboratório: ${esc(solo.laboratorio)}`:"Laboratório não informado"}</div>`
+    :`<div class="v124-empty">Nenhuma análise de solo cadastrada para este talhão.</div>`;
+
+  const safras=estado.safras.slice().sort((a,b)=>Number(b.ano||0)-Number(a.ano||0));
+  $("fichaTalhaoHistoricoV124").innerHTML=safras.length
+    ?safras.map(s=>{
+      const x=resumoTalhaoV124(id,s.id);
+      if(!x)return"";
+      return `<tr><td>${esc(s.nome)}</td><td class="num">${num(x.producao)} sc</td><td class="num">${num(x.produtividade,1)} sc/ha</td><td class="num">${moeda(x.fin.despesas)}</td><td class="num">${moeda(x.custoSaca)}</td><td class="num">${moeda(x.fin.receitas)}</td><td class="num">${moeda(x.resultado)}</td></tr>`;
+    }).join("")
+    :`<tr><td colspan="7">Nenhuma safra cadastrada.</td></tr>`;
+};
+
+window.abrirAnaliseFichaTalhaoV124=function(){
+  const id=$("fichaTalhaoIdV124").value;
+  fecharModal("modalFichaTalhaoV124");
+  setTimeout(()=>abrirAnaliseSolo("",id),50);
+};
+window.editarTalhaoFichaV124=function(){
+  const id=$("fichaTalhaoIdV124").value;
+  fecharModal("modalFichaTalhaoV124");
+  setTimeout(()=>abrirTalhao(id),50);
+};
+
+/* Talhões V12.4 */
+renderTalhoes=function(){
+  garantirEstruturaV124();
+  atualizarSelectsTalhao();
+  const safraId=estado.safraAtivaId||"todos";
+  $("gridTalhoes").innerHTML=estado.talhoes.length?estado.talhoes.map(t=>{
+    const r=resumoTalhaoV124(t.id,safraId);
+    const solo=ultimaAnaliseTalhao(t.id);
+    return `<div class="card talhao-card">
+      <div class="talhao-head">
+        <div><h4 class="talhao-title">${esc(t.nome)}</h4><div class="talhao-var">${esc(t.variedade||"Variedade não informada")}</div></div>
+        <span class="pill">${num(t.area||0)} ha</span>
+      </div>
+      <div class="v124-active-strip">
+        <div><small>Produção safra</small><strong>${num(r?.producao||0)} sc</strong></div>
+        <div><small>Produtividade</small><strong>${num(r?.produtividade||0,1)} sc/ha</strong></div>
+        <div><small>Custo safra</small><strong>${moeda(r?.fin?.despesas||0)}</strong></div>
+        <div><small>Custo/sc</small><strong>${moeda(r?.custoSaca||0)}</strong></div>
+      </div>
+      ${solo?`<div class="soil-latest"><small>Última análise • ${dataBR(solo.data)}</small><strong>pH ${fmtSolo(solo.ph)} • P ${fmtSolo(solo.p)} • K ${fmtSolo(solo.k)} • V% ${fmtSolo(solo.v)}</strong><span>${solo.laboratorio?esc(solo.laboratorio):"Laboratório não informado"}</span></div>`:`<div class="soil-latest"><small>Análise de solo</small><strong>Nenhuma análise cadastrada</strong><span>Registre o primeiro laudo deste talhão.</span></div>`}
+      <div class="btnrow" style="margin-top:10px">
+        <button class="btn primary" onclick="abrirFichaTalhaoV124('${t.id}')">Ver ficha</button>
+        <button class="btn secondary" onclick="abrirAnaliseSolo('','${t.id}')">+ Análise</button>
+        <button class="btn secondary" onclick="abrirTalhao('${t.id}')">Editar</button>
+        <button class="btn danger" onclick="excluirTalhao('${t.id}')">Excluir</button>
+      </div>
+    </div>`;
+  }).join(""):`<div class="card empty" style="grid-column:1/-1"><strong>Nenhum talhão cadastrado</strong>Cadastre suas lavouras para acompanhar custos, produção e análises de solo.</div>`;
+};
+
+/* ---------------------------------------------------------
+   ORÇAMENTO DA SAFRA
+   --------------------------------------------------------- */
+function orcamentosDaSafraV124(safraId){
+  garantirEstruturaV124();
+  return estado.orcamentosSafra.filter(o=>o.safraId===safraId&&o.tipo!=="receita");
+}
+
+function gastoCategoriaSafraV124(safraId,categoria){
+  const xs=lancamentosSafraV124(safraId,"despesa").filter(l=>(l.categoria||"Sem categoria")===categoria);
+  return{
+    gasto:somaV124(xs),
+    pago:xs.reduce((s,l)=>s+baixaTotalDoLancamentoV124(l),0)
+  };
+}
+
+function popularCategoriasOrcV124(){
+  const el=$("orcCategoriaV124");if(!el)return;
+  const atual=el.value;
+  el.innerHTML=listaCategoriasDespesaV124().map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
+  if([...el.options].some(o=>o.value===atual))el.value=atual;
+}
+
+window.abrirOrcamentoV124=function(safraId=""){
+  garantirEstruturaV124();
+  preencherSelectSafrasV124($("orcSafraV124"),false,safraId||estado.safraAtivaId);
+  popularCategoriasOrcV124();
+  novoOrcamentoV124();
+  renderOrcamentoV124();
+  abrirModal("modalOrcamentoV124");
+};
+
+window.novoOrcamentoV124=function(){
+  if($("orcIdV124"))$("orcIdV124").value="";
+  if($("orcValorV124"))$("orcValorV124").value="";
+  if($("orcObsV124"))$("orcObsV124").value="";
+};
+
+window.editarOrcamentoV124=function(id){
+  const o=estado.orcamentosSafra.find(x=>x.id===id);if(!o)return;
+  $("orcIdV124").value=o.id;
+  $("orcCategoriaV124").value=o.categoria||"";
+  $("orcValorV124").value=o.valor||"";
+  $("orcObsV124").value=o.obs||"";
+};
+
+window.salvarOrcamentoV124=function(){
+  garantirEstruturaV124();
+  const safraId=$("orcSafraV124").value,categoria=$("orcCategoriaV124").value,valor=Number($("orcValorV124").value||0);
+  if(!safraId){toast("Selecione a safra.");return}
+  if(!categoria){toast("Selecione a categoria.");return}
+  if(valor<=0){toast("Informe um valor orçado maior que zero.");return}
+
+  const id=$("orcIdV124").value||novoId();
+  const existente=estado.orcamentosSafra.find(o=>o.id===id);
+  const duplicado=estado.orcamentosSafra.find(o=>o.id!==id&&o.safraId===safraId&&o.categoria===categoria&&o.tipo!=="receita");
+  if(duplicado){
+    if(!confirm(`Já existe orçamento para ${categoria}. Somar ${moeda(valor)} ao valor atual?`))return;
+    duplicado.valor=Number(duplicado.valor||0)+valor;
+    duplicado.obs=$("orcObsV124").value.trim()||duplicado.obs||"";
+  }else{
+    const obj={id,safraId,tipo:"despesa",categoria,valor,obs:$("orcObsV124").value.trim(),atualizadoEm:new Date().toISOString()};
+    if(existente)Object.assign(existente,obj);else estado.orcamentosSafra.push(obj);
+  }
+  persistir();novoOrcamentoV124();renderOrcamentoV124();toast("Orçamento salvo.");
+};
+
+window.excluirOrcamentoV124=function(id){
+  if(!confirm("Excluir este item do orçamento?"))return;
+  estado.orcamentosSafra=estado.orcamentosSafra.filter(o=>o.id!==id);
+  persistir();renderOrcamentoV124();
+};
+
+window.renderOrcamentoV124=function(){
+  garantirEstruturaV124();
+  const safraId=$("orcSafraV124")?.value||estado.safraAtivaId;
+  if(!safraId)return;
+  popularCategoriasOrcV124();
+  const itens=orcamentosDaSafraV124(safraId);
+  const totalOrcado=somaV124(itens);
+  const despesas=lancamentosSafraV124(safraId,"despesa");
+  const totalGasto=somaV124(despesas);
+  const totalPago=despesas.reduce((s,l)=>s+baixaTotalDoLancamentoV124(l),0);
+  const saldo=totalOrcado-totalGasto;
+  const pct=totalOrcado>0?totalGasto/totalOrcado*100:0;
+
+  $("orcResumoV124").innerHTML=[
+    metricV124("Orçado",moeda(totalOrcado),`${itens.length} categoria${itens.length===1?"":"s"}`),
+    metricV124("Gasto registrado",moeda(totalGasto),`${num(pct,1)}% do orçamento`,pct>100?"bad":pct>85?"warn":""),
+    metricV124("Pago",moeda(totalPago),`${moeda(Math.max(0,totalGasto-totalPago))} ainda em aberto`),
+    metricV124("Saldo do orçamento",moeda(saldo),saldo>=0?"Ainda disponível":"Acima do planejado",saldo>=0?"good":"bad")
+  ].join("");
+
+  const categorias=[...new Set([...itens.map(i=>i.categoria),...despesas.map(l=>l.categoria||"Sem categoria")])].sort((a,b)=>a.localeCompare(b,"pt-BR"));
+  $("orcTabelaV124").innerHTML=categorias.length?categorias.map(cat=>{
+    const item=itens.find(i=>i.categoria===cat);
+    const orcado=Number(item?.valor||0),real=gastoCategoriaSafraV124(safraId,cat),resta=orcado-real.gasto;
+    const p=orcado>0?real.gasto/orcado*100:(real.gasto>0?100:0);
+    return `<tr>
+      <td><strong>${esc(cat)}</strong>${item?.obs?`<div class="section-note">${esc(item.obs)}</div>`:""}</td>
+      <td class="num">${moeda(orcado)}</td>
+      <td class="num">${moeda(real.gasto)}</td>
+      <td class="num">${moeda(real.pago)}</td>
+      <td class="num ${resta<0?"v124-budget-negative":"v124-budget-positive"}">${moeda(resta)}</td>
+      <td><div class="v124-progress ${p>100?"over":""}"><span style="width:${Math.min(100,p)}%"></span></div><div class="v124-progress-label">${num(p,1)}%</div></td>
+      <td>${item?`<div class="item-actions"><button class="mini-btn" onclick="editarOrcamentoV124('${item.id}')">✎</button><button class="mini-btn danger" onclick="excluirOrcamentoV124('${item.id}')">×</button></div>`:""}</td>
+    </tr>`;
+  }).join(""):`<tr><td colspan="7">Nenhum orçamento nem despesa registrada nesta safra.</td></tr>`;
+};
+
+/* ---------------------------------------------------------
+   GESTÃO E FECHAMENTO DA SAFRA
+   --------------------------------------------------------- */
+function resumoSafraV124(safraId){
+  const s=estado.safras.find(x=>x.id===safraId);if(!s)return null;
+  const fin=financeiroPeriodoV124(safraId);
+  const producao=producaoSafraV124(safraId);
+  const vendas=vendasSafraV124(safraId);
+  const sacasVendidas=somaV124(vendas,"sacas");
+  const valorVendas=somaV124(vendas,"total");
+  const estoque=Math.max(0,producao-sacasVendidas);
+  const precoMedio=sacasVendidas>0?valorVendas/sacasVendidas:0;
+  const custoSaca=producao>0?fin.despesas/producao:0;
+  const resultado=fin.receitas-fin.despesas;
+  const caixa=fin.recebido-fin.pago;
+
+  const contasPagar=fin.despesasLista.filter(l=>saldoLancamentoV122(l)>0.005);
+  const contasReceber=fin.receitasLista.filter(l=>saldoLancamentoV122(l)>0.005);
+  const lotesAbertos=estado.lotes.filter(l=>l.safraId===safraId&&l.status!=="fechado");
+
+  const talhoes=estado.talhoes.map(t=>{
+    const r=resumoTalhaoV124(t.id,safraId);
+    return r&&(
+      r.producao>0.0001||r.fin.despesas>0.0001||r.fin.receitas>0.0001
+    )?r:null;
+  }).filter(Boolean);
+
+  const areaProdutiva=talhoes.filter(r=>r.producao>0).reduce((s,r)=>s+Number(r.area||0),0);
+  const produtividade=areaProdutiva>0?producao/areaProdutiva:0;
+
+  const orcados=orcamentosDaSafraV124(safraId);
+  const totalOrcado=somaV124(orcados);
+  const saldoOrcamento=totalOrcado-fin.despesas;
+
+  return{s,fin,producao,vendas,sacasVendidas,valorVendas,estoque,precoMedio,custoSaca,resultado,caixa,contasPagar,contasReceber,lotesAbertos,talhoes,areaProdutiva,produtividade,totalOrcado,saldoOrcamento};
+}
+
+window.abrirGestaoSafraV124=function(safraId=""){
+  garantirEstruturaV124();
+  preencherSelectSafrasV124($("gestaoSafraSelectV124"),false,safraId||estado.safraAtivaId);
+  renderGestaoSafraV124();
+  abrirModal("modalGestaoSafraV124");
+};
+
+window.renderGestaoSafraV124=function(){
+  garantirEstruturaV124();
+  const id=$("gestaoSafraSelectV124")?.value||estado.safraAtivaId,r=resumoSafraV124(id);
+  if(!r)return;
+  $("gestaoSafraTituloV124").textContent=r.s.nome;
+  $("gestaoSafraStatusV124").innerHTML=`<div class="v124-status ${r.s.fechada?"closed":""}"><div><strong>${r.s.fechada?"Safra fechada":"Safra em andamento"}</strong><small>${r.s.fechada?"Somente consulta e movimentações já existentes continuam disponíveis.":"Confira os indicadores antes do fechamento."}</small></div><span class="pill-v124">${r.s.fechada?"FECHADA":"ABERTA"}</span></div>`;
+
+  $("gestaoSafraMetricasV124").innerHTML=[
+    metricV124("Produção",`${num(r.producao)} sc`,`${num(r.produtividade,1)} sc/ha nas áreas com produção`),
+    metricV124("Vendido",`${num(r.sacasVendidas)} sc`,r.sacasVendidas?`${moeda(r.precoMedio)} / saca`:"Sem venda registrada"),
+    metricV124("Estoque da safra",`${num(r.estoque)} sc`,"Produção menos vendas"),
+    metricV124("Custo por saca",moeda(r.custoSaca),`${moeda(r.fin.despesas)} em despesas`),
+    metricV124("Receitas",moeda(r.fin.receitas),`${moeda(r.fin.recebido)} recebido`),
+    metricV124("Despesas",moeda(r.fin.despesas),`${moeda(r.fin.pago)} pago`),
+    metricV124("Resultado",moeda(r.resultado),"Receitas menos despesas",r.resultado>=0?"good":"bad"),
+    metricV124("Orçamento",r.totalOrcado?moeda(r.totalOrcado):"Não definido",r.totalOrcado?`${moeda(r.saldoOrcamento)} de saldo`:"Cadastre o planejamento",r.saldoOrcamento<0?"bad":"")
+  ].join("");
+
+  $("gestaoSafraFinanceiroV124").innerHTML=`<div class="v124-fin-grid">
+    <div class="v124-fin-row"><small>Resultado por competência</small><strong>${moeda(r.resultado)}</strong></div>
+    <div class="v124-fin-row"><small>Caixa realizado</small><strong>${moeda(r.caixa)}</strong></div>
+    <div class="v124-fin-row"><small>Total recebido</small><strong>${moeda(r.fin.recebido)}</strong></div>
+    <div class="v124-fin-row"><small>Total pago</small><strong>${moeda(r.fin.pago)}</strong></div>
+  </div>`;
+
+  const pagar=r.contasPagar.reduce((s,l)=>s+saldoLancamentoV122(l),0),receber=r.contasReceber.reduce((s,l)=>s+saldoLancamentoV122(l),0);
+  $("gestaoSafraPendenciasV124").innerHTML=[
+    `<div class="v124-pendency"><div><strong>Contas a pagar</strong><span>${r.contasPagar.length} pendente${r.contasPagar.length===1?"":"s"}</span></div><strong>${moeda(pagar)}</strong></div>`,
+    `<div class="v124-pendency"><div><strong>Contas a receber</strong><span>${r.contasReceber.length} pendente${r.contasReceber.length===1?"":"s"}</span></div><strong>${moeda(receber)}</strong></div>`,
+    `<div class="v124-pendency"><div><strong>Lotes no secador</strong><span>Aguardando fechamento</span></div><strong>${r.lotesAbertos.length}</strong></div>`,
+    `<div class="v124-pendency"><div><strong>Estoque não vendido</strong><span>Disponível na safra</span></div><strong>${num(r.estoque)} sc</strong></div>`
+  ].join("");
+
+  $("gestaoSafraTalhoesV124").innerHTML=r.talhoes.length?r.talhoes.map(x=>`<tr>
+    <td><button class="link-btn" onclick="fecharModal('modalGestaoSafraV124');setTimeout(()=>abrirFichaTalhaoV124('${x.t.id}','${id}'),50)">${esc(x.t.nome)}</button></td>
+    <td class="num">${num(x.area)} ha</td>
+    <td class="num">${num(x.producao)} sc</td>
+    <td class="num">${num(x.produtividade,1)}</td>
+    <td class="num">${moeda(x.fin.despesas)}</td>
+    <td class="num">${moeda(x.custoSaca)}</td>
+    <td class="num">${moeda(x.fin.receitas)}</td>
+    <td class="num">${moeda(x.resultado)}</td>
+  </tr>`).join(""):`<tr><td colspan="8">Nenhuma movimentação vinculada a talhões nesta safra.</td></tr>`;
+
+  const fechamento=estado.fechamentosSafra.filter(f=>f.safraId===id).sort((a,b)=>(b.fechadoEm||"").localeCompare(a.fechadoEm||""))[0];
+  $("gestaoSafraObsV124").value=fechamento?.obs||"";
+  $("gestaoSafraObsV124").disabled=!!r.s.fechada;
+  $("btnFecharSafraV124").classList.toggle("hidden",!!r.s.fechada);
+  $("btnReabrirSafraV124").classList.toggle("hidden",!r.s.fechada);
+  if(r.s.fechada&&fechamento){
+    $("gestaoSafraFechamentoBoxV124").querySelector(".field label").textContent=`Observação do fechamento • ${new Date(fechamento.fechadoEm).toLocaleString("pt-BR")}`;
+  }else{
+    $("gestaoSafraFechamentoBoxV124").querySelector(".field label").textContent="Observação de fechamento";
+  }
+};
+
+window.abrirOrcamentoDaGestaoV124=function(){
+  const id=$("gestaoSafraSelectV124").value;
+  fecharModal("modalGestaoSafraV124");
+  setTimeout(()=>abrirOrcamentoV124(id),50);
+};
+
+window.confirmarFechamentoSafraV124=function(){
+  garantirEstruturaV124();
+  const id=$("gestaoSafraSelectV124").value,r=resumoSafraV124(id);if(!r)return;
+  if(r.s.fechada){toast("Essa safra já está fechada.");return}
+  if(id===estado.safraAtivaId){toast("Escolha outra safra ativa antes de fechar esta.");return}
+
+  const avisos=[];
+  if(r.contasPagar.length)avisos.push(`${r.contasPagar.length} conta(s) a pagar`);
+  if(r.contasReceber.length)avisos.push(`${r.contasReceber.length} conta(s) a receber`);
+  if(r.lotesAbertos.length)avisos.push(`${r.lotesAbertos.length} lote(s) no secador`);
+  const extra=avisos.length?`\n\nAtenção: ainda existem ${avisos.join(", ")}. O fechamento não apaga nem quita essas pendências.`:"";
+  if(!confirm(`Fechar a ${r.s.nome}?\n\nProdução: ${num(r.producao)} sacas\nReceitas: ${moeda(r.fin.receitas)}\nDespesas: ${moeda(r.fin.despesas)}\nResultado: ${moeda(r.resultado)}${extra}`))return;
+
+  const snapshot={
+    producao:r.producao,
+    sacasVendidas:r.sacasVendidas,
+    estoque:r.estoque,
+    receitas:r.fin.receitas,
+    despesas:r.fin.despesas,
+    recebido:r.fin.recebido,
+    pago:r.fin.pago,
+    resultado:r.resultado,
+    caixa:r.caixa,
+    custoSaca:r.custoSaca,
+    precoMedio:r.precoMedio,
+    produtividade:r.produtividade,
+    orcado:r.totalOrcado,
+    saldoOrcamento:r.saldoOrcamento
+  };
+  r.s.fechada=true;
+  r.s.fechadaEm=new Date().toISOString();
+  estado.fechamentosSafra.push({
+    id:novoId(),
+    safraId:id,
+    fechadoEm:r.s.fechadaEm,
+    obs:$("gestaoSafraObsV124").value.trim(),
+    resumo:snapshot
+  });
+  persistir();renderGestaoSafraV124();renderSafras();toast("Safra fechada e resumo consolidado salvo.");
+};
+
+window.reabrirSafraV124=function(){
+  const id=$("gestaoSafraSelectV124").value,s=estado.safras.find(x=>x.id===id);if(!s||!s.fechada)return;
+  if(!confirm(`Reabrir ${s.nome}? Novos registros poderão voltar a ser lançados nessa safra.`))return;
+  s.fechada=false;s.reabertaEm=new Date().toISOString();
+  persistir();renderGestaoSafraV124();renderSafras();toast("Safra reaberta.");
+};
+
+/* Intercepta fechamento antigo e leva para o resumo completo */
+alternarFechamentoSafra=function(id){
+  const s=estado.safras.find(x=>x.id===id);if(!s)return;
+  if(s.fechada){
+    if(!confirm(`Reabrir ${s.nome}?`))return;
+    s.fechada=false;s.reabertaEm=new Date().toISOString();persistir();renderSafras();toast("Safra reaberta.");
+    return;
+  }
+  abrirGestaoSafraV124(id);
+};
+
+/* Safras com acesso ao resumo */
+renderSafras=function(){
+  garantirEstruturaV124();
+  $("listaSafras").innerHTML=estado.safras.slice().sort((a,b)=>Number(b.ano||0)-Number(a.ano||0)).map(s=>{
+    const ativa=s.id===estado.safraAtivaId;
+    const temUso=[...estado.lancamentos,...estado.apanhas,...estado.lotes,...estado.colheitas,...estado.vendas].some(x=>x.safraId===s.id);
+    const fechamento=estado.fechamentosSafra.filter(f=>f.safraId===s.id).sort((a,b)=>(b.fechadoEm||"").localeCompare(a.fechadoEm||""))[0];
+    return `<div class="management-row">
+      <div><strong>${esc(s.nome)}</strong><small>${s.ano||""}${s.fechada?" • Safra fechada":ativa?" • Safra ativa":""}${fechamento?` • último fechamento ${new Date(fechamento.fechadoEm).toLocaleDateString("pt-BR")}`:""}</small></div>
+      <div class="management-actions">
+        <button class="mini-btn" title="Resumo da safra" onclick="abrirGestaoSafraV124('${s.id}')">▤</button>
+        ${ativa?`<span class="pill">Ativa</span>`:`<button class="mini-btn" title="Tornar ativa" onclick="definirSafraAtiva('${s.id}')">✓</button>`}
+        <button class="mini-btn" title="${s.fechada?"Reabrir":"Fechar"}" onclick="alternarFechamentoSafra('${s.id}')">${s.fechada?"↺":"■"}</button>
+        ${!temUso&&!ativa?`<button class="mini-btn danger" title="Excluir" onclick="excluirSafra('${s.id}')">×</button>`:""}
+      </div>
+    </div>`;
+  }).join("");
+};
+
+/* ---------------------------------------------------------
+   PERFIL / ESTADO / BACKUP
+   --------------------------------------------------------- */
+const renderPerfilV124Base=renderPerfil;
+renderPerfil=function(){
+  garantirEstruturaV124();
+  renderPerfilV124Base();
+  if($("pOrcamentosV124"))$("pOrcamentosV124").innerHTML=`${estado.orcamentosSafra.length}<small>itens orçados</small>`;
+  if($("pFechamentosV124"))$("pFechamentosV124").innerHTML=`${estado.safras.filter(s=>s.fechada).length}<small>fechadas</small>`;
+};
+
+window.appBridge.setEstado=function(n){
+  suspendSync=true;
+  let gerados=0;
+  try{
+    estado={
+      lancamentos:Array.isArray(n?.lancamentos)?n.lancamentos:[],
+      talhoes:Array.isArray(n?.talhoes)?n.talhoes:[],
+      colheitas:Array.isArray(n?.colheitas)?n.colheitas:[],
+      vendas:Array.isArray(n?.vendas)?n.vendas:[],
+      trabalhadores:Array.isArray(n?.trabalhadores)?n.trabalhadores:[],
+      apanhas:Array.isArray(n?.apanhas)?n.apanhas:[],
+      lotes:Array.isArray(n?.lotes)?n.lotes:[],
+      safras:Array.isArray(n?.safras)?n.safras:[],
+      safraAtivaId:n?.safraAtivaId||"",
+      categorias:n?.categorias&&typeof n.categorias==="object"?n.categorias:{receita:[],despesa:[]},
+      pessoas:Array.isArray(n?.pessoas)?n.pessoas:[],
+      cotacaoCafe:n?.cotacaoCafe&&typeof n.cotacaoCafe==="object"?n.cotacaoCafe:{},
+      analisesSolo:Array.isArray(n?.analisesSolo)?n.analisesSolo:[],
+      baixasFinanceiras:Array.isArray(n?.baixasFinanceiras)?n.baixasFinanceiras:[],
+      contasFinanceiras:Array.isArray(n?.contasFinanceiras)?n.contasFinanceiras:[],
+      recorrenciasFinanceiras:Array.isArray(n?.recorrenciasFinanceiras)?n.recorrenciasFinanceiras:[],
+      orcamentosSafra:Array.isArray(n?.orcamentosSafra)?n.orcamentosSafra:[],
+      fechamentosSafra:Array.isArray(n?.fechamentosSafra)?n.fechamentosSafra:[]
+    };
+    garantirEstruturaV124();migrarLotesAntigos();
+    gerados=gerarRecorrenciasAteV122(fimHorizonteV122(60));
+    salvarLocal();renderTudo();iniciarAtualizacaoCotacao();
+  }finally{suspendSync=false}
+  if(gerados>0)setTimeout(()=>{salvarLocal();if(window.cloudSync)window.cloudSync.agendar()},100);
+};
+window.appBridge.getEstado=function(){garantirEstruturaV124();return structuredClone(estado)};
+window.appBridge.limparUsuario=function(){
+  usuarioAtual=null;
+  try{clearInterval(timerCotacao);clearInterval(timerCotacaoArquivo);if(typeof timerCotacaoV9!=="undefined")clearInterval(timerCotacaoV9)}catch(e){}
+  estado={lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[],safras:[],safraAtivaId:"",categorias:{receita:[],despesa:[]},pessoas:[],cotacaoCafe:{},analisesSolo:[],baixasFinanceiras:[],contasFinanceiras:[],recorrenciasFinanceiras:[],orcamentosSafra:[],fechamentosSafra:[]};
+  garantirEstruturaV124();$("authScreen").classList.remove("hidden");renderTudo();
+};
+
+baixarBackup=function(){
+  garantirEstruturaV124();
+  const payload={versao:"12.4",exportadoEm:new Date().toISOString(),estado};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download=`backup-financeiro-sitio-v12-4-${hoje()}.json`;a.click();URL.revokeObjectURL(a.href);
+};
+
+const renderTudoV124Base=renderTudo;
+renderTudo=function(){
+  garantirEstruturaV124();
+  renderTudoV124Base();
+  if($("tab-perfil")&&!$("tab-perfil").classList.contains("hidden"))renderPerfil();
+};
+
+document.addEventListener("DOMContentLoaded",()=>{
+  setTimeout(()=>{try{garantirEstruturaV124()}catch(e){}},300);
+});
+</script>
+
+
+<script>
+/* =========================================================
+   FINANCEIRO DO SÍTIO V12.6 — GESTÃO COMPLETA
+   ========================================================= */
+
+function garantirEstruturaV126(){
+  garantirEstruturaV124();
+  if(!Array.isArray(estado.insumos)) estado.insumos=[];
+  if(!Array.isArray(estado.movimentacoesInsumos)) estado.movimentacoesInsumos=[];
+  if(!Array.isArray(estado.lixeiraV126)) estado.lixeiraV126=[];
+  if(!Array.isArray(estado.historicoV126)) estado.historicoV126=[];
+  if(!Array.isArray(estado.favoritosV126) || !estado.favoritosV126.length){
+    estado.favoritosV126=["despesa","latoes","secador","venda","pagar","relatorios"];
+  }
+}
+
+function historicoV126(acao,detalhe="",tipo="sistema"){
+  garantirEstruturaV126();
+  estado.historicoV126.unshift({
+    id:novoId(),data:new Date().toISOString(),acao,detalhe,tipo
+  });
+  estado.historicoV126=estado.historicoV126.slice(0,150);
+}
+
+function fmtDataHoraV126(iso){
+  try{return new Date(iso).toLocaleString("pt-BR")}catch{return "—"}
+}
+
+/* -------------------------------------------------------
+   RESUMO MENSAL
+   ------------------------------------------------------- */
+function renderResumoMensalV126(){
+  garantirEstruturaV126();
+  const now=new Date(),y=now.getFullYear(),m=String(now.getMonth()+1).padStart(2,"0"),prefix=`${y}-${m}`;
+  const lanc=estado.lancamentos.filter(l=>(l.data||"").startsWith(prefix));
+  const rec=lanc.filter(l=>l.tipo==="receita"),des=lanc.filter(l=>l.tipo==="despesa");
+  const receitas=somaV124(rec),despesas=somaV124(des);
+  const recebido=rec.reduce((s,l)=>s+baixaTotalDoLancamentoV124(l),0);
+  const pago=des.reduce((s,l)=>s+baixaTotalDoLancamentoV124(l),0);
+  const saldo=recebido-pago;
+  const nome=new Intl.DateTimeFormat("pt-BR",{month:"long",year:"numeric"}).format(now);
+  if($("v126MesTitulo"))$("v126MesTitulo").textContent=nome.charAt(0).toUpperCase()+nome.slice(1);
+  if($("v126MesReceitas"))$("v126MesReceitas").textContent=moeda(receitas);
+  if($("v126MesDespesas"))$("v126MesDespesas").textContent=moeda(despesas);
+  if($("v126MesRecebido"))$("v126MesRecebido").textContent=moeda(recebido);
+  if($("v126MesPago"))$("v126MesPago").textContent=moeda(pago);
+  if($("v126MesSaldo")){
+    $("v126MesSaldo").textContent=moeda(saldo);
+    $("v126MesSaldo").style.background=saldo<0?"#fbeceb":"#edf5ef";
+    $("v126MesSaldo").style.color=saldo<0?"#a74941":"#286a43";
+  }
+}
+
+/* -------------------------------------------------------
+   FAVORITOS
+   ------------------------------------------------------- */
+const FAVORITOS_V126={
+  despesa:{label:"Nova despesa",icon:"−",acao:()=>{trocarAba("financeiro",document.querySelector('[data-nav="financeiro"]'));setTimeout(()=>abrirLancamento("despesa"),50)}},
+  receita:{label:"Nova receita",icon:"+",acao:()=>{trocarAba("financeiro",document.querySelector('[data-nav="financeiro"]'));setTimeout(()=>abrirLancamento("receita"),50)}},
+  latoes:{label:"Registrar latões",icon:"L",acao:()=>{trocarAba("producao",document.querySelector('[data-nav="producao"]'));setTimeout(()=>abrirApanha(),80)}},
+  secador:{label:"Secador",icon:"☕",acao:()=>{trocarAba("producao",document.querySelector('[data-nav="producao"]'));setTimeout(()=>document.getElementById("sec-secador")?.scrollIntoView({behavior:"smooth"}),80)}},
+  venda:{label:"Nova venda",icon:"V",acao:()=>{trocarAba("producao",document.querySelector('[data-nav="producao"]'));setTimeout(()=>abrirVenda(),80)}},
+  pagar:{label:"Contas a pagar",icon:"R$",acao:()=>{trocarAba("financeiro",document.querySelector('[data-nav="financeiro"]'));if($("fStatus"))$("fStatus").value="pendente";if($("fTipo"))$("fTipo").value="despesa";renderFinanceiro()}},
+  relatorios:{label:"Relatórios",icon:"▤",acao:()=>trocarAba("relatorios",document.querySelector('[data-nav="relatorios"]'))},
+  insumos:{label:"Insumos",icon:"▣",acao:()=>abrirEstoqueInsumosV126()},
+  solo:{label:"Análise de solo",icon:"S",acao:()=>abrirAnaliseSolo()},
+  orcamento:{label:"Orçamento",icon:"O",acao:()=>abrirOrcamentoV124()}
+};
+
+window.executarFavoritoV126=function(id){FAVORITOS_V126[id]?.acao?.()};
+
+function renderFavoritosV126(){
+  garantirEstruturaV126();
+  const ids=estado.favoritosV126.filter(id=>FAVORITOS_V126[id]).slice(0,6);
+  if($("favoritosHomeV126"))$("favoritosHomeV126").innerHTML=ids.map(id=>{
+    const f=FAVORITOS_V126[id];
+    return `<button class="v126-fav" onclick="executarFavoritoV126('${id}')"><span>${f.icon}</span><strong>${esc(f.label)}</strong></button>`;
+  }).join("");
+  if($("listaFavoritosV126"))$("listaFavoritosV126").innerHTML=Object.entries(FAVORITOS_V126).map(([id,f])=>{
+    const active=estado.favoritosV126.includes(id);
+    return `<button class="v126-fav-option ${active?"active":""}" onclick="alternarFavoritoV126('${id}')"><span class="ic">${f.icon}</span><strong>${esc(f.label)}</strong></button>`;
+  }).join("");
+}
+
+window.abrirFavoritosV126=function(){renderFavoritosV126();abrirModal("modalFavoritosV126")};
+window.alternarFavoritoV126=function(id){
+  garantirEstruturaV126();
+  const i=estado.favoritosV126.indexOf(id);
+  if(i>=0)estado.favoritosV126.splice(i,1);
+  else{
+    if(estado.favoritosV126.length>=6){toast("Escolha no máximo 6 favoritos.");return}
+    estado.favoritosV126.push(id);
+  }
+  historicoV126("Atalhos atualizados","Favoritos do painel","configuracao");
+  persistir();renderFavoritosV126();
+};
+
+/* -------------------------------------------------------
+   BUSCA GLOBAL
+   ------------------------------------------------------- */
+function indiceBuscaV126(){
+  garantirEstruturaV126();
+  const out=[];
+  estado.lancamentos.forEach(x=>out.push({tipo:"Financeiro",ic:x.tipo==="receita"?"+":"−",titulo:x.descricao||x.categoria,sub:`${dataBR(x.data)} • ${moeda(x.valor)} • ${x.status||""}`,texto:[x.descricao,x.categoria,nomePessoa(x.pessoaId),nomeTalhao(x.talhaoId),x.documento,x.obs].join(" "),acao:`abrirLancamento('${x.tipo}','${x.id}')`}));
+  estado.talhoes.forEach(x=>out.push({tipo:"Talhão",ic:"T",titulo:x.nome,sub:`${x.variedade||""} • ${num(x.area||0)} ha`,texto:[x.nome,x.variedade,x.obs].join(" "),acao:`abrirFichaTalhaoV124('${x.id}')`}));
+  estado.trabalhadores.forEach(x=>out.push({tipo:"Colhedor",ic:"C",titulo:x.nome,sub:`${moeda(x.valorLatao||0)} / latão`,texto:[x.nome,x.obs].join(" "),acao:`abrirExtratoColhedor('${x.id}')`}));
+  estado.vendas.forEach(x=>out.push({tipo:"Venda",ic:"V",titulo:`Venda ${num(x.sacas)} sacas`,sub:`${dataBR(x.data)} • ${moeda(x.total||0)} • ${x.comprador||"Sem comprador"}`,texto:[x.comprador,x.obs,nomeTalhao(x.talhaoId)].join(" "),acao:`abrirVenda('${x.id}')`}));
+  estado.lotes.forEach(x=>out.push({tipo:"Secador",ic:"☕",titulo:x.nome||"Lote",sub:`${dataBR(x.dataEnvio)} • ${x.status||""}`,texto:[x.nome,x.obs,x.obsFinal].join(" "),acao:`trocarAba('producao',document.querySelector('[data-nav="producao"]'));setTimeout(()=>document.getElementById('sec-secador')?.scrollIntoView({behavior:'smooth'}),80)`}));
+  estado.analisesSolo.forEach(x=>out.push({tipo:"Solo",ic:"S",titulo:`Análise • ${nomeTalhao(x.talhaoId)}`,sub:`${dataBR(x.data)} • pH ${fmtSolo(x.ph)} • V% ${fmtSolo(x.v)}`,texto:[nomeTalhao(x.talhaoId),x.laboratorio,x.amostra,x.obs].join(" "),acao:`abrirAnaliseSolo('${x.id}')`}));
+  estado.insumos.forEach(x=>out.push({tipo:"Insumo",ic:"▣",titulo:x.nome,sub:`${x.categoria||""} • saldo ${num(saldoInsumoV126(x.id))} ${x.unidade||""}`,texto:[x.nome,x.categoria,x.obs].join(" "),acao:`abrirHistoricoInsumoV126('${x.id}')`}));
+  estado.pessoas.forEach(x=>out.push({tipo:"Pessoa/empresa",ic:"P",titulo:x.nome,sub:x.tipo||"",texto:[x.nome,x.tipo,x.documento,x.telefone].join(" "),acao:`abrirPessoa('${x.id}')`}));
+  return out;
+}
+
+window.abrirBuscaGlobalV126=function(){
+  if($("buscaGlobalV126"))$("buscaGlobalV126").value="";
+  renderBuscaGlobalV126();
+  abrirModal("modalBuscaGlobalV126");
+  setTimeout(()=>$("buscaGlobalV126")?.focus(),100);
+};
+
+window.renderBuscaGlobalV126=function(){
+  const q=($("buscaGlobalV126")?.value||"").trim().toLowerCase();
+  const norm=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+  const nq=norm(q);
+  let xs=indiceBuscaV126();
+  if(nq)xs=xs.filter(x=>norm(`${x.titulo} ${x.sub} ${x.texto} ${x.tipo}`).includes(nq));
+  xs=xs.slice(0,60);
+  $("buscaGlobalResumoV126").textContent=q?`${xs.length} resultado(s) encontrado(s)`:"Digite para procurar em todo o aplicativo.";
+  $("buscaGlobalResultadosV126").innerHTML=xs.length?xs.map((x,i)=>`<button class="v126-search-item" onclick="executarBuscaGlobalV126(${i})"><span class="ic">${x.ic}</span><span class="main"><strong>${esc(x.titulo)}</strong><small>${esc(x.sub)}</small></span><span class="type">${esc(x.tipo)}</span></button>`).join(""):`<div class="v124-empty">Nenhum resultado encontrado.</div>`;
+  window.__buscaV126=xs;
+};
+window.executarBuscaGlobalV126=function(i){
+  const x=window.__buscaV126?.[i];if(!x)return;
+  fecharModal("modalBuscaGlobalV126");
+  try{Function(x.acao)()}catch(e){console.error(e)}
+};
+
+/* -------------------------------------------------------
+   DUPLICAR LANÇAMENTO
+   ------------------------------------------------------- */
+window.duplicarLancamentoV126=function(id){
+  const x=estado.lancamentos.find(l=>l.id===id);if(!x)return;
+  abrirLancamento(x.tipo);
+  setTimeout(()=>{
+    $("lancData").value=hoje();
+    $("lancValor").value=x.valor||"";
+    $("lancStatus").value="pendente";
+    $("lancVencimento").value="";
+    $("lancPessoa").value=x.pessoaId||"";
+    $("lancCategoria").value=x.categoria||"";
+    $("lancTalhao").value=x.talhaoId||"";
+    $("lancSafra").value=estado.safraAtivaId||x.safraId||"";
+    $("lancParcela").value="";
+    $("lancDocumento").value="";
+    $("lancDescricao").value=x.descricao||"";
+    $("lancObs").value=x.obs||"";
+    if($("lancDataPagamento"))$("lancDataPagamento").value="";
+    atualizarCampoQuitacaoV121?.();
+    toast("Lançamento duplicado. Revise data, valor e vencimento.");
+  },60);
+  historicoV126("Lançamento duplicado",x.descricao||x.categoria,"financeiro");
+};
+
+const renderItemLancamentoV126Base=renderItemLancamento;
+renderItemLancamento=function(x){
+  let html=renderItemLancamentoV126Base(x);
+  const alvo=`<button class="mini-btn" onclick="abrirLancamento('${x.tipo}','${x.id}')">✎</button>`;
+  if(html.includes(alvo)){
+    html=html.replace(alvo,`<button class="mini-btn" title="Duplicar" onclick="duplicarLancamentoV126('${x.id}')">⧉</button>${alvo}`);
+  }
+  return html;
+};
+
+/* -------------------------------------------------------
+   LIXEIRA
+   ------------------------------------------------------- */
+function enviarLixeiraV126(tipo,item,descricao){
+  garantirEstruturaV126();
+  estado.lixeiraV126.unshift({id:novoId(),tipo,item:structuredClone(item),descricao:descricao||tipo,excluidoEm:new Date().toISOString()});
+  historicoV126("Enviado para lixeira",descricao||tipo,tipo);
+}
+
+const excluirLancamentoV126Original=excluirLancamento;
+excluirLancamento=function(id){
+  const x=estado.lancamentos.find(v=>v.id===id);if(!x)return;
+  if(x.vendaId||x.apanhaId){toast("Esse lançamento está vinculado a outro registro. Exclua pela origem.");return}
+  if(!confirm("Mover este lançamento para a lixeira?"))return;
+  enviarLixeiraV126("lancamento",x,x.descricao||x.categoria);
+  estado.lancamentos=estado.lancamentos.filter(v=>v.id!==id);
+  persistir();toast("Lançamento movido para a lixeira.");
+};
+
+excluirVenda=function(id){
+  const v=estado.vendas.find(x=>x.id===id);if(!v)return;
+  if(!confirm("Mover esta venda para a lixeira?"))return;
+  const vinc=v.financeiroId?estado.lancamentos.find(x=>x.id===v.financeiroId):null;
+  enviarLixeiraV126("venda",{venda:v,financeiro:vinc||null},`Venda ${num(v.sacas)} sacas`);
+  if(v.financeiroId)estado.lancamentos=estado.lancamentos.filter(x=>x.id!==v.financeiroId);
+  estado.vendas=estado.vendas.filter(x=>x.id!==id);persistir();toast("Venda movida para a lixeira.");
+};
+
+const excluirAnaliseSoloV126Original=excluirAnaliseSolo;
+excluirAnaliseSolo=function(id){
+  const a=estado.analisesSolo.find(x=>x.id===id);if(!a)return;
+  if(!confirm("Mover esta análise de solo para a lixeira?"))return;
+  enviarLixeiraV126("analiseSolo",a,`Análise ${nomeTalhao(a.talhaoId)} • ${dataBR(a.data)}`);
+  estado.analisesSolo=estado.analisesSolo.filter(x=>x.id!==id);persistir();renderGerenciadorSolo?.();toast("Análise movida para a lixeira.");
+};
+
+function restaurarLixeiraV126(id){
+  const l=estado.lixeiraV126.find(x=>x.id===id);if(!l)return;
+  const d=structuredClone(l.item);
+  if(l.tipo==="lancamento")estado.lancamentos.push(d);
+  else if(l.tipo==="venda"){
+    if(d.venda)estado.vendas.push(d.venda);
+    if(d.financeiro)estado.lancamentos.push(d.financeiro);
+  }else if(l.tipo==="analiseSolo")estado.analisesSolo.push(d);
+  else if(l.tipo==="insumo")estado.insumos.push(d);
+  else{toast("Este tipo de registro ainda não pode ser restaurado automaticamente.");return}
+  estado.lixeiraV126=estado.lixeiraV126.filter(x=>x.id!==id);
+  historicoV126("Registro restaurado",l.descricao,l.tipo);
+  persistir();renderLixeiraV126();toast("Registro restaurado.");
+}
+window.restaurarLixeiraV126=restaurarLixeiraV126;
+window.apagarLixeiraV126=function(id){
+  if(!confirm("Apagar definitivamente? Esta ação não pode ser desfeita."))return;
+  const l=estado.lixeiraV126.find(x=>x.id===id);
+  estado.lixeiraV126=estado.lixeiraV126.filter(x=>x.id!==id);
+  historicoV126("Exclusão definitiva",l?.descricao||"Registro",l?.tipo||"sistema");
+  persistir();renderLixeiraV126();
+};
+window.abrirLixeiraV126=function(){trocarPainelLixeiraV126("lixeira");renderLixeiraV126();abrirModal("modalLixeiraV126")};
+window.trocarPainelLixeiraV126=function(p){
+  $("painelLixeiraV126").classList.toggle("hidden",p!=="lixeira");
+  $("painelAtividadeV126").classList.toggle("hidden",p!=="atividade");
+  $("tabLixeiraBtnV126").classList.toggle("active",p==="lixeira");
+  $("tabAtividadeBtnV126").classList.toggle("active",p==="atividade");
+  renderLixeiraV126();
+};
+function renderLixeiraV126(){
+  garantirEstruturaV126();
+  if($("listaLixeiraV126"))$("listaLixeiraV126").innerHTML=estado.lixeiraV126.length?estado.lixeiraV126.map(l=>`<div class="v126-trash-item"><div class="main"><strong>${esc(l.descricao||l.tipo)}</strong><small>${esc(l.tipo)} • excluído em ${fmtDataHoraV126(l.excluidoEm)}</small></div><div class="v126-trash-actions"><button class="mini-btn" title="Restaurar" onclick="restaurarLixeiraV126('${l.id}')">↺</button><button class="mini-btn danger" title="Apagar definitivamente" onclick="apagarLixeiraV126('${l.id}')">×</button></div></div>`).join(""):`<div class="v124-empty">A lixeira está vazia.</div>`;
+  if($("listaAtividadeV126"))$("listaAtividadeV126").innerHTML=estado.historicoV126.length?estado.historicoV126.map(h=>`<div class="v126-activity-item"><span class="v126-activity-dot"></span><div class="main"><strong>${esc(h.acao)}</strong><small>${esc(h.detalhe||"")} • ${fmtDataHoraV126(h.data)}</small></div></div>`).join(""):`<div class="v124-empty">Nenhuma atividade registrada ainda.</div>`;
+}
+
+/* -------------------------------------------------------
+   ESTOQUE DE INSUMOS
+   ------------------------------------------------------- */
+function movimentosInsumoV126(id){return estado.movimentacoesInsumos.filter(m=>m.insumoId===id)}
+function saldoInsumoV126(id){
+  return movimentosInsumoV126(id).reduce((s,m)=>s+(m.tipo==="saida"? -Number(m.quantidade||0):Number(m.quantidade||0)),0)
+}
+function custoMedioInsumoV126(id){
+  const xs=movimentosInsumoV126(id).filter(m=>m.tipo==="entrada");
+  const qtd=xs.reduce((s,m)=>s+Number(m.quantidade||0),0);
+  const val=xs.reduce((s,m)=>s+Number(m.quantidade||0)*Number(m.custoUnitario||0),0);
+  return qtd>0?val/qtd:0
+}
+function valorEstoqueInsumoV126(id){return Math.max(0,saldoInsumoV126(id))*custoMedioInsumoV126(id)}
+
+window.abrirEstoqueInsumosV126=function(){
+  garantirEstruturaV126();
+  if($("filtroInsumosV126"))$("filtroInsumosV126").value="";
+  renderInsumosV126();abrirModal("modalInsumosV126");
+};
+window.abrirCadastroInsumoV126=function(id=""){
+  garantirEstruturaV126();
+  const x=id?estado.insumos.find(i=>i.id===id):null;
+  $("insumoIdV126").value=x?.id||"";
+  $("tituloInsumoV126").textContent=x?"Editar insumo":"Novo insumo";
+  $("insumoNomeV126").value=x?.nome||"";
+  $("insumoCategoriaV126").value=x?.categoria||"Adubo / Fertilizantes";
+  $("insumoUnidadeV126").value=x?.unidade||"kg";
+  $("insumoMinimoV126").value=x?.minimo||"";
+  $("insumoObsV126").value=x?.obs||"";
+  abrirModal("modalCadastroInsumoV126");
+};
+window.salvarInsumoV126=function(){
+  garantirEstruturaV126();
+  const nome=$("insumoNomeV126").value.trim();if(!nome){toast("Informe o nome do produto.");return}
+  const id=$("insumoIdV126").value||novoId(),old=estado.insumos.find(i=>i.id===id);
+  const obj={id,nome,categoria:$("insumoCategoriaV126").value,unidade:$("insumoUnidadeV126").value,minimo:Number($("insumoMinimoV126").value||0),obs:$("insumoObsV126").value.trim(),alteradoEm:new Date().toISOString(),criadoEm:old?.criadoEm||new Date().toISOString()};
+  const i=estado.insumos.findIndex(x=>x.id===id);if(i>=0)estado.insumos[i]=obj;else estado.insumos.push(obj);
+  historicoV126(old?"Insumo atualizado":"Insumo cadastrado",nome,"insumo");
+  fecharModal("modalCadastroInsumoV126");persistir();renderInsumosV126();toast("Produto salvo.");
+};
+window.excluirInsumoV126=function(id){
+  const x=estado.insumos.find(i=>i.id===id);if(!x)return;
+  if(movimentosInsumoV126(id).length){toast("Esse produto possui movimentações e não pode ser excluído. Mantenha-o no histórico.");return}
+  if(!confirm("Mover este produto para a lixeira?"))return;
+  enviarLixeiraV126("insumo",x,x.nome);estado.insumos=estado.insumos.filter(i=>i.id!==id);persistir();renderInsumosV126();
+};
+function popularMovimentoInsumosV126(selecionado=""){
+  const el=$("movInsumoIdV126");el.innerHTML=estado.insumos.map(i=>`<option value="${i.id}">${esc(i.nome)} • ${num(saldoInsumoV126(i.id))} ${esc(i.unidade||"")}</option>`).join("");
+  if(selecionado&&[...el.options].some(o=>o.value===selecionado))el.value=selecionado;
+}
+window.abrirMovimentoInsumoV126=function(id=""){
+  garantirEstruturaV126();
+  if(!estado.insumos.length){toast("Cadastre um produto primeiro.");abrirCadastroInsumoV126();return}
+  popularMovimentoInsumosV126(id);
+  $("movTipoV126").value="entrada";$("movDataV126").value=hoje();$("movQtdV126").value="";$("movCustoV126").value="";$("movObsV126").value="";
+  $("movTalhaoV126").innerHTML=`<option value="">Geral / sem talhão</option>`+estado.talhoes.map(t=>`<option value="${t.id}">${esc(t.nome)}</option>`).join("");
+  ajustarMovInsumoV126();abrirModal("modalMovInsumoV126");
+};
+window.ajustarMovInsumoV126=function(){
+  const tipo=$("movTipoV126").value;
+  $("movCustoFieldV126").classList.toggle("hidden",tipo!=="entrada");
+  const id=$("movInsumoIdV126").value,x=estado.insumos.find(i=>i.id===id);
+  if($("movSaldoInfoV126"))$("movSaldoInfoV126").textContent=x?`Saldo atual: ${num(saldoInsumoV126(id))} ${x.unidade||""} • custo médio ${moeda(custoMedioInsumoV126(id))}`:"";
+};
+$("movInsumoIdV126")?.addEventListener?.("change",ajustarMovInsumoV126);
+window.salvarMovInsumoV126=function(){
+  garantirEstruturaV126();
+  const id=$("movInsumoIdV126").value,x=estado.insumos.find(i=>i.id===id),tipo=$("movTipoV126").value,q=Number($("movQtdV126").value||0);
+  if(!x){toast("Selecione o produto.");return}
+  if(q<=0){toast("Informe uma quantidade maior que zero.");return}
+  const saldo=saldoInsumoV126(id);
+  if(tipo==="saida"&&q>saldo+0.0001){toast(`Estoque insuficiente. Disponível: ${num(saldo)} ${x.unidade}.`);return}
+  const mov={id:novoId(),insumoId:id,tipo,data:$("movDataV126").value||hoje(),quantidade:q,custoUnitario:tipo==="entrada"?Number($("movCustoV126").value||0):custoMedioInsumoV126(id),talhaoId:$("movTalhaoV126").value||"",obs:$("movObsV126").value.trim(),criadoEm:new Date().toISOString()};
+  estado.movimentacoesInsumos.push(mov);
+  historicoV126(tipo==="entrada"?"Entrada de insumo":"Saída de insumo",`${x.nome} • ${num(q)} ${x.unidade}`, "insumo");
+  fecharModal("modalMovInsumoV126");persistir();renderInsumosV126();toast("Movimentação registrada.");
+};
+window.renderInsumosV126=function(){
+  garantirEstruturaV126();
+  const q=($("filtroInsumosV126")?.value||"").trim().toLowerCase();
+  const xs=estado.insumos.filter(i=>!q||`${i.nome} ${i.categoria}`.toLowerCase().includes(q)).sort((a,b)=>a.nome.localeCompare(b.nome,"pt-BR"));
+  const valor=estado.insumos.reduce((s,i)=>s+valorEstoqueInsumoV126(i.id),0);
+  const baixos=estado.insumos.filter(i=>Number(i.minimo||0)>0&&saldoInsumoV126(i.id)<=Number(i.minimo||0)).length;
+  const movimentosMes=estado.movimentacoesInsumos.filter(m=>(m.data||"").startsWith(hoje().slice(0,7))).length;
+  $("resumoInsumosV126").innerHTML=[metricV124("Produtos",String(estado.insumos.length),"cadastrados"),metricV124("Valor estimado",moeda(valor),"saldo × custo médio"),metricV124("Estoque baixo",String(baixos),"abaixo do mínimo",baixos?"warn":""),metricV124("Movimentos no mês",String(movimentosMes),"entradas e saídas")].join("");
+  $("listaInsumosV126").innerHTML=xs.length?xs.map(i=>{
+    const saldo=saldoInsumoV126(i.id),min=Number(i.minimo||0),low=min>0&&saldo<=min,custo=custoMedioInsumoV126(i.id);
+    return `<div class="v126-stock-card ${low?"low":""}"><div class="top"><div><h4>${esc(i.nome)}</h4><span class="cat">${esc(i.categoria||"")} • ${esc(i.unidade||"")}${low?" • ESTOQUE BAIXO":""}</span></div><div class="saldo">${num(saldo)} ${esc(i.unidade||"")}</div></div><div class="stats"><div><small>Custo médio</small><strong>${moeda(custo)}</strong></div><div><small>Valor estimado</small><strong>${moeda(Math.max(0,saldo)*custo)}</strong></div></div><div class="btnrow" style="margin-top:9px"><button class="btn primary" onclick="abrirMovimentoInsumoV126('${i.id}')">Movimentar</button><button class="btn secondary" onclick="abrirHistoricoInsumoV126('${i.id}')">Histórico</button><button class="btn secondary" onclick="abrirCadastroInsumoV126('${i.id}')">Editar</button><button class="btn danger" onclick="excluirInsumoV126('${i.id}')">Excluir</button></div></div>`;
+  }).join(""):`<div class="v124-empty" style="grid-column:1/-1">Nenhum produto encontrado.</div>`;
+};
+window.abrirHistoricoInsumoV126=function(id){
+  const x=estado.insumos.find(i=>i.id===id);if(!x)return;
+  $("histInsumoIdV126").value=id;$("histInsumoTituloV126").textContent=x.nome;
+  const xs=movimentosInsumoV126(id).slice().sort((a,b)=>(b.data||"").localeCompare(a.data||""));
+  $("histInsumoResumoV126").innerHTML=[metricV124("Saldo",`${num(saldoInsumoV126(id))} ${x.unidade}`),metricV124("Custo médio",moeda(custoMedioInsumoV126(id))),metricV124("Valor estimado",moeda(valorEstoqueInsumoV126(id))),metricV124("Movimentações",String(xs.length))].join("");
+  $("histInsumoTabelaV126").innerHTML=xs.length?xs.map(m=>`<tr><td>${dataBR(m.data)}</td><td>${m.tipo==="entrada"?"Entrada":m.tipo==="saida"?"Saída":"Ajuste"}</td><td class="num">${m.tipo==="saida"?"−":"+"}${num(m.quantidade)} ${esc(x.unidade)}</td><td class="num">${moeda(m.custoUnitario||0)}</td><td>${m.talhaoId?esc(nomeTalhao(m.talhaoId)):"Geral"}</td><td>${esc(m.obs||"")}</td></tr>`).join(""):`<tr><td colspan="6">Sem movimentações.</td></tr>`;
+  abrirModal("modalHistoricoInsumoV126");
+};
+
+/* -------------------------------------------------------
+   COMPARAÇÃO DE SOLO
+   ------------------------------------------------------- */
+function analisesTalhaoOrdenadasV126(talhaoId){return estado.analisesSolo.filter(a=>a.talhaoId===talhaoId).slice().sort((a,b)=>(a.data||"").localeCompare(b.data||""))}
+window.abrirComparacaoSoloV126=function(talhaoId){
+  const xs=analisesTalhaoOrdenadasV126(talhaoId);
+  if(xs.length<2){toast("Cadastre pelo menos duas análises para comparar.");return}
+  const t=estado.talhoes.find(x=>x.id===talhaoId);
+  $("compSoloTituloV126").textContent=`${t?.nome||"Talhão"} • evolução`;
+  window.__compTalhaoV126=talhaoId;
+  const opts=xs.map(a=>`<option value="${a.id}">${dataBR(a.data)} • ${esc(a.profundidade||"")}</option>`).join("");
+  $("compSoloA_V126").innerHTML=opts;$("compSoloB_V126").innerHTML=opts;
+  $("compSoloA_V126").value=xs[xs.length-2].id;$("compSoloB_V126").value=xs[xs.length-1].id;
+  renderComparacaoSoloV126();abrirModal("modalCompararSoloV126");
+};
+window.renderComparacaoSoloV126=function(){
+  const a=estado.analisesSolo.find(x=>x.id===$("compSoloA_V126").value),b=estado.analisesSolo.find(x=>x.id===$("compSoloB_V126").value);if(!a||!b)return;
+  const campos=[["pH","ph"],["Matéria orgânica","mo"],["P","p"],["K","k"],["Ca","ca"],["Mg","mg"],["Al","al"],["H+Al","hal"],["CTC","ctc"],["V%","v"],["m%","m"],["B","b"],["Zn","zn"],["Cu","cu"],["Mn","mn"],["Fe","fe"]];
+  $("compSoloAvisoV126").innerHTML=`Comparação direta entre <strong>${dataBR(a.data)}</strong> e <strong>${dataBR(b.data)}</strong>. Valores de métodos/laboratórios diferentes devem ser interpretados com cautela.`;
+  $("compSoloTabelaV126").innerHTML=campos.map(([nome,key])=>{
+    const av=Number(a[key]),bv=Number(b[key]),temA=a[key]!==""&&a[key]!=null&&!Number.isNaN(av),temB=b[key]!==""&&b[key]!=null&&!Number.isNaN(bv);
+    if(!temA&&!temB)return"";
+    const dif=temA&&temB?bv-av:null,cls=dif>0?"up":dif<0?"down":"flat",trend=dif>0?"↑ Subiu":dif<0?"↓ Caiu":"→ Estável";
+    return `<tr><td>${nome}</td><td class="num">${temA?fmtSolo(av):"—"}</td><td class="num">${temB?fmtSolo(bv):"—"}</td><td class="num">${dif===null?"—":`${dif>0?"+":""}${fmtSolo(dif)}`}</td><td><span class="v126-trend ${cls}">${trend}</span></td></tr>`;
+  }).join("");
+};
+
+const renderFichaTalhaoV126Base=renderFichaTalhaoV124;
+renderFichaTalhaoV124=function(){
+  renderFichaTalhaoV126Base();
+  const id=$("fichaTalhaoIdV124")?.value,xs=analisesTalhaoOrdenadasV126(id);
+  const box=$("fichaTalhaoSoloV124");
+  if(box&&xs.length>=2&&!box.querySelector(".btn-comp-solo-v126")){
+    box.insertAdjacentHTML("beforeend",`<div class="btnrow" style="margin-top:9px"><button class="btn secondary btn-comp-solo-v126" onclick="abrirComparacaoSoloV126('${id}')">Comparar análises</button></div>`);
+  }
+};
+
+/* -------------------------------------------------------
+   PDF PROFISSIONAL
+   ------------------------------------------------------- */
+window.abrirRelatorioPDFV126=function(){
+  preencherSelectSafrasV124($("pdfSafraV126"),true,estado.safraAtivaId||"todos");
+  abrirModal("modalRelatorioPDFV126");
+};
+
+function pdfCabV126(doc,titulo,sub=""){
+  doc.setFont("helvetica","bold");doc.setFontSize(18);doc.text("Financeiro do Sítio",14,16);
+  doc.setFontSize(12);doc.text(titulo,14,24);
+  doc.setFont("helvetica","normal");doc.setFontSize(8);doc.text(sub||`Gerado em ${new Date().toLocaleString("pt-BR")}`,14,30);
+  doc.setDrawColor(210);doc.line(14,34,196,34);return 41;
+}
+function pdfLinhaV126(doc,y,label,valor){
+  if(y>280){doc.addPage();y=18}
+  doc.setFont("helvetica","normal");doc.setFontSize(9);doc.text(label,14,y);
+  doc.setFont("helvetica","bold");doc.text(String(valor),120,y);
+  return y+7;
+}
+function pdfTabelaTextoV126(doc,y,linhas){
+  for(const linha of linhas){
+    if(y>280){doc.addPage();y=18}
+    doc.setFontSize(8);doc.setFont("helvetica","normal");
+    const txt=doc.splitTextToSize(linha,178);doc.text(txt,14,y);y+=txt.length*4.2+2;
+  }
+  return y;
+}
+
+window.gerarPDFV126=function(){
+  if(!window.jspdf?.jsPDF){toast("Biblioteca de PDF ainda não carregou. Tente novamente em alguns segundos.");return}
+  garantirEstruturaV126();
+  const {jsPDF}=window.jspdf,doc=new jsPDF({unit:"mm",format:"a4"}),tipo=$("pdfTipoV126").value,safraId=$("pdfSafraV126").value;
+  const nomeSafraPdf=safraId==="todos"?"Todas as safras":safraNomeV124(safraId);
+  let y=41,titulo="Relatório";
+
+  if(tipo==="safra"){
+    titulo=`Resumo da safra • ${nomeSafraPdf}`;y=pdfCabV126(doc,titulo);
+    if(safraId==="todos"){doc.text("Selecione uma safra específica para o fechamento completo.",14,y);y+=8}
+    else{
+      const r=resumoSafraV124(safraId);
+      [["Produção",`${num(r.producao)} sacas`],["Sacas vendidas",`${num(r.sacasVendidas)} sacas`],["Estoque",`${num(r.estoque)} sacas`],["Receitas",moeda(r.fin.receitas)],["Despesas",moeda(r.fin.despesas)],["Resultado",moeda(r.resultado)],["Recebido",moeda(r.fin.recebido)],["Pago",moeda(r.fin.pago)],["Custo por saca",moeda(r.custoSaca)],["Preço médio",moeda(r.precoMedio)]].forEach(v=>y=pdfLinhaV126(doc,y,...v));
+      y+=4;doc.setFont("helvetica","bold");doc.text("Desempenho por talhão",14,y);y+=6;
+      y=pdfTabelaTextoV126(doc,y,r.talhoes.map(x=>`${x.t.nome}: ${num(x.producao)} sc | ${num(x.produtividade,1)} sc/ha | custo ${moeda(x.fin.despesas)} | resultado ${moeda(x.resultado)}`));
+    }
+  }else if(tipo==="financeiro"){
+    titulo=`Financeiro • ${nomeSafraPdf}`;y=pdfCabV126(doc,titulo);
+    const xs=lancamentosSafraV124(safraId);
+    const f=financeiroPeriodoV124(safraId);
+    [["Receitas",moeda(f.receitas)],["Despesas",moeda(f.despesas)],["Recebido",moeda(f.recebido)],["Pago",moeda(f.pago)],["Resultado",moeda(f.receitas-f.despesas)]].forEach(v=>y=pdfLinhaV126(doc,y,...v));
+    y+=4;y=pdfTabelaTextoV126(doc,y,xs.slice().sort((a,b)=>(b.data||"").localeCompare(a.data||"")).map(x=>`${dataBR(x.data)} | ${x.tipo==="receita"?"+":"-"} ${moeda(x.valor)} | ${x.categoria} | ${x.descricao}`));
+  }else if(tipo==="talhoes"){
+    titulo=`Talhões • ${nomeSafraPdf}`;y=pdfCabV126(doc,titulo);
+    y=pdfTabelaTextoV126(doc,y,estado.talhoes.map(t=>{const r=resumoTalhaoV124(t.id,safraId);return `${t.nome} • ${t.variedade||"—"} • ${num(t.area||0)} ha • produção ${num(r?.producao||0)} sc • ${num(r?.produtividade||0,1)} sc/ha • custo/sc ${moeda(r?.custoSaca||0)} • resultado ${moeda(r?.resultado||0)}`}));
+  }else if(tipo==="colhedores"){
+    titulo=`Colhedores • ${nomeSafraPdf}`;y=pdfCabV126(doc,titulo);
+    y=pdfTabelaTextoV126(doc,y,estado.trabalhadores.map(t=>{const xs=estado.apanhas.filter(a=>a.trabalhadorId===t.id&&(safraId==="todos"||a.safraId===safraId)),lat=somaV124(xs,"latoes"),val=xs.reduce((s,a)=>s+Number(a.latoes||0)*Number(a.valorLatao||0),0),pend=xs.filter(a=>a.status!=="pago").reduce((s,a)=>s+Number(a.latoes||0)*Number(a.valorLatao||0),0);return `${t.nome}: ${num(lat)} latões • total ${moeda(val)} • pendente ${moeda(pend)}`}));
+  }else if(tipo==="insumos"){
+    titulo="Estoque de insumos";y=pdfCabV126(doc,titulo);
+    y=pdfTabelaTextoV126(doc,y,estado.insumos.map(i=>`${i.nome} • ${i.categoria} • saldo ${num(saldoInsumoV126(i.id))} ${i.unidade} • custo médio ${moeda(custoMedioInsumoV126(i.id))} • valor ${moeda(valorEstoqueInsumoV126(i.id))}`));
+  }else if(tipo==="solo"){
+    titulo="Análises de solo";y=pdfCabV126(doc,titulo);
+    const xs=estado.analisesSolo.slice().sort((a,b)=>(b.data||"").localeCompare(a.data||""));
+    y=pdfTabelaTextoV126(doc,y,xs.map(a=>`${dataBR(a.data)} • ${nomeTalhao(a.talhaoId)} • ${a.profundidade||"—"} • pH ${fmtSolo(a.ph)} • P ${fmtSolo(a.p)} • K ${fmtSolo(a.k)} • Ca ${fmtSolo(a.ca)} • Mg ${fmtSolo(a.mg)} • V% ${fmtSolo(a.v)}`));
+  }
+  doc.setFontSize(7);doc.setFont("helvetica","normal");doc.text("Documento gerado pelo Financeiro do Sítio.",14,290);
+  doc.save(`financeiro-sitio-${tipo}-${hoje()}.pdf`);
+  fecharModal("modalRelatorioPDFV126");
+  historicoV126("Relatório PDF gerado",titulo,"relatorio");persistir();
+};
+
+/* -------------------------------------------------------
+   PERFIL / ESTADO / BACKUP
+   ------------------------------------------------------- */
+const renderPerfilV126Base=renderPerfil;
+renderPerfil=function(){
+  garantirEstruturaV126();renderPerfilV126Base();
+  if($("pInsumosV126"))$("pInsumosV126").innerHTML=`${estado.insumos.length}<small>produtos</small>`;
+  if($("pLixeiraV126"))$("pLixeiraV126").innerHTML=`${estado.lixeiraV126.length}<small>na lixeira</small>`;
+};
+
+window.appBridge.setEstado=function(n){
+  suspendSync=true;let gerados=0;
+  try{
+    estado={
+      lancamentos:Array.isArray(n?.lancamentos)?n.lancamentos:[],
+      talhoes:Array.isArray(n?.talhoes)?n.talhoes:[],
+      colheitas:Array.isArray(n?.colheitas)?n.colheitas:[],
+      vendas:Array.isArray(n?.vendas)?n.vendas:[],
+      trabalhadores:Array.isArray(n?.trabalhadores)?n.trabalhadores:[],
+      apanhas:Array.isArray(n?.apanhas)?n.apanhas:[],
+      lotes:Array.isArray(n?.lotes)?n.lotes:[],
+      safras:Array.isArray(n?.safras)?n.safras:[],
+      safraAtivaId:n?.safraAtivaId||"",
+      categorias:n?.categorias&&typeof n.categorias==="object"?n.categorias:{receita:[],despesa:[]},
+      pessoas:Array.isArray(n?.pessoas)?n.pessoas:[],
+      cotacaoCafe:n?.cotacaoCafe&&typeof n.cotacaoCafe==="object"?n.cotacaoCafe:{},
+      analisesSolo:Array.isArray(n?.analisesSolo)?n.analisesSolo:[],
+      baixasFinanceiras:Array.isArray(n?.baixasFinanceiras)?n.baixasFinanceiras:[],
+      contasFinanceiras:Array.isArray(n?.contasFinanceiras)?n.contasFinanceiras:[],
+      recorrenciasFinanceiras:Array.isArray(n?.recorrenciasFinanceiras)?n.recorrenciasFinanceiras:[],
+      orcamentosSafra:Array.isArray(n?.orcamentosSafra)?n.orcamentosSafra:[],
+      fechamentosSafra:Array.isArray(n?.fechamentosSafra)?n.fechamentosSafra:[],
+      insumos:Array.isArray(n?.insumos)?n.insumos:[],
+      movimentacoesInsumos:Array.isArray(n?.movimentacoesInsumos)?n.movimentacoesInsumos:[],
+      lixeiraV126:Array.isArray(n?.lixeiraV126)?n.lixeiraV126:[],
+      historicoV126:Array.isArray(n?.historicoV126)?n.historicoV126:[],
+      favoritosV126:Array.isArray(n?.favoritosV126)?n.favoritosV126:[]
+    };
+    garantirEstruturaV126();migrarLotesAntigos();
+    gerados=gerarRecorrenciasAteV122(fimHorizonteV122(60));
+    salvarLocal();renderTudo();iniciarAtualizacaoCotacao();
+  }finally{suspendSync=false}
+  if(gerados>0)setTimeout(()=>{salvarLocal();if(window.cloudSync)window.cloudSync.agendar()},100);
+};
+window.appBridge.getEstado=function(){garantirEstruturaV126();return structuredClone(estado)};
+window.appBridge.limparUsuario=function(){
+  usuarioAtual=null;
+  try{clearInterval(timerCotacao);clearInterval(timerCotacaoArquivo);if(typeof timerCotacaoV9!=="undefined")clearInterval(timerCotacaoV9)}catch(e){}
+  estado={lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[],safras:[],safraAtivaId:"",categorias:{receita:[],despesa:[]},pessoas:[],cotacaoCafe:{},analisesSolo:[],baixasFinanceiras:[],contasFinanceiras:[],recorrenciasFinanceiras:[],orcamentosSafra:[],fechamentosSafra:[],insumos:[],movimentacoesInsumos:[],lixeiraV126:[],historicoV126:[],favoritosV126:[]};
+  garantirEstruturaV126();$("authScreen").classList.remove("hidden");renderTudo();
+};
+
+baixarBackup=function(){
+  garantirEstruturaV126();
+  const payload={versao:"12.6",exportadoEm:new Date().toISOString(),estado};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download=`backup-financeiro-sitio-v12-6-${hoje()}.json`;a.click();URL.revokeObjectURL(a.href);
+};
+
+const renderTudoV126Base=renderTudo;
+renderTudo=function(){
+  garantirEstruturaV126();renderTudoV126Base();
+  renderResumoMensalV126();renderFavoritosV126();
+  if($("tab-perfil")&&!$("tab-perfil").classList.contains("hidden"))renderPerfil();
+};
+
+document.addEventListener("DOMContentLoaded",()=>setTimeout(()=>{try{garantirEstruturaV126();renderResumoMensalV126();renderFavoritosV126()}catch(e){console.error(e)}},350));
+</script>
+
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import{getAuth,onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword,signOut}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
@@ -10033,6 +11560,7 @@ if("serviceWorker" in navigator){
   window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
 }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="./assistant-v123.js?v=12.3-ajuda"></script>
 </body>
 </html>
