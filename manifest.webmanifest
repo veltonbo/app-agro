@@ -4,9 +4,9 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f3f4ef",
-  "theme_color": "#1c5a3f",
-  "description": "Gestão premium do sítio com paleta refinada em verdes e neutros claros.",
+  "background_color": "#f2f5f2",
+  "theme_color": "#174f37",
+  "description": "Gestão premium do sítio com paleta equilibrada em verde, branco e neutros.",
   "icons": [
     {
       "src": "icon-192.png",

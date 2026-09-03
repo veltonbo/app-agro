@@ -1,0 +1,357 @@
+
+/* =========================================================
+   FINANCEIRO DO SÍTIO — V12.14
+   CORES EQUILIBRADAS + CONTRASTE CORRIGIDO
+   ========================================================= */
+:root{
+  --v14-green-950:#103828;
+  --v14-green-900:#174f37;
+  --v14-green-800:#236347;
+  --v14-green-700:#337a59;
+  --v14-green-100:#e8f2eb;
+  --v14-green-050:#f3f8f4;
+
+  --v14-bg:#f2f5f2;
+  --v14-card:#ffffff;
+  --v14-soft:#f7f9f7;
+  --v14-border:#dbe5dd;
+  --v14-text:#1d2a22;
+  --v14-muted:#718077;
+
+  --v14-amber:#9b6728;
+  --v14-amber-soft:#fff3e3;
+  --v14-red:#a74f47;
+  --v14-red-soft:#fff0ee;
+}
+
+/* Fundo mais neutro e limpo */
+html,body{
+  background:
+    radial-gradient(circle at 0 0,rgba(51,122,89,.055),transparent 26%),
+    linear-gradient(180deg,#f8faf8 0,#f2f5f2 38%,#edf2ee 100%)!important;
+}
+body{color:var(--v14-text)!important}
+
+/* Cabeçalho */
+.topbar{
+  background:rgba(249,251,249,.93)!important;
+  border-bottom-color:#dfe7e1!important;
+}
+.brand-mark,.auth-logo{
+  background:linear-gradient(145deg,#2f7554,#12402e)!important;
+  border-color:rgba(255,255,255,.12)!important;
+}
+.brand-title-v121 h1,.brand h1{color:#1c2921!important}
+.sub{color:#77857b!important}
+.version-v121{
+  background:#edf4ef!important;
+  color:#315f46!important;
+  border-color:#d8e5dc!important;
+}
+.icon-btn,.user-badge{
+  background:#fff!important;
+  border-color:#dce5de!important;
+}
+.pro-help-mark{
+  background:#eaf4ed!important;
+  color:#226145!important;
+}
+
+/* ---------------------------------------------------------
+   CORREÇÃO PRINCIPAL DA TELA DA FOTO:
+   Central de gestão estava com texto escuro no fundo verde.
+   --------------------------------------------------------- */
+.v11-dashboard-head{
+  background:
+    radial-gradient(circle at 100% 0,rgba(255,255,255,.11),transparent 30%),
+    linear-gradient(135deg,#103828 0,#174f37 60%,#286c4d 100%)!important;
+  color:#fff!important;
+  border:1px solid rgba(255,255,255,.06)!important;
+}
+.v11-dashboard-head .eyebrow{
+  color:rgba(255,255,255,.62)!important;
+  opacity:1!important;
+}
+.v11-dashboard-head h2{
+  color:#fff!important;
+}
+.v11-dashboard-head p{
+  color:rgba(255,255,255,.72)!important;
+}
+.v11-sync{
+  background:rgba(255,255,255,.96)!important;
+  border-color:rgba(255,255,255,.72)!important;
+}
+.v11-sync small{
+  color:#77857b!important;
+}
+.v11-sync strong{
+  color:#304239!important;
+}
+.v11-sync strong::before{
+  background:#63cf87!important;
+  box-shadow:0 0 0 4px rgba(99,207,135,.14)!important;
+}
+
+/* Safra: verde suave, sem tom amarronzado */
+.v11-season{
+  background:linear-gradient(135deg,#eef6f0,#e5f1e9)!important;
+  color:var(--v14-text)!important;
+  border-color:#d4e5d9!important;
+  box-shadow:0 10px 24px rgba(24,72,48,.055)!important;
+}
+.v11-season::before{display:none!important}
+.v11-season small{
+  color:#64766b!important;
+}
+.v11-season strong{
+  color:#1f5139!important;
+}
+.v11-season-icon{
+  background:#d9ebdf!important;
+  color:#1f6445!important;
+  border-color:#cde3d4!important;
+}
+.v11-season select{
+  background:#fff!important;
+  color:#1e2922!important;
+  border-color:#cfe0d3!important;
+}
+.v11-season .btn.secondary{
+  background:#fff!important;
+  color:#3e5147!important;
+  border-color:#d4e2d7!important;
+}
+
+/* Cotação */
+.v11-market{
+  background:#fff!important;
+  border-color:#dce5de!important;
+}
+.v11-market small{
+  color:#718077!important;
+}
+.v11-market-price{
+  color:#1f6746!important;
+}
+.quote-btn.primary,
+#btnUsarCotacao{
+  background:#e8f3eb!important;
+  color:#205d40!important;
+  border-color:#cfe3d6!important;
+}
+
+/* Cards gerais: branco neutro */
+.card,.metric,.v11-essential,.v11-context-card,.v126-month-card,.v126-favorites-card,
+.v122-bank-panel,.v122-cashflow-panel,.accounts-panel,.v124-panel,.v126-stock-card,
+.cadastro-card,.v127-manejo-card,.v127-manejo-kpi,.harvest-kpi,.worker-card,.lote-card,
+.talhao-card,.modal-card{
+  background:#fff!important;
+  border-color:var(--v14-border)!important;
+}
+
+/* Saldo principal */
+.metric.primary,.v11-essential.primary,.harvest-kpi.featured{
+  background:
+    radial-gradient(circle at 100% 0,rgba(255,255,255,.09),transparent 30%),
+    linear-gradient(145deg,#123d2d,#1f6043)!important;
+  border-color:rgba(255,255,255,.07)!important;
+}
+.metric.primary .label,.metric.primary .note,
+.v11-essential.primary .label,.v11-essential.primary .note{
+  color:rgba(255,255,255,.65)!important;
+}
+.metric.primary .value,.v11-essential.primary .value{
+  color:#fff!important;
+}
+
+/* Contas a pagar e receber */
+.v11-essential.warn{
+  background:#fff!important;
+  border-color:#eed9ba!important;
+}
+.v11-essential.warn .doticon{
+  background:var(--v14-amber-soft)!important;
+  color:var(--v14-amber)!important;
+}
+.v11-essential:not(.primary):not(.warn) .doticon{
+  background:#e8f3eb!important;
+  color:#1e6243!important;
+}
+.v11-essential .label{
+  color:#708078!important;
+}
+.v11-essential .value{
+  color:#1d2922!important;
+}
+.v11-essential .note{
+  color:#89958d!important;
+}
+
+/* Estoque disponível */
+.v129-stock-value-card{
+  background:linear-gradient(180deg,#fff,#f5faf6)!important;
+  border-color:#d6e6da!important;
+}
+.v129-stock-value-card::after{
+  background:linear-gradient(90deg,transparent,#a9cab5,transparent)!important;
+}
+.v129-stock-money{color:#1e6746!important}
+.v129-stock-price{color:#7a887e!important}
+
+/* Destaques e títulos */
+.section-title,.module-head h2,.modal-head h3,.v11-dashboard-head h2{
+  color:var(--v14-text)!important;
+}
+.v11-dashboard-head h2{color:#fff!important}
+.section-head::after{
+  background:linear-gradient(90deg,#4d8d69,rgba(77,141,105,0))!important;
+}
+.module-kicker,.v124-kicker,.v126-kicker,.v127-kicker,.ai-kicker-v123{
+  color:#527764!important;
+}
+.module-head{
+  background:linear-gradient(180deg,#fff,#f8faf8)!important;
+  border-color:#dde6df!important;
+}
+
+/* Botões */
+.btn.primary{
+  background:linear-gradient(145deg,#337a59,#174f37)!important;
+  border-color:#245f45!important;
+  color:#fff!important;
+}
+.btn.primary:hover{
+  background:linear-gradient(145deg,#408865,#1e5c41)!important;
+}
+.btn.secondary{
+  background:#fff!important;
+  color:#425047!important;
+  border-color:#dce5de!important;
+}
+.btn.secondary:hover{
+  background:#f6f9f6!important;
+  border-color:#cad9ce!important;
+}
+.btn.danger{
+  color:#8d453f!important;
+  background:#fff3f1!important;
+  border-color:#f0d9d5!important;
+}
+
+/* Ícones: quase todos verdes; cor só quando tem significado */
+.qicon,.metric-icon,.item-icon,.process-badge,.flow-number,.v129-add-icon{
+  background:#e9f3ec!important;
+  color:#246246!important;
+  border-color:#d8e7dc!important;
+}
+.qicon.blue,.item-icon.blue,.metric.blue .metric-icon{
+  background:#edf4ef!important;
+  color:#315f49!important;
+  border-color:#dbe6de!important;
+}
+.item-icon.red,.metric.red .metric-icon,.v129-add-icon.red{
+  background:var(--v14-red-soft)!important;
+  color:var(--v14-red)!important;
+  border-color:#f0d7d3!important;
+}
+
+/* Status */
+.pill,.status-chip,.v127-status,.v126-month-badge{
+  background:#edf5ef!important;
+  color:#2a6347!important;
+  border-color:#d7e6dc!important;
+}
+.status-wait,.status-partial{
+  background:#fff5e8!important;
+  color:#95652d!important;
+  border-color:#f0ddc2!important;
+}
+.status-pending{
+  background:#fff1ef!important;
+  color:#a34f47!important;
+  border-color:#f0d6d2!important;
+}
+.status-done,.status-paid{
+  background:#e8f4ec!important;
+  color:#246345!important;
+  border-color:#d1e6d8!important;
+}
+
+/* Inputs */
+input,select,textarea{
+  background:#fff!important;
+  color:#1d2922!important;
+  border-color:#dce5de!important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:#87af97!important;
+  box-shadow:0 0 0 4px rgba(51,122,89,.09)!important;
+}
+
+/* Tabelas / estatísticas */
+.stat,.lote-stat,.report-kpi,.v11-mini,.v126-month-grid div,.v126-stock-card .stats div{
+  background:#f7faf8!important;
+  border-color:#e5ece6!important;
+}
+th{
+  background:#f6f9f7!important;
+  color:#6f7f75!important;
+}
+tr:hover td,.item:hover{
+  background:#f9fcfa!important;
+}
+
+/* Navegação inferior */
+.nav-inner{
+  background:rgba(250,252,250,.96)!important;
+  border-color:#dce5de!important;
+}
+.navbtn{
+  color:#728178!important;
+}
+.navbtn.active{
+  background:#edf5ef!important;
+  color:#1f6043!important;
+  border-color:#d6e5da!important;
+}
+.navbtn.active .nav-symbol{
+  background:#deece3!important;
+  color:#205f42!important;
+}
+
+/* FAB */
+.v129-add-fab{
+  background:linear-gradient(145deg,#327b59,#123f2e)!important;
+  border-color:rgba(255,255,255,.12)!important;
+}
+.v129-add-menu{
+  background:rgba(255,255,255,.99)!important;
+  border-color:#dce5de!important;
+}
+.v129-add-grid>button{
+  background:#fbfdfb!important;
+  border-color:#e2e9e3!important;
+}
+.v129-add-grid>button:hover{
+  background:#f3f8f4!important;
+  border-color:#cfddd3!important;
+}
+
+/* Tela de login */
+.auth-screen{
+  background:
+    radial-gradient(circle at 10% 0,rgba(51,122,89,.06),transparent 28%),
+    linear-gradient(180deg,#f8faf8,#eef3ef)!important;
+}
+.auth-tab.active{
+  color:#1f6043!important;
+  background:#fff!important;
+}
+
+/* Mobile */
+@media(max-width:720px){
+  .topbar{background:rgba(249,251,249,.96)!important}
+  .nav-inner{background:rgba(250,252,250,.98)!important}
+  .v129-add-menu{background:#fff!important}
+}

@@ -1,0 +1,18 @@
+FINANCEIRO DO SÍTIO — V12.14 CORES EQUILIBRADAS
+
+Ajustes feitos a partir da aparência observada no celular.
+
+CORREÇÕES
+- texto da Central de gestão agora fica branco e legível no fundo verde;
+- bloco de sincronização com contraste correto;
+- safra ativa passou para verde claro em vez de branco/marrom;
+- cotação mantém fundo branco e preço em verde;
+- saldo geral permanece em verde escuro;
+- contas a pagar usam âmbar apenas como alerta;
+- contas a receber usam verde suave;
+- ícones foram padronizados em verde, deixando vermelho/âmbar apenas para alertas;
+- versão V12.14 deixou de usar destaque marrom forte;
+- navegação inferior usa verde suave no item ativo;
+- fundo geral ficou mais neutro e limpo.
+
+Nenhuma lógica do aplicativo foi alterada.
