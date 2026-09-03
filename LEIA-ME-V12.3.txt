@@ -1,0 +1,23 @@
+FINANCEIRO DO SÍTIO — V12.3 — ASSISTENTE IA
+Base: V12.2, que por sua vez foi construída exclusivamente sobre a V12 do usuário.
+
+NOVO
+- Botão flutuante Assistente.
+- Entrada por texto, microfone, foto e arquivo de áudio/imagem.
+- IA entende despesas, receitas, latões, secador, vendas, pagamentos e análises de solo.
+- Modo seguro: mostra o que entendeu antes de gravar.
+- Modo automático opcional com confiança mínima configurável.
+- Contexto usa os cadastros reais do usuário: talhões, safras, colhedores, pessoas, categorias, contas e contas em aberto.
+- Evita duplicar pagamento quando identifica uma conta já existente.
+- Foto pode ser usada para nota, recibo ou laudo de solo.
+- Áudio é transcrito e depois interpretado.
+
+SEGURANÇA
+A chave OpenAI não fica no app. O pacote inclui backend-assistente-ia/cloudflare-worker.js.
+O Worker valida o login Firebase e apenas devolve uma proposta. A gravação continua sendo feita pelo próprio app na conta do usuário.
+
+PARA ATIVAR
+Leia backend-assistente-ia/README.txt. Depois, no app, abra Perfil > Assistente IA > Configurar e cole a URL do Worker.
+
+IMPORTANTE
+Sem configurar o backend, todas as funções antigas do app continuam funcionando normalmente; somente a IA ficará marcada como “Não conectado”.

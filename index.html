@@ -2169,6 +2169,7 @@ input,select,textarea{
 }
 
 </style>
+  <link rel="stylesheet" href="./assistant-v123.css?v=12.3">
 </head>
 <body>
 
@@ -2196,7 +2197,7 @@ input,select,textarea{
 
 <div class="app">
 <header class="topbar"><div class="topbar-inner">
-  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.2</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.3</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
   <div class="user-menu"><div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
 </div></header>
 
@@ -2868,6 +2869,13 @@ input,select,textarea{
       </div>
 
       <div class="cadastro-grid">
+        <div class="cadastro-card ai-profile-card">
+          <div class="cadastro-card-top"><div class="cadastro-icon ai-profile-icon">✦</div><div class="cadastro-count" id="aiProfileStatusV123">OFF<small>assistente</small></div></div>
+          <h3>Assistente IA</h3>
+          <p>Faça lançamentos por texto, voz ou foto, com confirmação antes de salvar.</p>
+          <div class="btnrow"><button class="btn primary" onclick="abrirAssistenteIA()">Abrir</button><button class="btn secondary" onclick="abrirConfigAssistenteIA()">Configurar</button></div>
+        </div>
+
         <div class="cadastro-card blue">
           <div class="cadastro-card-top"><div class="cadastro-icon">↥</div><div class="cadastro-count"><span>JSON</span><small>backup</small></div></div>
           <h3>Dados e backup</h3>
@@ -2888,6 +2896,71 @@ input,select,textarea{
   <button class="navbtn" data-nav="relatorios" onclick="trocarAba('relatorios',this)"><span class="nav-symbol">▤</span><span>Relatórios</span></button>
   <button class="navbtn" data-nav="perfil" onclick="trocarAba('perfil',this)"><span class="nav-symbol">●</span><span>Perfil</span></button>
 </div></nav>
+
+
+<button id="assistantFabV123" class="ai-fab-v123" type="button" onclick="abrirAssistenteIA()" aria-label="Abrir Assistente IA">
+  <span class="ai-fab-icon">✦</span><span class="ai-fab-label">Assistente</span>
+</button>
+
+<div id="modalAssistenteV123" class="modal hidden"><div class="modal-card ai-modal-card-v123">
+  <div class="modal-head ai-modal-head-v123">
+    <div><div class="ai-kicker-v123">ASSISTENTE DO SÍTIO</div><h3>Fale, fotografe ou digite</h3></div>
+    <div class="ai-head-actions-v123"><span id="aiStatusV123" class="ai-status-v123 off">Não conectado</span><button class="close" onclick="fecharModal('modalAssistenteV123')">✕</button></div>
+  </div>
+  <div class="ai-body-v123">
+    <div class="ai-intro-v123">
+      <div class="ai-orb-v123">✦</div>
+      <div><strong>O que aconteceu no sítio?</strong><small>Ex.: “Paguei R$ 780 de adubo no Pix para o Talhão 2” ou envie uma foto da nota.</small></div>
+    </div>
+
+    <div id="aiSetupNoticeV123" class="ai-setup-notice-v123 hidden">
+      <strong>Falta conectar a inteligência.</strong>
+      <small>O aplicativo está pronto. Configure o endereço seguro do Assistente IA para começar.</small>
+      <button class="btn secondary" type="button" onclick="abrirConfigAssistenteIA()">Configurar conexão</button>
+    </div>
+
+    <div class="field ai-text-field-v123">
+      <label>Mensagem</label>
+      <textarea id="aiTextoV123" rows="4" placeholder="Ex.: João colheu 94 latões hoje no Talhão 1, R$ 1,30 por latão."></textarea>
+    </div>
+
+    <div id="aiMediaPreviewV123" class="ai-media-preview-v123 hidden"></div>
+
+    <div class="ai-capture-grid-v123">
+      <button class="ai-capture-btn-v123" type="button" onclick="aiToggleMicrofoneV123()"><span id="aiMicIconV123">🎙️</span><strong id="aiMicLabelV123">Gravar áudio</strong><small>Fale normalmente</small></button>
+      <button class="ai-capture-btn-v123" type="button" onclick="document.getElementById('aiFotoInputV123').click()"><span>📷</span><strong>Tirar foto</strong><small>Nota, recibo ou laudo</small></button>
+      <button class="ai-capture-btn-v123" type="button" onclick="document.getElementById('aiArquivoInputV123').click()"><span>📎</span><strong>Escolher arquivo</strong><small>Imagem ou áudio</small></button>
+    </div>
+    <input id="aiFotoInputV123" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" class="hidden" onchange="aiSelecionarArquivoV123(event)">
+    <input id="aiArquivoInputV123" type="file" accept="image/jpeg,image/png,image/webp,audio/*" class="hidden" onchange="aiSelecionarArquivoV123(event)">
+
+    <button id="aiAnalisarBtnV123" class="btn primary ai-main-btn-v123" type="button" onclick="aiAnalisarV123()">✦ Analisar com IA</button>
+    <div id="aiLoadingV123" class="ai-loading-v123 hidden"><span></span><div><strong>Analisando…</strong><small id="aiLoadingTextV123">Interpretando as informações.</small></div></div>
+
+    <div id="aiResultadoV123" class="ai-result-v123 hidden">
+      <div class="ai-result-head-v123"><div><div class="ai-kicker-v123">ENTENDI ASSIM</div><h4 id="aiResumoV123">—</h4></div><span id="aiConfiancaV123" class="ai-confidence-v123">—</span></div>
+      <div id="aiTranscricaoV123" class="ai-transcript-v123 hidden"></div>
+      <div id="aiPerguntaV123" class="ai-question-v123 hidden"></div>
+      <div id="aiAcoesV123" class="ai-actions-v123"></div>
+      <div class="ai-result-buttons-v123">
+        <button class="btn secondary" type="button" onclick="aiEditarPedidoV123()">Corrigir</button>
+        <button id="aiConfirmarBtnV123" class="btn primary" type="button" onclick="aiConfirmarV123()">Confirmar e lançar</button>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<div id="modalConfigAssistenteV123" class="modal hidden"><div class="modal-card ai-config-card-v123">
+  <div class="modal-head"><h3>Configurar Assistente IA</h3><button class="close" onclick="fecharModal('modalConfigAssistenteV123')">✕</button></div>
+  <div class="grid2">
+    <div class="field" style="grid-column:1/-1"><label>Endereço seguro do Assistente</label><input id="aiEndpointV123" type="url" placeholder="https://seu-worker.workers.dev"><div class="v121-field-help">A chave da OpenAI fica somente no servidor seguro, nunca dentro do aplicativo.</div></div>
+    <div class="field"><label>Modo de lançamento</label><select id="aiModoV123"><option value="confirmar">Confirmar antes de salvar</option><option value="automatico">Automático quando houver alta confiança</option></select></div>
+    <div class="field"><label>Confiança mínima automática</label><select id="aiConfiancaMinV123"><option value="0.99">99%</option><option value="0.97">97%</option><option value="0.95">95%</option></select></div>
+  </div>
+  <div id="aiConfigTesteV123" class="ai-config-test-v123">Ainda não testado.</div>
+  <div class="btnrow"><button class="btn secondary" type="button" onclick="aiTestarConexaoV123()">Testar conexão</button><button class="btn primary" type="button" onclick="aiSalvarConfigV123()">Salvar</button></div>
+  <div class="ai-security-note-v123"><strong>Segurança</strong><small>O servidor valida seu login do Firebase. A IA apenas prepara a ação; quem grava os dados é o próprio aplicativo na sua conta depois da confirmação.</small></div>
+</div></div>
 
 <div id="modalLancamento" class="modal hidden"><div class="modal-card">
   <div class="modal-head"><h3 id="tituloLancamento">Novo lançamento</h3><button class="close" onclick="fecharModal('modalLancamento')">✕</button></div>
@@ -9947,6 +10020,7 @@ import{getDatabase,ref,get,set,onValue,serverTimestamp}from"https://www.gstatic.
 const firebaseConfig={"apiKey":"AIzaSyD773S1h91tovlKTPbaeAZbN2o1yxROcOc","authDomain":"manej-cafe.firebaseapp.com","databaseURL":"https://manej-cafe-default-rtdb.firebaseio.com","projectId":"manej-cafe","storageBucket":"manej-cafe.firebasestorage.app","messagingSenderId":"808931200634","appId":"1:808931200634:web:71357af2ff0dc2e4f5f5c3"};
 const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getDatabase(app);
 let user=null,stateRef=null,unsubscribe=null,timer=null,aplicando=false;
+window.appBridge.getIdToken=async()=>user?await user.getIdToken():"";
 function erro(e){let m={"auth/invalid-credential":"E-mail ou senha incorretos.","auth/email-already-in-use":"Esse e-mail já está cadastrado.","auth/invalid-email":"E-mail inválido.","auth/weak-password":"A senha precisa ter pelo menos 6 caracteres.","auth/too-many-requests":"Muitas tentativas. Tente novamente mais tarde.","auth/network-request-failed":"Falha de internet. Verifique a conexão."};return m[e?.code]||"Não foi possível concluir a operação."}
 window.authActions={login:(e,s)=>signInWithEmailAndPassword(auth,e,s),cadastrar:(e,s)=>createUserWithEmailAndPassword(auth,e,s),logout:()=>signOut(auth),erro};
 async function enviar(){if(!user||!stateRef||aplicando)return;setSync("sincronizando...");await set(stateRef,{...window.appBridge.getEstado(),updatedAt:serverTimestamp(),updatedBy:user.uid});setSync("sincronizado","ok")}
@@ -9970,5 +10044,6 @@ if("serviceWorker" in navigator){
   window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
 }
 </script>
+<script src="./assistant-v123.js?v=12.3"></script>
 </body>
 </html>
