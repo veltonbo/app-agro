@@ -295,6 +295,20 @@ const TOPICOS = [
     acoes:[["Abrir Relatórios","relatorios"]]
   },
   {
+    id:"manejo_lavoura",
+    palavras:["manejo","adubacao","adubação","pulverizacao","pulverização","fertirrigacao","fertirrigação","programar atividade","aplicar insumo"],
+    titulo:"Registrar um manejo da lavoura",
+    passos:[
+      "Abra Talhões e vá até Manejo da lavoura, ou use o atalho Registrar manejo na tela inicial.",
+      "Escolha data, talhão, safra, tipo de manejo e status.",
+      "Adicione os insumos e as quantidades quando houver aplicação de produto.",
+      "Se deixar Programado, o estoque não é alterado.",
+      "Quando marcar Concluído, o app baixa os insumos do estoque e registra o custo aplicado no talhão."
+    ],
+    dica:"O custo do manejo usa o custo médio atual do insumo e fica separado do resultado financeiro para evitar confundir compra com consumo.",
+    acoes:[["Novo manejo","manejo"],["Ir aos talhões","talhoes"]]
+  },
+  {
     id:"backup",
     palavras:["backup","copia","salvar dados","restaurar","importar backup"],
     titulo:"Fazer backup dos dados",
@@ -446,6 +460,8 @@ window.executarAjudaAcaoV123=function(acao){
       irAba("relatorios"); break;
     case "perfil":
       irAba("perfil"); break;
+    case "manejo":
+      fecharAjuda(); setTimeout(()=>abrirManejoV127(),50); break;
     case "busca":
       fecharAjuda(); setTimeout(()=>abrirBuscaGlobalV126(),50); break;
     case "insumos":

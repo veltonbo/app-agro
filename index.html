@@ -2328,6 +2328,7 @@ input,select,textarea{
 
 </style>
   <link rel="stylesheet" href="./assistant-v123.css?v=12.3-ajuda">
+<link rel="stylesheet" href="./v127.css?v=12.7">
 </head>
 <body>
 
@@ -2355,14 +2356,14 @@ input,select,textarea{
 
 <div class="app">
 <header class="topbar"><div class="topbar-inner">
-  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.6</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M19.5 4.5C14.4 4.6 9.7 6.2 7 9.2c-2.2 2.5-2.9 5.4-2 8.3 2.5-3.9 6-6.8 10.4-8.7-3.7 2.3-6.7 5.2-8.7 8.9.8.7 1.8 1.1 2.9 1.1 3.3 0 6-2.1 7.7-4.9 1.7-2.9 2.4-6.3 2.2-9.4Z" fill="currentColor"/></svg></div><div><div class="brand-title-v121"><h1>Financeiro do Sítio</h1><span class="version-v121">V12.7</span></div><div class="sub">Gestão financeira • Café Conilon</div></div></div>
   <div class="user-menu"><button class="icon-btn search-top-v126" onclick="abrirBuscaGlobalV126()" aria-label="Buscar no app" title="Buscar no app">⌕</button><div class="user-badge"><span class="user-avatar" id="userAvatar">U</span><span id="usuarioLogado">Aguardando login...</span></div><button class="icon-btn" onclick="sairDaConta()" aria-label="Sair"><svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div>
 </div></header>
 
 <section id="tab-resumo">
   <div class="hero">
     <div><div class="eyebrow">PAINEL FINANCEIRO</div><h2>Painel da safra</h2><p>Uma visão rápida do dinheiro, da colheita, do estoque e do resultado da safra.</p></div>
-    <div class="sync-pill" id="syncPill"><span class="sync-dot"></span><div><small>Firebase</small><strong id="syncStatus">Conectando...</strong></div></div>
+    <div class="sync-pill" id="syncPill" onclick="abrirSyncV127()" title="Ver sincronização" style="cursor:pointer"><span class="sync-dot"></span><div><small>Firebase</small><strong id="syncStatus">Conectando...</strong></div></div>
   </div>
 
 
@@ -2565,6 +2566,7 @@ input,select,textarea{
     <button class="quick-btn" onclick="abrirLancamento('despesa')"><div class="qicon blue">−</div><div><strong>Nova despesa</strong><small>Custos da lavoura e do sítio</small></div></button>
     <button class="quick-btn" onclick="abrirApanha()"><div class="qicon">🪣</div><div><strong>Registrar latões</strong><small>Colhedor, talhão e quantidade</small></div></button>
     <button class="quick-btn" onclick="abrirVenda()"><div class="qicon blue">R$</div><div><strong>Registrar venda</strong><small>Sacas, preço e comprador</small></div></button>
+    <button class="quick-btn" onclick="abrirManejoV127()"><div class="qicon">🌱</div><div><strong>Registrar manejo</strong><small>Aplicação, irrigação, poda ou serviço</small></div></button>
   </div>
 
   <div class="section-head"><h3 class="section-title">Últimas movimentações</h3><div class="section-note">Mais recentes primeiro</div></div>
@@ -2811,6 +2813,24 @@ input,select,textarea{
   </div>
 
   <div id="gridTalhoes" class="grid3"></div>
+
+  <div class="section-head v127-manejo-head">
+    <div><h3 class="section-title">Manejo da lavoura</h3><div class="section-note">Planeje atividades, use insumos do estoque e acompanhe o custo aplicado por talhão</div></div>
+    <button class="btn primary" onclick="abrirManejoV127()">+ Novo manejo</button>
+  </div>
+  <div class="v127-manejo-kpis">
+    <div class="card stat"><small>Programados</small><strong id="manejKpiProgramadosV127">0</strong></div>
+    <div class="card stat"><small>Concluídos na safra</small><strong id="manejKpiConcluidosV127">0</strong></div>
+    <div class="card stat"><small>Insumos aplicados</small><strong id="manejKpiCustoV127">R$ 0,00</strong></div>
+    <div class="card stat"><small>Próximos 7 dias</small><strong id="manejKpiProximosV127">0</strong></div>
+  </div>
+  <div class="filter-panel no-print v127-manejo-filter"><div class="toolbar">
+    <select id="fManejoStatusV127" onchange="renderManejosV127()"><option value="todos">Todos os status</option><option value="programado">Programados</option><option value="concluido">Concluídos</option></select>
+    <select id="fManejoTalhaoV127" onchange="renderManejosV127()"><option value="todos">Todos os talhões</option></select>
+    <select id="fManejoSafraV127" onchange="renderManejosV127()"><option value="todos">Todas as safras</option></select>
+    <input id="fManejoBuscaV127" type="search" placeholder="Buscar tipo, responsável..." oninput="renderManejosV127()">
+  </div></div>
+  <div id="listaManejosV127" class="v127-manejo-list"></div>
 </section>
 
 <section id="tab-relatorios" class="hidden">
@@ -3882,11 +3902,39 @@ input,select,textarea{
 <!-- V12.6 — PDF -->
 <div id="modalRelatorioPDFV126" class="modal hidden"><div class="modal-card">
   <div class="modal-head"><div><div class="v126-kicker">RELATÓRIO</div><h3>Gerar PDF</h3></div><button class="close" onclick="fecharModal('modalRelatorioPDFV126')">✕</button></div>
-  <div class="field"><label>Tipo de relatório</label><select id="pdfTipoV126"><option value="safra">Resumo da safra</option><option value="financeiro">Financeiro</option><option value="talhoes">Talhões</option><option value="colhedores">Colhedores</option><option value="insumos">Estoque de insumos</option><option value="solo">Análises de solo</option></select></div>
+  <div class="field"><label>Tipo de relatório</label><select id="pdfTipoV126"><option value="safra">Resumo da safra</option><option value="financeiro">Financeiro</option><option value="talhoes">Talhões</option><option value="colhedores">Colhedores</option><option value="insumos">Estoque de insumos</option><option value="solo">Análises de solo</option><option value="manejos">Manejo da lavoura</option></select></div>
   <div class="field" style="margin-top:8px"><label>Safra</label><select id="pdfSafraV126"><option value="todos">Todas as safras</option></select></div>
   <div class="btnrow" style="margin-top:12px"><button class="btn secondary" onclick="fecharModal('modalRelatorioPDFV126')">Cancelar</button><button class="btn primary" onclick="gerarPDFV126()">Gerar PDF</button></div>
 </div></div>
 
+
+<!-- V12.7 — Manejo da lavoura -->
+<div id="modalManejoV127" class="modal hidden"><div class="modal-card v127-wide">
+  <div class="modal-head"><div><div class="v127-kicker">MANEJO DA LAVOURA</div><h3 id="tituloManejoV127">Novo manejo</h3></div><button class="close" onclick="fecharModal('modalManejoV127')">✕</button></div>
+  <input id="manejoIdV127" type="hidden">
+  <div class="grid2">
+    <div class="field"><label>Data</label><input id="manejoDataV127" type="date"></div>
+    <div class="field"><label>Status</label><select id="manejoStatusV127"><option value="programado">Programado</option><option value="concluido">Concluído</option></select></div>
+    <div class="field"><label>Talhão</label><select id="manejoTalhaoV127"></select></div>
+    <div class="field"><label>Safra</label><select id="manejoSafraV127"></select></div>
+    <div class="field"><label>Tipo de manejo</label><select id="manejoTipoV127"><option>Adubação</option><option>Pulverização</option><option>Fertirrigação</option><option>Irrigação</option><option>Biológico</option><option>Capina / Roçada</option><option>Poda</option><option>Desbrota</option><option>Plantio / Replantio</option><option>Manutenção da lavoura</option><option>Outro</option></select></div>
+    <div class="field"><label>Responsável</label><input id="manejoResponsavelV127" placeholder="Opcional"></div>
+  </div>
+  <div class="v127-products-box">
+    <div class="v127-products-head"><div><strong>Insumos utilizados</strong><small>Ao concluir, o app baixa automaticamente do estoque.</small></div><button class="btn secondary" type="button" onclick="adicionarProdutoManejoV127()">+ Produto</button></div>
+    <div id="manejoProdutosV127"></div>
+  </div>
+  <div class="field" style="margin-top:9px"><label>Observação / serviço realizado</label><textarea id="manejoObsV127" placeholder="Ex.: aplicação via fertirrigação, setor 01 e 02"></textarea></div>
+  <div id="manejoCustoPreviewV127" class="v127-cost-preview"></div>
+  <div class="btnrow" style="margin-top:12px"><button class="btn secondary" onclick="fecharModal('modalManejoV127')">Cancelar</button><button class="btn primary" onclick="salvarManejoV127()">Salvar manejo</button></div>
+</div></div>
+
+<!-- V12.7 — Status de sincronização -->
+<div id="modalSyncV127" class="modal hidden"><div class="modal-card">
+  <div class="modal-head"><div><div class="v127-kicker">SINCRONIZAÇÃO</div><h3>Estado dos dados</h3></div><button class="close" onclick="fecharModal('modalSyncV127')">✕</button></div>
+  <div id="syncDetalheV127" class="v127-sync-detail"></div>
+  <div class="btnrow" style="margin-top:12px"><button class="btn secondary" onclick="fecharModal('modalSyncV127')">Fechar</button><button class="btn primary" onclick="sincronizarAgoraV127()">Sincronizar agora</button></div>
+</div></div>
 <div id="toast" class="toast hidden"></div>
 
 <script>
@@ -11529,29 +11577,70 @@ renderTudo=function(){
 document.addEventListener("DOMContentLoaded",()=>setTimeout(()=>{try{garantirEstruturaV126();renderResumoMensalV126();renderFavoritosV126()}catch(e){console.error(e)}},350));
 </script>
 
+<script src="./v127.js?v=12.7"></script>
+
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import{getAuth,onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword,signOut}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-import{getDatabase,ref,get,set,onValue,serverTimestamp}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+import{getDatabase,ref,get,set,onValue,serverTimestamp,runTransaction}from"https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
 const firebaseConfig={"apiKey":"AIzaSyD773S1h91tovlKTPbaeAZbN2o1yxROcOc","authDomain":"manej-cafe.firebaseapp.com","databaseURL":"https://manej-cafe-default-rtdb.firebaseio.com","projectId":"manej-cafe","storageBucket":"manej-cafe.firebasestorage.app","messagingSenderId":"808931200634","appId":"1:808931200634:web:71357af2ff0dc2e4f5f5c3"};
 const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getDatabase(app);
-let user=null,stateRef=null,unsubscribe=null,timer=null,aplicando=false;
+let user=null,stateRef=null,unsubscribe=null,timer=null,aplicando=false,dirtyV127=false,enviandoV127=false;
 window.appBridge.getIdToken=async()=>user?await user.getIdToken():"";
 function erro(e){let m={"auth/invalid-credential":"E-mail ou senha incorretos.","auth/email-already-in-use":"Esse e-mail já está cadastrado.","auth/invalid-email":"E-mail inválido.","auth/weak-password":"A senha precisa ter pelo menos 6 caracteres.","auth/too-many-requests":"Muitas tentativas. Tente novamente mais tarde.","auth/network-request-failed":"Falha de internet. Verifique a conexão."};return m[e?.code]||"Não foi possível concluir a operação."}
 window.authActions={login:(e,s)=>signInWithEmailAndPassword(auth,e,s),cadastrar:(e,s)=>createUserWithEmailAndPassword(auth,e,s),logout:()=>signOut(auth),erro};
-async function enviar(){if(!user||!stateRef||aplicando)return;setSync("sincronizando...");await set(stateRef,{...window.appBridge.getEstado(),updatedAt:serverTimestamp(),updatedBy:user.uid});setSync("sincronizado","ok")}
-window.cloudSync={agendar(){if(!user||aplicando)return;clearTimeout(timer);timer=setTimeout(()=>enviar().catch(e=>{console.error(e);setSync("erro ao sincronizar","erro")}),550)},enviarAgora:enviar};
+async function enviar(){
+ if(!user||!stateRef||aplicando||enviandoV127)return;
+ enviandoV127=true;dirtyV127=true;
+ const revInicio=Number(window.__syncRevV127||0);
+ setSync(`sincronizando${window.__pendenciasSyncV127?` • ${window.__pendenciasSyncV127} alteração(ões)`:""}...`);
+ try{
+  const local=window.appBridge.getEstado();
+  const r=await runTransaction(stateRef,current=>{
+    const merged=window.mergeStateV127?window.mergeStateV127(current||{},local):local;
+    merged.updatedAt=Date.now();merged.updatedBy=user.uid;
+    return merged;
+  },{applyLocally:false});
+  if(!r.committed)throw new Error("Sincronização não confirmada.");
+  if(Number(window.__syncRevV127||0)===revInicio){
+    dirtyV127=false;window.__pendenciasSyncV127=0;
+    localStorage.removeItem(`financeiro_sync_pending_v127_${user.uid}`);
+    aplicando=true;try{window.appBridge.setEstado(r.snapshot.val())}finally{aplicando=false}
+    setSync("sincronizado com segurança","ok");
+  }else{
+    dirtyV127=true;setSync("novas alterações aguardando envio");
+    clearTimeout(timer);timer=setTimeout(()=>enviar().catch(()=>{}),450);
+  }
+ }finally{enviandoV127=false}
+}
+window.cloudSync={
+ agendar(){if(!user||aplicando)return;dirtyV127=true;localStorage.setItem(`financeiro_sync_pending_v127_${user.uid}`,"1");clearTimeout(timer);setSync(`${Math.max(1,Number(window.__pendenciasSyncV127||1))} alteração(ões) aguardando sincronização`);timer=setTimeout(()=>enviar().catch(e=>{console.error(e);setSync("offline • alterações salvas neste aparelho","erro")}),650)},
+ enviarAgora:enviar,
+ temPendente(){return dirtyV127}
+};
 onAuthStateChanged(auth,async u=>{
  user=u;if(unsubscribe){unsubscribe();unsubscribe=null}clearTimeout(timer);
  if(!user){stateRef=null;window.appBridge.limparUsuario();setSync("aguardando login");return}
  window.appBridge.setUsuario(user);stateRef=ref(db,`financeiroSitio/users/${user.uid}/estado`);setSync("carregando seus dados...");
  try{
-  let snap=await get(stateRef);
-  if(snap.exists()){aplicando=true;try{window.appBridge.setEstado(snap.val())}finally{aplicando=false}}
-  else{aplicando=true;try{window.appBridge.setEstado({lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[]})}finally{aplicando=false}await enviar()}
-  setSync("conectado em tempo real","ok");
-  unsubscribe=onValue(stateRef,s=>{if(!s.exists()||aplicando)return;aplicando=true;try{window.appBridge.setEstado(s.val());setSync("atualizado em tempo real","ok")}finally{aplicando=false}},e=>{console.error(e);setSync(e?.message?.toLowerCase().includes("permission")?"permissão negada":"erro de conexão","erro")});
-  onValue(ref(db,".info/connected"),s=>setSync(s.val()===true?"conectado em tempo real":"offline",s.val()===true?"ok":"erro"));
+  let snap=await get(stateRef),remote=snap.exists()?snap.val():{lancamentos:[],talhoes:[],colheitas:[],vendas:[],trabalhadores:[],apanhas:[],lotes:[]};
+  const pendenteLocal=localStorage.getItem(`financeiro_sync_pending_v127_${user.uid}`)==="1";
+  const localPendente=pendenteLocal?window.appBridge.getLocalEstadoV127?.(user.uid):null;
+  if(localPendente){remote=window.mergeStateV127?window.mergeStateV127(remote,localPendente):localPendente;dirtyV127=true}
+  aplicando=true;try{window.appBridge.setEstado(remote)}finally{aplicando=false}
+  if(!snap.exists()||localPendente)await enviar();
+  setSync(dirtyV127?"alterações aguardando sincronização":"conectado em tempo real",dirtyV127?"":"ok");
+  unsubscribe=onValue(stateRef,s=>{
+    if(!s.exists()||aplicando)return;
+    if(dirtyV127||enviandoV127){setSync("alteração externa detectada • mesclagem pendente");return}
+    aplicando=true;try{window.appBridge.setEstado(s.val());setSync("atualizado em tempo real","ok")}finally{aplicando=false}
+  },e=>{console.error(e);setSync(e?.message?.toLowerCase().includes("permission")?"permissão negada":"erro de conexão","erro")});
+  onValue(ref(db,".info/connected"),s=>{
+    if(s.val()===true){
+      if(dirtyV127){setSync("internet voltou • sincronizando...");enviar().catch(()=>{})}
+      else setSync("conectado em tempo real","ok");
+    }else setSync(dirtyV127?"offline • alterações salvas neste aparelho":"offline","erro");
+  });
  }catch(e){console.error(e);setSync(e?.message?.toLowerCase().includes("permission")?"permissão negada":"erro ao carregar dados","erro")}
 });
 </script>

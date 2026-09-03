@@ -1,0 +1,46 @@
+FINANCEIRO DO SÍTIO — V12.7
+MANEJO + ESTOQUE + SINCRONIZAÇÃO MAIS SEGURA
+
+Base: evolução direta da V12.6, mantendo compatibilidade com os dados anteriores.
+
+PRINCIPAIS NOVIDADES
+
+1. MANEJO DA LAVOURA
+- Programação e conclusão de atividades por talhão e safra.
+- Adubação, pulverização, fertirrigação, irrigação, biológicos, poda, desbrota, capina/roçada e outros.
+- Responsável e observações.
+- Filtros por status, talhão e safra.
+- Alertas de manejo atrasado e próximos 7 dias.
+
+2. MANEJO INTEGRADO AO ESTOQUE
+- Adiciona um ou mais insumos ao manejo.
+- Manejo programado não movimenta estoque.
+- Ao concluir, o app valida saldo e dá saída automática.
+- Edição de manejo concluído reconcilia as movimentações ligadas.
+- Exclusão de manejo concluído estorna as saídas ligadas ao manejo.
+- Custo de insumos aplicado é calculado pelo custo médio do estoque.
+
+3. CUSTO POR TALHÃO
+- A ficha do talhão passa a mostrar o custo dos insumos efetivamente aplicados.
+- O indicador fica separado da despesa financeira para evitar dupla contagem entre compra e consumo.
+
+4. SINCRONIZAÇÃO V12.7
+- Cada registro alterado recebe criadoEm, alteradoEm, alteradoPor e syncVersion.
+- Alterações são mescladas por registro antes de gravar no Firebase.
+- Exclusões geram marcadores de sincronização para não reaparecerem em outro aparelho.
+- Se estiver offline, a alteração permanece salva localmente.
+- Quando a internet volta, o app tenta sincronizar automaticamente.
+- Se houver mudança externa enquanto o aparelho tem alterações pendentes, o app evita substituir silenciosamente o estado local e faz a mesclagem no envio.
+- Toque no indicador de sincronização no topo para ver detalhes.
+
+5. RELATÓRIOS E AJUDA
+- PDF de manejo da lavoura.
+- Busca global também encontra manejos.
+- Assistente do App explica o novo fluxo.
+
+6. BACKUP
+- Backup identificado como V12.7.
+- Novos campos: manejos, syncDeletedV127 e syncInfoV127.
+
+OBSERVAÇÃO TÉCNICA
+A V12.7 melhora significativamente a sincronização sem trocar a estrutura principal do banco do usuário. A refatoração completa do código legado em módulos independentes continua sendo uma etapa futura e mais invasiva.
