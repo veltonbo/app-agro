@@ -1,0 +1,16 @@
+FINANCEIRO DO SÍTIO — V12.16 RELATÓRIOS REFINADOS
+
+Ajustes feitos a partir da imagem real da tela de Relatórios.
+
+CORREÇÕES
+- KPIs do relatório agora têm contraste correto.
+- Receitas, despesas, resultado e custo por saca ficaram legíveis.
+- Cards internos do painel verde receberam fundo claro e texto verde-escuro.
+- Filtros de período ganharam rótulos visíveis: Data inicial e Data final.
+- Talhão, Safra e Regime também receberam rótulos.
+- Organização dos filtros melhorada para celular.
+- Botões de relatório reorganizados.
+- FAB + reduzido para não encobrir tanto o conteúdo.
+- Cabeçalho do módulo Relatórios ficou mais compacto.
+
+Toda a lógica da V12.15 foi mantida.

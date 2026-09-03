@@ -1,0 +1,272 @@
+
+/* =========================================================
+   FINANCEIRO DO SÍTIO — V12.16
+   AJUSTES A PARTIR DA TELA DE RELATÓRIOS
+   ========================================================= */
+
+/* Cabeçalho do módulo Relatórios */
+#tab-relatorios .module-head{
+  padding:16px!important;
+  border-radius:18px!important;
+  margin-bottom:12px!important;
+}
+#tab-relatorios .module-head h2{
+  font-size:22px!important;
+  line-height:1.04!important;
+}
+#tab-relatorios .module-head p{
+  font-size:10.5px!important;
+  line-height:1.5!important;
+}
+
+/* Botões Exportar CSV / Salvar PDF */
+#tab-relatorios .module-head-actions{
+  gap:8px!important;
+}
+#tab-relatorios .module-head-actions .btn{
+  min-height:46px!important;
+  font-size:10.5px!important;
+}
+
+/* ---------------------------------------------------------
+   Corrige KPI ilegível do painel verde.
+   Antes: card branco + texto branco.
+   Agora: cards claros com texto verde-escuro.
+   --------------------------------------------------------- */
+#tab-relatorios .report-hero{
+  padding:17px!important;
+  border-radius:22px!important;
+  box-shadow:0 16px 34px rgba(20,67,45,.14)!important;
+}
+
+#tab-relatorios .report-hero h2{
+  font-size:20px!important;
+  line-height:1.08!important;
+}
+
+#tab-relatorios .report-hero > p{
+  margin-top:6px!important;
+  font-size:9.5px!important;
+  color:rgba(255,255,255,.78)!important;
+}
+
+#tab-relatorios .report-kpis{
+  gap:8px!important;
+  margin-top:13px!important;
+}
+
+#tab-relatorios .report-kpi{
+  background:rgba(255,255,255,.96)!important;
+  border:1px solid rgba(255,255,255,.70)!important;
+  box-shadow:0 6px 14px rgba(7,35,20,.08)!important;
+  border-radius:14px!important;
+  padding:10px 11px!important;
+}
+
+#tab-relatorios .report-kpi small{
+  color:#718078!important;
+  font-size:7px!important;
+  letter-spacing:.07em!important;
+}
+
+#tab-relatorios .report-kpi strong{
+  color:#1f3f30!important;
+  font-size:15px!important;
+  line-height:1.12!important;
+  margin-top:5px!important;
+  opacity:1!important;
+}
+
+/* Resultado positivo ganha destaque suave */
+#tab-relatorios #rResultado{
+  color:#1c6845!important;
+}
+
+/* ---------------------------------------------------------
+   Período e filtros
+   --------------------------------------------------------- */
+#tab-relatorios .section-head{
+  margin-top:18px!important;
+  margin-bottom:9px!important;
+}
+
+#tab-relatorios .section-title{
+  font-size:17px!important;
+}
+
+.v1216-report-filter{
+  padding:13px!important;
+  border-radius:17px!important;
+  background:#fff!important;
+  border:1px solid #dce6de!important;
+  box-shadow:0 8px 20px rgba(18,47,31,.04)!important;
+}
+
+.v1216-report-filter .filter-title{
+  margin-bottom:10px!important;
+}
+
+.v1216-report-filter .filter-title strong{
+  font-size:10px!important;
+  color:#34443a!important;
+}
+
+.v1216-report-filter .filter-title small{
+  font-size:8px!important;
+  color:#859087!important;
+}
+
+.v1216-filter-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+}
+
+.v1216-filter-field{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.v1216-filter-field>span{
+  padding-left:2px;
+  font-size:7px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.055em;
+  color:#77857b;
+}
+
+.v1216-filter-field input,
+.v1216-filter-field select{
+  min-height:43px!important;
+  height:43px!important;
+  border-radius:12px!important;
+  background:#fbfdfb!important;
+}
+
+.v1216-report-actions{
+  margin-top:10px!important;
+}
+
+.v1216-report-actions .btn{
+  min-height:40px!important;
+}
+
+/* ---------------------------------------------------------
+   FAB: menor e menos invasivo na tela de relatórios.
+   --------------------------------------------------------- */
+#tab-relatorios:not(.hidden) ~ * .v129-add-fab{
+  transform:scale(.92);
+}
+
+/* Base global, pois o FAB fica fora da section */
+.v129-add-fab{
+  width:46px!important;
+  min-width:46px!important;
+  height:46px!important;
+  border-radius:15px!important;
+  box-shadow:0 9px 20px rgba(25,80,55,.15)!important;
+}
+
+.v1210-fab-plus{
+  font-size:23px!important;
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+@media(max-width:720px){
+  #tab-relatorios .module-head{
+    padding:14px!important;
+  }
+
+  #tab-relatorios .module-head h2{
+    font-size:20px!important;
+  }
+
+  #tab-relatorios .module-head p{
+    font-size:9.5px!important;
+  }
+
+  #tab-relatorios .module-head-actions{
+    grid-template-columns:1fr 1fr!important;
+    width:100%!important;
+  }
+
+  #tab-relatorios .report-hero{
+    padding:15px!important;
+  }
+
+  #tab-relatorios .report-hero h2{
+    font-size:18px!important;
+  }
+
+  #tab-relatorios .report-kpis{
+    grid-template-columns:1fr 1fr!important;
+    gap:7px!important;
+  }
+
+  #tab-relatorios .report-kpi{
+    min-height:72px!important;
+    padding:9px 10px!important;
+  }
+
+  #tab-relatorios .report-kpi strong{
+    font-size:14px!important;
+  }
+
+  .v1216-filter-grid{
+    grid-template-columns:1fr 1fr!important;
+    gap:8px!important;
+  }
+
+  .v1216-filter-regime{
+    grid-column:1/-1;
+  }
+
+  .v1216-filter-field input,
+  .v1216-filter-field select{
+    min-height:44px!important;
+    height:44px!important;
+  }
+
+  .v1216-report-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+  }
+
+  .v1216-report-actions .btn:nth-child(2){
+    grid-column:1/-1;
+    grid-row:1;
+  }
+
+  .v129-add-fab{
+    width:44px!important;
+    min-width:44px!important;
+    height:44px!important;
+    right:11px!important;
+    bottom:calc(78px + env(safe-area-inset-bottom))!important;
+  }
+}
+
+/* Safari pequeno */
+@media(max-width:390px){
+  .v1216-filter-grid{
+    grid-template-columns:1fr!important;
+  }
+
+  .v1216-filter-regime{
+    grid-column:auto;
+  }
+
+  .v1216-report-actions{
+    grid-template-columns:1fr!important;
+  }
+
+  .v1216-report-actions .btn:nth-child(2){
+    grid-column:auto;
+    grid-row:auto;
+  }
+}
