@@ -1,0 +1,27 @@
+FINANCEIRO DO SÍTIO — V12.12 PREMIUM AGRO
+
+Base: V12.11 Visual Moderno
+
+FOCO
+Criar uma identidade premium/agro profissional sem alterar a lógica do aplicativo.
+
+IDENTIDADE VISUAL
+- verde floresta;
+- tons de café;
+- fundo marfim;
+- detalhes bronze;
+- sombras mais discretas;
+- visual de painel executivo rural.
+
+MELHORIAS
+- topo mais sofisticado;
+- cards com aparência premium;
+- destaque de safra e relatórios em verde floresta;
+- card de estoque e cotação com acabamento especial;
+- botões e ícones com linguagem visual mais consistente;
+- navegação inferior com aparência de dock premium;
+- tabelas, formulários e modais com acabamento mais elegante;
+- botão flutuante e menu de adicionar refinados;
+- melhor equilíbrio entre verde, café e tons neutros.
+
+Toda a funcionalidade da V12.11 foi mantida.

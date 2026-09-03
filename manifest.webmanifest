@@ -1,12 +1,12 @@
 {
-  "name": "Financeiro do Sítio — Gestão Rural",
+  "name": "Financeiro do Sítio — Premium Agro",
   "short_name": "Financeiro Sítio",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f3f5f2",
-  "theme_color": "#173e2a",
-  "description": "Gestão financeira, safra, colheita, manejo e estoque para cafeicultura.",
+  "background_color": "#f7f2e8",
+  "theme_color": "#14382a",
+  "description": "Gestão premium do sítio para cafeicultura: financeiro, safra, colheita, manejo e estoque.",
   "icons": [
     {
       "src": "icon-192.png",

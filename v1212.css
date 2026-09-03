@@ -1,0 +1,345 @@
+
+/* =========================================================
+   FINANCEIRO DO SÍTIO — V12.12 PREMIUM AGRO
+   Identidade: floresta + café + marfim + bronze
+   ========================================================= */
+:root{
+  --agro-forest:#14382a;
+  --agro-forest-2:#1d4d38;
+  --agro-leaf:#2f7554;
+  --agro-coffee:#6f4f3d;
+  --agro-coffee-dark:#4c352a;
+  --agro-bronze:#c59657;
+  --agro-bronze-soft:#f1e4cf;
+  --agro-ivory:#f7f2e8;
+  --agro-paper:#fbf8f1;
+  --agro-surface:#ffffff;
+  --agro-ink:#1e2922;
+  --agro-muted:#786f64;
+  --agro-border:#e5ded0;
+  --agro-shadow:0 14px 34px rgba(53,45,32,.065);
+  --agro-shadow-strong:0 24px 54px rgba(38,43,30,.14);
+}
+
+/* Fundo premium */
+html,body{
+  background:
+    radial-gradient(circle at 8% 0%, rgba(197,150,87,.08), transparent 27%),
+    radial-gradient(circle at 96% 4%, rgba(47,117,84,.07), transparent 28%),
+    linear-gradient(180deg,#fbf9f4 0,#f5f1e8 46%,#f0eee8 100%)!important;
+}
+body{
+  color:var(--agro-ink)!important;
+}
+
+/* Marca */
+.brand-mark,.auth-logo{
+  background:
+    radial-gradient(circle at 30% 18%, rgba(255,255,255,.15), transparent 36%),
+    linear-gradient(145deg,var(--agro-forest-2),var(--agro-forest))!important;
+  box-shadow:0 14px 32px rgba(20,56,42,.22)!important;
+  border:1px solid rgba(197,150,87,.18)!important;
+}
+.brand-title-v121 h1,.brand h1{
+  color:#1e2b22!important;
+}
+.sub{
+  color:#82786d!important;
+}
+.version-v121{
+  background:linear-gradient(180deg,#f6ead7,#efe0c9)!important;
+  color:#6a4d30!important;
+  border-color:#e3cfae!important;
+  font-weight:950!important;
+}
+
+/* Topbar: marfim translúcido */
+.topbar{
+  background:rgba(250,247,240,.88)!important;
+  border-bottom:1px solid rgba(224,215,199,.90)!important;
+}
+.icon-btn,.user-badge{
+  background:rgba(255,255,255,.88)!important;
+  border-color:#e6ddcf!important;
+}
+.pro-help-mark{
+  background:#f2e6d4!important;
+  color:#6d4c2f!important;
+}
+
+/* Hero e cartões estratégicos */
+.hero,.v11-season,.report-hero{
+  background:
+    radial-gradient(circle at 100% 0%, rgba(197,150,87,.16), transparent 30%),
+    radial-gradient(circle at 0 100%, rgba(255,255,255,.06), transparent 34%),
+    linear-gradient(135deg,#102f23 0,#184634 58%,#255f46 100%)!important;
+  border:1px solid rgba(197,150,87,.18)!important;
+  box-shadow:0 22px 52px rgba(24,59,43,.19)!important;
+}
+.v11-season::before,.hero::before,.report-hero::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--agro-bronze),transparent);
+  opacity:.72;
+}
+
+/* Superfícies */
+.card,.metric,.v11-essential,.v11-context-card,.v126-month-card,.v126-favorites-card,
+.v122-bank-panel,.v122-cashflow-panel,.accounts-panel,.v124-panel,.v126-stock-card,
+.cadastro-card,.v127-manejo-card,.v127-manejo-kpi,.harvest-kpi,.worker-card,.lote-card,
+.talhao-card,.modal-card{
+  background:rgba(255,255,255,.94)!important;
+  border-color:var(--agro-border)!important;
+  box-shadow:var(--agro-shadow)!important;
+}
+
+/* Cards de destaque */
+.metric.primary,.v11-essential.primary,.harvest-kpi.featured{
+  background:
+    radial-gradient(circle at 100% 0%, rgba(197,150,87,.10), transparent 30%),
+    linear-gradient(145deg,#153c2d,#23563f)!important;
+  border-color:rgba(197,150,87,.18)!important;
+}
+.v129-stock-value-card{
+  background:
+    linear-gradient(180deg,#fff 0,#fcf8f0 100%)!important;
+  border-color:#e5d6bd!important;
+}
+.v129-stock-value-card::after{
+  content:"";
+  position:absolute;
+  left:14px;right:14px;bottom:10px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#d7ba8a,transparent);
+  opacity:.5;
+}
+.v129-stock-money{
+  color:#725336!important;
+}
+.v11-market{
+  background:linear-gradient(180deg,#fff,#fbf7ef)!important;
+  border-color:#e4d7c2!important;
+}
+.v11-market-price{
+  color:#2c5e45!important;
+}
+
+/* Títulos */
+.section-title,.module-head h2,.modal-head h3,.v11-dashboard-head h2{
+  color:#1d2a22!important;
+}
+.section-head{
+  position:relative;
+}
+.section-head::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:-5px;
+  width:38px;height:2px;
+  border-radius:99px;
+  background:linear-gradient(90deg,var(--agro-bronze),rgba(197,150,87,0));
+}
+
+/* Module heads */
+.module-head{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.98),rgba(250,247,240,.92))!important;
+  border-color:#e6dece!important;
+  box-shadow:var(--agro-shadow)!important;
+}
+.module-kicker,.eyebrow,.v124-kicker,.v126-kicker,.v127-kicker,.ai-kicker-v123{
+  color:#8b6947!important;
+}
+
+/* Botões */
+.btn.primary{
+  background:
+    linear-gradient(145deg,#2b6d4d,#163d2d)!important;
+  border-color:#1f5d42!important;
+  box-shadow:0 10px 20px rgba(31,93,66,.16)!important;
+}
+.btn.primary:hover{
+  background:linear-gradient(145deg,#347b58,#1a4633)!important;
+}
+.btn.secondary{
+  background:#fffdf9!important;
+  border-color:#e3dacc!important;
+  color:#4d514d!important;
+}
+.btn.secondary:hover{
+  background:#faf5eb!important;
+  border-color:#d8c7ad!important;
+}
+.btn.danger{
+  background:#fff4f1!important;
+}
+
+/* Ícones e chips */
+.qicon,.metric-icon,.item-icon,.process-badge,.flow-number,.v129-add-icon{
+  background:linear-gradient(180deg,#f2e8d9,#eee0ca)!important;
+  color:#755337!important;
+  border:1px solid rgba(197,150,87,.18);
+}
+.qicon.blue,.item-icon.blue,.metric.blue .metric-icon{
+  background:#eaf1ed!important;
+  color:#2e6a4d!important;
+}
+.pill,.status-chip,.v127-status,.v126-month-badge{
+  background:#f3eadc!important;
+  color:#725135!important;
+  border-color:#e5d2b5!important;
+}
+.status-done,.status-paid{
+  background:#eaf4ed!important;
+  color:#2d694a!important;
+  border-color:#d5e7da!important;
+}
+.status-pending{
+  background:#fff0ed!important;
+  color:#a24d43!important;
+  border-color:#f0d8d3!important;
+}
+
+/* Inputs */
+input,select,textarea{
+  background:#fffdfa!important;
+  border-color:#e1d9cc!important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:#c7a778!important;
+  box-shadow:0 0 0 4px rgba(197,150,87,.10)!important;
+}
+
+/* Listas */
+.item:hover{
+  background:#fdfaf4!important;
+}
+.item-meta,.section-note,.v11-dashboard-head p,.module-head p{
+  color:#7c746a!important;
+}
+
+/* Tabelas */
+.table-wrap{
+  border-color:#e5ddd0!important;
+}
+th{
+  background:#faf6ef!important;
+  color:#786f65!important;
+}
+tr:hover td{
+  background:#fdfaf5!important;
+}
+
+/* Cards internos */
+.stat,.lote-stat,.report-kpi,.v11-mini,.v126-month-grid div,.v126-stock-card .stats div{
+  background:#fbf8f2!important;
+  border-color:#eee6da!important;
+}
+
+/* Bottom dock */
+.bottom-nav{
+  background:transparent!important;
+}
+.nav-inner{
+  background:rgba(251,248,241,.91)!important;
+  border-color:#e4dbcc!important;
+  box-shadow:0 20px 44px rgba(58,48,34,.12)!important;
+}
+.navbtn{
+  color:#7d7469!important;
+}
+.navbtn.active{
+  background:
+    linear-gradient(180deg,#fffdf8,#f4eadc)!important;
+  color:#5e432d!important;
+  border:1px solid rgba(197,150,87,.16)!important;
+}
+.navbtn.active .nav-symbol{
+  background:#efe1cd!important;
+  color:#67482f!important;
+}
+
+/* FAB premium */
+.v129-add-fab{
+  background:
+    radial-gradient(circle at 28% 18%,rgba(255,255,255,.16),transparent 38%),
+    linear-gradient(145deg,#2f7554,#14382a)!important;
+  border:1px solid rgba(197,150,87,.28)!important;
+  box-shadow:0 20px 42px rgba(31,91,63,.28)!important;
+}
+.v129-add-menu{
+  background:rgba(255,253,248,.985)!important;
+  border-color:#e4d9c8!important;
+  box-shadow:0 30px 70px rgba(61,48,31,.19)!important;
+}
+.v129-add-grid>button{
+  background:#fffdfa!important;
+  border-color:#e8dfd1!important;
+}
+.v129-add-grid>button:hover{
+  background:#faf3e8!important;
+  border-color:#dcc5a1!important;
+}
+.v1211-add-sub{
+  color:#827669!important;
+}
+
+/* Auth */
+.auth-screen{
+  background:
+    radial-gradient(circle at 10% 0%,rgba(197,150,87,.10),transparent 28%),
+    radial-gradient(circle at 100% 100%,rgba(47,117,84,.08),transparent 30%),
+    linear-gradient(180deg,#fbf9f4,#f0ede6)!important;
+}
+.auth-card{
+  border-color:#e4dbce!important;
+}
+.auth-tab.active{
+  color:#5f472f!important;
+  background:#fffdfa!important;
+}
+
+/* Alerta atenção */
+.v121-attention-card{
+  background:linear-gradient(180deg,#fff,#fdf9f2)!important;
+  border-color:#e5d9c7!important;
+}
+
+/* Manejo */
+.v127-manejo-card{
+  background:linear-gradient(180deg,#fff,#fbf8f2)!important;
+}
+.v127-products-box{
+  background:#fcf9f3!important;
+}
+
+/* Mobile premium */
+@media(max-width:720px){
+  .topbar{
+    background:rgba(250,247,240,.93)!important;
+  }
+  .nav-inner{
+    background:rgba(251,248,241,.94)!important;
+  }
+  .v129-add-menu{
+    background:rgba(255,253,248,.995)!important;
+  }
+}
+
+/* Desktop: mais "painel executivo" */
+@media(min-width:1000px){
+  .v11-essential-grid{
+    gap:12px!important;
+  }
+  .v11-essential{
+    min-height:126px!important;
+  }
+  .v126-dashboard-row{
+    gap:12px!important;
+  }
+  .quick{
+    gap:10px!important;
+  }
+}

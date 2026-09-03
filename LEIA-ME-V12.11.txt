@@ -1,0 +1,24 @@
+FINANCEIRO DO SÍTIO — V12.11 VISUAL MODERNO
+
+Base: V12.10 Professional Revisada
+
+FOCO DESTA VERSÃO
+- modernização visual sem alterar a lógica principal do sistema;
+- aparência mais atual no celular e no desktop;
+- interface mais limpa, com menos cara de protótipo.
+
+PRINCIPAIS MUDANÇAS
+- topo com efeito vidro fosco;
+- identidade visual mais premium;
+- cards com cantos mais suaves e sombras mais leves;
+- navegação inferior em estilo dock;
+- hero, relatórios e safra com gradientes mais modernos;
+- formulários e botões mais elegantes;
+- modal com aparência mais refinada;
+- botão flutuante e menu de adicionar redesenhados;
+- melhor leitura de tabelas;
+- melhoria geral do acabamento em listas, chips e alertas.
+
+OBSERVAÇÃO
+- Toda a lógica da V12.10 foi preservada.
+- Esta versão prioriza aparência e usabilidade visual.

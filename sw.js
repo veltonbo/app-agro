@@ -1,8 +1,8 @@
-const CACHE="financeiro-sitio-v12-10";
+const CACHE="financeiro-sitio-v12-12";
 const ASSETS=[
   "./","./index.html","./manifest.webmanifest","./icon-192.png","./icon-512.png",
   "./assistant-v123.css","./assistant-v123.js","./v127.css","./v127.js",
-  "./v1210.css","./v1210.js","./cotacao.json"
+  "./v1210.css","./v1210.js","./v1211.css","./v1212.css","./cotacao.json"
 ];
 
 self.addEventListener("install",event=>{
