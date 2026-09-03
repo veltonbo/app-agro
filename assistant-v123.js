@@ -1,46 +1,371 @@
 (()=>{
 "use strict";
-const CFG_KEY="financeiro_sitio_ai_v123";
-let aiMediaV123=null,aiResultadoAtualV123=null,aiRecorderV123=null,aiRecorderStreamV123=null,aiChunksV123=[];
-const $ai=id=>document.getElementById(id);
-function cfgV123(){try{return {...{endpoint:"",modo:"confirmar",confiancaMin:0.97},...JSON.parse(localStorage.getItem(CFG_KEY)||"{}")}}catch{return{endpoint:"",modo:"confirmar",confiancaMin:0.97}}}
-function endpointV123(){return (cfgV123().endpoint||"").trim().replace(/\/+$/,"")}
-function setAiStatusV123(text,kind="off"){$ai("aiStatusV123")&&($ai("aiStatusV123").textContent=text,$ai("aiStatusV123").className=`ai-status-v123 ${kind}`);if($ai("aiProfileStatusV123"))$ai("aiProfileStatusV123").innerHTML=`${kind==="ok"?"ON":"OFF"}<small>assistente</small>`}
-function limparResultadoV123(){aiResultadoAtualV123=null;$ai("aiResultadoV123")?.classList.add("hidden");$ai("aiAcoesV123")&&($ai("aiAcoesV123").innerHTML="")}
-window.abrirAssistenteIA=function(){limparResultadoV123();const ep=endpointV123();$ai("aiSetupNoticeV123")?.classList.toggle("hidden",!!ep);setAiStatusV123(ep?"Pronto":"Não conectado",ep?"ok":"off");abrirModal("modalAssistenteV123");if(ep)aiTestarConexaoV123(true)};
-window.abrirConfigAssistenteIA=function(){const c=cfgV123();$ai("aiEndpointV123").value=c.endpoint||"";$ai("aiModoV123").value=c.modo||"confirmar";$ai("aiConfiancaMinV123").value=String(c.confiancaMin||0.97);$ai("aiConfigTesteV123").textContent="Ainda não testado.";$ai("aiConfigTesteV123").className="ai-config-test-v123";abrirModal("modalConfigAssistenteV123")};
-window.aiSalvarConfigV123=function(){const c={endpoint:$ai("aiEndpointV123").value.trim().replace(/\/+$/,"") ,modo:$ai("aiModoV123").value,confiancaMin:Number($ai("aiConfiancaMinV123").value||0.97)};localStorage.setItem(CFG_KEY,JSON.stringify(c));setAiStatusV123(c.endpoint?"Pronto":"Não conectado",c.endpoint?"ok":"off");fecharModal("modalConfigAssistenteV123");toast("Configuração do Assistente salva.")};
-window.aiTestarConexaoV123=async function(silencioso=false){const ep=($ai("aiEndpointV123")?.value||endpointV123()).trim().replace(/\/+$/,"");if(!ep){if(!silencioso){$ai("aiConfigTesteV123").textContent="Informe o endereço do Assistente.";$ai("aiConfigTesteV123").className="ai-config-test-v123 erro"}return false}try{const r=await fetch(ep+"/health",{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);const j=await r.json();setAiStatusV123("Conectado","ok");if(!silencioso&&$ai("aiConfigTesteV123")){$ai("aiConfigTesteV123").textContent=`Conexão funcionando • ${j.model||"OpenAI"}`;$ai("aiConfigTesteV123").className="ai-config-test-v123 ok"}return true}catch(e){setAiStatusV123("Sem conexão","warn");if(!silencioso&&$ai("aiConfigTesteV123")){$ai("aiConfigTesteV123").textContent="Não foi possível conectar: "+e.message;$ai("aiConfigTesteV123").className="ai-config-test-v123 erro"}return false}};
 
-function fileToBase64V123(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result).split(",")[1]||"");r.onerror=reject;r.readAsDataURL(file)})}
-async function prepararMediaV123(file){if(!file)return null;const isImage=file.type.startsWith("image/"),isAudio=file.type.startsWith("audio/");if(!isImage&&!isAudio)throw new Error("Use uma imagem ou áudio.");const max=isImage?10*1024*1024:25*1024*1024;if(file.size>max)throw new Error(isImage?"Imagem muito grande. Limite de 10 MB.":"Áudio muito grande. Limite de 25 MB.");return{kind:isImage?"image":"audio",name:file.name|| (isImage?"foto.jpg":"audio.webm"),mime:file.type|| (isImage?"image/jpeg":"audio/webm"),data:await fileToBase64V123(file),size:file.size}}
-function renderMediaV123(){const el=$ai("aiMediaPreviewV123");if(!el)return;if(!aiMediaV123){el.classList.add("hidden");el.innerHTML="";return}el.classList.remove("hidden");el.innerHTML=`<strong>${aiMediaV123.kind==="image"?"📷 Foto anexada":"🎙️ Áudio anexado"}</strong>${esc(aiMediaV123.name)} • ${(aiMediaV123.size/1024/1024).toFixed(1)} MB <button class="mini-btn danger" style="float:right" onclick="aiRemoverMediaV123()">×</button>`}
-window.aiSelecionarArquivoV123=async function(ev){try{const file=ev.target.files?.[0];if(!file)return;aiMediaV123=await prepararMediaV123(file);renderMediaV123();limparResultadoV123()}catch(e){toast(e.message)}finally{ev.target.value=""}};
-window.aiRemoverMediaV123=function(){aiMediaV123=null;renderMediaV123();limparResultadoV123()};
-window.aiToggleMicrofoneV123=async function(){if(aiRecorderV123&&aiRecorderV123.state==="recording"){aiRecorderV123.stop();return}try{if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder){toast("Este navegador não permite gravar áudio aqui. Use Escolher arquivo.");return}aiRecorderStreamV123=await navigator.mediaDevices.getUserMedia({audio:true});const tipos=["audio/mp4","audio/webm;codecs=opus","audio/webm"];const mime=tipos.find(t=>MediaRecorder.isTypeSupported?.(t))||"";aiChunksV123=[];aiRecorderV123=new MediaRecorder(aiRecorderStreamV123,mime?{mimeType:mime}:undefined);aiRecorderV123.ondataavailable=e=>{if(e.data?.size)aiChunksV123.push(e.data)};aiRecorderV123.onstop=async()=>{try{const type=aiRecorderV123.mimeType||"audio/webm",ext=type.includes("mp4")?"m4a":"webm",blob=new Blob(aiChunksV123,{type}),file=new File([blob],`audio-sitio.${ext}`,{type});aiMediaV123=await prepararMediaV123(file);renderMediaV123();limparResultadoV123()}catch(e){toast(e.message)}finally{aiRecorderStreamV123?.getTracks().forEach(t=>t.stop());aiRecorderStreamV123=null;$ai("aiMicLabelV123").textContent="Gravar áudio";$ai("aiMicIconV123").textContent="🎙️";document.querySelector('[onclick="aiToggleMicrofoneV123()"]')?.classList.remove("recording")}};aiRecorderV123.start();$ai("aiMicLabelV123").textContent="Parar gravação";$ai("aiMicIconV123").textContent="⏹";document.querySelector('[onclick="aiToggleMicrofoneV123()"]')?.classList.add("recording")}catch(e){toast("Não foi possível acessar o microfone.")}};
+const $h = id => document.getElementById(id);
 
-function contextoV123(){garantirEstruturaV122();const pendentes=(estado.lancamentos||[]).filter(x=>saldoLancamentoV122(x)>0.005).slice(-60).map(x=>({id:x.id,tipo:x.tipo,descricao:x.descricao,pessoa:nomePessoa(x.pessoaId),categoria:x.categoria,valor:Number(x.valor||0),saldo:saldoLancamentoV122(x),vencimento:x.vencimento||"",safra_id:x.safraId||""}));const lotes=(estado.lotes||[]).filter(l=>l.status!=="fechado").map(l=>({id:l.id,nome:l.nome,data:l.dataEnvio,safra_id:l.safraId,latoes:dadosLote(l).latoes}));return{hoje:hoje(),moeda:"BRL",safra_ativa_id:estado.safraAtivaId,safras:(estado.safras||[]).map(s=>({id:s.id,nome:s.nome,fechada:!!s.fechada})),talhoes:(estado.talhoes||[]).map(t=>({id:t.id,nome:t.nome,variedade:t.variedade||"",plantas:Number(t.plantas||0)})),colhedores:(estado.trabalhadores||[]).map(t=>({id:t.id,nome:t.nome,valor_latao:Number(t.valorLatao||0)})),pessoas:(estado.pessoas||[]).slice(0,100).map(p=>({id:p.id,nome:p.nome,tipo:p.tipo||""})),categorias:{receita:[...(estado.categorias?.receita||[])],despesa:[...(estado.categorias?.despesa||[])]},contas:(estado.contasFinanceiras||[]).filter(c=>c.ativo!==false).map(c=>({id:c.id,nome:c.nome,tipo:c.tipo,saldo:saldoContaFinanceiraV122(c.id)})),contas_em_aberto:pendentes,lotes_abertos:lotes,estoque_geral:Math.max(0,(estado.colheitas||[]).reduce((q,c)=>q+Number(c.sacas||0),0)-(estado.vendas||[]).reduce((q,v)=>q+Number(v.sacas||0),0)),estoque_por_safra:(estado.safras||[]).map(s=>({safra_id:s.id,nome:s.nome,estoque:estoqueDisponivelSafra(s.id)}))}}
-function loadingV123(on,text="Interpretando as informações."){$ai("aiLoadingV123")?.classList.toggle("hidden",!on);$ai("aiAnalisarBtnV123")&&($ai("aiAnalisarBtnV123").disabled=on);if($ai("aiLoadingTextV123"))$ai("aiLoadingTextV123").textContent=text}
-window.aiAnalisarV123=async function(){const ep=endpointV123();if(!ep){$ai("aiSetupNoticeV123")?.classList.remove("hidden");abrirConfigAssistenteIA();return}const texto=$ai("aiTextoV123").value.trim();if(!texto&&!aiMediaV123){toast("Digite uma mensagem, grave um áudio ou envie uma foto.");return}limparResultadoV123();loadingV123(true,aiMediaV123?.kind==="audio"?"Transcrevendo o áudio e entendendo o lançamento.":"Interpretando as informações.");try{const token=await window.appBridge.getIdToken?.();if(!token)throw new Error("Faça login novamente no aplicativo.");const r=await fetch(ep+"/analyze",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({text:texto,media:aiMediaV123,context:contextoV123()})});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||`Erro ${r.status}`);aiResultadoAtualV123=j;renderResultadoV123(j);const c=cfgV123();if(c.modo==="automatico"&&!j.needs_clarification&&Number(j.confidence||0)>=Number(c.confiancaMin||.97)&&(j.actions||[]).length){await aiConfirmarV123(true)}}catch(e){console.error(e);toast("Assistente: "+e.message);setAiStatusV123("Erro","warn")}finally{loadingV123(false)}};
-function labelAcaoV123(t){return({criar_lancamento:"Lançamento financeiro",registrar_latoes:"Latões de colhedor",enviar_secador:"Enviar ao secador",fechar_secador:"Fechar lote do secador",registrar_venda:"Venda de café",registrar_pagamento:"Pagamento / recebimento",registrar_analise_solo:"Análise de solo",consulta:"Consulta"})[t]||t}
-function descricaoAcaoV123(a){const d=a.data||{};if(a.type==="criar_lancamento")return `${d.tipo==="receita"?"Receita":"Despesa"} • ${moeda(Number(d.valor||0))} • ${d.descricao||d.categoria||""}`;if(a.type==="registrar_latoes")return `${d.latoes||0} latões • ${nomeTrabalhador(d.trabalhador_id)||d.trabalhador_nome||"Colhedor"} • ${d.talhao_id?nomeTalhao(d.talhao_id):"Sem talhão"}`;if(a.type==="enviar_secador")return `${d.quantidade_latoes||0} latões • ${d.talhao_id?nomeTalhao(d.talhao_id):"Todos os talhões"}`;if(a.type==="fechar_secador")return `${d.sacas||0} sacas • ${d.lote_nome||d.lote_id||"Lote"}`;if(a.type==="registrar_venda")return `${d.sacas||0} sacas × ${moeda(Number(d.preco_saca||0))} • ${d.comprador||"Comprador não informado"}`;if(a.type==="registrar_pagamento")return `${moeda(Number(d.valor_pagamento||0))} • ${d.descricao||d.lancamento_id||"Conta"}`;if(a.type==="registrar_analise_solo")return `${d.talhao_id?nomeTalhao(d.talhao_id):"Talhão"} • ${d.data||hoje()} • pH ${d.ph??"—"}`;return d.resposta||a.note||""}
-function renderResultadoV123(j){setAiStatusV123("Conectado","ok");$ai("aiResultadoV123").classList.remove("hidden");$ai("aiResumoV123").textContent=j.summary||"Interpretação concluída";$ai("aiConfiancaV123").textContent=`${Math.round(Number(j.confidence||0)*100)}% confiança`;const tr=j.transcript||"";$ai("aiTranscricaoV123").classList.toggle("hidden",!tr);if(tr)$ai("aiTranscricaoV123").innerHTML=`<strong>Transcrição:</strong> ${esc(tr)}`;const q=j.question||"";$ai("aiPerguntaV123").classList.toggle("hidden",!j.needs_clarification);$ai("aiPerguntaV123").textContent=j.needs_clarification?(q||"Preciso de mais uma informação antes de lançar."):"";const actions=j.actions||[];$ai("aiAcoesV123").innerHTML=actions.map((a,i)=>`<div class="ai-action-card-v123"><div class="top"><span class="type">${esc(labelAcaoV123(a.type))}</span><span class="num">${i+1}/${actions.length}</span></div><strong>${esc(descricaoAcaoV123(a))}</strong>${a.note?`<small>${esc(a.note)}</small>`:""}</div>`).join("")||`<div class="ai-action-card-v123"><strong>Nenhum lançamento necessário</strong><small>${esc(j.summary||"")}</small></div>`;$ai("aiConfirmarBtnV123").disabled=!!j.needs_clarification||!actions.some(a=>a.type!=="consulta");$ai("aiConfirmarBtnV123").textContent=j.needs_clarification?"Falta informação":"Confirmar e lançar"}
-window.aiEditarPedidoV123=function(){$ai("aiResultadoV123")?.classList.add("hidden");$ai("aiTextoV123")?.focus()};
-function findExactV123(arr,id,name){if(id){const by=arr.find(x=>x.id===id);if(by)return by}const n=(name||"").trim().toLocaleLowerCase("pt-BR");if(!n)return null;const ex=arr.filter(x=>(x.nome||"").trim().toLocaleLowerCase("pt-BR")===n);return ex.length===1?ex[0]:null}
-function catV123(tipo,cat){const arr=estado.categorias?.[tipo]||[];const ex=arr.find(x=>x.toLocaleLowerCase("pt-BR")===(cat||"").toLocaleLowerCase("pt-BR"));if(ex)return ex;return arr.find(x=>x.toLocaleLowerCase("pt-BR").startsWith("outras"))||arr[0]||cat||"Outros"}
-function paidV123(v){return ["pago","recebido","quitado","sim"].includes(String(v||"").toLowerCase())}
-function addBaixaV123(l,valor,data,contaId,obs){const saldo=saldoLancamentoV122(l);const v=Math.min(Number(valor||0),saldo);if(v<=0)return;estado.baixasFinanceiras.push({id:novoId(),lancamentoId:l.id,data:data||hoje(),valor:v,contaId:contaId||"",obs:obs||"Assistente IA",criadoEm:new Date().toISOString(),origem:"assistente_ia"});if(contaId)l.contaId=contaId;sincronizarStatusLancamentoV122(l);sincronizarVinculosLancamentoV122(l)}
-async function executarAcaoV123(a){const d=a.data||{};if(a.type==="consulta")return;
-  if(a.type==="criar_lancamento"){const tipo=d.tipo==="receita"?"receita":"despesa",valor=Number(d.valor||0);if(valor<=0)throw new Error("Valor do lançamento inválido.");const safraId=d.safra_id||estado.safraAtivaId;if(safraId&&!validarSafraRegistroV121(safraId,null))throw new Error("Safra inválida ou fechada.");const x={id:novoId(),tipo,data:d.data||hoje(),valor,status:"pendente",dataPagamento:"",vencimento:d.vencimento||"",pessoaId:d.pessoa_id||"",categoria:catV123(tipo,d.categoria),talhaoId:d.talhao_id||"",safraId,parcela:d.parcela||"",documento:d.documento||"",descricao:d.descricao|| (tipo==="receita"?"Receita registrada pela IA":"Despesa registrada pela IA"),obs:[d.obs,"Registrado pelo Assistente IA"].filter(Boolean).join(" • "),contaId:d.conta_id||"",criadoPorIA:true,criadoEm:new Date().toISOString()};estado.lancamentos.push(x);if(paidV123(d.status))addBaixaV123(x,valor,d.data_pagamento||d.data||hoje(),d.conta_id||"","Quitação registrada pelo Assistente IA");return}
-  if(a.type==="registrar_latoes"){const trab=findExactV123(estado.trabalhadores,d.trabalhador_id,d.trabalhador_nome);if(!trab)throw new Error("Colhedor não identificado com segurança.");const lat=Number(d.latoes||0),val=Number(d.valor_latao||trab.valorLatao||0);if(lat<=0)throw new Error("Quantidade de latões inválida.");const safraId=d.safra_id||estado.safraAtivaId;if(!validarSafraRegistroV121(safraId,null))throw new Error("Safra inválida ou fechada.");const ap={id:novoId(),data:d.data||hoje(),trabalhadorId:trab.id,talhaoId:d.talhao_id||"",safraId,latoes:lat,valorLatao:val,status:"pendente",dataPagamento:"",obs:[d.obs,"Registrado pelo Assistente IA"].filter(Boolean).join(" • "),financeiroId:novoId(),criadoPorIA:true};estado.apanhas.push(ap);sincronizarDespesaApanha(ap);const l=estado.lancamentos.find(x=>x.id===ap.financeiroId);if(l&&paidV123(d.status))addBaixaV123(l,l.valor,d.data_pagamento||d.data||hoje(),d.conta_id||"","Pagamento da colheita pelo Assistente IA");return}
-  if(a.type==="enviar_secador"){const qtd=Number(d.quantidade_latoes||d.latoes||0),talhao=d.talhao_id||"todos",safraId=d.safra_id||estado.safraAtivaId;if(qtd<=0)throw new Error("Quantidade para o secador inválida.");if(!validarSafraRegistroV121(safraId,null))throw new Error("Safra inválida ou fechada.");const dispon=apanhasDisponiveisAuto(talhao,"",safraId).reduce((s,x)=>s+disponivelApanha(x,""),0);if(qtd>dispon+.0001)throw new Error(`Há somente ${num(dispon)} latões disponíveis.`);const auto=montarAlocacoesAutomaticas(qtd,talhao,"",safraId);if(auto.faltou>.0001)throw new Error("Não foi possível separar essa quantidade de latões.");estado.lotes.push({id:novoId(),nome:d.lote_nome||`Secagem ${estado.lotes.length+1}`,dataEnvio:d.data||hoje(),talhaoFiltro:talhao,safraId,alocacoes:auto.alocacoes,status:"secando",obs:[d.obs,"Criado pelo Assistente IA"].filter(Boolean).join(" • "),sacas:0,dataFechamento:"",colheitaId:"",criadoPorIA:true});return}
-  if(a.type==="fechar_secador"){let l=(estado.lotes||[]).find(x=>x.id===d.lote_id);if(!l&&d.lote_nome){const n=d.lote_nome.trim().toLowerCase();const ms=estado.lotes.filter(x=>x.status!=="fechado"&&(x.nome||"").trim().toLowerCase()===n);if(ms.length===1)l=ms[0]}if(!l)throw new Error("Lote do secador não identificado.");const sacas=Number(d.sacas||0);if(sacas<=0)throw new Error("Quantidade de sacas inválida.");$ai("fecharLoteId").value=l.id;$ai("fecharLoteSacas").value=String(sacas);$ai("fecharLoteData").value=d.data||hoje();$ai("fecharLoteObs").value=[d.obs,"Fechado pelo Assistente IA"].filter(Boolean).join(" • ");confirmarFechamentoLote();return}
-  if(a.type==="registrar_venda"){const sacas=Number(d.sacas||0),preco=Number(d.preco_saca||0),safraId=d.safra_id||estado.safraAtivaId;if(sacas<=0||preco<=0)throw new Error("Sacas ou preço da venda inválidos.");if(!validarSafraRegistroV121(safraId,null))throw new Error("Safra inválida ou fechada.");const disp=estoqueDisponivelSafra(safraId);if(sacas>disp+.0001)throw new Error(`Estoque insuficiente. Disponível: ${num(disp)} sacas.`);const id=novoId(),fin=novoId(),total=sacas*preco;const v={id,data:d.data||hoje(),dataRecebimento:"",talhaoId:d.talhao_id||"",safraId,sacas,precoSaca:preco,total,comprador:d.comprador||d.pessoa_nome||"",status:"pendente",obs:[d.obs,"Registrado pelo Assistente IA"].filter(Boolean).join(" • "),financeiroId:fin,criadoPorIA:true};estado.vendas.push(v);const l={id:fin,tipo:"receita",data:v.data,valor:total,status:"pendente",dataPagamento:"",vencimento:d.vencimento||"",categoria:"Venda de café",pessoaId:d.pessoa_id||"",talhaoId:v.talhaoId,safraId,descricao:`Venda de café${v.comprador?" - "+v.comprador:""}`,obs:`${num(sacas)} sacas × ${moeda(preco)} • Assistente IA`,vendaId:id,contaId:d.conta_id||"",criadoPorIA:true};estado.lancamentos.push(l);if(paidV123(d.status))addBaixaV123(l,total,d.data_recebimento||d.data_pagamento||v.data,d.conta_id||"","Recebimento da venda pelo Assistente IA");return}
-  if(a.type==="registrar_pagamento"){const l=estado.lancamentos.find(x=>x.id===d.lancamento_id);if(!l)throw new Error("Conta a pagar/receber não identificada.");const val=Number(d.valor_pagamento||d.valor||0),saldo=saldoLancamentoV122(l);if(val<=0||val>saldo+.005)throw new Error(`Valor de pagamento inválido. Saldo: ${moeda(saldo)}.`);addBaixaV123(l,val,d.data_pagamento||d.data||hoje(),d.conta_id||l.contaId||"",d.obs||"Registrado pelo Assistente IA");return}
-  if(a.type==="registrar_analise_solo"){const t=findExactV123(estado.talhoes,d.talhao_id,d.talhao_nome);if(!t)throw new Error("Talhão da análise de solo não identificado.");estado.analisesSolo.push({id:novoId(),data:d.data||hoje(),talhaoId:t.id,profundidade:d.profundidade||"0-20 cm",amostra:d.amostra||"",laboratorio:d.laboratorio||"",metodo:d.metodo||"",ph:d.ph??"",mo:d.mo??"",al:d.al??"",hAl:d.h_al??"",p:d.p??"",k:d.k??"",ca:d.ca??"",mg:d.mg??"",s:d.s??"",ctc:d.ctc??"",v:d.v_percent??"",m:d.m_percent??"",b:d.b??"",zn:d.zn??"",cu:d.cu??"",mn:d.mn??"",fe:d.fe??"",argila:d.argila??"",obs:d.recomendacao||d.obs||"Registrado pelo Assistente IA",criadoPorIA:true});return}
-  throw new Error("Ação não reconhecida: "+a.type)
+const TOPICOS = [
+  {
+    id:"despesa",
+    palavras:["despesa","gasto","comprei","compra","paguei","lancar despesa","conta a pagar"],
+    titulo:"Lançar uma despesa",
+    passos:[
+      "Abra a aba Financeiro.",
+      "Toque em + Despesa / conta.",
+      "Informe data, valor, categoria, pessoa/empresa e, se quiser, talhão e safra.",
+      "Se já pagou, deixe o status como Pago. Se vai pagar depois, marque Pendente e informe o vencimento.",
+      "Toque em Salvar."
+    ],
+    dica:"Se a compra tiver várias parcelas, marque “Parcelar este lançamento” antes de salvar.",
+    acoes:[["Nova despesa","nova_despesa"],["Ir ao Financeiro","financeiro"]]
+  },
+  {
+    id:"receita",
+    palavras:["receita","recebi","entrada","dinheiro entrou","lancar receita"],
+    titulo:"Lançar uma receita",
+    passos:[
+      "Abra Financeiro.",
+      "Toque em + Receita.",
+      "Informe o valor, a origem da receita e a data.",
+      "Use Recebido se o dinheiro já entrou ou Pendente se ainda vai receber.",
+      "Salve o lançamento."
+    ],
+    dica:"Venda de café já pode gerar a receita financeira automaticamente; evite lançar a mesma venda duas vezes.",
+    acoes:[["Nova receita","nova_receita"],["Ir ao Financeiro","financeiro"]]
+  },
+  {
+    id:"pagamento_parcial",
+    palavras:["parcial","pagamento parcial","pagar parte","receber parte","baixa parcial","paguei uma parte"],
+    titulo:"Registrar pagamento ou recebimento parcial",
+    passos:[
+      "Abra Financeiro e localize a conta pendente.",
+      "Toque no botão R$ da conta.",
+      "Informe quanto foi pago ou recebido agora.",
+      "Escolha a conta/caixa usada e confirme a data.",
+      "O app mantém o saldo restante em aberto automaticamente."
+    ],
+    dica:"A conta só fica como totalmente paga quando o saldo chega a zero.",
+    acoes:[["Ver contas a pagar","contas"],["Ir ao Financeiro","financeiro"]]
+  },
+  {
+    id:"parcelamento",
+    palavras:["parcelar","parcelamento","parcelas","dividir conta","3 vezes","6 vezes"],
+    titulo:"Parcelar uma conta",
+    passos:[
+      "Abra um novo lançamento em Financeiro.",
+      "Informe o valor total da compra.",
+      "Marque “Parcelar este lançamento”.",
+      "Escolha a quantidade de parcelas.",
+      "Informe o primeiro vencimento e salve."
+    ],
+    dica:"O aplicativo divide o valor e cria os vencimentos mensais automaticamente.",
+    acoes:[["Nova despesa","nova_despesa"]]
+  },
+  {
+    id:"recorrencia",
+    palavras:["recorrente","recorrencia","todo mes","mensal","energia todo mes","repetir conta"],
+    titulo:"Cadastrar uma conta recorrente",
+    passos:[
+      "Abra Perfil.",
+      "Entre em Contas recorrentes.",
+      "Cadastre descrição, valor, frequência e próxima data.",
+      "Escolha se é receita ou despesa e a categoria.",
+      "Salve. O app passa a gerar os próximos lançamentos."
+    ],
+    dica:"Você pode pausar uma recorrência sem apagar os lançamentos que já foram gerados.",
+    acoes:[["Abrir recorrências","recorrencias"],["Ir ao Perfil","perfil"]]
+  },
+  {
+    id:"contas",
+    palavras:["banco","conta bancaria","pix","dinheiro","caixa","sicoob","saldo da conta"],
+    titulo:"Usar contas, bancos e caixas",
+    passos:[
+      "Abra Perfil.",
+      "Entre em Contas / caixas.",
+      "Cadastre cada local onde o dinheiro fica, como Dinheiro, Sicoob ou Banco do Brasil.",
+      "Nos pagamentos e recebimentos, escolha a conta usada.",
+      "O saldo realizado de cada conta é calculado pelas movimentações."
+    ],
+    dica:"Use contas separadas para conseguir saber onde está o dinheiro, e não apenas o saldo geral.",
+    acoes:[["Abrir contas/caixas","contas_financeiras"],["Ir ao Perfil","perfil"]]
+  },
+  {
+    id:"latoes",
+    palavras:["latao","latoes","colhedor","apanha","colheita por pessoa","pagar colhedor"],
+    titulo:"Registrar latões de um colhedor",
+    passos:[
+      "Abra a aba Colheita.",
+      "Entre na área de Colhedores / Latões.",
+      "Toque para registrar uma nova apanha.",
+      "Escolha o colhedor, talhão, quantidade de latões e valor por latão.",
+      "Salve. O custo da colheita fica vinculado ao Financeiro."
+    ],
+    dica:"Se o colhedor ainda não recebeu, deixe como A pagar. Depois você pode fazer a baixa.",
+    acoes:[["Ir aos colhedores","colhedores"],["Ir à Colheita","producao"]]
+  },
+  {
+    id:"secador",
+    palavras:["secador","secagem","lote","mandar para secador","fechar lote","sacas do secador"],
+    titulo:"Usar o controle do secador",
+    passos:[
+      "Primeiro registre os latões dos colhedores.",
+      "Na aba Colheita, abra a etapa Secador.",
+      "Crie um lote e informe quantos latões serão enviados.",
+      "Quando o café terminar de secar e limpar, abra o lote e informe quantas sacas resultaram.",
+      "O app converte o lote em produção e atualiza o estoque."
+    ],
+    dica:"Se o lote misturar mais de um talhão, o app distribui as sacas proporcionalmente pelos latões de cada talhão.",
+    acoes:[["Ir ao Secador","secador"],["Ir à Colheita","producao"]]
+  },
+  {
+    id:"venda",
+    palavras:["venda","vender cafe","vendi","sacas vendidas","comprador","preco da saca"],
+    titulo:"Registrar uma venda de café",
+    passos:[
+      "Abra a área de Colheita / Produção.",
+      "Toque em Registrar venda.",
+      "Informe a quantidade de sacas, preço por saca, comprador e safra.",
+      "Marque se já recebeu ou se ficou a receber.",
+      "Salve. O estoque é reduzido automaticamente."
+    ],
+    dica:"Mantenha “Gerar receita” ativado para a venda aparecer também no Financeiro.",
+    acoes:[["Registrar venda","venda"],["Ir à Colheita","producao"]]
+  },
+  {
+    id:"estoque",
+    palavras:["estoque","quantas sacas","sacas disponiveis","saldo de cafe"],
+    titulo:"Consultar o estoque de café",
+    passos:[
+      "Veja o cartão Estoque de café na tela inicial.",
+      "A produção fechada no secador aumenta o estoque.",
+      "As vendas reduzem o estoque.",
+      "O app impede venda maior do que a quantidade disponível na safra."
+    ],
+    dica:"Trocar a safra ativa não esconde o estoque geral; os filtros de relatório permitem analisar cada safra.",
+    acoes:[["Ir ao Início","resumo"],["Ir à Colheita","producao"]]
+  },
+  {
+    id:"relatorio",
+    palavras:["relatorio","relatorios","competencia","caixa realizado","csv","resultado"],
+    titulo:"Usar os relatórios",
+    passos:[
+      "Abra a aba Relatórios.",
+      "Escolha período, talhão e safra.",
+      "Use Competência para analisar pela data do lançamento.",
+      "Use Caixa realizado para analisar quando o dinheiro realmente entrou ou saiu.",
+      "Se precisar, exporte os dados em CSV."
+    ],
+    dica:"Para conferir o caixa real, prefira o regime Caixa realizado.",
+    acoes:[["Abrir Relatórios","relatorios"]]
+  },
+  {
+    id:"safra",
+    palavras:["safra","mudar safra","fechar safra","abrir safra","safra ativa"],
+    titulo:"Gerenciar safras",
+    passos:[
+      "Abra Perfil e entre em Safras.",
+      "Cadastre a safra com nome e ano.",
+      "Defina a safra que está trabalhando como ativa.",
+      "Quando encerrar o período, feche a safra para impedir novos registros acidentais."
+    ],
+    dica:"Uma safra fechada continua disponível no histórico e nos relatórios.",
+    acoes:[["Gerenciar safras","safras"],["Ir ao Perfil","perfil"]]
+  },
+  {
+    id:"talhao",
+    palavras:["talhao","talhoes","area","plantas","variedade"],
+    titulo:"Cadastrar ou editar um talhão",
+    passos:[
+      "Abra Perfil.",
+      "Entre em Talhões.",
+      "Cadastre nome, variedade, área, quantidade de plantas e observações.",
+      "Depois use esse talhão nos lançamentos, colheitas e análises de solo."
+    ],
+    dica:"O vínculo com talhão é o que permite calcular custos e produção por área.",
+    acoes:[["Novo talhão","novo_talhao"],["Ir ao Perfil","perfil"]]
+  },
+  {
+    id:"solo",
+    palavras:["solo","analise de solo","ph","v%","calcio","magnesio","laboratorio"],
+    titulo:"Cadastrar análise de solo",
+    passos:[
+      "Abra Perfil.",
+      "Entre em Análises de solo.",
+      "Escolha o talhão, data, profundidade e laboratório.",
+      "Digite os valores do laudo nos campos correspondentes.",
+      "Salve para manter o histórico do talhão."
+    ],
+    dica:"O app registra e compara dados; a recomendação de corretivos e adubação deve seguir o método do laboratório e orientação técnica.",
+    acoes:[["Abrir análises de solo","solo"],["Ir ao Perfil","perfil"]]
+  },
+  {
+    id:"backup",
+    palavras:["backup","copia","salvar dados","restaurar","importar backup"],
+    titulo:"Fazer backup dos dados",
+    passos:[
+      "Abra Perfil.",
+      "Na área Dados e backup, toque em Baixar backup.",
+      "Guarde o arquivo JSON em um local seguro.",
+      "Para restaurar, use Importar e selecione o arquivo salvo."
+    ],
+    dica:"O Firebase sincroniza os dados, mas o backup manual é uma segurança adicional.",
+    acoes:[["Ir ao Perfil","perfil"]]
+  },
+  {
+    id:"sincronizacao",
+    palavras:["sincronizar","sincronizacao","outro celular","dados outro telefone","firebase"],
+    titulo:"Sincronização entre aparelhos",
+    passos:[
+      "Entre com a mesma conta do aplicativo nos aparelhos.",
+      "Espere o indicador de sincronização concluir antes de fechar o app.",
+      "Os dados ficam vinculados ao usuário logado no Firebase."
+    ],
+    dica:"Evite fazer alterações importantes ao mesmo tempo em dois aparelhos diferentes.",
+    acoes:[["Ir ao Início","resumo"]]
+  }
+];
+
+function normalizar(s=""){
+  return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^\w\s]/g," ");
 }
-window.aiConfirmarV123=async function(automatico=false){const j=aiResultadoAtualV123;if(!j||j.needs_clarification)return;const actions=(j.actions||[]).filter(a=>a.type!=="consulta");if(!actions.length)return;try{for(const a of actions)await executarAcaoV123(a);garantirEstruturaV122();persistir();renderTudo();$ai("aiConfirmarBtnV123").disabled=true;$ai("aiConfirmarBtnV123").textContent="✓ Lançado";toast(automatico?"Assistente IA lançou automaticamente.":"Lançamento confirmado e salvo.");setTimeout(()=>{if(automatico)fecharModal("modalAssistenteV123")},650)}catch(e){console.error(e);toast("Não lancei: "+e.message)}};
 
-document.addEventListener("DOMContentLoaded",()=>{const ep=endpointV123();setAiStatusV123(ep?"Pronto":"Não conectado",ep?"ok":"off");if(ep)setTimeout(()=>aiTestarConexaoV123(true),800)});
+function abaAtual(){
+  return document.querySelector(".navbtn.active")?.dataset?.nav || "resumo";
+}
+
+function nomeAba(id){
+  return ({resumo:"Início",financeiro:"Financeiro",producao:"Colheita",relatorios:"Relatórios",perfil:"Perfil"})[id] || "Início";
+}
+
+function pontuar(topico, pergunta){
+  const p=normalizar(pergunta);
+  let pontos=0;
+  for(const palavra of topico.palavras){
+    const w=normalizar(palavra);
+    if(p.includes(w)) pontos += Math.max(1,w.split(/\s+/).length*2);
+  }
+  return pontos;
+}
+
+function buscarTopico(pergunta){
+  const ranked=TOPICOS.map(t=>({t,p:pontuar(t,pergunta)})).sort((a,b)=>b.p-a.p);
+  return ranked[0]?.p>0 ? ranked[0].t : null;
+}
+
+function renderTopico(t){
+  if(!t) return;
+  $h("aiResumoV123").textContent=t.titulo;
+  $h("helpRespostaV123").innerHTML=
+    `<ol>${t.passos.map(x=>`<li>${x}</li>`).join("")}</ol>`+
+    (t.dica?`<div class="tip"><strong>Dica:</strong> ${t.dica}</div>`:"");
+  $h("aiAcoesV123").innerHTML=(t.acoes||[]).map(([label,acao],i)=>
+    `<button type="button" class="${i?"secondary":""}" onclick="executarAjudaAcaoV123('${acao}')">${label}</button>`
+  ).join("");
+  $h("aiResultadoV123").classList.remove("hidden");
+}
+
+function respostaGenerica(){
+  $h("aiResumoV123").textContent="Posso ajudar com estas funções";
+  $h("helpRespostaV123").innerHTML=
+    `<p>Não identifiquei exatamente sua dúvida. Tente escrever algo como:</p>
+     <ol>
+       <li>Como lançar uma conta a pagar?</li>
+       <li>Como pagar uma conta parcialmente?</li>
+       <li>Como registrar latões?</li>
+       <li>Como mandar café para o secador?</li>
+       <li>Como registrar uma venda?</li>
+       <li>Como cadastrar análise de solo?</li>
+       <li>Como ver o fluxo de caixa?</li>
+     </ol>`;
+  $h("aiAcoesV123").innerHTML="";
+  $h("aiResultadoV123").classList.remove("hidden");
+}
+
+window.abrirAssistenteIA=function(){
+  const atual=abaAtual();
+  if($h("helpContextoV123")) $h("helpContextoV123").textContent=nomeAba(atual);
+  if($h("aiTextoV123")) $h("aiTextoV123").value="";
+  if($h("aiResultadoV123")) $h("aiResultadoV123").classList.add("hidden");
+  abrirModal("modalAssistenteV123");
+};
+
+window.aiAnalisarV123=function(){
+  const q=$h("aiTextoV123")?.value.trim()||"";
+  if(!q){toast("Digite sua dúvida.");return}
+  const t=buscarTopico(q);
+  if(t) renderTopico(t); else respostaGenerica();
+};
+
+window.perguntarAjudaV123=function(q){
+  $h("aiTextoV123").value=q;
+  const t=buscarTopico(q);
+  if(t) renderTopico(t); else respostaGenerica();
+};
+
+window.ajudaTelaAtualV123=function(){
+  const atual=abaAtual();
+  const mapa={
+    resumo:"estoque",
+    financeiro:"pagamento_parcial",
+    producao:"secador",
+    relatorios:"relatorio",
+    perfil:"backup"
+  };
+  renderTopico(TOPICOS.find(t=>t.id===mapa[atual])||TOPICOS[0]);
+};
+
+function fecharAjuda(){
+  fecharModal("modalAssistenteV123");
+}
+
+function irAba(id){
+  fecharAjuda();
+  const btn=document.querySelector(`[data-nav="${id}"]`);
+  trocarAba(id,btn);
+}
+
+window.executarAjudaAcaoV123=function(acao){
+  switch(acao){
+    case "nova_despesa":
+      irAba("financeiro"); setTimeout(()=>abrirLancamento("despesa"),80); break;
+    case "nova_receita":
+      irAba("financeiro"); setTimeout(()=>abrirLancamento("receita"),80); break;
+    case "financeiro":
+      irAba("financeiro"); break;
+    case "contas":
+      irAba("financeiro"); setTimeout(()=>document.querySelector(".accounts-panel")?.scrollIntoView({behavior:"smooth",block:"start"}),100); break;
+    case "contas_financeiras":
+      fecharAjuda(); setTimeout(()=>abrirContasFinanceirasV122(),60); break;
+    case "recorrencias":
+      fecharAjuda(); setTimeout(()=>abrirRecorrenciasV122(),60); break;
+    case "producao":
+      irAba("producao"); break;
+    case "colhedores":
+      irAba("producao"); setTimeout(()=>document.getElementById("sec-colhedores")?.scrollIntoView({behavior:"smooth",block:"start"}),100); break;
+    case "secador":
+      irAba("producao"); setTimeout(()=>document.getElementById("sec-secador")?.scrollIntoView({behavior:"smooth",block:"start"}),100); break;
+    case "venda":
+      irAba("producao"); setTimeout(()=>abrirVenda(),80); break;
+    case "relatorios":
+      irAba("relatorios"); break;
+    case "perfil":
+      irAba("perfil"); break;
+    case "solo":
+      fecharAjuda(); setTimeout(()=>abrirGerenciadorSolo(),60); break;
+    case "safras":
+      fecharAjuda(); setTimeout(()=>abrirSafras(),60); break;
+    case "novo_talhao":
+      fecharAjuda(); setTimeout(()=>abrirTalhao(),60); break;
+    case "resumo":
+      irAba("resumo"); break;
+  }
+};
+
+document.addEventListener("DOMContentLoaded",()=>{
+  const st=$h("aiProfileStatusV123");
+  if(st) st.innerHTML=`ON<small>ajuda</small>`;
+  const txt=$h("aiTextoV123");
+  txt?.addEventListener("keydown",e=>{
+    if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();aiAnalisarV123()}
+  });
+});
 })();

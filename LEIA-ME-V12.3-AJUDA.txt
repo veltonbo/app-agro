@@ -1,0 +1,32 @@
+FINANCEIRO DO SÍTIO — V12.3 ASSISTENTE DE AJUDA
+
+Nesta versão o Assistente NÃO usa OpenAI, não usa Firebase Functions e não faz lançamentos.
+
+FUNÇÃO DO ASSISTENTE
+- Explicar como usar cada parte do aplicativo.
+- Responder dúvidas comuns por texto.
+- Mostrar passo a passo.
+- Levar o usuário diretamente para a tela ou formulário relacionado.
+
+ASSUNTOS INCLUÍDOS
+- Receita e despesa
+- Contas a pagar
+- Pagamento/recebimento parcial
+- Parcelamento
+- Contas recorrentes
+- Contas bancárias e caixas
+- Colhedores e latões
+- Secador
+- Venda de café
+- Estoque
+- Relatórios
+- Safras
+- Talhões
+- Análise de solo
+- Backup
+- Sincronização
+
+PRIVACIDADE
+O Assistente de Ajuda funciona dentro do próprio aplicativo. As perguntas feitas nele não são enviadas para a OpenAI nem para outro serviço externo.
+
+A integração de IA para lançamentos automáticos pode ser retomada futuramente.
