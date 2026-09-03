@@ -1,0 +1,11 @@
+name = "financeiro-sitio-ai"
+main = "cloudflare-worker.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://veltonbo.github.io"
+FIREBASE_API_KEY = "AIzaSyD773S1h91tovlKTPbaeAZbN2o1yxROcOc"
+OPENAI_MODEL = "gpt-5.6-sol"
+OPENAI_TRANSCRIBE_MODEL = "gpt-transcribe"
+
+# Configure OPENAI_API_KEY como Secret no painel da Cloudflare.
